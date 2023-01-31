@@ -3,30 +3,28 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 const { width, height } = Dimensions.get('window');
 const COLORS = {
     
-    black: '#000',
-    white: 'white',
-   
-    Babyblue: '#13ebeb',
-    DarkBabyblue: '#017070',
-    LightBabyblue: '#85c3c3',
+    black: "#000",
+    white: "#FFFFFF",
 
-    Green: '#17a657',
-    DarkGreen: '#055c2c',
-    LightGreen: '#3fe98b',
+    green_light :"#EDF7EA",
+    green_mid : "#7DBB69",
+    green : "#619902",
 
-    Orange: '#b76f11',
-    DarkOrange: '#704002',
-    LightOrange: '#e7a755',
+    gray_light: "#00000029",
+    gray_mid: "#635B5B",
+    gray_dark: "#707070",
+    gray_ofwhite: "#949292",
+    text_color: "#AAAAAA",
 
-    Red: '#f00',
-    LightRed: '#ff4f7e',
-    DarkRed: '#d9365e',
+    black_light: "#000000DE",
+    eye_color: "#00000099",
 
-    Purple: '#8720a1',
-    DarkPurple: '#4b045c',
-    LightPurple: '#d379e9',
+    yellow:"#FEEDB5BA",
 
-   smooth_color:'#e6ffe1'
+    red_logout : "#FC0909",
+
+
+
 }
 
 // const SIZES = {
