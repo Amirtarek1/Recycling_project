@@ -10,11 +10,9 @@ const App = () => {
     <>
 
 
-      {/* 
-      code here ......... 
-     */}
-      <View style={{ backgroundColor: COLORS.Red, height: 60, width: 60 }}>
-        <Text>sdadadsasdsdas</Text>
+      <View>
+        <Text style = {{ fontFamily : "NotoSansArabic-VariableFont_wdth,wght"  
+        , fontSize :30}}>سشبيشؤش</Text>
       </View>
 
 
