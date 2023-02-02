@@ -12,9 +12,9 @@ const App = () => {
     <>
 
 {/* <Large_button button_name = "انشاء الحساب"/> */}
-{/* <INputbutton/> */}
+<INputbutton/>
 {/* <Back_arrow/> */}
-<Signup_page1/>
+{/* <Signup_page1/> */}
     </>
   )
 

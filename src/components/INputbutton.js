@@ -1,7 +1,8 @@
 
-import  { useState } from 'react'
+import { useState } from 'react'
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import { StyleSheet ,Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { TextInput } from 'react-native-paper';
 
 
 import { COLORS, FONT, Sizes } from '../constants/index';
@@ -15,31 +16,32 @@ const INputbutton = (props) => {
 
     return (
         <>
-       
 
             <TextInput
                 style={{
-
-                    borderColor: fouse ? COLORS.green_mid : COLORS.text_input_border,
+                    fontSize: 18,
+                    fontFamily: FONT.defult_font,
+                    fontWeight: "bold",
+                    color : "#0dd",
                     width: Sizes.width * .9,
-                    padding : RFPercentage(2.5),
-                    borderWidth: 2,
                     height: RFPercentage(9),
                     alignSelf: "center",
-                    margin: 30,
-                    borderRadius: RFPercentage(1.5)
+                    margin: 30
                 }}
-                onFocus={() => setfoucse(true)} 
-                onBlur={() => setfoucse(false)}
-                returnKeyLabelel = "dsasd"
+
+                label="الاسم"
+                mode='outlined'
+                
+                outlineColor="#0000001F"
+                activeOutlineColor="#7DBB69"
+                selectionColor='#7DBB69'
+                error={props.error}
                 value={props.value}
                 placeholder={props.placeholder}
                 keyboardType={props.keyboardType}
                 secureTextEntry={props.secureTextEntry}
-                placeholderTextColor={props.placeholderTextColor}
                 onChangeText={props.onChangeText}
-                //{props.label}
-                variant="outlined"
+
             />
 
 
