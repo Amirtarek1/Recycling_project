@@ -15,6 +15,7 @@ const COLORS = {
     gray_dark: "#707070",
     gray_ofwhite: "#949292",
     text_color: "#AAAAAA",
+    text_input_border: '#0000001F',
 
     black_light: "#000000DE",
     eye_color: "#00000099",
@@ -27,20 +28,18 @@ const COLORS = {
 
 }
 
-// const SIZES = {
-//     // global sizes
-//     SmallFont: RFPercentage(2),
-//     RegFont: RFPercentage(2.3),
-//     BoldFont: RFPercentage(2.7),
+const FONT = {
+    defult_font : "NotoSansArabic-VariableFont_wdth,wght",
    
-//     ButtonRadius:RFPercentage(1.25),
-//     // app dimensions
-//     width,
-//     height,
-// };
+};
 
+const Sizes = {
+    width,
+    height,
+}
 
 export {
     COLORS,
-    // SIZES,
+    FONT,
+    Sizes
 }

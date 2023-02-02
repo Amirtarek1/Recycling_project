@@ -1,22 +1,10 @@
-
-import {
-COLORS,
-// SIZES,
-// FONTS
-}from './themes'
-
-
-
-import Icons from './icons'
-import Images from './images'
-// import {Splash} from './lotties'
+import { COLORS, FONT  ,Sizes} from "../constants/themes"
+import icons  from '../constants/icons';
 
 
 export {
     COLORS,
-    // SIZES,
-    // FONTS,
-    Icons,
-    Images,
-    // Splash
+    FONT,
+    icons,
+    Sizes
 }
