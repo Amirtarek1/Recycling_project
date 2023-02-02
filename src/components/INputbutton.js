@@ -11,30 +11,35 @@ import { COLORS, FONT, Sizes } from '../constants/index';
 
 const INputbutton = (props) => {
 
-    const [fouse, setfoucse] = useState()
+
 
 
     return (
         <>
-
             <TextInput
                 style={{
-                    fontSize: 18,
+                    margin: RFPercentage(2),
+                    fontSize: 18.5,
                     fontFamily: FONT.defult_font,
-                    fontWeight: "bold",
-                    color : "#0dd",
-                    width: Sizes.width * .9,
-                    height: RFPercentage(9),
+                    color: "#635B5B",
+                    width: Sizes.width * .85,
+                    height: RFPercentage(8),
                     alignSelf: "center",
-                    margin: 30
+                    backgroundColor: COLORS.white,
+                   
                 }}
 
-                label="الاسم"
+                label={<Text style={{
+                    fontSize: 21 , fontFamily: FONT.defult_font
+                }}
+                >{props.label}</Text>}
+
+                textColor="#635B5B"
                 mode='outlined'
-                
                 outlineColor="#0000001F"
                 activeOutlineColor="#7DBB69"
                 selectionColor='#7DBB69'
+                cursorColor={COLORS.gray_dark}
                 error={props.error}
                 value={props.value}
                 placeholder={props.placeholder}
@@ -47,15 +52,14 @@ const INputbutton = (props) => {
 
 
 
+
+
+
         </>
     )
 
 
 }
 
-const styles = StyleSheet.create(
-    {
 
-    }
-)
 export default INputbutton;
