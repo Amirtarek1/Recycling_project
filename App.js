@@ -1,7 +1,7 @@
 
 import { Text, View } from 'react-native';
 import { COLORS } from './src/constants/index';
-
+import Login_page  from "./src/screens/Auth/Login_page"
 
 const App = () => {
 
@@ -9,14 +9,10 @@ const App = () => {
   return (
     <>
 
-
-      <View>
-        <Text style = {{ fontFamily : "NotoSansArabic-VariableFont_wdth,wght"  
-        , fontSize :30}}>سشبيشؤش</Text>
-      </View>
-
-
-
+{/* <Large_button button_name = "انشاء الحساب"/> */}
+{/* <INputbutton/> */}
+{/* <Back_arrow/> */}
+<Login_page/>
     </>
   )
 
