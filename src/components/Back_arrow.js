@@ -14,9 +14,9 @@ const Back_arrow = () => {
         <>
 
 
-            <View style={styles.View_of_touchableopacity}>
-                <TouchableOpacity style={styles.button_touchableopacity} >
-                    <Image source={icons.Back_left_arrow} style={styles.back_Icon} />
+            <View style={styles.View_of_touchableopacity }>
+                <TouchableOpacity style={[ styles.shadowProp ,styles.button_touchableopacity]} >
+                    <Image source={icons.Back_right_arrow} style={styles.back_Icon} />
                 </TouchableOpacity>
             </View>
 
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     back_Icon:
     {
         tintColor: COLORS.gray_mid,
-        height: RFPercentage(3),
+        height: RFPercentage(2.5),
         width: Sizes.width * .06,
 
 
@@ -38,16 +38,21 @@ const styles = StyleSheet.create({
         alignItems: "center",
          justifyContent: "center",
         backgroundColor: COLORS.white,
-         height: RFPercentage(4.5),
+        height: RFPercentage(4.5),
         marginTop: RFPercentage(1),
         margin: RFPercentage(1),
         width: Sizes.width * .08,
         borderRadius: RFPercentage(4)
     },
     View_of_touchableopacity: {
-        alignItems: "flex-end"
-    }
-
+        alignItems: "flex-start",
+    }, shadowProp: {  
+        shadowOffset: {width: -4, height: -4 },  
+        shadowColor: "#000",  
+        elevation: 30,
+        shadowOpacity: .5,  
+        // shadowRadius: 3,  
+      },  
 
 })
 

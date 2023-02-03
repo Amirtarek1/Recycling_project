@@ -12,10 +12,10 @@ const App = () => {
   return (
     <>
 
-<Large_button button_name = "انشاء الحساب"/>
+{/* <Large_button button_name = "انشاء الحساب"/> */}
 {/* <INputbutton/> */}
 {/* <Back_arrow/> */}
-{/* <Signup_page1/> */}
+<Signup_page1/>
 {/* <INPUTtext_password/> */}
     </>
   )
