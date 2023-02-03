@@ -2,11 +2,8 @@
 import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, Sizes} from '../../constants';
-import Large_button from '../../components/Large_button';
 import Back_arrow from '../../components/Back_arrow';
-import { TextInput } from '@react-native-material/core';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-
+import INputbutton from '../../components/INputbutton';
 const login_page = () => {
 
 
@@ -47,12 +44,23 @@ backgroundColor:COLORS.green_mid
 
 </View>
 {/* white container */}
-<View style={{flex :0.8,width:Sizes.width ,
+<View style={{flex :0.8 ,
 backgroundColor:COLORS.white ,
+padding : RFPercentage(50),
 // marginTop:RFPercentage(-2),
  borderTopEndRadius: RFPercentage(8),
  borderTopStartRadius: RFPercentage(8)
-}}></View>
+}}>
+    <View>
+  <INputbutton
+                                label="رقم الهاتف"
+
+                            />
+                            <INputbutton
+                                label="كلمة المرور"
+                            />
+</View>
+</View>
 </View>
 
         </>
