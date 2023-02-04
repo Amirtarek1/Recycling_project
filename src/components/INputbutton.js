@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, StatusBar ,TouchableOpacity, View } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
 
@@ -16,9 +16,11 @@ const INputbutton = (props) => {
 
     return (
         <>
+        <StatusBar backgroundColor={COLORS.black}/>
+
             <TextInput
                 style={{
-                    margin: RFPercentage(2),
+                    margin: RFPercentage(1.5),
                     fontSize: 18.5,
                     fontFamily: FONT.defult_font,
                     color: "#635B5B",

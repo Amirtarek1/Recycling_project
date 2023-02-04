@@ -1,11 +1,13 @@
-
-import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
-import { RFPercentage } from 'react-native-responsive-fontsize';
+import {useState} from "react"
+import { ScrollView, StatusBar, StyleSheet, Text, View ,TouchableOpacity } from 'react-native';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, Sizes} from '../../constants';
 import Back_arrow from '../../components/Back_arrow';
 import INputbutton from '../../components/INputbutton';
+import CheckBox from '@react-native-community/checkbox';
+import Large_button from "../../components/Large_button";
 const login_page = () => {
-
+const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
     return (
         <>
@@ -46,12 +48,12 @@ backgroundColor:COLORS.green_mid
 {/* white container */}
 <View style={{flex :0.8 ,
 backgroundColor:COLORS.white ,
-padding : RFPercentage(50),
+padding : RFPercentage(10),
 // marginTop:RFPercentage(-2),
  borderTopEndRadius: RFPercentage(8),
  borderTopStartRadius: RFPercentage(8)
 }}>
-    <View>
+    <View style = {{ marginBottom:RFPercentage(1)}}> 
   <INputbutton
                                 label="رقم الهاتف"
 
@@ -60,7 +62,41 @@ padding : RFPercentage(50),
                                 label="كلمة المرور"
                             />
 </View>
+<View style={{flexDirection:"row" ,width :Sizes.width*0.88 ,
+// borderWidth:1,
+alignSelf:"center",
+alignItems:"center",
+justifyContent:"space-between",
+padding:RFPercentage(1)
+}}>
+     <CheckBox
+    disabled={false}
+    value={toggleCheckBox}
+    onValueChange={(newValue) => setToggleCheckBox(newValue)}
+  />
+<TouchableOpacity>
+  <Text style={{fontSize:15,color:COLORS.green}}>نسيت كلمة المرور؟</Text>
+  </TouchableOpacity>
 </View>
+<Large_button button_name = "تسجيل الدخول"/>
+<View style={{
+marginTop : RFPercentage(2),
+flexDirection :"row" ,
+justifyContent:"space-between",
+alignItems:"center"}}>
+<View style={{width:Sizes.width*.3 ,
+     height:RFPercentage(0.25) , 
+     backgroundColor:COLORS.gray_dark}}></View>
+<Text style={[FONT.defult_font]}></Text>
+<View style={{width:Sizes.width*.3 ,
+     height:RFPercentage(0.25) , 
+     backgroundColor:COLORS.gray_dark}}></View>
+     
+
+</View>
+
+</View>
+
 </View>
 
         </>

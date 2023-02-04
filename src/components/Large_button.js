@@ -45,8 +45,9 @@ const styles = StyleSheet.create({
   Text_style: {
     fontFamily: FONT.defult_font,
     color: COLORS.white,
-    fontSize: 25,
+    fontSize: 28 ,
     alignItems: "center",
+    fontWeight : "800"
 
   },
 });
