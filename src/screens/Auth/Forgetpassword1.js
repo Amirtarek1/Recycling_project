@@ -1,13 +1,14 @@
 
 import { ScrollView, Image, TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import { COLORS, FONT, icons, Sizes } from '../../constants';
+import { COLORS, FONT, icons, images, Sizes } from '../../constants';
 import Large_button from '../../components/Large_button';
 import Back_arrow from '../../components/Back_arrow';
 import INputbutton from '../../components/INputbutton';
 import INPUTtext_password from '../../components/INPUTtext_password';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
+
 
 const Forgetpassword1 = () => {
 
@@ -27,7 +28,7 @@ const Forgetpassword1 = () => {
                             <Back_arrow />
                             <View>
                                 <Text style={styles.text_Bold_style}>نسيت كلمه المرور</Text>
-                                <Text style={styles.text_thin_style}>تحقق من رقم هاتفك</Text>
+                                <Text style={styles.text_thin_style}>تحقق من البريد الالكتروني </Text>
                             </View>
 
 
@@ -41,21 +42,33 @@ const Forgetpassword1 = () => {
 
                         <View style={{ marginTop: RFPercentage(7) }}>
 
-                            <View style = {{alignItems :"center"}}>
-                                <Text style={{ textAlign: "center" , fontFamily :FONT.font_extra_bold, fontSize : 15, color :COLORS.gray_dark, }}> سوف نرسل رمزا على الرقم الخاص بك</Text>
-                                <Text style={{ textAlign: "center", fontFamily :FONT.font_extra_bold, fontSize : 15, color :COLORS.gray_dark, }}> لإعادة تعيين رقمك السري </Text>
-                               
+                            <Image source={images.forget_password} style={{
+                                width: Sizes.width * 0.7 
+                                , margin: RFPercentage(1)
+                                , alignSelf: "center",
+                                height: Sizes.height*0.32
+                            }} />
+
+                            <View style={{ alignItems: "center", margin: RFPercentage(2) }}>
+                                <Text style={{ textAlign: "center", fontFamily: FONT.font_Almarai_Regular, fontSize: 20, color: COLORS.gray_mid }}> سوف نرسل رمزا على الرقم الخاص بك</Text>
+                                <Text style={{ textAlign: "center", fontFamily: FONT.font_Almarai_Regular, fontSize: 20, color: COLORS.gray_mid }}> لإعادة تعيين رقمك السري </Text>
+
                             </View>
+
+                            <INputbutton
+                                label="البريد الالكتروني"
+                            />
+
                         </View>
 
 
                     </View>
 
-                    
+
 
                 </View>
-                <View style = {{marginTop : RFPercentage(2)}}>
-                <Large_button button_name="انشاء الحساب" />
+                <View style={{ marginTop: RFPercentage(3) }}>
+                    <Large_button button_name="إرسال" />
                 </View>
 
 
@@ -76,15 +89,15 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.green_mid
         , alignContent: "center",
         // justifyContent :"center"
-        
+
     }, green_container: {
         flex: 1,
         backgroundColor: COLORS.green_mid,
     },
     white_container: {
         flex: 5,
-        alignItems :"center",
-        justifyContent :"center",
+        alignItems: "center",
+        justifyContent: "center",
         backgroundColor: COLORS.white,
         borderTopEndRadius: RFPercentage(8),
         borderTopStartRadius: RFPercentage(8)
@@ -92,12 +105,12 @@ const styles = StyleSheet.create({
         fontSize: 22,
         // fontWeight: "700",
         color: COLORS.white,
-        fontFamily: FONT.font_SemiBold,
+        fontFamily: FONT.font_Almarai_Bold,
         marginLeft: RFPercentage(3)
     }, text_thin_style: {
         fontSize: 20,
         color: COLORS.white,
-        fontFamily: FONT.font_Light,
+        fontFamily: FONT.font_Almarai_Regular,
         marginLeft: RFPercentage(3)
     },
     view_arrow_and_text_style: {

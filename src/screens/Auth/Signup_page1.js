@@ -76,7 +76,7 @@ const Signup_page1 = () => {
 
                 </View>
 
-                <Large_button button_name="انشاء الحساب" />
+                    <Large_button button_name="انشاء الحساب" />
 
                 <View
                     style={styles.view_text_to_check_for_login}>
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
         margin: RFPercentage(2),
         marginTop: RFPercentage(4)
     }, view_text_and_checkbox: {
-        margin: RFPercentage(1.5),
+        marginTop: RFPercentage(1.5),
         width: Sizes.width * .85,
         // backgroundColor :"#00f",
         alignSelf: "center",

@@ -18,9 +18,9 @@ const App = () => {
 {/* <INputbutton/> */}
 {/* <Back_arrow/> */}
 {/* <Signup_page1/> */}
-{/* <Forgetpassword1/> */}
+<Forgetpassword1/>
 {/* <INPUTtext_password/> */}
-<Testpage1/>
+{/* <Testpage1/> */}
     </>
   )
 

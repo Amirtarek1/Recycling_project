@@ -32,7 +32,7 @@ const INputbutton = (props) => {
                 }}
 
                 label={<Text style={{
-                    fontSize: 21 , fontFamily: FONT.defult_font
+                    fontSize: 21 , fontFamily: FONT.font_Almarai_Regular
                 }}
                 >{props.label}</Text>}
 

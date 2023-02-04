@@ -1,8 +1,8 @@
 
 
-// const user_Image = require('URL')
+const forget_password = require('../assets/Images/forgetpasswordimage.jpeg')
 
-// export default {
-//     user_Image,
+export default {
+    forget_password,
  
-// }
+}
