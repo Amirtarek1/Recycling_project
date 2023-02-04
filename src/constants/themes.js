@@ -29,7 +29,21 @@ const COLORS = {
 }
 
 const FONT = {
-    defult_font : "NotoSansArabic-VariableFont_wdth,wght",
+    font_in_black_noto : "NotoSansArabic-Black",
+    font_bold_noto : "NotoSansArabic-Bold",
+    font_extra_bold_noto : "NotoSansArabic-ExtraBold",
+    font_ExtraLight_noto: "NotoSansArabic-ExtraLight",
+    font_Light_noto : "NotoSansArabic-Light",
+    font_Medium_noto : "NotoSansArabic-Medium",
+    font_Regular_noto : "NotoSansArabic-Regular",
+    font_SemiBold_noto : "NotoSansArabic-SemiBold",
+    font_Thin_noto: "NotoSansArabic-Thin",
+////////////another font  ALmarai/////////////
+
+ font_Almarai_Bold : "Almarai-Bold",
+ font_Almarai_ExtraBold : "Almarai-ExtraBold",
+ font_Almarai_Light :"Almarai-Light",
+ font_Almarai_Regular : "Almarai-Regular"
    
 };
 

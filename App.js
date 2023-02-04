@@ -6,6 +6,8 @@ import Back_arrow from "./src/components/Back_arrow"
 import Signup_page1 from "./src/screens/Auth/Signup_page1"
 import INputbutton from './src/components/INputbutton';
 import INPUTtext_password from './src/components/INPUTtext_password';
+import Forgetpassword1 from './src/screens/Auth/Forgetpassword1';
+import Testpage1 from './src/Test_pages/Testpage1';
 const App = () => {
 
 
@@ -15,8 +17,10 @@ const App = () => {
 {/* <Large_button button_name = "انشاء الحساب"/> */}
 {/* <INputbutton/> */}
 {/* <Back_arrow/> */}
-<Signup_page1/>
+{/* <Signup_page1/> */}
+{/* <Forgetpassword1/> */}
 {/* <INPUTtext_password/> */}
+<Testpage1/>
     </>
   )
 
