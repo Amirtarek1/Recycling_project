@@ -19,22 +19,25 @@ const INPUTtext_password = (props) => {
                 width: Sizes.width * .85,
                 // height: RFPercentage(8),
                 alignSelf: "center",
-                fontWeight: "600",
+                // fontWeight: "600",
+                // fontFamily : FONT.font_Almarai_Bold
                 flexDirection: "row",
             }}>
                 <TextInput
                     style={{
                         fontSize: 18.5,
-                        fontFamily: FONT.defult_font,
+                        fontFamily: FONT.font_Almarai_Regular,
                         color: "#635B5B",
                         width: Sizes.width * .85,
                         height: RFPercentage(8),
                         backgroundColor: COLORS.white,
-                        
+
                     }}
 
-                    textContentType="username"
-                    label={<Text style={{ fontSize: 21,  fontFamily: FONT.defult_font }}>{props.label}</Text>}
+                    label={<Text style={{ fontSize: 16, color : "#00000099", 
+                     fontFamily: FONT.font_Almarai_Regular }}>{props.label}</Text>}
+                    // accessibilityActions="#00000099"
+                    accessibilityLabel="#0d0"
                     mode='outlined'
                     outlineColor="#0000001F"
                     activeOutlineColor="#7DBB69"
