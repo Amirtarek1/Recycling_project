@@ -39,8 +39,6 @@ const styles = StyleSheet.create({
          justifyContent: "center",
         backgroundColor: COLORS.white,
         height: RFPercentage(4.5),
-        marginTop: RFPercentage(1),
-        margin: RFPercentage(1),
         width: Sizes.width * .08,
         borderRadius: RFPercentage(4)
     },
@@ -51,7 +49,6 @@ const styles = StyleSheet.create({
         shadowColor: "#000",  
         elevation: 30,
         shadowOpacity: .5,  
-        // shadowRadius: 3,  
       },  
 
 })

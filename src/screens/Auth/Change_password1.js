@@ -1,5 +1,5 @@
 
-import { ScrollView, Image, TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, Image, TouchableOpacity, StyleSheet, Text, View, StatusBar } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, icons, Sizes } from '../../constants';
 import Large_button from '../../components/Large_button';
@@ -14,7 +14,7 @@ const Signup_page1 = () => {
     return (
         <>
 
-
+<StatusBar backgroundColor={COLORS.black}/>
 
             <ScrollView style={{ backgroundColor: COLORS.white }}>
 

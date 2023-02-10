@@ -9,7 +9,9 @@ const COLORS = {
     green_light :"#EDF7EA",
     green_mid : "#7DBB69",
     green : "#619902",
-
+    
+    background_confirm_page : "#FEEDB5BA",
+    
     gray_light: "#00000029",
     gray_mid: "#635B5B",
     gray_dark: "#707070",

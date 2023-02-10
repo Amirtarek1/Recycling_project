@@ -12,7 +12,7 @@ const Large_button = (props) => {
 
 
       <View style={styles.view_Container_TouchableOpacity}>
-        <TouchableOpacity style={styles.Container_TouchableOpacity}>
+        <TouchableOpacity onPress={props.Confirm_press} style={styles.Container_TouchableOpacity}>
           <Text style={styles.Text_style}>{props.button_name}</Text>
         </TouchableOpacity>
 
