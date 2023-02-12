@@ -15,7 +15,7 @@ const INPUTtext_password = (props) => {
         <>
 
             <View style={{
-                margin: RFPercentage(1.5),
+                margin: RFPercentage(1),
                 width: Sizes.width * .85,
                 // height: RFPercentage(8),
                 alignSelf: "center",

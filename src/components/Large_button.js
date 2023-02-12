@@ -12,7 +12,7 @@ const Large_button = (props) => {
 
 
       <View style={styles.view_Container_TouchableOpacity}>
-        <TouchableOpacity style={styles.Container_TouchableOpacity}>
+        <TouchableOpacity {...props.res} style={styles.Container_TouchableOpacity}>
           <Text style={styles.Text_style}>{props.button_name}</Text>
         </TouchableOpacity>
 
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
      justifyContent: "center", 
     alignSelf: "center",
+    marginTop :RFPercentage(2)
   
   },
   Container_TouchableOpacity: {
@@ -43,11 +44,11 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.green_mid ,
   },
   Text_style: {
-    fontFamily: FONT.defult_font,
+    fontFamily: FONT.font_Almarai_Bold,
     color: COLORS.white,
     fontSize: 28 ,
     alignItems: "center",
-    fontWeight : "800"
+    
 
   },
 });

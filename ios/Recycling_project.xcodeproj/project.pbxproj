@@ -28,10 +28,31 @@
 		2F6A07DE532E4F339A7A2CE7 /* Janna LT Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80D2AEFE73A144EA9F0F4A66 /* Janna LT Bold.ttf */; };
 		51A58D4A732E4D67AFE30FE6 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 350988D5BF304EB9A8278FC7 /* MaterialCommunityIcons.ttf */; };
 		8E366ABC2A0841EDB2996C28 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31235357C2834EAA86BA6F5D /* MaterialIcons.ttf */; };
-		70E0AD562E8D478EA9638DAA /* NotoSansArabic-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03583E8139C64A09823012F4 /* NotoSansArabic-VariableFont_wdth,wght.ttf */; };
 		75E52DFCEC5D40D88BD87B7C /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFA5370B5BCC412584AFC796 /* Octicons.ttf */; };
 		0CD7CDE1FAEF4E5D8E220F6D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F08028C67ECE4DB78F1C7CE9 /* SimpleLineIcons.ttf */; };
 		3F311CC3A8F6416A858924A3 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 796D89D4CFF14B33B7C2993F /* Zocial.ttf */; };
+		9CE7F1DAB285449DBC7A6405 /* NotoSansArabic-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E11B66FCA06446BA7FB9DE0 /* NotoSansArabic-Black.ttf */; };
+		37876E85F523475686D61E8B /* NotoSansArabic-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20BD13061BC04FA19124CE99 /* NotoSansArabic-Bold.ttf */; };
+		51CEAC8E618047D9AEDD5CE9 /* NotoSansArabic-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBC780BA00ED4FC0A456F6DF /* NotoSansArabic-ExtraBold.ttf */; };
+		B69B7818A85C4412A68967B6 /* NotoSansArabic-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4D09204D14649BBA6EF147A /* NotoSansArabic-ExtraLight.ttf */; };
+		33B7412BF5DF4E73AF242DC7 /* NotoSansArabic-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9EC123395833482E9793B217 /* NotoSansArabic-Light.ttf */; };
+		0D971DD2CD9843FB93B4D597 /* NotoSansArabic-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71DA132E43334DF3A17FDE1F /* NotoSansArabic-Medium.ttf */; };
+		114135042FEE45BC845C15AB /* NotoSansArabic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5E5EBAB4B24DA9ACB446DD /* NotoSansArabic-Regular.ttf */; };
+		36BFEAFAA88840299CDED1FB /* NotoSansArabic-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D551889CB20C40D587419C10 /* NotoSansArabic-SemiBold.ttf */; };
+		4CD2D76D17654633B4EA9737 /* NotoSansArabic-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3D6F790D6904671BC81981E /* NotoSansArabic-Thin.ttf */; };
+		A27F2B142509437BB53325DC /* NotoKufiArabic-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE000093CF8240ED92CA4A5F /* NotoKufiArabic-Black.ttf */; };
+		A84867DEF6434D5C967917C1 /* NotoKufiArabic-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 942C80C4E0A14E44840DF037 /* NotoKufiArabic-Bold.ttf */; };
+		F5F4E7EA72394ABA8D80B02A /* NotoKufiArabic-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9847D2C6E3B4ABA89F8C4F9 /* NotoKufiArabic-ExtraBold.ttf */; };
+		792414384F5440DE8FB572E8 /* NotoKufiArabic-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A19EC802604346A4BB5AAB06 /* NotoKufiArabic-ExtraLight.ttf */; };
+		3501852BBBD347C1B4943B98 /* NotoKufiArabic-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8BBE9C170B7423D99BD4E56 /* NotoKufiArabic-Light.ttf */; };
+		A5E90B1737E44A6D81141A32 /* NotoKufiArabic-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7176C5A975524679895F9040 /* NotoKufiArabic-Medium.ttf */; };
+		4082DA0B6A3C4D418162866A /* NotoKufiArabic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 257F8534E3A443B79E4F20DF /* NotoKufiArabic-Regular.ttf */; };
+		339C9D1366A741A9BEE4F755 /* NotoKufiArabic-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97614B0AACD044939029CFBD /* NotoKufiArabic-SemiBold.ttf */; };
+		2F3DE52433FE47D7840B07AD /* NotoKufiArabic-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 235558EEEB35496D8B80D6F8 /* NotoKufiArabic-Thin.ttf */; };
+		872C33CAB4A84CD3B03F3BA2 /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9671BF0716C44D4E91F7840E /* Almarai-Bold.ttf */; };
+		BD16D215BAE4445D9030D17D /* Almarai-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FCA07E8532C4A19A0D8909F /* Almarai-ExtraBold.ttf */; };
+		5842006D61FE4FA382BF8D16 /* Almarai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94EC9D31C7994BC3918C4BFC /* Almarai-Light.ttf */; };
+		17E6C0FF37A247F8927EBCB9 /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3B3058301B94EBBA5466AD8 /* Almarai-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,10 +97,31 @@
 		80D2AEFE73A144EA9F0F4A66 /* Janna LT Bold.ttf */ = {isa = PBXFileReference; name = "Janna LT Bold.ttf"; path = "../assets/fonts/Janna LT Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		350988D5BF304EB9A8278FC7 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../assets/fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		31235357C2834EAA86BA6F5D /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../assets/fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		03583E8139C64A09823012F4 /* NotoSansArabic-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; name = "NotoSansArabic-VariableFont_wdth,wght.ttf"; path = "../assets/fonts/NotoSansArabic-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		DFA5370B5BCC412584AFC796 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../assets/fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		F08028C67ECE4DB78F1C7CE9 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../assets/fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		796D89D4CFF14B33B7C2993F /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../assets/fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8E11B66FCA06446BA7FB9DE0 /* NotoSansArabic-Black.ttf */ = {isa = PBXFileReference; name = "NotoSansArabic-Black.ttf"; path = "../assets/fonts/NotoSansArabic-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		20BD13061BC04FA19124CE99 /* NotoSansArabic-Bold.ttf */ = {isa = PBXFileReference; name = "NotoSansArabic-Bold.ttf"; path = "../assets/fonts/NotoSansArabic-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EBC780BA00ED4FC0A456F6DF /* NotoSansArabic-ExtraBold.ttf */ = {isa = PBXFileReference; name = "NotoSansArabic-ExtraBold.ttf"; path = "../assets/fonts/NotoSansArabic-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A4D09204D14649BBA6EF147A /* NotoSansArabic-ExtraLight.ttf */ = {isa = PBXFileReference; name = "NotoSansArabic-ExtraLight.ttf"; path = "../assets/fonts/NotoSansArabic-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9EC123395833482E9793B217 /* NotoSansArabic-Light.ttf */ = {isa = PBXFileReference; name = "NotoSansArabic-Light.ttf"; path = "../assets/fonts/NotoSansArabic-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		71DA132E43334DF3A17FDE1F /* NotoSansArabic-Medium.ttf */ = {isa = PBXFileReference; name = "NotoSansArabic-Medium.ttf"; path = "../assets/fonts/NotoSansArabic-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BF5E5EBAB4B24DA9ACB446DD /* NotoSansArabic-Regular.ttf */ = {isa = PBXFileReference; name = "NotoSansArabic-Regular.ttf"; path = "../assets/fonts/NotoSansArabic-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D551889CB20C40D587419C10 /* NotoSansArabic-SemiBold.ttf */ = {isa = PBXFileReference; name = "NotoSansArabic-SemiBold.ttf"; path = "../assets/fonts/NotoSansArabic-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F3D6F790D6904671BC81981E /* NotoSansArabic-Thin.ttf */ = {isa = PBXFileReference; name = "NotoSansArabic-Thin.ttf"; path = "../assets/fonts/NotoSansArabic-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DE000093CF8240ED92CA4A5F /* NotoKufiArabic-Black.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-Black.ttf"; path = "../assets/fonts/NotoKufiArabic-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		942C80C4E0A14E44840DF037 /* NotoKufiArabic-Bold.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-Bold.ttf"; path = "../assets/fonts/NotoKufiArabic-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B9847D2C6E3B4ABA89F8C4F9 /* NotoKufiArabic-ExtraBold.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-ExtraBold.ttf"; path = "../assets/fonts/NotoKufiArabic-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A19EC802604346A4BB5AAB06 /* NotoKufiArabic-ExtraLight.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-ExtraLight.ttf"; path = "../assets/fonts/NotoKufiArabic-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A8BBE9C170B7423D99BD4E56 /* NotoKufiArabic-Light.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-Light.ttf"; path = "../assets/fonts/NotoKufiArabic-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7176C5A975524679895F9040 /* NotoKufiArabic-Medium.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-Medium.ttf"; path = "../assets/fonts/NotoKufiArabic-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		257F8534E3A443B79E4F20DF /* NotoKufiArabic-Regular.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-Regular.ttf"; path = "../assets/fonts/NotoKufiArabic-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		97614B0AACD044939029CFBD /* NotoKufiArabic-SemiBold.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-SemiBold.ttf"; path = "../assets/fonts/NotoKufiArabic-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		235558EEEB35496D8B80D6F8 /* NotoKufiArabic-Thin.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-Thin.ttf"; path = "../assets/fonts/NotoKufiArabic-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9671BF0716C44D4E91F7840E /* Almarai-Bold.ttf */ = {isa = PBXFileReference; name = "Almarai-Bold.ttf"; path = "../assets/fonts/Almarai-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6FCA07E8532C4A19A0D8909F /* Almarai-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Almarai-ExtraBold.ttf"; path = "../assets/fonts/Almarai-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		94EC9D31C7994BC3918C4BFC /* Almarai-Light.ttf */ = {isa = PBXFileReference; name = "Almarai-Light.ttf"; path = "../assets/fonts/Almarai-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C3B3058301B94EBBA5466AD8 /* Almarai-Regular.ttf */ = {isa = PBXFileReference; name = "Almarai-Regular.ttf"; path = "../assets/fonts/Almarai-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,10 +244,31 @@
 				80D2AEFE73A144EA9F0F4A66 /* Janna LT Bold.ttf */,
 				350988D5BF304EB9A8278FC7 /* MaterialCommunityIcons.ttf */,
 				31235357C2834EAA86BA6F5D /* MaterialIcons.ttf */,
-				03583E8139C64A09823012F4 /* NotoSansArabic-VariableFont_wdth,wght.ttf */,
 				DFA5370B5BCC412584AFC796 /* Octicons.ttf */,
 				F08028C67ECE4DB78F1C7CE9 /* SimpleLineIcons.ttf */,
 				796D89D4CFF14B33B7C2993F /* Zocial.ttf */,
+				8E11B66FCA06446BA7FB9DE0 /* NotoSansArabic-Black.ttf */,
+				20BD13061BC04FA19124CE99 /* NotoSansArabic-Bold.ttf */,
+				EBC780BA00ED4FC0A456F6DF /* NotoSansArabic-ExtraBold.ttf */,
+				A4D09204D14649BBA6EF147A /* NotoSansArabic-ExtraLight.ttf */,
+				9EC123395833482E9793B217 /* NotoSansArabic-Light.ttf */,
+				71DA132E43334DF3A17FDE1F /* NotoSansArabic-Medium.ttf */,
+				BF5E5EBAB4B24DA9ACB446DD /* NotoSansArabic-Regular.ttf */,
+				D551889CB20C40D587419C10 /* NotoSansArabic-SemiBold.ttf */,
+				F3D6F790D6904671BC81981E /* NotoSansArabic-Thin.ttf */,
+				DE000093CF8240ED92CA4A5F /* NotoKufiArabic-Black.ttf */,
+				942C80C4E0A14E44840DF037 /* NotoKufiArabic-Bold.ttf */,
+				B9847D2C6E3B4ABA89F8C4F9 /* NotoKufiArabic-ExtraBold.ttf */,
+				A19EC802604346A4BB5AAB06 /* NotoKufiArabic-ExtraLight.ttf */,
+				A8BBE9C170B7423D99BD4E56 /* NotoKufiArabic-Light.ttf */,
+				7176C5A975524679895F9040 /* NotoKufiArabic-Medium.ttf */,
+				257F8534E3A443B79E4F20DF /* NotoKufiArabic-Regular.ttf */,
+				97614B0AACD044939029CFBD /* NotoKufiArabic-SemiBold.ttf */,
+				235558EEEB35496D8B80D6F8 /* NotoKufiArabic-Thin.ttf */,
+				9671BF0716C44D4E91F7840E /* Almarai-Bold.ttf */,
+				6FCA07E8532C4A19A0D8909F /* Almarai-ExtraBold.ttf */,
+				94EC9D31C7994BC3918C4BFC /* Almarai-Light.ttf */,
+				C3B3058301B94EBBA5466AD8 /* Almarai-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -321,10 +384,31 @@
 				2F6A07DE532E4F339A7A2CE7 /* Janna LT Bold.ttf in Resources */,
 				51A58D4A732E4D67AFE30FE6 /* MaterialCommunityIcons.ttf in Resources */,
 				8E366ABC2A0841EDB2996C28 /* MaterialIcons.ttf in Resources */,
-				70E0AD562E8D478EA9638DAA /* NotoSansArabic-VariableFont_wdth,wght.ttf in Resources */,
 				75E52DFCEC5D40D88BD87B7C /* Octicons.ttf in Resources */,
 				0CD7CDE1FAEF4E5D8E220F6D /* SimpleLineIcons.ttf in Resources */,
 				3F311CC3A8F6416A858924A3 /* Zocial.ttf in Resources */,
+				9CE7F1DAB285449DBC7A6405 /* NotoSansArabic-Black.ttf in Resources */,
+				37876E85F523475686D61E8B /* NotoSansArabic-Bold.ttf in Resources */,
+				51CEAC8E618047D9AEDD5CE9 /* NotoSansArabic-ExtraBold.ttf in Resources */,
+				B69B7818A85C4412A68967B6 /* NotoSansArabic-ExtraLight.ttf in Resources */,
+				33B7412BF5DF4E73AF242DC7 /* NotoSansArabic-Light.ttf in Resources */,
+				0D971DD2CD9843FB93B4D597 /* NotoSansArabic-Medium.ttf in Resources */,
+				114135042FEE45BC845C15AB /* NotoSansArabic-Regular.ttf in Resources */,
+				36BFEAFAA88840299CDED1FB /* NotoSansArabic-SemiBold.ttf in Resources */,
+				4CD2D76D17654633B4EA9737 /* NotoSansArabic-Thin.ttf in Resources */,
+				A27F2B142509437BB53325DC /* NotoKufiArabic-Black.ttf in Resources */,
+				A84867DEF6434D5C967917C1 /* NotoKufiArabic-Bold.ttf in Resources */,
+				F5F4E7EA72394ABA8D80B02A /* NotoKufiArabic-ExtraBold.ttf in Resources */,
+				792414384F5440DE8FB572E8 /* NotoKufiArabic-ExtraLight.ttf in Resources */,
+				3501852BBBD347C1B4943B98 /* NotoKufiArabic-Light.ttf in Resources */,
+				A5E90B1737E44A6D81141A32 /* NotoKufiArabic-Medium.ttf in Resources */,
+				4082DA0B6A3C4D418162866A /* NotoKufiArabic-Regular.ttf in Resources */,
+				339C9D1366A741A9BEE4F755 /* NotoKufiArabic-SemiBold.ttf in Resources */,
+				2F3DE52433FE47D7840B07AD /* NotoKufiArabic-Thin.ttf in Resources */,
+				872C33CAB4A84CD3B03F3BA2 /* Almarai-Bold.ttf in Resources */,
+				BD16D215BAE4445D9030D17D /* Almarai-ExtraBold.ttf in Resources */,
+				5842006D61FE4FA382BF8D16 /* Almarai-Light.ttf in Resources */,
+				17E6C0FF37A247F8927EBCB9 /* Almarai-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

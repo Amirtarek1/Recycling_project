@@ -67,10 +67,31 @@
 		<string>Janna LT Bold.ttf</string>
 		<string>MaterialCommunityIcons.ttf</string>
 		<string>MaterialIcons.ttf</string>
-		<string>NotoSansArabic-VariableFont_wdth,wght.ttf</string>
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>NotoSansArabic-Black.ttf</string>
+		<string>NotoSansArabic-Bold.ttf</string>
+		<string>NotoSansArabic-ExtraBold.ttf</string>
+		<string>NotoSansArabic-ExtraLight.ttf</string>
+		<string>NotoSansArabic-Light.ttf</string>
+		<string>NotoSansArabic-Medium.ttf</string>
+		<string>NotoSansArabic-Regular.ttf</string>
+		<string>NotoSansArabic-SemiBold.ttf</string>
+		<string>NotoSansArabic-Thin.ttf</string>
+		<string>NotoKufiArabic-Black.ttf</string>
+		<string>NotoKufiArabic-Bold.ttf</string>
+		<string>NotoKufiArabic-ExtraBold.ttf</string>
+		<string>NotoKufiArabic-ExtraLight.ttf</string>
+		<string>NotoKufiArabic-Light.ttf</string>
+		<string>NotoKufiArabic-Medium.ttf</string>
+		<string>NotoKufiArabic-Regular.ttf</string>
+		<string>NotoKufiArabic-SemiBold.ttf</string>
+		<string>NotoKufiArabic-Thin.ttf</string>
+		<string>Almarai-Bold.ttf</string>
+		<string>Almarai-ExtraBold.ttf</string>
+		<string>Almarai-Light.ttf</string>
+		<string>Almarai-Regular.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -1,7 +1,7 @@
 
-import { ScrollView, TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { ScrollView,Image, TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import { COLORS, FONT, Sizes } from '../../constants';
+import { COLORS, FONT, icons, Sizes } from '../../constants';
 import Large_button from '../../components/Large_button';
 import Back_arrow from '../../components/Back_arrow';
 import INputbutton from '../../components/INputbutton';
@@ -24,12 +24,13 @@ const Signup_page1 = () => {
                     <View style={styles.green_container}>
 
                         <View style={styles.view_arrow_and_text_style}>
+                        <Back_arrow />
                             <View>
                                 <Text style={styles.text_Bold_style}>إنشاء حساب</Text>
                                 <Text style={styles.text_thin_style}>إنشاء حساب جديد في التطبيق</Text>
 
                             </View>
-                            <Back_arrow />
+                           
 
                         </View>
 
@@ -63,7 +64,7 @@ const Signup_page1 = () => {
                         <View
                             style={styles.view_text_and_checkbox}>
                             <TouchableOpacity style={styles.touchablopacity_checkbox_style} >
-                                <Icon name="check" size={20} style={{ alignSelf: "center", justifyContent: "center" }} tintecolor={COLORS.white} />
+                            <Image source={icons.checkbox_icon} style={styles.back_Icon} />
                             </TouchableOpacity>
 
 
@@ -75,13 +76,13 @@ const Signup_page1 = () => {
 
                 </View>
 
-                <Large_button button_name="انشاء الحساب" />
+                    <Large_button button_name="انشاء الحساب" />
 
                 <View
                     style={styles.view_text_to_check_for_login}>
 
                         <Text style = {{fontSize : 15, fontWeight :"600" , color : COLORS.black}}>هل لديك حساب ؟ </Text>
-                    <TouchableOpacity  >
+                    <TouchableOpacity  style ={{alignSelf :"center",justifyContent :"center", alignItems :"center"}} >
                    <Text style = {{fontSize : 15, fontWeight :"900" , color : COLORS.green_mid}}>تسجيل الدخول</Text>
                     </TouchableOpacity>
 
@@ -122,20 +123,20 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         color: COLORS.white,
         fontFamily: FONT.defult_font,
-        marginLeft: RFPercentage(6)
+        marginLeft: RFPercentage(3)
     }, text_thin_style: {
         fontSize: 20,
         color: COLORS.white,
         fontFamily: FONT.defult_font,
-        marginLeft: RFPercentage(6)
+        marginLeft: RFPercentage(3)
     },
     view_arrow_and_text_style: {
         flexDirection: "row",
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
         margin: RFPercentage(2),
         marginTop: RFPercentage(4)
     }, view_text_and_checkbox: {
-        margin: RFPercentage(1.5),
+        marginTop: RFPercentage(1.5),
         width: Sizes.width * .85,
         // backgroundColor :"#00f",
         alignSelf: "center",
@@ -159,7 +160,15 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         flexDirection: "row",
         justifyContent: "center"
-    }
+    }, back_Icon:
+    {
+        tintColor: COLORS.white,
+        height: RFPercentage(3.6),
+        width: Sizes.width * 0.062,
+        alignSelf :"center"
+
+
+    },
 
 })
 export default Signup_page1;
