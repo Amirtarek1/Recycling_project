@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
     View_of_touchableopacity: {
         alignItems: "flex-start",
     }, shadowProp: {  
-        shadowOffset: {width: -4, height: -4 },  
-        shadowColor: "#000",  
-        elevation: 30,
+        shadowOffset: {width: 10, height: 14 },  
+        shadowColor: COLORS.black,  
+        elevation: 15,
         shadowOpacity: .5,  
       },  
 

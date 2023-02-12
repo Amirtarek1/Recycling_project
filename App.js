@@ -11,23 +11,23 @@ import Change_password1 from "./src/screens/Auth/Change_password1";
 import Testpage1 from './src/Test_pages/Testpage1';
 import Confirm_page_forget_password from './src/screens/Auth/Confirm_page_forget_password';
 import Personal_Profile_page from './src/screens/Profile/Personal_Profile_page';
-
+import User_image from "./src/components/User_image"
 const App = () => {
 
 
   return (
     <>
-{/* <Change_password1/> */}
-{/* <Large_button button_name = "انشاء الحساب"/> */}
-{/* <INputbutton/> */}
-{/* <Back_arrow/> */}
-{/* <Signup_page1/> */}
-{/* <Forgetpassword1/> */}
-{/* <INPUTtext_password/> */}
-{/* <Testpage1/> */}
-    {/* <Confirm_page_forget_password/> */}
-
-    <Personal_Profile_page/>
+      {/* <Change_password1/> */}
+      {/* <Large_button button_name = "انشاء الحساب"/> */}
+      {/* <INputbutton/> */}
+      {/* <Back_arrow/> */}
+      {/* <Signup_page1/> */}
+      {/* <Forgetpassword1/> */}
+      {/* <INPUTtext_password/> */}
+      {/* <Testpage1/> */}
+      {/* <Confirm_page_forget_password/> */}
+      {/* <User_image/> */}
+      <Personal_Profile_page/>
     </>
   )
 
