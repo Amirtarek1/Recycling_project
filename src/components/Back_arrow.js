@@ -39,19 +39,16 @@ const styles = StyleSheet.create({
          justifyContent: "center",
         backgroundColor: COLORS.white,
         height: RFPercentage(4.5),
-        marginTop: RFPercentage(1),
-        margin: RFPercentage(1),
         width: Sizes.width * .08,
         borderRadius: RFPercentage(4)
     },
     View_of_touchableopacity: {
         alignItems: "flex-start",
     }, shadowProp: {  
-        shadowOffset: {width: -4, height: -4 },  
-        shadowColor: "#000",  
-        elevation: 30,
+        shadowOffset: {width: 10, height: 14 },  
+        shadowColor: COLORS.black,  
+        elevation: 15,
         shadowOpacity: .5,  
-        // shadowRadius: 3,  
       },  
 
 })

@@ -4,6 +4,7 @@ import { ScrollView, StatusBar, StyleSheet, Image,Text, View ,TouchableOpacity }
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, icons, images, Sizes } from '../../constants';
 import Back_arrow from '../../components/Back_arrow';
+import User_image from '../../components/User_image'
 import INputbutton from '../../components/INputbutton';
 import CheckBox from '@react-native-community/checkbox';
 import Large_button from "../../components/Large_button";
@@ -17,43 +18,69 @@ const [toggleCheckBox, setToggleCheckBox] = useState(false)
 <StatusBar hidden={true}/>
 <View style={{
     flex : 1,
+    // justifyContent:"space-between",
     width:Sizes.width,
     backgroundColor:COLORS.white
      }}>
-        <View style={{flexDirection:"row",borderWidth:1,paddingVertical:RFPercentage(1),
+        <View style={{flexDirection:"row",
+        // borderWidth:1,
+        paddingVertical:RFPercentage(3),
         justifyContent:"space-around",alignItems:"center"}}>
 <View>
 <Back_arrow />
 </View>
 <View style={{flexDirection:"row",width:Sizes.width*0.7}}>
-<Text style={{color:COLORS.black,fontFamily:FONT.font_Almarai_Bold,fontSize:20}}>تعديل الملف الشخصي</Text>
+<Text style={{color:COLORS.black,fontFamily:FONT.font_Almarai_ExtraBold,fontSize:20}}>تعديل الملف الشخصي</Text>
 
 </View>
    
         </View>
 
 <View style={{
-    borderWidth:1,
+    // borderWidth:1,
 flexDirection:"row" ,
-justifyContent:"space-around",
-// alignItems:"center"
-padding:RFPercentage(2)
+justifyContent:"center",
+// marginTop:RFPercentage(2),
+// padding:RFPercentage(5)
 
 }}>
-       <View style={{borderWidth:5,width:RFPercentage(16),height:RFPercentage(16),borderRadius:RFPercentage(8),justifyContent:"center",alignItems:"center"}}>
-    <Image resizeMode= "cover"  source={images.google} style={{width:RFPercentage(14),height:RFPercentage(14),borderRadius:RFPercentage(7)
-}}/>
-</View> 
+    <User_image/>
 
 </View>
-{/* 
-<View style={{flexDirection:"roww",width:Sizes.width*0.8,justifyContent:"space-between",alignItems:"center"}}>
 
-    <View style={{width:Sizes.width*0.4,borderWidth:2,borderColor:COLORS.green_mid, justifyContent:"space-around",alignItems:"center"}}>
+<View style={styles.style_view_content_of_user_image_nameandemail}>
 
-    </View>
-</View> */}
+                        <View>
+                            <Text style={styles.style_Text_topof_points}>النقط الحاليه</Text>
+                            <View style={styles.view_points}>
+                                <Text onPress={() => alert("hhhhh")} numberOfLines={1}
+                                    style={styles.style_text_in_box_ofpoints}>120</Text>
+                            </View>
+                        </View>
+                       
+
+                        <View >
+                            <Text style={styles.style_Text_topof_points} >النقط المستخدمه</Text>
+                            <View style={styles.view_points}>
+                                <Text onPress={() => alert("hhhhh")} numberOfLines={1}
+                                    style={styles.style_text_in_box_ofpoints}>204</Text>
+                            </View>
+                        </View>
+                    
+
+                    </View>
+
+ <View style={{flex:0.75,justifyContent:"space-around",
+//  marginTop:RFPercentage(5)
+ }}>
+                        
+<INputbutton label="الاسم" value="الاء عبد الرازق محمود"/>
+<INputbutton label="البريد الإلكتروني" value="nadaaboelkhir@gmail.com" />
+<INputbutton label="رقم الهاتف" value="01202477442"/>
+
 </View>
+</View>
+
 
         </>
     )
@@ -92,7 +119,38 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         margin: RFPercentage(2),
         marginTop: RFPercentage(4)
+    },
+    style_view_content_of_user_image_nameandemail: {
+        backgroundColor: COLORS.white,
+        flexDirection: "row",
+        justifyContent: "space-around",
+        padding: RFPercentage(1) ,
+         alignContent: "center"
+        , alignItems: "center"
+    },
+    style_Text_topof_points: {
+        fontFamily: FONT.font_Almarai_Bold,
+        color: COLORS.black,
+        fontSize: 17.5,
+        alignSelf: "center"
+        , margin: RFPercentage(1)
+    }, view_points: {
+        alignSelf :"center",
+        width: RFPercentage(15),
+        backgroundColor: COLORS.white,
+        borderWidth: RFPercentage(.25)
+        , borderColor: COLORS.green_mid,
+        alignItems: "center" ,
+         borderRadius: RFPercentage(1.5),
     }
+    , style_text_in_box_ofpoints: {
+        fontSize: 27,
+        fontFamily: FONT.font_Almarai_Bold,
+        color: COLORS.green_mid,
+        marginHorizontal: RFPercentage(1),
+        height: RFPercentage(6),
+        maxWidth: RFPercentage(20)
+    },
 
 
 })

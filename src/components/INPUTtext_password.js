@@ -9,65 +9,82 @@ import { COLORS, FONT, Sizes } from '../constants/index';
 
 
 
-const INPUTtext_password = (props) => {
+const INPUTtext_password = ({
+    label, value, placeholder, keyboardType,security_of_eye , secureTextEntry, onChangeText ,name_of_icon, errors, touched
+}) => {
 
     return (
         <>
 
             <View style={{
-                margin: RFPercentage(1),
-                width: Sizes.width * .85,
-                // height: RFPercentage(8),
+                width: Sizes.width * 0.9,
                 alignSelf: "center",
-                fontWeight: "600",
-                flexDirection: "row",
+                alignItems :"center",
+                 flexDirection: "row",
+                padding : RFPercentage(1)
+                
+
             }}>
+
+
                 <TextInput
                     style={{
+                       
                         fontSize: 18.5,
-                        fontFamily: FONT.defult_font,
+                        
+                        fontFamily: FONT.font_Almarai_Regular,
                         color: "#635B5B",
                         width: Sizes.width * .85,
                         height: RFPercentage(8),
+                        alignSelf: "center",
                         backgroundColor: COLORS.white,
-                        
+
                     }}
 
-                    textContentType="username"
-                    label={<Text style={{ fontSize: 21,  fontFamily: FONT.defult_font }}>{props.label}</Text>}
+                    label={<Text style={{
+                        fontSize: 18.5,
+                        fontFamily: FONT.font_Almarai_Regular
+                    }}
+                    >{label}</Text>}
+
+                    textColor="#635B5B"
                     mode='outlined'
                     outlineColor="#0000001F"
                     activeOutlineColor="#7DBB69"
                     selectionColor='#7DBB69'
-                    error={props.error}
-                    value={props.value}
-                    placeholder={props.placeholder}
-                    keyboardType={props.keyboardType}
-                    secureTextEntry={props.secureTextEntry}
-                    onChangeText={props.onChangeText}
+                    cursorColor={COLORS.gray_dark}
+                    value={value}
+                    placeholder={placeholder}
+                    keyboardType={keyboardType}
+                    secureTextEntry={secureTextEntry}
+                    onChangeText={onChangeText}
 
                 />
 
 
                 <TouchableOpacity
-                    onPress={props.security_of_eye}
+                    onPress={security_of_eye}
                     style={{
-                        justifyContent: "center"
-                        , marginLeft: -RFPercentage(7),
-                        alignSelf: "center"
+                        marginLeft : -RFPercentage(6.5),
+                        // backgroundColor :"black",
+                        justifyContent: "center",
+                        alignSelf: "center",
+                       
                     }}>
                     <Icon
                         size={RFPercentage(5)}
-                        name={props.name_of_icon}>
+                        name={name_of_icon}>
                     </Icon>
                 </TouchableOpacity>
-
             </View>
 
 
 
-
-
+            {errors && touched !== undefined ? <Text  style = {{
+                color : COLORS.red_logout , textAlign : "center",justifyContent :"center",
+             fontFamily : FONT.font_Almarai_Regular
+             }}>{errors}</Text>
+             : <></>}
 
 
         </>

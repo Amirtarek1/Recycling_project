@@ -50,8 +50,10 @@ const Forgetpassword1 = () => {
                             }} />
 
                             <View style={{ alignItems: "center", margin: RFPercentage(2) }}>
-                                <Text style={{ textAlign: "center", fontFamily: FONT.font_Almarai_Regular, fontSize: 20, color: COLORS.gray_mid }}> سوف نرسل رمزا على الرقم الخاص بك</Text>
-                                <Text style={{ textAlign: "center", fontFamily: FONT.font_Almarai_Regular, fontSize: 20, color: COLORS.gray_mid }}> لإعادة تعيين رقمك السري </Text>
+                                <Text style={{ textAlign: "center", fontFamily: FONT.font_Almarai_Regular, 
+                                fontSize: 20, color: COLORS.gray_mid }}> سوف نرسل رمزا على الرقم الخاص بك</Text>
+                                <Text style={{ textAlign: "center", fontFamily: FONT.font_Almarai_Regular,
+                                 fontSize: 20, color: COLORS.gray_mid }}> لإعادة تعيين رقمك السري </Text>
 
                             </View>
 
@@ -88,14 +90,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: COLORS.green_mid
         , alignContent: "center",
-        // justifyContent :"center"
 
     }, green_container: {
-        flex: 1,
+        flex: 0.16,
         backgroundColor: COLORS.green_mid,
     },
     white_container: {
-        flex: 5,
+        flex: 0.84,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: COLORS.white,
