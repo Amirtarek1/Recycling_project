@@ -43,46 +43,72 @@ const Personal_Profile_page = (props) => {
 
 
                     <View style={{
-                        flexDirection :"row",
-                        margin : RFPercentage(2),
+                        flexDirection: "row",
+                        padding: RFPercentage(2),
+                        alignItems: "center",
                         backgroundColor: COLORS.white
                     }}>
-                       <User_image/>
-                       <View style = {{margin : RFPercentage(3)}}>
-                        <Text style={{fontFamily : FONT.font_Almarai_Bold ,textAlign : "center" , fontSize : 22 ,color : COLORS.gray_mid}}>الاء عبد الرازق محمود</Text>
-                        <Text style={{fontFamily : FONT.font_Almarai_Regular ,textAlign : "center" , fontSize : 16 ,color : COLORS.black_mid}}>nadaaboelkheir@gmail.com</Text>
-                       </View>
-                    
+                        <User_image />
+                        <View style={{ margin: RFPercentage(3) }}>
+                            <Text style={styles.style_name_withphoto}>الاء عبد الرازق محمود</Text>
+                            <Text style={styles.style_email_withphoto}>nadaaboelkheir@gmail.com</Text>
+                        </View>
+
                     </View>
 
-                    <View style={{
-                        backgroundColor: COLORS.white, flexDirection: "row",
-                        justifyContent: "space-around", padding: RFPercentage(2)
-                        , alignContent: "center", alignItems: "center"
-                    }}>
+                    <View style={styles.style_view_content_of_user_image_nameandemail}>
 
                         <View>
                             <Text style={styles.style_Text_topof_points}>النقط الحاليه</Text>
                             <View style={styles.view_points}>
                                 <Text onPress={() => alert("hhhhh")} numberOfLines={1}
-                                    style={styles.style_text_in_box_ofpoints}>20</Text>
+                                    style={styles.style_text_in_box_ofpoints}>120</Text>
                             </View>
                         </View>
+                       
 
-                        {/* ///////////////////////////////////// */}
-                        <View>
-                            <Text style={styles.style_Text_topof_points}>النقط المستخدمه</Text>
+                        <View >
+                            <Text style={styles.style_Text_topof_points} >النقط المستخدمه</Text>
                             <View style={styles.view_points}>
                                 <Text onPress={() => alert("hhhhh")} numberOfLines={1}
-                                style={styles.style_text_in_box_ofpoints}>2000000000</Text>
+                                    style={styles.style_text_in_box_ofpoints}>204</Text>
                             </View>
+                        </View>
+                    
+
+                    </View>
+
+                    <View style={{ marginTop: RFPercentage(5) }}>
+                        <View style={{ marginLeft: RFPercentage(4) }}>
+                            <Text style={styles.name_title} >الاسم</Text>
+                            <Text style={styles.input_name_title}>الاء عبد الرازق محمود</Text>
+                            <View style={styles.view_line}></View>
+                        </View>
+
+
+
+
+                        <View style={{ marginLeft: RFPercentage(4), marginTop: RFPercentage(3) }}>
+                            <Text style={styles.name_title}>البريد الالكتروني</Text>
+                            <Text style={styles.input_name_title}>nadaaboelkheir@gmail.com</Text>
+                            <View style={styles.view_line}></View>
+                        </View>
+
+
+
+                        <View style={{ marginLeft: RFPercentage(4), marginTop: RFPercentage(3), }}>
+                            <Text style={styles.name_title}>رقم الهاتف</Text>
+                            <Text style={styles.input_name_title}>32149028</Text>
+                            <View style={styles.view_line}></View>
                         </View>
 
                     </View>
 
                 </View>
 
-
+                <View style = {{marginTop : RFPercentage(4)}}>
+                    <Large_button button_name="حذف الحساب" />
+                </View>
             </ScrollView>
         </>
     )

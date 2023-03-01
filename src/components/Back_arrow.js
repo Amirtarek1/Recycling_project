@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-import { Text, View, StatusBar, TouchableOpacity, StyleSheet, Image } from 'react-native'
+import { Text, View, StatusBar, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native'
 import { RFPercentage } from "react-native-responsive-fontsize";
 import { COLORS, FONT, icons, Sizes } from '../constants/index';
 
@@ -15,7 +15,7 @@ const Back_arrow = () => {
 
 
             <View style={styles.View_of_touchableopacity }>
-                <TouchableOpacity style={[ styles.shadowProp ,styles.button_touchableopacity]} >
+                <TouchableOpacity onPress={()=>alert("ghgg")} style={[ styles.shadowProp ,styles.button_touchableopacity]} >
                     <Image source={icons.Back_right_arrow} style={styles.back_Icon} />
                 </TouchableOpacity>
             </View>

@@ -15,6 +15,7 @@ const COLORS = {
     gray_light: "#00000029",
     gray_mid: "#635B5B",
     gray_dark: "#707070",
+    bodrer_color : "#7070703A",
     gray_ofwhite: "#949292",
     text_color: "#AAAAAA",
     text_input_border: '#0000001F',

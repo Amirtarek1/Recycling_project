@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { COLORS , FONT, Sizes } from '../constants/index';
 
-const Large_button = (props) => {
+const Large_button = ({Confirm_press ,button_name }) => {
 
 
   return (
@@ -12,8 +12,8 @@ const Large_button = (props) => {
 
 
       <View style={styles.view_Container_TouchableOpacity}>
-        <TouchableOpacity onPress={props.Confirm_press} style={styles.Container_TouchableOpacity}>
-          <Text style={styles.Text_style}>{props.button_name}</Text>
+        <TouchableOpacity onPress={Confirm_press} style={styles.Container_TouchableOpacity}>
+          <Text style={styles.Text_style}>{button_name}</Text>
         </TouchableOpacity>
 
 
