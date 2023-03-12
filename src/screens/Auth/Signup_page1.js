@@ -34,7 +34,7 @@ const Signup_page1 = (props) => {
 
 
                 <View style={styles.Basic_container}>
-                    <View style={styles.green_container}>
+                    
 
                         <View style={styles.view_arrow_and_text_style}>
                             <Back_arrow />
@@ -48,7 +48,7 @@ const Signup_page1 = (props) => {
                         </View>
 
 
-                    </View>
+                  
 
 
                     <View style={styles.white_container}>

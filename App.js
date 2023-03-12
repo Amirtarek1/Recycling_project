@@ -2,7 +2,6 @@
 
 import Home_page from './src/screens/Home/Home_page';
 import Types_oil from './src/screens/Home/Types_oil';
-import Location_of_user from './src/screens/Profile/Location_of_user';
 import Personal_Profile_page from './src/screens/Profile/Personal_Profile_page';
 {/****
 // import { NavigationContainer } from '@react-navigation/native';
@@ -13,6 +12,10 @@ import Personal_Profile_page from './src/screens/Profile/Personal_Profile_page';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AnimTab2 from './src/screens/Bottomtabs/AnimTab2';
+import Change_password1 from './src/screens/Auth/Change_password1';
+import Forgetpassword_EnterEmail from './src/screens/Auth/Forgetpassword1';
+import Back_arrow from './src/components/Back_arrow';
+import ServicesOil from './src/screens/Home/ServicesOil.js'
 
 const App = () => {
 
@@ -20,9 +23,11 @@ const App = () => {
   return (
     <>
 
-      {/* <Location_of_user /> */}
-      {/* <Home_page/> */}
-      {/* <Types_oil /> */}
+      {/* <Forgetpassword_EnterEmail/> */}
+      {/* <Change_password1/> */}
+      <ServicesOil />
+      {/* <Home_page /> */}
+
       {/* <NavigationContainer>
         <AnimTab2 />
       </NavigationContainer> */}

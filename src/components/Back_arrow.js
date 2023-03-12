@@ -1,10 +1,7 @@
-import React, { useState } from 'react'
-
-
-import { Text, View, StatusBar, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native'
+import {  View, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native'
 import { RFPercentage } from "react-native-responsive-fontsize";
-import { COLORS, FONT, icons, Sizes } from '../constants/index';
-
+import { COLORS, Sizes } from '../constants/index';
+import BackarrowSVG from "../../src/assets/Icons/right-arrow-icon.svg"
 
 
 const Back_arrow = () => {
@@ -16,7 +13,7 @@ const Back_arrow = () => {
 
             <View style={styles.View_of_touchableopacity }>
                 <TouchableOpacity onPress={()=>alert("ghgg")} style={[ styles.shadowProp ,styles.button_touchableopacity]} >
-                    <Image source={icons.Back_right_arrow} style={styles.back_Icon} />
+                    <BackarrowSVG  style={styles.back_Icon} height ={25}  fill = {COLORS.gray_mid} />
                 </TouchableOpacity>
             </View>
 
@@ -28,10 +25,6 @@ const styles = StyleSheet.create({
     back_Icon:
     {
         tintColor: COLORS.gray_mid,
-        height: RFPercentage(2.5),
-        width: Sizes.width * .06,
-
-
     },
     button_touchableopacity:
     {

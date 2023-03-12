@@ -30,20 +30,6 @@ const Location_of_user = () => {
 
           </View>
 
-          <View>
-            <View style={{ flexDirection: "row", margin: RFPercentage(2), justifyContent: "space-between" }}>
-              <View style={{ flexDirection: "row", justifyContent: "flex-start" }}>
-                <Image source={icons.Back_right_arrow} style={{ width: 20, height: 20, marginLeft: 20 }} />
-                <Text>المنزل</Text>
-                <Text>الرئيسي</Text>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <Image source={icons.Back_right_arrow} style={{ width: 20, height: 20 }} />
-                <Text style={ styles.style_text }>تعديل</Text>
-              </View>
-            </View>
-          </View>
-
 
         </View>
 

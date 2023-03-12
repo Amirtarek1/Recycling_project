@@ -14,6 +14,19 @@ export const LoginSchema = Yup.object().shape({
 
 
 
+export const ForgetPasswordEmailSchema = Yup.object().shape({
+  email: Yup.string().trim().min(8, 'برجاء ادخال بريد الكتروني صحيح').required('برجاء ادخال بريد الكتروني ').matches(EmailReg, 'برجاء ادخال بريد الكتروني صحيح'),
+});
+
+
+export const Change_passwordSchema = Yup.object().shape({
+  oldpassword:  Yup.string().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref("password") , null] , "كلمة المرور القديمة خاطئة"),
+  newpassword: Yup.string().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف'),
+  confirmPassword: Yup.string().required('برجاء تاكيد كلمة المرور').min(8,'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref('newpassword'), null], 'كلمة المرور غير متطابقة')
+    
+});
+
+
 
 export const SignupSchema = Yup.object().shape({
     

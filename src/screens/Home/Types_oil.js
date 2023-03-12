@@ -6,8 +6,9 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import {  Typeoil } from '../../Utils/DummyData';
 import { Dimensions } from "react-native"
 import Back_arrow from '../../components/Back_arrow';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
+// cart.svg
+import Cart from "../../../src/assets/Icons/cart.svg"
 
 const Types_oil = () => {
     const h = Dimensions.get("screen").height
@@ -28,7 +29,7 @@ const Types_oil = () => {
                                     <Image source={item.image}
                                         style={styles.style_image_in_touchableopacity} />
                                     <Text style={styles.style_text_in_touchableopacity}>{item.name}</Text>
-                                    <Text style={styles.style_text_in_touchableopacit_pointsnumber}>النقط :{item.number_points}</Text>
+                                    <Text style={styles.style_text_in_touchableopacit_pointsnumber}>النقط : {item.number_points}</Text>
                                     <TouchableOpacity style={{
                                         width: w * 0.4,
                                         alignItems: "center",
@@ -70,8 +71,8 @@ const Types_oil = () => {
                             }}>أنواع الزيوت</Text>
                         </View>
 
-                        <View>
-                        <FontAwesome5  name="shopping-cart" size = {27} color={COLORS.white} />
+                        <View style = {{ width : RFPercentage(5) , alignItems :"center"}}>
+                        <Cart height = {40} fill = "#fff" />
 
                         </View>
 

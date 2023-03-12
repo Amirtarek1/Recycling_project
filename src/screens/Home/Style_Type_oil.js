@@ -60,13 +60,13 @@ export const styles = StyleSheet.create({
     }, style_text_in_touchableopacity: {
         fontFamily: FONT.font_Almarai_Regular,
         fontSize: 20,
-         marginTop : RFPercentage(2),
+         marginTop : RFPercentage(1),
         color: COLORS.green_mid
 
     }, style_text_in_touchableopacit_pointsnumber: {
         fontFamily: FONT.font_Almarai_ExtraBold,
         fontSize: 17,
-        marginTop : RFPercentage(1.5),
+        marginVertical : RFPercentage(1.2),
         color: COLORS.black
 
     }, style_text_in_touchableopacity_toadd_to_cart: {
