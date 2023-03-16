@@ -1,5 +1,10 @@
 import { Dimensions } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
+import {
+    widthPercentageToDP as wp
+    , heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
+
 const { width, height } = Dimensions.get('window');
 const COLORS = {
 
@@ -11,16 +16,16 @@ const COLORS = {
     green: "#619902",
 
     background_confirm_page: "#FEEDB5BA",
-
+    min_button: "#FEE181",
     gray_light: "#00000029",
     gray_mid: "#635B5B",
     gray_dark: "#707070",
-    bodrer_color : "#7070703A",
+    bodrer_color: "#7070703A",
     gray_ofwhite: "#949292",
     text_color: "#AAAAAA",
     text_input_border: '#0000001F',
 
-    
+
     black_mid: "#000000D6",
     black_light: "#000000DE",
     eye_color: "#00000099",
@@ -60,5 +65,7 @@ const Sizes = {
 export {
     COLORS,
     FONT,
-    Sizes
+    Sizes,
+    hp,
+    wp
 }

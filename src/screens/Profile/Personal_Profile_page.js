@@ -44,12 +44,12 @@ const Personal_Profile_page = (props) => {
 
                     <View style={{
                         flexDirection: "row",
-                        padding: RFPercentage(2),
+                        paddingHorizontal: RFPercentage(2),
                         alignItems: "center",
                         backgroundColor: COLORS.white
                     }}>
                         <User_image />
-                        <View style={{ margin: RFPercentage(3) }}>
+                        <View style={{ margin: RFPercentage(2) }}>
                             <Text style={styles.style_name_withphoto}>الاء عبد الرازق محمود</Text>
                             <Text style={styles.style_email_withphoto}>nadaaboelkheir@gmail.com</Text>
                         </View>
@@ -78,8 +78,10 @@ const Personal_Profile_page = (props) => {
 
                     </View>
 
-                    <View style={{ marginTop: RFPercentage(5) }}>
-                        <View style={{ marginLeft: RFPercentage(4) }}>
+                    <View style={{ marginTop: RFPercentage(4) , paddingHorizontal : RFPercentage(4) ,
+                        paddingBottom : RFPercentage(4)   }}>
+
+                        <View style={{ marginTop :RFPercentage(2) }}>
                             <Text style={styles.name_title} >الاسم</Text>
                             <Text style={styles.input_name_title}>الاء عبد الرازق محمود</Text>
                             <View style={styles.view_line}></View>
@@ -88,7 +90,7 @@ const Personal_Profile_page = (props) => {
 
 
 
-                        <View style={{ marginLeft: RFPercentage(4), marginTop: RFPercentage(3) }}>
+                        <View style={{marginTop :RFPercentage(2)}}>
                             <Text style={styles.name_title}>البريد الالكتروني</Text>
                             <Text style={styles.input_name_title}>nadaaboelkheir@gmail.com</Text>
                             <View style={styles.view_line}></View>
@@ -96,7 +98,7 @@ const Personal_Profile_page = (props) => {
 
 
 
-                        <View style={{ marginLeft: RFPercentage(4), marginTop: RFPercentage(3), }}>
+                        <View style={{marginTop :RFPercentage(2) }}>
                             <Text style={styles.name_title}>رقم الهاتف</Text>
                             <Text style={styles.input_name_title}>32149028</Text>
                             <View style={styles.view_line}></View>
@@ -106,7 +108,7 @@ const Personal_Profile_page = (props) => {
 
                 </View>
 
-                <View style = {{marginTop : RFPercentage(4)}}>
+                <View style = {{padding : RFPercentage(5)}}>
                     <Large_button button_name="حذف الحساب" />
                 </View>
             </ScrollView>

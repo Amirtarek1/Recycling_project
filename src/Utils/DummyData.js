@@ -19,7 +19,7 @@ const categories =
             // navi: 'ss'
         },
         {
-            name: "جدول المواعيد",
+            name: "شارك و اربح",
             image: images.share_and_win,
             // navi: 'ss'
         },
@@ -29,35 +29,6 @@ const categories =
 
 
 
-const Typeoil =
-
-    [
-        {
-            name: "زيت طعام 1 كيلو",
-            image: images.type_oil,
-            number_points: 10
-            // navi: 'History_profile'
-        },
-        {
-            name: "زيت طعام 5 كيلو",
-            image: images.food_oil,
-            number_points: 50
-            // navi: 'WriteProblem' tables.png
-        },
-        {
-            name: "زيت عربيات 1 كيلو",
-            image: images.cars_oils,
-            number_points: 20
-            // navi: 'ss'
-        },
-        {
-            name: "زيت عربيات 5 كيلو",
-            image: images.cars_oil_for_3K,
-            number_points: 100
-            // navi: 'ss'
-        },
-
-    ]
 
 
 const Types_services =
@@ -91,9 +62,49 @@ const Types_services =
     ]
 
 
+    
+    const Oils = 
+
+        [
+            {
+                id: 1,
+                name: "زيت طعام 1 كيلو",
+                image: images.type_oil,
+                number_points: 10,
+                initial: 0
+                // navi: 'History_profile'
+            },
+            {
+                id: 2,
+                name: "زيت طعام 5 كيلو",
+                image: images.food_oil,
+                number_points: 50,
+                initial: 0
+                // navi: 'WriteProblem' tables.png
+            },
+            {
+                id: 3,
+                name: "زيت عربيات 1 كيلو",
+                image: images.cars_oils,
+                number_points: 20,
+                initial: 0
+                // navi: 'ss'
+            },
+            {
+                id: 4,
+                name: "زيت عربيات 5 كيلو",
+                image: images.cars_oil_for_3K,
+                number_points: 100,
+                initial: 0
+                // navi: 'ss'
+            },
+
+        ]
+
+
 export {
     categories,
-    Typeoil,
-    Types_services
+    Types_services,
+    Oils
 
 }

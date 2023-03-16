@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
         backgroundColor: COLORS.green_mid,
     },
     white_container: {
+        alignItems :"center",
         flex: 0.84,
         backgroundColor: COLORS.white,
         borderTopEndRadius: RFPercentage(8),
@@ -47,11 +48,13 @@ export const styles = StyleSheet.create({
         , width: RFPercentage(4)
         , height: RFPercentage(4),
     }, text_with_checkbox: {
-        justifyContent: "center",
+        width : Sizes.width * 0.8,
+        // backgroundColor :"#00d",
+        // justifyContent: "center",
         alignSelf: "center",
-        textAlign: "center",
+        textAlign: "left",
         fontFamily: FONT.font_Almarai_Regular,
-        fontSize: 14
+        fontSize: RFPercentage(1.6)
     }, view_text_to_check_for_login: {
         margin: RFPercentage(2),
         width: Sizes.width * .85,
@@ -63,7 +66,7 @@ export const styles = StyleSheet.create({
     {
         tintColor: COLORS.white,
         height: RFPercentage(3.6),
-        width: Sizes.width * 0.062,
+    //    width: Sizes.width * 0.062,
         alignSelf: "center"
 
 
