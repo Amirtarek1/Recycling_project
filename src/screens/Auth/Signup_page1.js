@@ -111,7 +111,7 @@ const Signup_page1 = (props) => {
                         <View
                             style={styles.view_text_and_checkbox}>
                             <TouchableOpacity style={styles.touchablopacity_checkbox_style} >
-                                <Image source={icons.checkbox_icon} style={styles.checkbox_Icon} />
+                                {/* <Image source={icons.checkbox_icon} style={styles.checkbox_Icon} /> */}
                             </TouchableOpacity>
 
 

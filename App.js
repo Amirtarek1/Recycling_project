@@ -36,7 +36,7 @@ import AnimTab2 from './src/screens/Bottomtabs/AnimTab2';
 import Change_password1 from './src/screens/Auth/Change_password1';
 import Forgetpassword_EnterEmail from './src/screens/Auth/Forgetpassword1';
 import Back_arrow from './src/components/Back_arrow';
-import ServicesOil from './src/screens/Home/ServicesOil.js'
+
 
 const App = () => {
 
@@ -61,12 +61,14 @@ const App = () => {
       {/* <User_image/> */}
       {/* <Personal_Profile_page/> */}
 
+      <Types_oil />
+      {/* <Home_page/> */}
       {/* <Forgetpassword_EnterEmail/> */}
       {/* <Change_password1/> */}
-      <ServicesOil />
+      {/* <ServicesOil /> */}
       {/* <Home_page /> */}
 
-      {/* <NavigationContainer>
+      {/*   <NavigationContainer>
         <AnimTab2 />
       </NavigationContainer> */}
 

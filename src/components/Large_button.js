@@ -33,21 +33,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
      justifyContent: "center", 
     alignSelf: "center",
-    marginTop :RFPercentage(2)
+  
   
   },
   Container_TouchableOpacity: {
-    borderRadius: 12 ,
+    borderRadius: RFPercentage(1.8),
     alignItems: "center",
     justifyContent: "center",
     width: Sizes.width * .9 ,
-    height: RFPercentage(10),
+    height: Sizes.height *0.09,
     backgroundColor: COLORS.green_mid ,
   },
   Text_style: {
     fontFamily: FONT.font_Almarai_Bold,
     color: COLORS.white,
-    fontSize: 28 ,
+    fontSize: RFPercentage(3.5) ,
     alignItems: "center",
     
 

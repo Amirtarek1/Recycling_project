@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
         alignSelf: "center"
     }, style_text_in_touchableopacity: {
         fontFamily: FONT.font_Almarai_Bold,
-        fontSize: 20,
+        fontSize: RFPercentage(2.3),
         //  marginVertical: RFPercentage(1),
         color: COLORS.green_mid
 
