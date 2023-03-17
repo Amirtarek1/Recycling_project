@@ -1,4 +1,3 @@
-
 import { Text, View } from 'react-native';
 import { COLORS } from './src/constants/index';
 import Login_page  from "./src/screens/Auth/Login_page"
@@ -21,6 +20,24 @@ import User_image from "./src/components/User_image"
 import Address_pag from './src/screens/Profile/ِAddress_page';
 import Add_address from './src/screens/Profile/Add_address';
 import Request_car from './src/screens/Profile/Request_car';
+
+import Home_page from './src/screens/Home/Home_page';
+import Types_oil from './src/screens/Home/Types_oil';
+import Personal_Profile_page from './src/screens/Profile/Personal_Profile_page';
+{/****
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import AnimTab2 from './src/screens/Bottomtabs/AnimTab2';
+// import Testpage1 from './src/Test_pages/Testpage1';***/}
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import AnimTab2 from './src/screens/Bottomtabs/AnimTab2';
+import Change_password1 from './src/screens/Auth/Change_password1';
+import Forgetpassword_EnterEmail from './src/screens/Auth/Forgetpassword1';
+import Back_arrow from './src/components/Back_arrow';
+import ServicesOil from './src/screens/Home/ServicesOil.js'
+
 const App = () => {
 
 
@@ -28,7 +45,7 @@ const App = () => {
     <>
     {/* <Add_address/> */}
 {/* <Address_pag/> */}
-<Request_car/>
+{/* <Request_car/> */}
 {/* <Profile_list/> */}
 {/* <Signup_page1/> */}
 
@@ -43,6 +60,16 @@ const App = () => {
       {/* <Confirm_page_forget_password/> */}
       {/* <User_image/> */}
       {/* <Personal_Profile_page/> */}
+
+      {/* <Forgetpassword_EnterEmail/> */}
+      {/* <Change_password1/> */}
+      <ServicesOil />
+      {/* <Home_page /> */}
+
+      {/* <NavigationContainer>
+        <AnimTab2 />
+      </NavigationContainer> */}
+
     </>
   )
 
@@ -50,3 +77,5 @@ const App = () => {
 }
 
 export default App
+
+

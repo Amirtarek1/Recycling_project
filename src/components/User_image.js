@@ -38,10 +38,5 @@ const User_image = () => {
         </>
     )
 }
-const styles = StyleSheet.create({
-
-
-
-})
 
 export default User_image;

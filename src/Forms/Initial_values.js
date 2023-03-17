@@ -4,6 +4,10 @@ export const login_initial_values = {
   };
 
 
+  export const Forgetpassword_initial_values = {
+    email: '',
+  };
+
 
 
   export const Sign_up_initial_values = {
@@ -13,3 +17,12 @@ export const login_initial_values = {
    password : "",
    confirmPassword : ""
   };
+
+
+
+  
+  export const Change_password_initial_values = {
+    oldpassword : "",
+    newpassword :"",
+    confirmPassword :"",
+   };

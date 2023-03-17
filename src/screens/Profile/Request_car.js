@@ -57,6 +57,7 @@ alignItems:"center"
    borderTopRightRadius:5
    ,width:"90%"
    , flex:0.8}}>
+    
 {/* <Text>dadad</Text> */}
 
 </View>
