@@ -1,14 +1,10 @@
 import {useState} from "react"
-import INPUTtext_password from '../../components/INPUTtext_password';
 import { ScrollView, StatusBar, StyleSheet, Image,Text, View ,TouchableOpacity } from 'react-native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, icons, images, Sizes } from '../../constants';
 import Back_arrow from '../../components/Back_arrow';
 import User_image from '../../components/User_image'
 import INputbutton from '../../components/INputbutton';
-import CheckBox from '@react-native-community/checkbox';
-import Large_button from "../../components/Large_button";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 const Profile_data_page = () => {
 const [toggleCheckBox, setToggleCheckBox] = useState(false)
 

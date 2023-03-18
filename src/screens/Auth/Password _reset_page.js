@@ -28,6 +28,7 @@ const [value, setValue] = useState('');
         <>
 
 <StatusBar hidden={true}/>
+<ScrollView>
 <View style={{
     flex : 1,
     width:Sizes.width,
@@ -113,6 +114,7 @@ justifyContent:"space-around",
 </View>
 
 </View>
+</ScrollView>
 
         </>
     )
@@ -144,7 +146,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: COLORS.white,
         fontFamily: FONT.defult_font,
-        marginLeft: RFPercentage(6)
+        marginLeft: RFPercentage(6),
+        marginBottom:RFPercentage(4)
     },
     view_arrow_and_text_style: {
         flexDirection: "row",
