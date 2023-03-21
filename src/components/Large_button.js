@@ -12,6 +12,7 @@ const Large_button = ({Confirm_press ,button_name }) => {
 
 
       <View style={styles.view_Container_TouchableOpacity}>
+
         <TouchableOpacity onPress={Confirm_press} style={styles.Container_TouchableOpacity}>
           <Text style={styles.Text_style}>{button_name}</Text>
         </TouchableOpacity>

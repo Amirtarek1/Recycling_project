@@ -1,7 +1,7 @@
-
 import { ScrollView, Image, TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, icons, Sizes } from '../../src/constants/themes';
+// import SVGICONE from "../../src/assets/Icons/user.svg"
 import SVGICONE from "../../src/assets/Icons/try_svg.svg"
 
 const Testpage1 = () => {
