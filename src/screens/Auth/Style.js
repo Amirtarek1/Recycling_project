@@ -1,9 +1,10 @@
 import { COLORS, FONT, icons, Sizes } from '../../constants';
 
-import { StyleSheet } from 'react-native';
-import { RFPercentage } from 'react-native-responsive-fontsize';
+import { StyleSheet , Dimensions} from 'react-native';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
-
+const h = Dimensions.get("screen").height
+const w = Dimensions.get("screen").width
 
 export const styles = StyleSheet.create({
     Basic_container: {
@@ -38,7 +39,7 @@ export const styles = StyleSheet.create({
         margin: RFPercentage(2),
         marginTop: RFPercentage(4)
     }, view_text_and_checkbox: {
-        marginTop: RFPercentage(1.5),
+        marginVertical: RFPercentage(2),
         width: Sizes.width * .9,
         alignSelf: "center",
         flexDirection: "row",
@@ -54,7 +55,7 @@ export const styles = StyleSheet.create({
         alignSelf: "center",
         textAlign: "left",
         fontFamily: FONT.font_Almarai_Regular,
-        fontSize: RFPercentage(1.6)
+        fontSize: RFValue(17,h)
     }, view_text_to_check_for_login: {
         margin: RFPercentage(2),
         width: Sizes.width * .85,

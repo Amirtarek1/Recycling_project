@@ -14,6 +14,13 @@ const Money_exchange = require("../assets/Images/money_exchange.png")
 const Donations_exchange =  require("../assets/Images/Donations_exchange.png")
 const Products_exchange =  require("../assets/Images/Products_exchange.png")
 const Sale_exchange =  require("../assets/Images/sale_exchange.png")
+const magdi_yacoub_foundation_logo = require("../assets/Images/magdi_yacoub_logo.png")
+const Masr_elkhar_foundation_logo = require("../assets/Images/Masr_elkhar.png")
+const Resala_foundation_logo = require("../assets/Images/Resala.png")
+const Elorman_foundation_logo = require("../assets/Images/Elorman.png")
+const Bank_elt3am_foundation_logo = require("../assets/Images/Bank_elt3am.png")
+const Ahlmasr_foundation_logo = require("../assets/Images/Ahlmasr.png")
+
 
 
 export default {
@@ -30,5 +37,11 @@ export default {
     Money_exchange,
     Donations_exchange,
     Products_exchange,
-    Sale_exchange
+    Sale_exchange,
+    magdi_yacoub_foundation_logo,
+    Masr_elkhar_foundation_logo,
+    Resala_foundation_logo,
+    Elorman_foundation_logo,
+    Bank_elt3am_foundation_logo,
+    Ahlmasr_foundation_logo
 }

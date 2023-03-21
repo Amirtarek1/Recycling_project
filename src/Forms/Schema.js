@@ -13,6 +13,10 @@ export const LoginSchema = Yup.object().shape({
 });
 
 
+export const pointstodonate = Yup.object().shape({
+  number : Yup.string().trim().required("برجاء ادخال عدد النقط"),
+});
+
 
 export const ForgetPasswordEmailSchema = Yup.object().shape({
   email: Yup.string().trim().min(8, 'برجاء ادخال بريد الكتروني صحيح').required('برجاء ادخال بريد الكتروني ').matches(EmailReg, 'برجاء ادخال بريد الكتروني صحيح'),

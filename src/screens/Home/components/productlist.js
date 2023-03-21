@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { Image, Dimensions, TouchableOpacity, Text, View, FlatList } from 'react-native';
 import { styles } from '../Style_Type_oil';
 import { COLORS, } from '../../../constants';
 import { RFPercentage, } from 'react-native-responsive-fontsize';
-import { Oils } from '../../../Utils/DummyData';
 
 const Firstflatlist = ({setnumber, data, setdata}) => {
 

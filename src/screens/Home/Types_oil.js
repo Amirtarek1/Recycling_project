@@ -3,7 +3,6 @@ import { Image, ScrollView, TouchableOpacity, Text, View, FlatList } from 'react
 import { styles } from './Style_Type_oil';
 import { COLORS, FONT, images } from '../../constants';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
-import { Dimensions } from "react-native"
 import Back_arrow from '../../components/Back_arrow';
 import Cart from "../../../src/assets/Icons/cart.svg"
 import Large_button from '../../components/Large_button';
@@ -16,8 +15,6 @@ import { Oils } from '../../Utils/DummyData';
 
 
 const Types_oil = () => {
-    const h = Dimensions.get("screen").height
-    const w = Dimensions.get("screen").width
     const [number , setnumber] = useState(0)
     const [data, setdata] = useState(Oils)
    
