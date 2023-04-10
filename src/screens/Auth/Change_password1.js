@@ -9,10 +9,11 @@ import { useFormik } from 'formik';
 import { Change_passwordSchema } from '../../Forms/Schema';
 import { Change_password_initial_values } from '../../Forms/Initial_values';
 import { styles } from '../Auth/Style_Change_password';
-
+import { useNavigation } from '@react-navigation/native';
 
 const Change_password1 = () => {
 
+    // const navigation = useNavigation();
     const { handleChange, handleSubmit, values, errors, touched } =
         useFormik({
             validationSchema: Change_passwordSchema,
@@ -32,28 +33,28 @@ const Change_password1 = () => {
 
 
 
-                <View style={[styles.view_arrow_and_text_style ]}>
-                    
+                <View style={[styles.view_arrow_and_text_style]}>
+{/* onPress={()=> navigation.goBack()}  */}
                     <Back_arrow />
                     <View>
-                <Text style={[styles.text_Bold_style, {textAlign :"center" }]}>تغيير كلمه المرور</Text>
-
-
+                        <Text style={[styles.text_Bold_style ]}>تغيير كلمه المرور</Text>
                     </View>
 
 
                 </View>
+
+
                 <View style={{
-                    alignItems: "center", margin: RFPercentage(2),
+                    alignItems: "center", margin: RFPercentage(1),
                     marginTop: RFPercentage(6)
                 }}>
                     <Text style={{
-                        fontSize: 20,
+                        fontSize: RFPercentage(3),
                         color: COLORS.gray_mid,
                         fontFamily: FONT.font_Almarai_Bold,
                     }}>يجب ان تكون كلمة مرورك الجديده مختلفه</Text>
                     <Text style={{
-                        fontSize: 20,
+                        fontSize: RFPercentage(3),
                         color: COLORS.gray_mid,
                         fontFamily: FONT.font_Almarai_Bold,
                     }}>عن كلمه مرورك الحاليه</Text>
@@ -94,10 +95,9 @@ const Change_password1 = () => {
 
 
                 </View>
-
-                {/* </View> */}
-                <View style={{ marginTop: RFPercentage(5) }}>
-                    <Large_button button_name="تأكيد" Confirm_press={() => handleSubmit()} />
+                <View style={{ marginTop: RFPercentage(10) }}>
+                    {/* navigation.navigate('Home') */}
+                    <Large_button button_name="تأكيد" Confirm_press={() => {} } />
                 </View>
 
             </ScrollView>

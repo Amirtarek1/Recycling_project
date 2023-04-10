@@ -6,22 +6,27 @@ const categories =
         {
             name: "أنواع الزيوت",
             image: images.type_oil,
-            // navi: 'History_profile'
+            navi: 'Types_oil'
         },
         {
             name: "الخدمات المقابله",
             image: images.another_service,
-            // navi: 'WriteProblem' tables.png
+            navi: 'ServicesOil'
         },
         {
             name: "جدول المواعيد",
             image: images.tables,
-            // navi: 'ss'
+            navi: 'TimeTablePage'
         },
         {
             name: "شارك و اربح",
             image: images.share_and_win,
             // navi: 'ss'
+        },
+        {
+            name: "أخري",
+            image: images.another,
+            // navi: alert("SOON")
         },
 
     ]
@@ -37,25 +42,25 @@ const Types_services =
         {
             name: "فلوس",
             image: images.Money_exchange,
-            number_points: 10
+            number_points: 10,
             // navi: 'History_profile'
         },
         {
             name: "تبرعات",
             image: images.Donations_exchange,
-            number_points: 50
-            // navi: 'WriteProblem' tables.png
+            number_points: 50,
+            navi: 'Voluntary'
         },
         {
             name: "منتجات",
             image: images.Products_exchange,
-            number_points: 20
+            number_points: 20,
             // navi: 'ss'
         },
         {
-            name: "كوبونات خصم",
+            name: "كوبون خصم",
             image: images.Sale_exchange,
-            number_points: 100
+            number_points: 100,
             // navi: 'ss'
         },
 
@@ -107,48 +112,48 @@ const Voluntary_dataset =
 
     [
         {
-            name: "مؤسسه مجدي بعقوب",
+            name: "مؤسسه مجدي يعقوب",
             image: images.magdi_yacoub_foundation_logo,
             number_points: 10,
             date: "10/2/2023",
             // navi: 'History_profile'
         },
         {
-            name: "مؤسسه مجدي بعقوب",
+            name: "مؤسسه مجدي يعقوب",
             image: images.magdi_yacoub_foundation_logo,
             number_points: 50,
             date: "10/2/2023",
             // navi: 'WriteProblem' tables.png
         },
         {
-            name: "مؤسسه مجدي بعقوب",
+            name: "مؤسسه مجدي يعقوب",
             image: images.magdi_yacoub_foundation_logo,
             number_points: 20,
             date: "10/2/2023",
             // navi: 'ss'
         },
         {
-            name: "مؤسسه مجدي بعقوب",
+            name: "مؤسسه مجدي يعقوب",
             image: images.magdi_yacoub_foundation_logo,
             number_points: 100,
             date: "10/2/2023",
             // navi: 'ss'
         }, {
-            name: "مؤسسه مجدي بعقوب",
+            name: "مؤسسه مجدي يعقوب",
             image: images.magdi_yacoub_foundation_logo,
             number_points: 10,
             date: "10/2/2023",
             // navi: 'History_profile'
         },
         {
-            name: "مؤسسه مجدي بعقوب",
+            name: "مؤسسه مجدي يعقوب",
             image: images.magdi_yacoub_foundation_logo,
             number_points: 50,
             date: "10/2/2023",
             // navi: 'WriteProblem' tables.png
         },
         {
-            name: "وب",
+            name: "مؤسسه مجدي يعقوب",
             image: images.magdi_yacoub_foundation_logo,
             number_points: 20,
             date: "10/2/2023",
@@ -159,7 +164,7 @@ const Voluntary_dataset =
     ]
 
 
-    const Share_The_Good_Dataset =
+const Share_The_Good_Dataset =
 
     [
         {
@@ -167,56 +172,56 @@ const Voluntary_dataset =
             image: images.magdi_yacoub_foundation_logo,
             number_points: 1000,
             about: "مؤسسه خيريه",
-            // navi: 'History_profile'
+            navi: 'FoundationPage'
         },
         {
             name: "بنك الطعام المصري",
             image: images.Bank_elt3am_foundation_logo,
             number_points: 1050,
             date: "مؤسسه خيريه",
-            // navi: 'WriteProblem' tables.png
+            navi: 'FoundationPage'
         },
         {
             name: "بنك الطعام المصري",
             image: images.Bank_elt3am_foundation_logo,
             number_points: 20,
             date: "مؤسسه خيريه",
-            // navi: 'ss'
+            navi: 'FoundationPage'
         },
         {
             name: "جمعية الاورمان",
             image: images.Elorman_foundation_logo,
             number_points: 100,
             date: "مؤسسه خيريه",
-            // navi: 'ss'
-        }, 
-         {
+            navi: 'FoundationPage'
+        },
+        {
             name: "مصر الخير",
             image: images.Masr_elkhar_foundation_logo,
             number_points: 1000,
             about: "مؤسسه خيريه",
-            // navi: 'History_profile'
+            navi: 'FoundationPage'
         },
         {
             name: "جمعية رسالة",
             image: images.Resala_foundation_logo,
             number_points: 1050,
             date: "مؤسسه خيريه",
-            // navi: 'WriteProblem' tables.png
+            navi: 'FoundationPage'
         },
         {
             name: "بنك الطعام المصري",
             image: images.Bank_elt3am_foundation_logo,
             number_points: 20,
             date: "مؤسسه خيريه",
-            // navi: 'ss'
+            navi: 'FoundationPage'
         },
         {
             name: "جمعية الاورمان",
             image: images.Elorman_foundation_logo,
             number_points: 100,
             date: "مؤسسه خيريه",
-            // navi: 'ss'
+            navi: 'FoundationPage'
         },
 
 
@@ -225,10 +230,83 @@ const Voluntary_dataset =
 
 
 
+const ProfilePagedata =
+    [
+        {
+            id: 1,
+            text_content: "معلومات الحساب",
+            icone: "user-circle",
+            navi: 'Personal_Profile_page'
+        },
+        {
+            id: 2,
+            text_content: "تغيير كلمة السر",
+            icone: "expeditedssl",
+            navi: 'Change_password1'
+        },
+        {
+            id: 3,
+            text_content: "العناوين",
+            icone: "location-arrow",
+            navi: 'Address_page'
+        },
+        {
+            id: 4,
+            text_content: "قائمة الطلبات",
+            icone: "shopping-bag",
+            // navi: 'ss'
+        },
+        {
+            id: 5,
+            text_content: "تغيير اللغة",
+            icone: "language",
+            navi: 'Choose_language_page'
+        },
+        {
+            id: 6,
+            text_content: "الشكاوي والإقتراحات",
+            icone: "question-circle",
+            navi: 'Suggests'
+        },
+        {
+            id: 7,
+            text_content: "الشروط والأحكام",
+            icone: "info-circle",
+            // navi: 'ss'
+        }
+    ]
+
+
+const Days = [
+    {
+        day: "السبت"
+    },
+    {
+        day: "الاحد"
+    },
+    {
+        day: "الاثنين"
+    },
+    {
+        day: "الثلاثاء"
+    },
+    {
+        day: "الاربعاء"
+    },
+    {
+        day: "الخميس"
+    },
+    {
+        day: "الجمعة"
+    }
+]
+
 export {
     categories,
     Types_services,
     Oils,
     Voluntary_dataset,
-    Share_The_Good_Dataset
+    Share_The_Good_Dataset,
+    ProfilePagedata,
+    Days
 }

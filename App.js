@@ -1,22 +1,25 @@
 
 
+import { NavigationContainer } from '@react-navigation/native';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import AnimTab2 from './src/screens/Bottomtabs/AnimTab2';
 
-import FoundationPage from "./src/screens/voluntary/FoundationPage";
+import { MainNavigation } from './src/navigations/MainNavigator';
 
-import Donate from "./src/screens/voluntary/Donate";
-import Voluntary_Archive from "./src/screens/voluntary/Voluntary_Archive";
-import ShareTheGoodPage from "./src/screens/voluntary/ShareTheGoodPage";
 
 const App = () => {
 
 
   return (
     <>
-      <ShareTheGoodPage />
-      {/* <FoundationPage/> */}
-      {/* <Voluntary_Archive /> */}
-      {/* <FoundationPage /> */}
-      {/* <Donate /> */}
+      <NavigationContainer> 
+      <MainNavigation />
+      {/* <ProfileStack /> */}
+
+      </NavigationContainer>
+
+
+
     </>
   )
 
@@ -24,5 +27,3 @@ const App = () => {
 }
 
 export default App;
-
-

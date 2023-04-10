@@ -1,5 +1,5 @@
 
-import { ScrollView, Image, TouchableOpacity,FlatList, StyleSheet, Text, View, StatusBar } from 'react-native';
+import { ScrollView, Image, TouchableOpacity, FlatList, StyleSheet, Text, View, StatusBar } from 'react-native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, icons, Sizes } from '../../constants';
 import Large_button from '../../components/Large_button';
@@ -11,174 +11,177 @@ import { SignupSchema } from "../../Forms/Schema";
 import { Sign_up_initial_values } from '../../Forms/Initial_values';
 import SvgLocation from "../../assets/Icons/user.svg"
 import { TextInput } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Add_address = (props) => {
-const label_data_list=
-[
-{
-label :"الاسم",
-label_content : "ألاء محمد عبدالرازق"     
-},
-{
-label :"العنوان",
-label_content : "طنطا شارع الحلو المتفرع من حسن رضوان - طنطا - الغربية"
-}
-,
-{
-    label :"رقم الهاتف",
-    label_content : "+201017699452"
-}
-]
-   
+    const label_data_list =
+        [
+            {
+                label: "الاسم",
+                label_content: "ألاء محمد عبدالرازق"
+            },
+            {
+                label: "العنوان",
+                label_content: "طنطا شارع الحلو المتفرع من حسن رضوان - طنطا - الغربية"
+            }
+            ,
+            {
+                label: "رقم الهاتف",
+                label_content: "+201017699452"
+            }
+        ]
+
     return (
         <>
 
-<StatusBar hidden = {true}/>
-            <ScrollView style={{ backgroundColor: COLORS.white ,padding :RFPercentage(2) }}>
-<View style={{flex:1 , backgroundColor:COLORS.white}}>
- 
-<View style={{flex:1 , backgroundColor:COLORS.white}}>
-    <View style={{width : Sizes.width*.6,flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
-<Back_arrow/>
-<Text style={{fontFamily:FONT.font_Almarai_Bold,color:COLORS.black,fontSize:20}}>تفاصيل العنوان</Text>
+            {/* <StatusBar hidden={true} /> */}
+            <ScrollView >
+                <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white, padding: RFPercentage(2) }}>
 
-    </View>
-    <Text style={{
-        marginTop:RFPercentage(2),
-        fontSize:18,
-        fontFamily:FONT.font_Almarai_Bold , 
-        color : COLORS.gray_mid
-            }}>معلومات الموقع</Text>
-         <View style={{width:Sizes.width*0.4,marginTop:RFPercentage(2)}}>
-          <Text style={{
-            fontFamily:FONT.font_Almarai_Bold,
-            color:COLORS.black,
-            fontSize:16,
+                    <View style={{ flex: 1, backgroundColor: COLORS.white }}>
+                        <View style={{ width: Sizes.width * .6, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                            <Back_arrow />
+                            <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(3) }}>تفاصيل العنوان</Text>
 
-            }} numberOfLines={1}>طنطا - الغربية</Text> 
-            </View> 
-            <View style={{
-                flexDirection:"row",
-                // justifyContent : "space-between",
-                alignItems:"center"
-                }}>
-<TextInput 
-// contentStyle={{tec}}
-// onChangeText={(value)=>{"dada"}}
-style ={{
-    width:Sizes.width *0.95,
-    backgroundColor:"#fff",
-    borderBottomWidth:0.1,
-    borderColor:COLORS.gray_light
-    }}
-     placeholder="dadadadaa">
+                        </View>
+                        <Text style={{
+                            marginTop: RFPercentage(2),
+                            fontSize: RFPercentage(2.5),
+                            fontFamily: FONT.font_Almarai_Bold,
+                            color: COLORS.gray_mid
+                        }}>معلومات الموقع</Text>
+                        <View style={{ width: Sizes.width * 0.4, marginTop: RFPercentage(2) }}>
+                            <Text style={{
+                                fontFamily: FONT.font_Almarai_Bold,
+                                color: COLORS.black,
+                                fontSize: RFPercentage(2.5),
 
-</TextInput>
-<TouchableOpacity>
-<Text style={{
-    left:RFPercentage(-10),
-    fontFamily:FONT.font_Almarai_Regular,
-    color:COLORS.green_mid,
-    fontSize:18
-    }}  >تعديل
-    </Text>
-    </TouchableOpacity>
-    </View>
+                            }} numberOfLines={1}>طنطا - الغربية</Text>
+                        </View>
+                        <View style={{
+                            flexDirection: "row",
+                            alignItems: "center"
+                        }}>
+                            <TextInput
+                              
+                                style={{
+                                    width: Sizes.width * 0.95,
+                                    backgroundColor: "#fff",
+                                    borderBottomWidth: 0.1,
+                                    borderColor: COLORS.gray_light,
+                                    fontFamily : FONT.font_Almarai_Bold,
+                                    fontSize : RFPercentage(2.5),
 
-          
-            </View> 
-            <Text style={{
-            marginTop:RFPercentage(3),
-            fontFamily:FONT.font_Almarai_Bold,
-            color:COLORS.gray_mid,
-            fontSize:16,
-
-            }} numberOfLines={1}>تفاصيل العنوان الإضافية</Text> 
-<TextInput 
-// contentStyle={{tec}}
-// onChangeText={(value)=>{"dada"}}
-style ={{
-width:Sizes.width *0.95,
-backgroundColor:"#fff",
-borderBottomWidth:0.1,
-borderColor:COLORS.gray_light 
-}} 
-placeholderTextColor={COLORS.black}
-    placeholder="dadadadaa">
-
-</TextInput>
+                                }}
+                                
+                                placeholder="العنوان">
+                            </TextInput>
+                            <TouchableOpacity>
+                                <Text style={{
+                                    left: RFPercentage(-10),
+                                    fontFamily: FONT.font_Almarai_Regular,
+                                    color: COLORS.green_mid,
+                                    fontSize: RFPercentage(2.5),
+                                }}  >تعديل
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
 
 
-<Text style={{
-            marginTop:RFPercentage(3),
-            fontFamily:FONT.font_Almarai_Bold,
-            color:COLORS.gray_mid,
-            fontSize:16,
+                    </View>
+                    <Text style={{
+                        marginTop: RFPercentage(3),
+                        fontFamily: FONT.font_Almarai_Bold,
+                        color: COLORS.gray_mid,
+                        fontSize: RFPercentage(2.4),
 
-            }} numberOfLines={1}>معلوماتك الشخصية</Text>
+                    }} numberOfLines={1}>تفاصيل العنوان الإضافية</Text>
+                    <TextInput
+                        // contentStyle={{tec}}
+                        // onChangeText={(value)=>{"dada"}}
+                        style={{
+                            width: Sizes.width * 0.95,
+                            backgroundColor: "#fff",
+                            borderBottomWidth: 0.1,
+                            borderColor: COLORS.gray_light
+                        }}
+                        placeholderTextColor={COLORS.black}
+                        placeholder="تفاصيل العنوان الاضافية">
 
-<Text style={{
-            marginTop:RFPercentage(3),
-            fontFamily:FONT.font_Almarai_Bold,
-            color:COLORS.gray_light,
-            fontSize:14,
+                    </TextInput>
 
-            }} numberOfLines={1}>رقم الموبايل</Text> 
-<TextInput 
-// contentStyle={{tec}}
-// onChangeText={(value)=>{"dada"}}
-style ={{
-width:Sizes.width *0.95,
-backgroundColor:"#fff",
-borderBottomWidth:0.1,
-borderColor:COLORS.gray_light 
-}} 
-placeholderTextColor={COLORS.black}
-    placeholder="dadadadaa">
 
-</TextInput>
-<Text style={{
-            marginTop:RFPercentage(3),
-            fontFamily:FONT.font_Almarai_Bold,
-            color:COLORS.gray_light,
-            fontSize:14,
+                    <Text style={{
+                        marginTop: RFPercentage(3),
+                        fontFamily: FONT.font_Almarai_Bold,
+                        color: COLORS.gray_mid,
+                        fontSize: RFPercentage(2.5),
 
-            }} numberOfLines={1}>الاسم الأول</Text> 
-<TextInput 
-// contentStyle={{tec}}
-// onChangeText={(value)=>{"dada"}}
-style ={{
-width:Sizes.width *0.95,
-backgroundColor:"#fff",
-borderBottomWidth:0.1,
-borderColor:COLORS.gray_light 
-}} 
-placeholderTextColor={COLORS.black}
-    placeholder="dadadadaa">
+                    }} numberOfLines={1}>معلوماتك الشخصية</Text>
 
-</TextInput><Text style={{
-            marginTop:RFPercentage(3),
-            fontFamily:FONT.font_Almarai_Bold,
-            color:COLORS.gray_light,
-            fontSize:14,
+                    <Text style={{
+                        marginTop: RFPercentage(3),
+                        fontFamily: FONT.font_Almarai_Bold,
+                        color: COLORS.gray_light,
+                        fontSize: RFPercentage(2.5),
 
-            }} numberOfLines={1}>اسم العائلة</Text> 
-<TextInput 
-// contentStyle={{tec}}
-// onChangeText={(value)=>{"dada"}}
-style ={{
-width:Sizes.width *0.95,
-backgroundColor:"#fff",
-borderBottomWidth:0.1,
-borderColor:COLORS.gray_light ,
-marginBottom :RFPercentage(4)
-}} 
-placeholderTextColor={COLORS.black}
-    placeholder="dadadadaa">
+                    }} numberOfLines={1}>رقم الموبيل</Text>
+                    <TextInput
+                        // contentStyle={{tec}}
+                        // onChangeText={(value)=>{"dada"}}
+                        style={{
+                            width: Sizes.width * 0.95,
+                            backgroundColor: "#fff",
+                            borderBottomWidth: 0.1,
+                            borderColor: COLORS.gray_light,
+                            fontFamily: FONT.font_Almarai_Bold,
+                        }}
+                        placeholderTextColor={COLORS.black}
+                        placeholder= "رقم الموبيل " >
 
-</TextInput>
-<Large_button button_name = "حفظ العناوين"/>
-</View>
+                    </TextInput>
+                    <Text style={{
+                        marginTop: RFPercentage(3),
+                        fontFamily: FONT.font_Almarai_Bold,
+                        color: COLORS.gray_light,
+                        fontSize: RFPercentage(2.5),
+
+                    }} numberOfLines={1}>الاسم الأول</Text>
+                    <TextInput
+                        // contentStyle={{tec}}
+                        // onChangeText={(value)=>{"dada"}}
+                        style={{
+                            width: Sizes.width * 0.95,
+                            backgroundColor: "#fff",
+                            borderBottomWidth: 0.1,
+                            borderColor: COLORS.gray_light
+                        }}
+                        placeholderTextColor={COLORS.black}
+                        placeholder="الاسم الاول">
+
+                    </TextInput><Text style={{
+                        marginTop: RFPercentage(3),
+                        fontFamily: FONT.font_Almarai_Bold,
+                        color: COLORS.gray_light,
+                        fontSize: RFPercentage(2.5),
+
+                    }} numberOfLines={1}>اسم العائلة</Text>
+                    <TextInput
+                        // contentStyle={{tec}}
+                        // onChangeText={(value)=>{"dada"}}
+                        style={{
+                            width: Sizes.width * 0.95,
+                            backgroundColor: "#fff",
+                            borderBottomWidth: 0.1,
+                            borderColor: COLORS.gray_light,
+                            marginBottom: RFPercentage(4)
+                        }}
+                        placeholderTextColor={COLORS.black}
+                        placeholder="اسم العائلة">
+
+                    </TextInput>
+                    <Large_button button_name="حفظ العناوين" />
+                </SafeAreaView>
 
             </ScrollView>
         </>

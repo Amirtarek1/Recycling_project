@@ -1,6 +1,10 @@
 import { COLORS, FONT, icons, Sizes } from '../../constants';
 import { StyleSheet } from 'react-native';
-import { RFPercentage } from 'react-native-responsive-fontsize';
+import { RFPercentage, RFValue  } from 'react-native-responsive-fontsize';
+import { Dimensions } from "react-native";
+
+const h = Dimensions.get("screen").height
+const w = Dimensions.get("screen").width
 
 
 export const styles = StyleSheet.create({
@@ -11,12 +15,10 @@ export const styles = StyleSheet.create({
 
     }, green_container: {
         flex: 0.16,
-      
     },
     white_container: {
         flex: 0.84,
-        alignItems: "center",
-        justifyContent: "center",
+        // alignItems: "center",
         backgroundColor: COLORS.white,
         borderTopEndRadius: RFPercentage(8),
         borderTopStartRadius: RFPercentage(8)
@@ -31,6 +33,7 @@ export const styles = StyleSheet.create({
         fontFamily: FONT.font_Almarai_Regular,
         marginLeft: RFPercentage(3)
     },
+
     view_arrow_and_text_style: {
         flexDirection: "row",
         // justifyContent: "space-between",

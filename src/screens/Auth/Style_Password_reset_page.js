@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
         borderTopStartRadius: RFPercentage(8)
     }, text_Bold_style: {
         fontSize: RFPercentage(3),
+        // fontWeight: "700",
         color: COLORS.white,
         fontFamily: FONT.font_Almarai_Bold,
         marginLeft: RFPercentage(3)

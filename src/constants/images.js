@@ -3,7 +3,7 @@
 // const forget_password = require('../assets/Images/forgetpasswordimage.jpeg')
 const google = require('../assets/Images/google.png')
 const facebook = require('../assets/Images/facebook.png')
-const verification = require('../assets/Images/verification.jpg')
+const Otp = require('../assets/Images/Otp.png')
 const forget_password = require('../assets/Images/forgetpasswordimage.png')
 const confirm_photo_page =  require("../assets/Images/confirm_page.png")
 const USER_PROFILE = require("../assets/Images/USER_PROFILE.png")
@@ -24,18 +24,17 @@ const Resala_foundation_logo = require("../assets/Images/Resala.png")
 const Elorman_foundation_logo = require("../assets/Images/Elorman.png")
 const Bank_elt3am_foundation_logo = require("../assets/Images/Bank_elt3am.png")
 const Ahlmasr_foundation_logo = require("../assets/Images/Ahlmasr.png")
-
-
+const Resetpassword = require("../assets/Images/Resetpassword.png")
+const another = require("../assets/Images/another.png")
 
 export default {
     forget_password,
     google,
     facebook,
-    verification,
+    Otp,
     forget_password,
     confirm_photo_page,
-
-
+    Resetpassword,
     USER_PROFILE,
     type_oil,
     another_service,
@@ -53,5 +52,6 @@ export default {
     Resala_foundation_logo,
     Elorman_foundation_logo,
     Bank_elt3am_foundation_logo,
-    Ahlmasr_foundation_logo
+    Ahlmasr_foundation_logo,
+    another
 }

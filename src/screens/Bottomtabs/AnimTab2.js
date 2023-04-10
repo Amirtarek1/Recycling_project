@@ -7,19 +7,22 @@ import * as Animatable from 'react-native-animatable';
 import Styles from './Styles';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { Dimensions } from "react-native"
-import Signup_page1 from '../Auth/Change_password1';
 import Forgetpassword1 from '../Auth/Forgetpassword1';
 import Home_page from '../Home/Home_page';
 import { COLORS, FONT } from '../../constants';
 import Testpage1 from '../../Test_pages/Testpage1';
+import { HomeStack } from '../../navigations/HomeStack';
+import VoluntaryStack from '../../navigations/VoluntaryStack';
+import ProfileStack from '../../navigations/ProfileStack';
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
+
 const TabArr = [
-  { route: 'الرئيسية', label: 'الرئيسية', type: Icons.Feather, icon: 'home', component: Signup_page1 },
-  { route: 'shop', label: 'shop', type: Icons.Feather, icon: 'briefcase', component: Forgetpassword1 },
-  { route: 'Like', label: 'Like', type: Icons.Feather, icon: 'clock', component: Testpage1 },
-  { route: 'الملف الشخصي', label: 'الملف الشخصي', type: Icons.FontAwesome, icon: 'user-circle-o', component: Home_page },
+  { route: 'الرئيسية', label: 'الرئيسية', type: Icons.Feather, icon: 'home', component: HomeStack },
+  { route: 'كوبونات', label: 'كوبونات', type: Icons.Foundation, icon: 'dollar-bill', component: VoluntaryStack },
+  { route: 'طلباتي', label: 'طلباتي', type: Icons.FontAwesome5, icon: 'shopping-bag', component: VoluntaryStack },
+  { route: 'الملف الشخصي', label: 'الملف الشخصي', type: Icons.FontAwesome, icon: 'user-circle-o', component: ProfileStack },
 ];
 
 const Tab = createBottomTabNavigator();
@@ -50,6 +53,7 @@ const TabButton = (props) => {
   }, [focused])
 
   return (
+
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={1}
@@ -71,12 +75,14 @@ const TabButton = (props) => {
         </Animatable.Text>
       </Animatable.View>
     </TouchableOpacity>
+
   )
 }
 
-export default function AnimTab2() {
+ function AnimTab2() {
   return (
     <Tab.Navigator
+    initialRouteName='Home_page'
       screenOptions={{
         headerShown: false,
         tabBarStyle: styles.tabBar,
@@ -128,9 +134,11 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   text: {
-    fontSize: 11,
+    fontSize: RFPercentage(1.7),
     fontFamily : FONT.font_Almarai_ExtraBold ,
     textAlign: 'center',
     color: COLORS.green_mid,
   }
 })
+
+export default AnimTab2;

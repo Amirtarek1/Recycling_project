@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-
-
-import { Text, View, StatusBar, TouchableOpacity, StyleSheet, Image } from 'react-native'
+import { View, Image } from 'react-native'
 import { RFPercentage } from "react-native-responsive-fontsize";
-import { COLORS, FONT, icons, images, Sizes } from '../constants/index';
+import { COLORS, images } from '../constants/index';
 
 // USER_PROFILE.png
 

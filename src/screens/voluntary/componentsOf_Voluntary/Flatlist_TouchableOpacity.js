@@ -1,6 +1,6 @@
 
 import { Image, Dimensions, TouchableOpacity, Text, View, FlatList } from 'react-native';
-import { RFValue } from 'react-native-responsive-fontsize';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { COLORS, FONT } from '../../../constants';
 import { hp } from '../../../constants/themes';
 import { styles } from '../Style_Voluntary_Archive';
@@ -29,9 +29,9 @@ const FlatlistTouchableOpacity = ({data}) => {
                                 style={{ width: w * 0.26, height: h * 0.1, alignSelf: "center" }} />
 
                             <View style={{ justifyContent: 'space-between', marginLeft: 10, }}>
-                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(18, h) }}>{item.name}</Text>
-                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(18, h) }}>التاريخ: <Text style={{ fontFamily: FONT.font_Almarai_Regular, color: COLORS.gray_dark, fontSize: RFValue(18, h) }}>{item.date}</Text></Text>
-                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize: RFValue(18, h) }}>نقطة {item.number_points}</Text>
+                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.8) }}>{item.name}</Text>
+                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.5) }}>التاريخ: <Text style={{ fontFamily: FONT.font_Almarai_Regular, color: COLORS.gray_dark, fontSize: RFPercentage(2)}}>{item.date}</Text></Text>
+                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize: RFPercentage(2.5) }}>نقطة {item.number_points}</Text>
                             </View>
                         </TouchableOpacity>
 

@@ -5,13 +5,15 @@ import { Dimensions } from "react-native";
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT } from '../../constants';
 import Back_arrow from '../../components/Back_arrow';
+import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
 
 const ServicesOil = () => {
-   
+    const navigation = useNavigation();
 
     const FirstFlatList = () => {
         return (
@@ -23,7 +25,7 @@ const ServicesOil = () => {
                     numColumns={2}
                     renderItem={({ item }) =>
                         <>
-                            <TouchableOpacity style={[styles.shadowProp, styles.style_touchableopacity_categories]} >
+                            <TouchableOpacity  onPress={() => navigation.replace(item.navi)} style={[styles.shadowProp, styles.style_touchableopacity_categories]} >
                                 <View style={{ alignItems: "center" }}>
                                     <Image source={item.image}
                                         style={styles.style_image_in_touchableopacity} />
@@ -44,7 +46,7 @@ const ServicesOil = () => {
 
 
 
-            <View style={styles.Basic_container}>
+            <SafeAreaView style={styles.Basic_container}>
             
                
 
@@ -71,7 +73,7 @@ const ServicesOil = () => {
 
 
 
-                </View>
+                </SafeAreaView>
 
            
 
@@ -114,7 +116,6 @@ const styles = StyleSheet.create({
         
         backgroundColor: COLORS.green_light,
         width: w * 0.44,
-        // height: h * 0.36,
         borderRadius: RFPercentage(2),
         alignItems: "center",
         marginVertical: h * 0.005,
@@ -124,10 +125,10 @@ const styles = StyleSheet.create({
         padding: RFPercentage(2)
     }, style_image_in_touchableopacity: {
         width: w * 0.33,
-        height: h * 0.15,
+        height: w * 0.33,
     }, style_text_in_touchableopacity: {
         fontFamily: FONT.font_Almarai_Regular,
-        fontSize: 20,
+        fontSize: RFPercentage(3),
          marginTop : RFPercentage(1),
         color: COLORS.green_mid
 

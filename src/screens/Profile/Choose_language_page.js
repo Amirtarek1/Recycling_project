@@ -1,17 +1,22 @@
 
 import * as React from 'react';
-import { ScrollView, Image, TouchableOpacity, StyleSheet, Text, View, StatusBar } from 'react-native';
+import { ScrollView,Dimensions ,Image, TouchableOpacity, StyleSheet, Text, View, StatusBar } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, icons, Sizes } from '../../constants';
 import Back_arrow from '../../components/Back_arrow';
 import Large_button from '../../components/Large_button';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 // import { RadioButton } from 'react-native-paper';
+const w = Dimensions.get("screen").width
+
 
 const Choose_language_page = (props) => {
-
-    const [checked, setChecked] = React.useState('اللغه العربيه');
-
+    const navigation = useNavigation();
+    const [checked, setChecked] = React.useState(arabic);
+    const arabic = "اللغه العربيه"
+    const english = "اللغه الانجليزيه"
 
     return (
         <>
@@ -19,39 +24,42 @@ const Choose_language_page = (props) => {
 
             <ScrollView style={{ backgroundColor: COLORS.white }}>
 
-                <View style={styles.Basic_container}>
+                <SafeAreaView style={styles.Basic_container}>
 
                     <View style={styles.view_arrow_and_text_style}>
 
-                        <Back_arrow />
+                    <Back_arrow onPress={() => navigation.goBack()} />
 
-                        <View style={{
-                            alignSelf: "center", justifyContent: "center",
-                            alignItems: "center"
-                        }}>
+                        
+                        <View>
                             <Text style={styles.text_title_name}>اختار اللغه</Text>
                         </View>
+                      
 
                     </View>
 
-                    {["اللغه العربيه", "اللغه الانجليزيه"].map((choose , index ) =>
-                        <TouchableOpacity key={choose} onPress={() => setChecked(choose)} 
-                        style={[styles.touchableopacity_style , {borderColor:  checked == "اللغه العربيه" ? COLORS.green_mid : COLORS.gray_light } ]}>
+                    {[arabic, english].map((choose, index) =>
+                        <TouchableOpacity key={choose} onPress={() => setChecked(choose)}
+                            style={[styles.touchableopacity_style,
+                            { borderColor: checked == "اللغه العربيه" ? COLORS.green_mid : COLORS.gray_light }]}>
                             <View style={styles.view_outter}>
                                 {checked === choose && <View style={styles.view_inner} ></View>}
                             </View>
 
                             <Text style={{
+                                fontSize: RFPercentage(3), fontFamily: FONT.font_Almarai_Bold,
                                 textAlign: "center", justifyContent: "center",
                                 alignSelf: "center", marginLeft: RFPercentage(5)
-                            }}>{choose}</Text>
+                            }}>{choose}
+                            </Text>
 
-                        </TouchableOpacity> )}
+                        </TouchableOpacity>
+                    )}
 
                     <View style={{ marginTop: RFPercentage(4) }}>
                         <Large_button button_name="تأكيد" />
                     </View>
-                </View>
+                </SafeAreaView>
 
 
             </ScrollView>
@@ -63,14 +71,15 @@ const Choose_language_page = (props) => {
 const styles = StyleSheet.create({
     Basic_container: {
         flex: 1,
+        alignContent: "center",
         backgroundColor: COLORS.white,
     }, text_title_name: {
         fontFamily: FONT.font_Almarai_ExtraBold,
         color: COLORS.black,
-        fontSize: 20,
+        fontSize: RFPercentage(3.5),
         textAlign: "center",
         justifyContent: "center",
-        width: Sizes.width * 0.85,
+        width: w * 0.85,
     },
     view_arrow_and_text_style: {
         flexDirection: "row",
