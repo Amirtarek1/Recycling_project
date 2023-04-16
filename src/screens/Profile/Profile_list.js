@@ -33,14 +33,14 @@ const Profile_list = () => {
                 backgroundColor: COLORS.white
             }}>
                 <View style={{
-                    width: Sizes.width * 0.85, flexDirection: "row", justifyContent: "space-around",
+                    width: Sizes.width * 0.9, flexDirection: "row", justifyContent: "space-around",
                     alignItems: "center", paddingVertical: RFPercentage(2)
                 }}>
                     <User_image />
 
-                    <View style={{ justifyContent: "space-around" }}>
-                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFPercentage(2.5) }}>الاء محمد عبد الرازق</Text>
-                        <Text style={{ fontFamily: FONT.font_Almarai_Light, fontSize: RFPercentage(2.5) }}>nadaaboelkheir@gmail.com  </Text>
+                    <View style={{ justifyContent: "space-around"  , marginLeft : RFPercentage(2) }}>
+                        <Text style={{ fontFamily: FONT.font_Almarai_Bold,color : COLORS.black, fontSize: RFPercentage(2.5) }}>الاء محمد عبد الرازق</Text>
+                        <Text style={{ fontFamily: FONT.font_Almarai_Light, color : COLORS.black ,fontSize: RFPercentage(2.5) }}>nadaaboelkheir@gmail.com  </Text>
                     </View>
 
                 </View>
@@ -81,7 +81,7 @@ const Profile_list = () => {
                     )}
                 />
                   <TouchableOpacity
-                    onPress={() => navigation.navigate("Tologin")}
+                    onPress={() => navigation.replace("Auth")}
                     style={{
                         // backgroundColor :"#00d",
                         flexDirection: "row",

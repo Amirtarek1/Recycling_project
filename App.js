@@ -1,10 +1,9 @@
 
 
 import { NavigationContainer } from '@react-navigation/native';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import AnimTab2 from './src/screens/Bottomtabs/AnimTab2';
-
 import { MainNavigation } from './src/navigations/MainNavigator';
+import CompleteOrders from './src/screens/Profile/CompleteOrders';
+import All_orders from './src/screens/Profile/All_orders';
 
 
 const App = () => {
@@ -12,14 +11,10 @@ const App = () => {
 
   return (
     <>
-      <NavigationContainer> 
-      <MainNavigation />
-      {/* <ProfileStack /> */}
-
+      <NavigationContainer>
+        <All_orders/>
       </NavigationContainer>
-
-
-
+     
     </>
   )
 

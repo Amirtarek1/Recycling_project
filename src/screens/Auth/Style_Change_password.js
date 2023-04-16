@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         fontSize: RFPercentage(3.5),
         textAlign: "center",
         justifyContent: "center",
-        width: w * 0.85,
+        width: w * 0.8,
     },
     view_arrow_and_text_style: {
         flexDirection: "row",

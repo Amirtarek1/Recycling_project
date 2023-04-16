@@ -120,10 +120,8 @@ const Suggests = () => {
 
 
 
-                    <View style={{ marginTop: RFPercentage(10) }}>
                         {/* navigation.navigate('Home') */}
                         <Large_button button_name="ارسال" Confirm_press={() => { }} />
-                    </View>
 
                 </SafeAreaView>
 

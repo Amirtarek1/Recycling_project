@@ -13,6 +13,7 @@ import { styles } from './Style';
 import CheckBox from '@react-native-community/checkbox';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 

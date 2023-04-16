@@ -1,15 +1,9 @@
 
-import { ScrollView, Image, TouchableOpacity, FlatList, StyleSheet, Text, View, StatusBar } from 'react-native';
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
-import { COLORS, FONT, icons, Sizes } from '../../constants';
+import { ScrollView,TouchableOpacity , Text, View } from 'react-native';
+import { RFPercentage } from 'react-native-responsive-fontsize';
+import { COLORS, FONT, Sizes } from '../../constants';
 import Large_button from '../../components/Large_button';
 import Back_arrow from '../../components/Back_arrow';
-import INputbutton from '../../components/INputbutton';
-import INPUTtext_password from '../../components/INPUTtext_password';
-import { useFormik } from 'formik';
-import { SignupSchema } from "../../Forms/Schema";
-import { Sign_up_initial_values } from '../../Forms/Initial_values';
-import SvgLocation from "../../assets/Icons/user.svg"
 import { TextInput } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 

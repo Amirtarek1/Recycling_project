@@ -1,6 +1,6 @@
-
+import { useState } from 'react';
 import * as React from 'react';
-import { ScrollView,Dimensions ,Image, TouchableOpacity, StyleSheet, Text, View, StatusBar } from 'react-native';
+import { ScrollView, Dimensions, Image, TouchableOpacity, StyleSheet, Text, View, StatusBar } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, icons, Sizes } from '../../constants';
 import Back_arrow from '../../components/Back_arrow';
@@ -14,9 +14,20 @@ const w = Dimensions.get("screen").width
 
 const Choose_language_page = (props) => {
     const navigation = useNavigation();
-    const [checked, setChecked] = React.useState(arabic);
-    const arabic = "اللغه العربيه"
-    const english = "اللغه الانجليزيه"
+    const LANGUAGE_OPTIONS = [
+        { label: 'اللغة العربية', value: 'ar' },
+        { label: 'English', value: 'en' },
+    ];
+    const [selectedLanguage, setSelectedLanguage] = useState(null);
+    const [checked, setChecked] = useState(false);
+
+    const handleLanguagePress = (value) => {
+        setSelectedLanguage(value);
+        setChecked(!checked)
+    };
+
+
+
 
     return (
         <>
@@ -28,34 +39,37 @@ const Choose_language_page = (props) => {
 
                     <View style={styles.view_arrow_and_text_style}>
 
-                    <Back_arrow onPress={() => navigation.goBack()} />
+                        <Back_arrow onPress={() => navigation.goBack()} />
 
-                        
+
                         <View>
                             <Text style={styles.text_title_name}>اختار اللغه</Text>
                         </View>
-                      
+
 
                     </View>
 
-                    {[arabic, english].map((choose, index) =>
-                        <TouchableOpacity key={choose} onPress={() => setChecked(choose)}
-                            style={[styles.touchableopacity_style,
-                            { borderColor: checked == "اللغه العربيه" ? COLORS.green_mid : COLORS.gray_light }]}>
-                            <View style={styles.view_outter}>
-                                {checked === choose && <View style={styles.view_inner} ></View>}
-                            </View>
+                    <View style={styles.container}>
+                        {LANGUAGE_OPTIONS.map(({ label, value }) => (
+                            <TouchableOpacity
+                                key={value}
+                                onPress={() => handleLanguagePress(value) && setChecked(!checked)}
+                                style={[
+                                    styles.touchableopacity_style,
+                                    selectedLanguage === value && styles.selectedButton,
+                                ]}>
 
-                            <Text style={{
-                                fontSize: RFPercentage(3), fontFamily: FONT.font_Almarai_Bold,
-                                textAlign: "center", justifyContent: "center",
-                                alignSelf: "center", marginLeft: RFPercentage(5)
-                            }}>{choose}
-                            </Text>
+                                <View style={styles.view_outter}>
+                                    {checked === true ? <View style={styles.view_inner}></View> : null}
+                                </View>
 
-                        </TouchableOpacity>
-                    )}
+                                {/* <View style={styles.view_inner}></View> */}
+                                <Text style={styles.buttonText}>{label}</Text>
+                            </TouchableOpacity>
+                        ))}
 
+
+                    </View>
                     <View style={{ marginTop: RFPercentage(4) }}>
                         <Large_button button_name="تأكيد" />
                     </View>
@@ -94,15 +108,60 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: RFPercentage(1.5)
 
-    }, view_outter: {
-        backgroundColor: COLORS.white, width: 25, height: 25
-        , borderRadius: 15, borderWidth: 1, alignItems: "center",
-        justifyContent: "center"
-    }, view_inner: {
-        backgroundColor: COLORS.green_mid, alignSelf: "center",
-        justifyContent: "center", width: 16, height: 16
-        , borderRadius: 8
-    }
+    },
+    // view_outter: {
+    //     backgroundColor: COLORS.white, width: 25, height: 25
+    //     , borderRadius: 15, borderWidth: 1, alignItems: "center",
+    //     justifyContent: "center"
+    // }, 
+    // view_inner: {
+    //     backgroundColor: COLORS.green_mid, alignSelf: "center",
+    //     justifyContent: "center", width: 16, height: 16
+    //     , borderRadius: 8
+    // },
+    button: {
+        width: '80%',
+        height: RFPercentage(8),
+        backgroundColor: COLORS.gray_light,
+        borderRadius: RFPercentage(2),
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: RFPercentage(2),
+    },
+    selectedButton: {
+        backgroundColor: COLORS.green_mid,
+    },
+    buttonText: {
+        marginHorizontal: RFPercentage(2),
+        fontSize: RFPercentage(2.5),
+        fontFamily: FONT.font_Almarai_Regular,
+        color: COLORS.black,
+    },
+    disabledSubmitButton: {
+        backgroundColor: COLORS.gray_light,
+    },
+    submitButtonText: {
+        fontSize: RFPercentage(2.5),
+        fontFamily: FONT.font_Almarai_Bold,
+        color: COLORS.white,
+    },
+    view_outter: {
+        backgroundColor: '#ddd',
+        width: 25,
+        height: 25,
+        borderRadius: 15,
+        borderWidth: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    view_inner: {
+        backgroundColor: COLORS.green_mid,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        width: 15,
+        height: 15,
+        borderRadius: 8,
+    },
 })
 
 export default Choose_language_page;

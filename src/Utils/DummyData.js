@@ -21,7 +21,8 @@ const categories =
         {
             name: "شارك و اربح",
             image: images.share_and_win,
-            // navi: 'ss'
+            // navi: 'Share_page'
+            link: '' 
         },
         {
             name: "أخري",
@@ -301,6 +302,100 @@ const Days = [
     }
 ]
 
+
+
+const orders_Data = [
+    {
+        statues: "done",
+        orders_table: {
+            photo: images.type_oil,
+            order_id: "1",
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "15",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points : "300",
+            time_date_recive : "10/12/2023"
+
+        }
+
+    },
+    {
+        statues: "done",
+        orders_table: {
+            photo: images.cars_oils,
+            name_oil_order: "زيت طعام 3 كيلو",
+            order_id: "2",
+            amount_oil_order: "3",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points : "300",
+            time_date_recive : "10/12/2023"
+
+
+        }
+
+    },
+    {
+        statues: "done",
+        orders_table: {
+            photo: images.cars_oil_for_3K,
+            name_oil_order: "زيت طعام 3 كيلو",
+            order_id: "3",
+            amount_oil_order: "51",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points : "300",
+            time_date_recive : "10/12/2023"
+
+        }
+
+    },
+    {
+        statues: "Waiting",
+        orders_table: {
+            photo: images.type_oil,
+            name_oil_order: "زيت طعام 3 كيلو",
+            order_id: "4",
+            amount_oil_order: "52",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points : "300",
+            time_date_recive : "10/12/2023"
+        }
+
+    }, {
+        statues: "Waiting",
+        orders_table: {
+            photo: images.type_oil,
+            order_id: "5",
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "15",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points : "300",
+            time_date_recive : "10/12/2023"
+        }
+
+    },
+    {
+        statues: "done",
+        orders_table: {
+            photo: images.cars_oils,
+            name_oil_order: "زيت طعام 3 كيلو",
+            order_id: "6",
+            amount_oil_order: "3",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points : "300",
+            time_date_recive : "10/12/2023"
+
+        }
+
+    },
+]
+
+
 export {
     categories,
     Types_services,
@@ -308,5 +403,6 @@ export {
     Voluntary_dataset,
     Share_The_Good_Dataset,
     ProfilePagedata,
-    Days
+    Days,
+    orders_Data
 }

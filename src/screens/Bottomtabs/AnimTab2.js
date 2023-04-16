@@ -66,7 +66,7 @@ const TabButton = (props) => {
           <Animatable.View
             ref={circleRef}
             style={styles.circle} />
-          <Icon type={item.type} name={item.icon} size = {27} color={focused ? Colors.white : COLORS.gray_ofwhite} />
+          <Icon type={item.type} name={item.icon} size = {28} color={focused ? Colors.white : COLORS.gray_ofwhite} />
         </View>
         <Animatable.Text
           ref={textRef}
@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: "#00d",
   },
   tabBar: {
     height: h * 0.08,
@@ -117,10 +116,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   btn: {
+    backgroundColor: "#d0d",
     width: 50,
     height: 50,
     borderRadius: 25,
-    borderWidth: 4,
+    borderWidth: 3,
     borderColor: Colors.white,
     backgroundColor: Colors.white,
     justifyContent: 'center',
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   text: {
-    fontSize: RFPercentage(1.7),
+    fontSize: RFPercentage(1.4),
     fontFamily : FONT.font_Almarai_ExtraBold ,
     textAlign: 'center',
     color: COLORS.green_mid,

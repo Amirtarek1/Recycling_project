@@ -74,6 +74,7 @@ const ShareTheGoodPage = () => {
                           ,justifyContent :"space-between" }]}>
                         <TextInput
                             style={{
+                                color :COLORS.text_color,
                                 width: w * 0.75 ,
                                  padding : hp(1.5),
                                 fontSize:  RFPercentage(2.5),

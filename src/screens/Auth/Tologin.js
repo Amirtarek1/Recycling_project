@@ -59,7 +59,6 @@ const Tologin = () => {
 
                     </View>
 
-                    {/* white container */}
                     <View style={styles.white_container}>
 
                         <View style={{ padding: hp(5) }}>

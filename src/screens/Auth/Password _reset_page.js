@@ -45,7 +45,6 @@ const Password_reset_page = (props) => {
                     <View style={styles.green_container}>
 
                         <View style={styles.view_arrow_and_text_style}>
-                            {/*  navigation.goBack() */}
                             <Back_arrow onPress={() => navigation.goBack()} />
 
                             <View>
@@ -112,8 +111,6 @@ const Password_reset_page = (props) => {
 
                 </SafeAreaView>
                 <View style={{ marginVertical: RFPercentage(3) }}>
-                    {/* navigation.navigate("Confirm_page_forget_password")}  */}
-                    {/* handleSubmit() */}
                     <Large_button button_name="إرسال" Confirm_press={() => handleSubmit()} />
                 </View>
 

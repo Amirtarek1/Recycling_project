@@ -5,13 +5,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import {
     Add_address,
-    Address_page,
     Choose_language_page,
     Personal_Profile_page,
     Profile_data_page,
     Profile_list,
 
 } from '../screens/Profile/index_profile'
+
+import Address_page from '../screens/Profile/Address_page';
 
 import {
     Change_password1,

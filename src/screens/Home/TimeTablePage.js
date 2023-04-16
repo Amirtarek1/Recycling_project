@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { Days } from '../../Utils/DummyData';
 import DaysFLatlist from './components/DaysFlatlist';
 import { SafeAreaView } from 'react-native-safe-area-context';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
@@ -18,7 +18,7 @@ const TimeTablePage = (props) => {
 
     const [data, Setdata] = useState(Days)
 
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
 
     return (
         <>

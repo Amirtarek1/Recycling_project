@@ -6,18 +6,38 @@ import { categories } from '../../Utils/DummyData';
 import { Dimensions } from "react-native";
 import Notificationicon from "../../../src/assets/Icons/Notificationicon.svg";
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import { images } from '../../constants';
 import { COLORS, hp } from '../../constants/themes';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Alert } from 'react-native';
+import Share from 'react-native-share';
 
 const Home_page = () => {
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
     const navigation = useNavigation();
 
+    const handlePress = (item) => {
+        if (item.link) {
+            SHAre()
+        } else {
+            navigation.navigate(item.navi);
+        }
+    };
 
-
+    const SHAre = async () => {
+        try {
+            const options = {
+                title: 'React Native | A framework for building native apps using React',
+                url: 'https://reactnative.dev/',
+            };
+            await Share.open(options);
+        } catch (error) {
+            Alert.alert(error.message);
+        }
+    };
     const FirstFlatList = () => {
+
         return (
             <>
 
@@ -31,12 +51,12 @@ const Home_page = () => {
                                 alignItems: "center", marginBottom: 20, marginTop: 15,
                                 justifyContent: "space-around", width: w * 0.5
                             }}>
-                                <TouchableOpacity 
-                                onPress={() => navigation.navigate(item.navi)}
-                                style={{
-                                    backgroundColor: COLORS.green_light,
-                                    width: w * .45, borderRadius: RFPercentage(2), padding: hp(2)
-                                }}>
+                                <TouchableOpacity
+                                    onPress={() => handlePress(item) }
+                                    style={{
+                                        backgroundColor: COLORS.green_light,
+                                        width: w * .45, borderRadius: RFPercentage(2), padding: hp(2)
+                                    }}>
                                     <View style={{ alignItems: "center" }}>
                                         <Image source={item.image}
                                             style={styles.style_image_in_touchableopacity} />
@@ -45,11 +65,16 @@ const Home_page = () => {
                                 </TouchableOpacity>
                             </View>
                         </>
+
+
                     }
                 />
             </>
         )
     }
+
+
+
 
     return (
         <>
