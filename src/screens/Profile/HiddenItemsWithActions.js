@@ -19,13 +19,13 @@ const HiddenItemsWithActions = props => {
 
 
                     <>
-<TouchableOpacity style={[styles.shadowProp, ,
+<View style={[styles.shadowProp, ,
                      { backgroundColor: COLORS.green_light, alignSelf: "center", 
                      borderRadius: 10, margin: 10, padding: hp(2), width: w * 0.92,flex:1 ,height:"100%",
                          flexDirection: "row", alignItems: "center", justifyContent:"flex-start"}]}>
 <View   style={{flexDirection: "row",alignItems:"center",justifyContent:"center"}}>
 <TouchableOpacity style={{right :10}}
-style
+
               onPress={onDelete}
             >
               <DeleteSvg width={RFPercentage(7)}
@@ -42,7 +42,7 @@ style
 </View>
              
 
-</TouchableOpacity>
+</View>
 
 
                      

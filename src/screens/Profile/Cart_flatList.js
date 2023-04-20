@@ -28,7 +28,7 @@ const Cart_flatList = props => {
 
 
                     <>
-<TouchableOpacity style={[styles.shadowProp, ,
+<View style={[styles.shadowProp, ,
                      { backgroundColor: COLORS.white, alignSelf: "center", 
                      borderRadius: 10, margin: 10, padding: hp(2), width: w * 0.92, 
                      flexDirection: "row", alignItems: "center" ,justifyContent:"space-between"}]}>
@@ -150,7 +150,7 @@ right : RFPercentage(4),
 
 
 </View>
-</TouchableOpacity>
+</View>
 
 
                      
