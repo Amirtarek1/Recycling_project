@@ -18,6 +18,10 @@ export const login_initial_values = {
    confirmPassword : ""
   };
 
+  
+  export const PointstoDonate_initial_values = {
+   number :""
+   };
 
 
   

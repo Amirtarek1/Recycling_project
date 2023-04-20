@@ -14,7 +14,7 @@ const COLORS = {
     green_light: "#EDF7EA",
     green_mid: "#7DBB69",
     green: "#619902",
-
+yellow_light :"#FEC300",
     background_confirm_page: "#FEEDB5BA",
     min_button: "#FEE181",
     gray_light: "#00000029",

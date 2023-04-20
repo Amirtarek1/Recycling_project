@@ -1,7 +1,7 @@
 import {  View, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native'
 import { RFPercentage } from "react-native-responsive-fontsize";
 import { COLORS, Sizes } from '../constants/index';
-import BackarrowSVG from "../../src/assets/Icons/right-arrow-icon.svg"
+import BackarrowSVG from "../../src/assets/Icons/arrow.svg"
 import { hp, wp } from '../constants/themes';
 
 
@@ -14,7 +14,7 @@ const Back_arrow = ({onPress}) => {
 
            
                 <TouchableOpacity style={[ styles.shadowProp ,styles.button_touchableopacity]} >
-                    <BackarrowSVG  onPress={onPress} height ={45}    />
+                    <BackarrowSVG  onPress={onPress} height ={30}   />
                 </TouchableOpacity>
      
 
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         backgroundColor: COLORS.white,
         height: hp(4) ,
-        width: wp(8),
+        width: wp(7.5),
         borderRadius: RFPercentage(4)
 
     }, shadowProp: {  

@@ -36,7 +36,7 @@ const Choose_language_page = (props) => {
 
                     {["اللغه العربيه", "اللغه الانجليزيه"].map((choose , index ) =>
                         <TouchableOpacity key={choose} onPress={() => setChecked(choose)} 
-                        style={[styles.touchableopacity_style , {borderColor:  checked == "اللغه العربيه" ? "#00d" : "#0dd" } ]}>
+                        style={[styles.touchableopacity_style , {borderColor:  checked == "اللغه العربيه" ? COLORS.green_mid : COLORS.gray_light } ]}>
                             <View style={styles.view_outter}>
                                 {checked === choose && <View style={styles.view_inner} ></View>}
                             </View>

@@ -1,5 +1,4 @@
 import {useState} from "react"
-import INPUTtext_password from '../../components/INPUTtext_password';
 import { ScrollView, SafeAreaView,StatusBar, StyleSheet, Image,Text, View ,TouchableOpacity } from 'react-native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import {

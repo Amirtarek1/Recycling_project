@@ -11,7 +11,7 @@ const Confirm_page_forget_password = () => {
         <>
 
 
-            <View style={{ flex: 1, alignItems: "center", backgroundColor: COLORS.background_confirm_page }}>
+            <View style={{ flex: 1, alignItems: "center", backgroundColor: COLORS.white }}>
                 <Image source={images.confirm_photo_page}
                     style={{ width: Sizes.width * .9, height: Sizes.height * .5, margin: RFPercentage(2) }} />
 
