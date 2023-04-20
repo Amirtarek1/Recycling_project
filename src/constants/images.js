@@ -3,7 +3,7 @@
 // const forget_password = require('../assets/Images/forgetpasswordimage.jpeg')
 const google = require('../assets/Images/google.png')
 const facebook = require('../assets/Images/facebook.png')
-const verification = require('../assets/Images/verification.jpg')
+const Otp = require('../assets/Images/Otp.png')
 const forget_password = require('../assets/Images/forgetpasswordimage.png')
 const confirm_photo_page =  require("../assets/Images/confirm_page.png")
 const USER_PROFILE = require("../assets/Images/USER_PROFILE.png")
@@ -24,21 +24,30 @@ const Resala_foundation_logo = require("../assets/Images/Resala.png")
 const Elorman_foundation_logo = require("../assets/Images/Elorman.png")
 const Bank_elt3am_foundation_logo = require("../assets/Images/Bank_elt3am.png")
 const Ahlmasr_foundation_logo = require("../assets/Images/Ahlmasr.png")
+<<<<<<< HEAD
 const Vodafone_logo = require("../assets/Images/vodafone.png")
 const Money_logo = require("../assets/Images/money_logo.png")
 const Save_planet = require("../assets/Images/save_planet.png")
 const Splash_3 = require("../assets/Images/splash_3.png")
 const Splash_4 = require("../assets/Images/splash_4.png")
+=======
+const Resetpassword = require("../assets/Images/Resetpassword.png")
+const another = require("../assets/Images/another.png")
+>>>>>>> dbd4ffa7735f9ad701847168c5619a6e68c39098
 
 export default {
     forget_password,
     google,
     facebook,
-    verification,
+    Otp,
     forget_password,
     confirm_photo_page,
+<<<<<<< HEAD
 Vodafone_logo,
 Money_logo,
+=======
+    Resetpassword,
+>>>>>>> dbd4ffa7735f9ad701847168c5619a6e68c39098
     USER_PROFILE,
     type_oil,
     another_service,
@@ -57,7 +66,11 @@ Money_logo,
     Elorman_foundation_logo,
     Bank_elt3am_foundation_logo,
     Ahlmasr_foundation_logo,
+<<<<<<< HEAD
     Save_planet,
     Splash_3,
     Splash_4
+=======
+    another
+>>>>>>> dbd4ffa7735f9ad701847168c5619a6e68c39098
 }

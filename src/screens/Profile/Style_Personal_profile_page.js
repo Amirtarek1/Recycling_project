@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
         borderRadius: RFPercentage(1.5),
     }
     , style_text_in_box_ofpoints: {
-        fontSize: 27,
+        fontSize:RFPercentage(4),
         fontFamily: FONT.font_Almarai_Bold,
         color: COLORS.green_mid,
         marginHorizontal: RFPercentage(1),

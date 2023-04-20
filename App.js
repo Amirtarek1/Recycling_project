@@ -22,11 +22,7 @@ const App = () => {
     {/* <Archives/> */}
     {/* <Intro_slider/> */}
     <Request_car/>
-     
-    </>
-  )
-
-
+  </>
+  );
 }
-
 export default App;

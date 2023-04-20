@@ -11,6 +11,7 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import Foundation from 'react-native-vector-icons/Foundation';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
 export const Icons = {
     MaterialCommunityIcons,
@@ -27,13 +28,13 @@ export const Icons = {
     EvilIcons,
 }
 
-const Icon = ({ type, name, color, size = 24, style }) => {
-    const fontSize = 24;
+const Icon = ({ type, name, color, size = RFPercentage(2), style }) => {
+    const fontSize = 20;
     const Tag = type;
     return (
         <>
             {type && name && (
-                <Tag name={name} size={size || fontSize} color={color} style={style} />
+                <Tag name={name} size={size} color={color} style={style} />
             )}
         </>
     )

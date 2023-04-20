@@ -4,18 +4,16 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, icons, Sizes } from '../../constants';
 import Large_button from '../../components/Large_button';
 import User_image from '../../components/User_image';
-import INputbutton from '../../components/INputbutton';
-import INPUTtext_password from '../../components/INPUTtext_password';
-import { useFormik } from 'formik';
-import { SignupSchema } from "../../Forms/Schema";
-import { Sign_up_initial_values } from '../../Forms/Initial_values';
 import { styles } from './Style_Personal_profile_page';
 import Back_arrow from '../../components/Back_arrow';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 
 
 const Personal_Profile_page = (props) => {
 
+    const navigation = useNavigation();
 
 
     return (
@@ -24,18 +22,18 @@ const Personal_Profile_page = (props) => {
 
             <ScrollView style={{ backgroundColor: COLORS.white }}>
 
-                <View style={styles.Basic_container}>
+                <SafeAreaView style={styles.Basic_container}>
 
                     <View style={styles.view_arrow_and_text_style}>
 
-                        <Back_arrow />
+                        <Back_arrow onPress={() => navigation.goBack()} />
 
                         <View>
                             <Text style={styles.text_title_name}>الملف الشخصي</Text>
                         </View>
 
                         <View>
-                            <Text onPress={() => alert("hhhhh")}
+                            <Text onPress={() => navigation.navigate("Profile_data_page")}
                                 style={styles.text_edit_button}>تعديل</Text>
                         </View>
 
@@ -106,11 +104,9 @@ const Personal_Profile_page = (props) => {
 
                     </View>
 
-                </View>
+                </SafeAreaView>
 
-                <View style = {{padding : RFPercentage(5)}}>
                     <Large_button button_name="حذف الحساب" />
-                </View>
             </ScrollView>
         </>
     )

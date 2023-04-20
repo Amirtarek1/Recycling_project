@@ -32,6 +32,14 @@ export const Change_passwordSchema = Yup.object().shape({
 
 
 
+export const Forget_passwordSchema = Yup.object().shape({
+  NEW_password: Yup.string().trim().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف'),
+  CONfirmationPassword: Yup.string().trim().required('برجاء تاكيد كلمة المرور').min(8,'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref('NEW_password'), null], 'كلمة المرور غير متطابقة')
+});
+
+
+
+
 export const SignupSchema = Yup.object().shape({
     
     name : Yup.string().trim().required("برجاء ادخال الاسم"),

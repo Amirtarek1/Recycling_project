@@ -55,16 +55,17 @@ export const styles = StyleSheet.create({
         
     }, style_image_in_touchableopacity: {
         width: w * 0.34,
-        height: h * 0.16,
+        height: w * 0.34,
+        padding : RFPercentage(5),
     }, style_text_in_touchableopacity: {
         fontFamily: FONT.font_Almarai_Regular,
-        fontSize: RFValue(22,h),
+        fontSize:RFPercentage(3),
         marginTop: RFPercentage(1),
         color: COLORS.green_mid
 
     }, style_text_in_touchableopacit_pointsnumber: {
         fontFamily: FONT.font_Almarai_ExtraBold,
-        fontSize: 17,
+        fontSize: RFPercentage(3),
         marginVertical: RFPercentage(1.2),
         color: COLORS.black
 

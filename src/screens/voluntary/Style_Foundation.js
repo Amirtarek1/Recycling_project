@@ -58,14 +58,14 @@ export const styles = StyleSheet.create({
         fontFamily: FONT.font_Almarai_Bold,
         color: COLORS.black,
         textAlign: "center",
-        fontSize: RFValue(20, h)
+        fontSize: RFPercentage(2.5)
     },
     style_Number_points:
     {
         fontFamily: FONT.font_Almarai_Bold,
         color: COLORS.green_mid,
         textAlign: "center",
-        fontSize: RFValue(20, h)
+        fontSize: RFPercentage(2.5)
     },
     style_View_about_Foundation:
     {
@@ -79,13 +79,13 @@ export const styles = StyleSheet.create({
         fontFamily: FONT.font_Almarai_Bold,
         marginBottom: 5,
         color: COLORS.black,
-        fontSize: RFValue(25, h),
+        fontSize: RFPercentage(3),
         justifyContent: "center"
     },
     style_about_text_dis: {
         fontFamily: FONT.font_Almarai_Regular,
         color: COLORS.gray_mid,
-        fontSize: RFValue(18, h),
+        fontSize: RFPercentage(2.5),
         justifyContent: "center"
     },
     style_email_and_number_View: {
@@ -98,14 +98,14 @@ export const styles = StyleSheet.create({
         fontFamily: FONT.font_Almarai_Bold,
         marginBottom: 5,
         color: COLORS.black,
-        fontSize: RFValue(20, h),
+        fontSize: RFPercentage(2.5),
         justifyContent: "center"
     }, styles_number_text:
     {
         fontFamily: FONT.font_Almarai_Bold,
         marginBottom: 5,
         color: COLORS.black,
-        fontSize: RFValue(20, h),
+        fontSize: RFPercentage(2.5),
         justifyContent: "center"
     }, style_email_and_number_validation:
     {

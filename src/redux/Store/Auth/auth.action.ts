@@ -17,6 +17,3 @@ export const loginUser = createAsyncThunk<any, any, any>('login', async (
   
     }
   })
-
-
-

@@ -9,6 +9,12 @@ export const login_initial_values = {
   };
 
 
+  
+  export const Forget_password_initial_Values = {
+    NEW_password: '',
+    CONfirmationPassword : '',
+  };
+
 
   export const Sign_up_initial_values = {
    name : "",

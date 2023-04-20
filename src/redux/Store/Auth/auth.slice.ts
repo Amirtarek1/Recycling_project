@@ -16,7 +16,6 @@ export const authslice = createSlice({
     },
 })
 
-
 export default authslice.reducer
 
 export const {setloading} = authslice.actions

@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
         , alignContent: "center"
     }, green_container: {
         flex: 0.16,
-        backgroundColor: COLORS.green_mid,
+        
     },
     white_container: {
         alignItems :"center",
@@ -22,15 +22,14 @@ export const styles = StyleSheet.create({
         borderTopEndRadius: RFPercentage(8),
         borderTopStartRadius: RFPercentage(8)
     }, text_Bold_style: {
-        fontSize: 24,
-        fontWeight: "700",
+        fontSize : RFPercentage(3),
         color: COLORS.white,
-        fontFamily: FONT.defult_font,
+        fontFamily: FONT.font_Almarai_Bold,
         marginLeft: RFPercentage(3)
     }, text_thin_style: {
-        fontSize: 20,
+        fontSize : RFPercentage(3),
         color: COLORS.white,
-        fontFamily: FONT.defult_font,
+        fontFamily: FONT.font_Almarai_Regular,
         marginLeft: RFPercentage(3)
     },
     view_arrow_and_text_style: {

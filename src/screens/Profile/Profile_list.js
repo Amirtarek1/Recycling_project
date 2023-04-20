@@ -1,90 +1,115 @@
-import { ScrollView, StatusBar, StyleSheet, Image,Text, View ,TouchableOpacity, FlatList } from 'react-native';
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
-import { COLORS, FONT, icons, images, Sizes } from '../../constants';
+import { StyleSheet, Text, View, Dimensions, FlatList, TouchableOpacity } from 'react-native';
+import { RFPercentage } from 'react-native-responsive-fontsize';
+import { COLORS, FONT, Sizes } from '../../constants';
 import User_image from '../../components/User_image'
-import SVGICON from "../../assets/Icons/user.svg"
+import { ProfilePagedata } from '../../Utils/DummyData';
+import { useState } from 'react';
+import { hp } from '../../constants/themes';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
+
+
+const h = Dimensions.get("screen").height
+const w = Dimensions.get("screen").width
+
+
+
+
 const Profile_list = () => {
-// const [toggleCheckBox, setToggleCheckBox] = useState(false)
+    const navigation = useNavigation();
+
+    const [data, setdata] = useState(ProfilePagedata)
+
+
+
     return (
         <>
 
-<StatusBar hidden={true}/>
-<View style={{
-    flex : 1,
-    padding:RFPercentage(2),
-    // justifyContent:"space-between",
-    width:Sizes.width,
-    backgroundColor:COLORS.white
-     }}>
-        <View style={{width:Sizes.width*0.8,flexDirection:"row",justifyContent:"space-around",alignItems:"center",borderWidth:0,paddingVertical:RFPercentage(2)}}>
-        <User_image/>
-<View style={{paddingVertical:RFPercentage(2),justifyContent:"space-around"}}>
-    <Text style={{fontFamily:FONT.font_Almarai_Bold}}>الاء محمد عبد الرازق</Text>
-<Text style={{fontFamily:FONT.font_Light_noto}}>nadaaboelkheir@gmail.com  </Text>
-</View>
+            <SafeAreaView style={{
+                flex: 1,
+                padding: RFPercentage(2),
+                width: Sizes.width,
+                backgroundColor: COLORS.white
+            }}>
+                <View style={{
+                    width: Sizes.width * 0.9, flexDirection: "row", justifyContent: "space-around",
+                    alignItems: "center", paddingVertical: RFPercentage(2)
+                }}>
+                    <User_image />
 
-        </View>
-        <FlatList data={[{
-            text_content:"معلومات الحساب"
-        },
-        {
-            text_content:"تغيير كلمة السر"
+                    <View style={{ justifyContent: "space-around"  , marginLeft : RFPercentage(2) }}>
+                        <Text style={{ fontFamily: FONT.font_Almarai_Bold,color : COLORS.black, fontSize: RFPercentage(2.5) }}>الاء محمد عبد الرازق</Text>
+                        <Text style={{ fontFamily: FONT.font_Almarai_Light, color : COLORS.black ,fontSize: RFPercentage(2.5) }}>nadaaboelkheir@gmail.com  </Text>
+                    </View>
 
-        },
-        {
-            text_content:"العناوين"
+                </View>
+              
+                <FlatList 
+                showsVerticalScrollIndicator={false}
+                data={data}
+                scrollEnabled={false}
+                style = {{maxHeight : hp(57.2)}}
+                    renderItem={({ item, index }) => (
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate(item.navi)}
+                            style={{
+                                // backgroundColor :"#0dd",
+                                flexDirection: "row",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                            }}>
+                            <View style={{ paddingVertical: hp(2), flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
 
-        },
-        {
-            text_content:"قائمة الطلبات"
+                                <Icon
+                                    name={item.icone}
+                                    size={hp(4.2)} style={{ color: COLORS.green_mid }} />
 
-        },
-        {
-            text_content:"تغيير اللغة"
+                                <Text style={{
+                                    marginLeft: RFPercentage(2.5),
+                                    fontSize: RFPercentage(2.2),
+                                    fontFamily: FONT.font_Almarai_Bold,
+                                    color: item.id == 8 ? COLORS.red_logout : COLORS.black_mid
+                                }}>{item.text_content}</Text>
 
-        },
-        {
-            text_content:"الشكاوي والإقتراحات"
+                            </View>
+                            <Icon name="angle-left" size={30} style={{ color: COLORS.green_mid }} />
 
-        },
-        {
-            text_content:"الشروط والأحكام"
+                        </TouchableOpacity>
 
-        },
-        {
-            text_content:"تسجيل الخروج"
 
-        }]}
-    renderItem={({item})=>(
-    <View style={{
-        flexDirection:"row",
-        justifyContent:"space-between",
-        alignSelf:"center",
-        width:Sizes.width,
-        alignItems:"center",
-        
-        borderWidth:0,
-        padding:RFPercentage(2)
-         }}>
-           <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
-           <SVGICON
-            width={30}
-            height={30}
-            // fill = "#d0d" 
-            />
-          <Text style={{marginLeft:RFPercentage(1),
-            fontFamily:FONT.font_Almarai_Bold,color:COLORS.black_mid}}>{item.text_content}</Text>
-           </View>
-        
-          <SVGICON
-            width={30}
-            height={30}
-            // fill = "#d0d"
-          />
-        </View>)}
-    />
+                    )}
+                />
+                  <TouchableOpacity
+                    onPress={() => navigation.replace("Auth")}
+                    style={{
+                        // backgroundColor :"#00d",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}>
+                    <View style={{ paddingVertical: hp(2), flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
 
-</View>
+                        <Icon
+                            name= "sign-out"
+                            size={hp(4.2)} style={{ color: COLORS.green_mid }} />
+
+                        <Text style={{
+                            marginLeft: RFPercentage(2.5),
+                            fontSize: RFPercentage(2.2),
+                            fontFamily: FONT.font_Almarai_Bold,
+                            color: COLORS.red_logout 
+                        }}>تسجيل الخروج</Text>
+
+                    </View>
+                    <Icon name="angle-left" size={30} style={{ color: COLORS.green_mid }} />
+
+                </TouchableOpacity>
+
+
+              
+                
+            </SafeAreaView>
 
 
         </>
@@ -129,32 +154,9 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.white,
         flexDirection: "row",
         justifyContent: "space-around",
-        padding: RFPercentage(1) ,
-         alignContent: "center"
+        padding: RFPercentage(1),
+        alignContent: "center"
         , alignItems: "center"
-    },
-    style_Text_topof_points: {
-        fontFamily: FONT.font_Almarai_Bold,
-        color: COLORS.black,
-        fontSize: 17.5,
-        alignSelf: "center"
-        , margin: RFPercentage(1)
-    }, view_points: {
-        alignSelf :"center",
-        width: RFPercentage(15),
-        backgroundColor: COLORS.white,
-        borderWidth: RFPercentage(.25)
-        , borderColor: COLORS.green_mid,
-        alignItems: "center" ,
-         borderRadius: RFPercentage(1.5),
-    }
-    , style_text_in_box_ofpoints: {
-        fontSize: 27,
-        fontFamily: FONT.font_Almarai_Bold,
-        color: COLORS.green_mid,
-        marginHorizontal: RFPercentage(1),
-        height: RFPercentage(6),
-        maxWidth: RFPercentage(20)
     },
 
 

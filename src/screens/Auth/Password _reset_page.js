@@ -1,120 +1,124 @@
-import {useState} from "react"
-import INPUTtext_password from '../../components/INPUTtext_password';
-import { ScrollView, SafeAreaView,StatusBar, StyleSheet, Image,Text, View ,TouchableOpacity } from 'react-native';
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
-import {
-    CodeField,
-    Cursor,
-    useBlurOnFulfill,
-    useClearByFocusCell,
-  } from 'react-native-confirmation-code-field';
-import { COLORS, FONT, icons, images, Sizes } from '../../constants';
+import { ScrollView, Image, Text, View, Dimensions } from 'react-native';
+import { RFPercentage } from 'react-native-responsive-fontsize';
+import { COLORS, FONT, images, Sizes } from '../../constants';
+import Large_button from '../../components/Large_button';
 import Back_arrow from '../../components/Back_arrow';
-import INputbutton from '../../components/INputbutton'
+import { ForgetPasswordEmailSchema, Forget_passwordSchema } from '../../Forms/Schema';
+import { Forgetpassword_initial_values, Forget_password_initial_Values } from '../../Forms/Initial_values';
+import { useFormik } from 'formik';
+import { styles } from './Style_Password_reset_page';
+import { useState } from 'react';
+import INPUTtext_password from '../../components/INPUTtext_password';
+import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
+const h = Dimensions.get("screen").height
+const w = Dimensions.get("screen").width
 
-import Large_button from "../../components/Large_button";
-const Password_reset_page = () => {
-    const CELL_COUNT = 4;
+const Password_reset_page = (props) => {
 
-    const [toggleCheckBox, setToggleCheckBox] = useState(false)
-const [value, setValue] = useState('');
-  const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
-  const [props, getCellOnLayoutHandler] = useClearByFocusCell({
-    value,
-    setValue,
-  });
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+
+    const { handleChange, handleSubmit, values, errors, touched } =
+        useFormik({
+            validationSchema: Forget_passwordSchema,
+            initialValues: Forget_password_initial_Values,
+            onSubmit: () => {
+                navigation.navigate("Confirm_page_forget_password");
+
+            },
+        });
+
+    const navigation = useNavigation();
+    console.log(values.NEW_password)
     return (
         <>
 
-<StatusBar hidden={true}/>
-<ScrollView>
-<View style={{
-    flex : 1,
-    width:Sizes.width,
-    backgroundColor:COLORS.green_mid
-     }}>
-<View style={{
-flex :0.16,
-flexDirection:"row",
-// alignItems:"center",
-// alignSelf:"flex-end",
-// width:Sizes.width,
-justifyContent:"flex-start",
-marginTop : RFPercentage(4),
-backgroundColor:COLORS.green_mid
-     }}>
-                    <Back_arrow/>
-
-        <View style={{
-
-            flexDirection:"row" ,
-            // width:Sizes.width*0.90,
-marginLeft:RFPercentage(-4) 
-            }}>
-            <View >
-<Text style={styles.text_Bold_style}>
-    إعادة تعيين كلمة المرور
-</Text>
-<Text style={styles.text_thin_style} >
-ادخل كلمة مرور جديدة</Text>
-            </View>
-
-        </View>
-
-</View>
-{/* white container */}
-<View style={{flex :0.84 ,
-backgroundColor:COLORS.white ,
-
-padding : RFPercentage(5),
-justifyContent:"space-around",
-// marginTop:RFPercentage(-2),
- borderTopEndRadius: RFPercentage(8),
- borderTopStartRadius: RFPercentage(8)
-}}>
-    {/* <Image source={images.verification} style={{width : Sizes.width*0.7, backgroundColor:"#fff",
-        height:Sizes.height*0.35,marginTop:RFPercentage(3)
-        ,alignSelf:"center"
-        }}/> */}
 
 
-<View style={{ marginTop: RFPercentage(1) 
-}}>
+            <ScrollView style={{ backgroundColor: COLORS.white }}>
 
-                            <Image source={images.forget_password} style={{
-                                width: Sizes.width * 0.7 
-                                , margin: RFPercentage(1)
-                                , alignSelf: "center",
-                                height: Sizes.height*0.32
+
+
+                <SafeAreaView style={styles.Basic_container}>
+                    <View style={styles.green_container}>
+
+                        <View style={styles.view_arrow_and_text_style}>
+                            <Back_arrow onPress={() => navigation.goBack()} />
+
+                            <View>
+                                <Text style={styles.text_Bold_style}>نسيت كلمه المرور</Text>
+                                <Text style={styles.text_thin_style}>تحقق من البريد الالكتروني </Text>
+                            </View>
+
+
+                        </View>
+
+
+                    </View>
+
+                    <View style={styles.white_container}>
+
+                        <View style={{ marginTop: RFPercentage(2) }}>
+
+                            <Image source={images.Resetpassword} style={{
+                                alignSelf: "center",
+                                width: w * 0.8,
+                                height: w * 0.8,
                             }} />
-</View>
-        <View style={{justifyContent:"space-around",marginTop:RFPercentage(2)}}>
-<Text style={{alignSelf:"center",fontFamily:FONT.font_Almarai_Regular,fontSize:16}}>يجب أن تكون كلمة مرورك الجديدة مختلفة</Text>
-<Text style={{alignSelf:"center",fontFamily:FONT.font_Almarai_Regular,fontSize:17}}>عن كلمة المرور التي اخلتها سابقا</Text>
 
-</View>
-<View style={{    justifyContent:"space-between"
-// ,marginVertical:RFPercentage(4)
-,}} >
+                            <View style={{ alignItems: "center", margin: RFPercentage(1) }}>
+                                <Text style={{
+                                    textAlign: "center", fontFamily: FONT.font_Almarai_Regular,
+                                    fontSize: RFPercentage(3), color: COLORS.gray_mid
+                                }}> سوف نرسل رمزا على الرقم الخاص بك</Text>
+                                <Text style={{
+                                    textAlign: "center", fontFamily: FONT.font_Almarai_Regular,
+                                    fontSize: RFPercentage(3), color: COLORS.gray_mid
+                                }}> لإعادة تعيين رقمك السري </Text>
 
-<INPUTtext_password label="كلمة المرور"/>
+                            </View>
 
-<INPUTtext_password label="تاكيد المرور"/>
-</View>
+                            <INPUTtext_password
+                                label="كلمة المرور"
 
-<View style={{
-    // marginTop:RFPercentage(1),
-    // marginBottom:RFPercentage(-5),
-    
-    }}>
-    <Large_button button_name="تأكيد" />
-    </View>
-            
-</View>
+                                value={values.NEW_password}
+                                errors={errors.NEW_password}
+                                touched={touched.NEW_password}
+                                visible={passwordVisible}
+                                setVisible={setPasswordVisible}
+                                onChangeText={handleChange('NEW_password')}
+                            />
 
-</View>
-</ScrollView>
+
+                            <INPUTtext_password
+                                label="تأكيد كلمة المرور"
+                                onChangeText={handleChange('CONfirmationPassword')}
+                                value={values.CONfirmationPassword}
+                                errors={errors.CONfirmationPassword}
+                                touched={touched.CONfirmationPassword}
+                                visible={confirmPasswordVisible}
+                                setVisible={setConfirmPasswordVisible}
+                            />
+
+                        </View>
+
+
+                    </View>
+
+
+
+                </SafeAreaView>
+                <View style={{ marginVertical: RFPercentage(3) }}>
+                    <Large_button button_name="إرسال" Confirm_press={() => handleSubmit()} />
+                </View>
+
+
+            </ScrollView>
+
+
+
 
         </>
     )
@@ -122,57 +126,4 @@ justifyContent:"space-around",
 
 }
 
-const styles = StyleSheet.create({
-    Basic_container: {
-        flex: 1,
-        backgroundColor: COLORS.green_mid
-        , alignContent: "center"
-    }, green_container: {
-        flex: 1,
-        backgroundColor: COLORS.green_mid,
-    },
-    white_container: {
-        flex: 5,
-        backgroundColor: COLORS.white,
-        borderTopEndRadius: RFPercentage(8),
-        borderTopStartRadius: RFPercentage(8)
-    }, text_Bold_style: {
-        fontSize: 24,
-        fontWeight: "700",
-        color: COLORS.white,
-        fontFamily: FONT.defult_font,
-        marginLeft: RFPercentage(6)
-    }, text_thin_style: {
-        fontSize: 20,
-        color: COLORS.white,
-        fontFamily: FONT.defult_font,
-        marginLeft: RFPercentage(6),
-        marginBottom:RFPercentage(4)
-    },
-    view_arrow_and_text_style: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        margin: RFPercentage(2),
-        marginTop: RFPercentage(4)
-    },
-    root: { padding: 20,justifyContent:"space-around",flexDirection:"row"},
-    title: {textAlign: 'center', fontSize: 0},
-    codeFieldRoot: {},
-    cell: {
-        borderRadius:RFPercentage(1),
-      width: 50,
-      height: 60,
-      lineHeight: 38,
-      fontSize: 24,
-      borderWidth: 2,
-      marginHorizontal:RFPercentage(1),
-      borderColor: COLORS.gray_ofwhite,
-      textAlign: 'center',
-    },
-    focusCell: {
-      borderColor: COLORS.green_mid,
-    },
-
-
-})
 export default Password_reset_page;
