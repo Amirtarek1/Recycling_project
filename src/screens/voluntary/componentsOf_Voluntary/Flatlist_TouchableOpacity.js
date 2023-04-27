@@ -26,7 +26,7 @@ const FlatlistTouchableOpacity = ({data}) => {
 
                         <TouchableOpacity style={[styles.shadowProp, , { backgroundColor: COLORS.white, alignSelf: "center", borderRadius: 10, margin: 10, padding: hp(1), width: w * 0.92, flexDirection: "row", alignItems: "center" }]}>
                             <Image source={item.image}
-                                style={{ width: w * 0.26, height: h * 0.1, alignSelf: "center" }} />
+                                style={{ width: hp(15), height: hp(15), alignSelf: "center" }} />
 
                             <View style={{ justifyContent: 'space-between', marginLeft: 10, }}>
                                 <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.8) }}>{item.name}</Text>

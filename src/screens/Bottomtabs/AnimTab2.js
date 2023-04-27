@@ -14,6 +14,7 @@ import Testpage1 from '../../Test_pages/Testpage1';
 import { HomeStack } from '../../navigations/HomeStack';
 import VoluntaryStack from '../../navigations/VoluntaryStack';
 import ProfileStack from '../../navigations/ProfileStack';
+import All_orders from '../Profile/All_orders';
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
@@ -21,7 +22,7 @@ const w = Dimensions.get("screen").width
 const TabArr = [
   { route: 'الرئيسية', label: 'الرئيسية', type: Icons.Feather, icon: 'home', component: HomeStack },
   { route: 'كوبونات', label: 'كوبونات', type: Icons.Foundation, icon: 'dollar-bill', component: VoluntaryStack },
-  { route: 'طلباتي', label: 'طلباتي', type: Icons.FontAwesome5, icon: 'shopping-bag', component: VoluntaryStack },
+  { route: 'طلباتي', label: 'طلباتي', type: Icons.FontAwesome5, icon: 'shopping-bag', component: All_orders },
   { route: 'الملف الشخصي', label: 'الملف الشخصي', type: Icons.FontAwesome, icon: 'user-circle-o', component: ProfileStack },
 ];
 

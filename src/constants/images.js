@@ -26,6 +26,7 @@ const Bank_elt3am_foundation_logo = require("../assets/Images/Bank_elt3am.png")
 const Ahlmasr_foundation_logo = require("../assets/Images/Ahlmasr.png")
 const Resetpassword = require("../assets/Images/Resetpassword.png")
 const another = require("../assets/Images/another.png")
+const mac = require("../assets/Images/mac.png") 
 
 export default {
     forget_password,
@@ -53,5 +54,6 @@ export default {
     Elorman_foundation_logo,
     Bank_elt3am_foundation_logo,
     Ahlmasr_foundation_logo,
-    another
+    another,
+    mac
 }
