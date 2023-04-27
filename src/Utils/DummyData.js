@@ -260,6 +260,73 @@ const money_archives_data = [
     }
 ];
 
+
+const Copones =
+
+    [
+        {
+            id: "1",
+            name: " خصم 25 %",
+            image: images.mac,
+            number_points: 1000,
+            about: "مؤسسه خيريه",
+        },
+        {
+            id: "2",
+            name: "ماكدونلز خصم 25 %",
+            image: images.Bank_elt3am_foundation_logo,
+            number_points: 1050,
+            date: "مؤسسه خيريه",
+        },
+        {
+            id: "3",
+            name: "ماكدونلز خصم 25 %",
+            image: images.mac,
+            number_points: 20,
+            date: "مؤسسه خيريه",
+        },
+        {
+            id: "4",
+            name: " تيتتي 25 %",
+            image: images.Elorman_foundation_logo,
+            number_points: 100,
+            date: "مؤسسه خيريه",
+        },
+        {
+            id: "5",
+            name: "ماكدونلز خصم 40%",
+            image: images.Masr_elkhar_foundation_logo,
+            number_points: 1000,
+            about: "مؤسسه خيريه",
+        },
+        {
+            id: "6",
+            name: "جمعية رسالة",
+            image: images.mac,
+            number_points: 1050,
+            date: "مؤسسه خيريه",
+        },
+        {
+            id: "7",
+            name: "بنك الطعام المصري",
+            image: images.Bank_elt3am_foundation_logo,
+            number_points: 20,
+            date: "مؤسسه خيريه",
+        },
+        {
+            id: "8",
+            name: "جمعية الاورمان",
+            image: images.mac,
+            number_points: 100,
+            date: "مؤسسه خيريه",
+        },
+
+
+
+    ]
+
+
+
 const CartData =
     [
         {
@@ -284,8 +351,6 @@ const CartData =
             numOfPoints: 20
         }
     ]
-
-
 
 const ProfilePagedata =
     [
