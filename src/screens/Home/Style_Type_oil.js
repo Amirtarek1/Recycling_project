@@ -28,6 +28,7 @@ export const styles = StyleSheet.create({
         backgroundColor: COLORS.white,
         borderTopEndRadius: 30,
         borderTopStartRadius: 30,
+        justifyContent:"space-between",
     },
     view_photo_and_text_style: {
         flexDirection: "row",

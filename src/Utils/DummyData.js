@@ -194,7 +194,7 @@ const Share_The_Good_Dataset =
             image: images.Elorman_foundation_logo,
             number_points: 100,
             date: "مؤسسه خيريه",
-            navi: 'FoundationPage'
+            // navi: 'ss'
         },
         {
             name: "مصر الخير",
@@ -226,74 +226,64 @@ const Share_The_Good_Dataset =
         },
 
 
-
     ]
+const money_archives_data = [
+    {
+        status: "مكتمل",
+        date: "10/2/2023",
+        type_of_transaction: "فودافون كاش",
+        number_points: "200",
+        cash: "0.00",
+        image: images.Vodafone_logo,
+    },
+    {
+        status: "مكتمل",
+        date: "10/2/2023",
+        type_of_transaction: "فودافون كاش",
+        number_points: "200",
+        cash: "0.00",
+        image: images.Vodafone_logo,
+    }, {
+        status: "مكتمل",
+        date: "10/2/2023",
+        type_of_transaction: "فودافون كاش",
+        number_points: "200",
+        cash: "0.00",
+        image: images.Vodafone_logo,
+    }, {
+        status: "مكتمل",
+        date: "10/2/2023",
+        type_of_transaction: "فودافون كاش",
+        number_points: "200",
+        cash: "0.00",
+        image: images.Vodafone_logo,
+    }
+];
 
-
-const Copones =
-
+const CartData =
     [
         {
-            id: "1",
-            name: " خصم 25 %",
-            image: images.mac,
-            number_points: 1000,
-            about: "مؤسسه خيريه",
+            numOfBottles: 2,
+            numOfPoints: 20
         },
         {
-            id: "2",
-            name: "ماكدونلز خصم 25 %",
-            image: images.Bank_elt3am_foundation_logo,
-            number_points: 1050,
-            date: "مؤسسه خيريه",
+            numOfBottles: 2,
+            numOfPoints: 20
+        }
+        ,
+        {
+            numOfBottles: 2,
+            numOfPoints: 20
+        }
+        , {
+            numOfBottles: 2,
+            numOfPoints: 20
         },
         {
-            id: "3",
-            name: "ماكدونلز خصم 25 %",
-            image: images.mac,
-            number_points: 20,
-            date: "مؤسسه خيريه",
-        },
-        {
-            id: "4",
-            name: " تيتتي 25 %",
-            image: images.Elorman_foundation_logo,
-            number_points: 100,
-            date: "مؤسسه خيريه",
-        },
-        {
-            id: "5",
-            name: "ماكدونلز خصم 40%",
-            image: images.Masr_elkhar_foundation_logo,
-            number_points: 1000,
-            about: "مؤسسه خيريه",
-        },
-        {
-            id: "6",
-            name: "جمعية رسالة",
-            image: images.mac,
-            number_points: 1050,
-            date: "مؤسسه خيريه",
-        },
-        {
-            id: "7",
-            name: "بنك الطعام المصري",
-            image: images.Bank_elt3am_foundation_logo,
-            number_points: 20,
-            date: "مؤسسه خيريه",
-        },
-        {
-            id: "8",
-            name: "جمعية الاورمان",
-            image: images.mac,
-            number_points: 100,
-            date: "مؤسسه خيريه",
-        },
-
-
-
+            numOfBottles: 2,
+            numOfPoints: 20
+        }
     ]
-
 
 
 
@@ -468,6 +458,8 @@ export {
     Oils,
     Voluntary_dataset,
     Share_The_Good_Dataset,
+    money_archives_data,
+    CartData,
     ProfilePagedata,
     Days,
     orders_Data,
