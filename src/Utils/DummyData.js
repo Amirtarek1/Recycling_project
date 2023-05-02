@@ -257,6 +257,13 @@ const money_archives_data = [
         number_points: "200",
         cash: "0.00",
         image: images.Vodafone_logo,
+    }, {
+        status: "مكتمل",
+        date: "10/2/2023",
+        type_of_transaction: "فودافون كاش",
+        number_points: "200",
+        cash: "0.00",
+        image: images.Vodafone_logo,
     }
 ];
 
@@ -458,7 +465,7 @@ const orders_Data = [
 
     },
     {
-        statues: "done",
+        statues: "Waiting",
         orders_table: {
             photo: images.cars_oil_for_3K,
             name_oil_order: "زيت طعام 3 كيلو",

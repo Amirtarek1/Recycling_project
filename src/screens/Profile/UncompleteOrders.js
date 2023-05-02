@@ -4,7 +4,7 @@ import { COLORS, FONT, images } from '../../constants';
 import { styles } from './Style_uncompleteOrders';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { RFPercentage } from 'react-native-responsive-fontsize';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { hp, wp } from '../../constants/themes';
 import { orders_Data } from '../../Utils/DummyData';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -39,25 +39,30 @@ function UncompleteOrders() {
                         return item.statues == "Waiting";
                     }).map((item, index) => (
                         <>
-                            <View key={index}
+                            <View key={item.orders_table.order_id}
                                 style={[styles.shadowProp, {
                                     backgroundColor: COLORS.white
-                                    , borderRadius: 10, margin: 12,
-                                    padding: hp(2), flexDirection: "row",
+                                    , borderRadius: 10, marginVertical: 12,
+                                    padding: hp(1), flexDirection: "row",
+                                    
+                                //    borderWidth : 4 ,
                                 }]}>
                                 <Image source={item.orders_table.photo}
-                                    style={{ backgroundColor: COLORS.white, width: h * 0.08, height: h * 0.09, alignSelf: "center" }} />
+                                    style={{ backgroundColor: COLORS.white,
+                                        width: hp(10),
+                                        height: hp(10)
+                                     , alignSelf: "center" ,  }} />
 
-                                <View style={{ flexDirection: "row", margin: 5 }}>
-                                    <View style={{ width: w * 0.5 }}>
-                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize: RFPercentage(2.5) }}>{item.orders_table.name_oil_order}</Text>
-                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.4) }}> الكميه:<Text style={{ color: COLORS.gray_dark }}> {item.orders_table.amount_oil_order} </Text></Text>
-                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.4) }}>تاريخ الطلب:<Text style={{ color: COLORS.gray_dark }}> {item.orders_table.time_date} </Text></Text>
-                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.4) }}>معاد الاستلام :<Text style={{ color: COLORS.gray_dark }}> {item.orders_table.time_date_recive} </Text></Text>
-                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.4) }}> مكان الاستلام :<Text style={{ color: COLORS.gray_dark }}> {item.orders_table.place_recieve} </Text></Text>
+                                <View style={{ flexDirection: "row", margin: 5 , maxWidth : RFPercentage(36) }}>
+                                    <View  >
+                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize: RFValue(20, h,w) , maxWidth : RFPercentage(25)}}>{item.orders_table.name_oil_order}</Text>
+                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(20, h,w) , maxWidth : RFPercentage(25) }}>الكميه:<Text style={{ color: COLORS.gray_dark }}>{item.orders_table.amount_oil_order} </Text></Text>
+                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(14, h,w) , maxWidth : RFPercentage(25) }}>تاريخ الطلب:<Text style={{ color: COLORS.gray_dark }}>{item.orders_table.time_date} </Text></Text>
+                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(14, h ,w) , maxWidth : RFPercentage(25) }}>معاد الاستلام :<Text style={{ color: COLORS.gray_dark }}>{item.orders_table.time_date_recive} </Text></Text>
+                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(14, h, w) , maxWidth : RFPercentage(25) }}> مكان الاستلام :<Text style={{ color: COLORS.gray_dark }}>{item.orders_table.place_recieve} </Text></Text>
                                     </View>
 
-                                    <View style={{ alignItems: "center" }}>
+                                    <View style={{ alignItems: "center"  }}>
 
                                         <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize: RFPercentage(2.2) }}>نقطه {item.orders_table.num_points}</Text>
 
@@ -91,18 +96,6 @@ function UncompleteOrders() {
 
                 </View>
             </ScrollView>
-            {/* 
-  <View style={{ flexDirection: "row", width: wp(70), justifyContent: "space-between" }}>
-
- <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize: RFPercentage(2.5) }}>{item.orders_table.name_oil_order}</Text>
-    <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize: RFPercentage(2.5) }}> نقطه {item.orders_table.num_points}  </Text>
- </View>
-<Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.5) }}> الكميه : <Text style={{ color: COLORS.gray_dark }}> {item.orders_table.amount_oil_order} </Text></Text>
-<Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.5) }}>معاد الاستلام : <Text style={{ color: COLORS.gray_dark }}> {item.orders_table.time_date} </Text></Text>
-<Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.5) }}> مكان الاستلام : <Text style={{ color: COLORS.gray_dark }}> {item.orders_table.place_recieve} </Text></Text>
-
-
-*/}
         </SafeAreaView>
     );
 }

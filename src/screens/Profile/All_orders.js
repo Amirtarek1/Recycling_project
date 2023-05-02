@@ -14,7 +14,7 @@ import UncompleteOrders from './UncompleteOrders';
 
 const Stack = createMaterialTopTabNavigator();
 
-function sAll_orders() {
+function All_orders() {
   return (
     <>
       <SafeAreaView style={styles.Basic_container}>
@@ -39,7 +39,7 @@ function sAll_orders() {
 
           tabBarLabelStyle: {
             
-            fontSize: RFPercentage(2.5),
+            fontSize: RFPercentage(2.48),
             fontFamily: FONT.font_Almarai_Bold,
             // color : COLORS.black 
           }
@@ -47,7 +47,7 @@ function sAll_orders() {
         }} options={{ headerShown: false  }} >
         <Stack.Screen name="مكتمله" component={CompleteOrders} />
         <Stack.Screen name="تحت التنفيذ" component={UncompleteOrders} />
-        <Stack.Screen name="منتجات" component={Tologin} />
+        <Stack.Screen name="منتجات" component={CompleteOrders} />
 
       </Stack.Navigator>
 

@@ -5,10 +5,7 @@ import {  FONT, Sizes } from '../../constants';
 
 export const styles = StyleSheet.create({
 
-    FakeButton_style:
-    {
-        width: RFPercentage(0),
-    }, shadowProp: {
+  shadowProp: {
         shadowOffset: { width: 10, height: 14  },
         shadowColor: COLORS.black,
         elevation: 5,

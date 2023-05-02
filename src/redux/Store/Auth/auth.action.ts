@@ -20,11 +20,11 @@ export const loginUser = createAsyncThunk<any, any, any>('login', async (
   })
 
 
-  export const registUser = createAsyncThunk<any, any, any>('registUser', async (
+  export const signUpUser = createAsyncThunk<any, any, any>('signUpUser', async (
     args, { rejectWithValue }
   ) => {
     try {
-      let res = await auth_apis.Register(args);
+      let res = await auth_apis.signUpUser(args);
       // console.log( JSON.stringify(res));
       
       if (res?.data?.status === 0) {

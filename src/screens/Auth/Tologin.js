@@ -14,7 +14,7 @@ import { login_initial_values } from "../../Forms/Initial_values";
 import { useFormik } from "formik";
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { loginUser, registUser } from "../../redux/Store/Auth/auth.action";
+import { loginUser } from "../../redux/Store/Auth/auth.action";
 import { useDispatch,useSelector } from 'react-redux'
 import { selectaccessToken, selectloading } from "../../redux/Store/Auth/selector";
 
@@ -39,6 +39,7 @@ const Tologin = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const accessTokens= useSelector(selectloading)
     const dispatch = useDispatch()
+  
     useEffect(() => {
         dispatch(loginUser({
             username: "omar111",
@@ -47,9 +48,14 @@ const Tologin = () => {
             passwordConfirmation: "thisIsAVeryStrong!*Pas   sword",
             phoneNumber: "01026642635"
         }))
+
+      
+
     }, [])
 
-    console.log(accessTokens)
+    // console.log(accessTokens)
+
+    
     return (
         <>
 
