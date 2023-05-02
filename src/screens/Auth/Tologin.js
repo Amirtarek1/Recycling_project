@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import INPUTtext_password from '../../components/INPUTtext_password';
 import { ScrollView, Image, Text, View, TouchableOpacity } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
@@ -14,7 +14,9 @@ import { login_initial_values } from "../../Forms/Initial_values";
 import { useFormik } from "formik";
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import { loginUser, registUser } from "../../redux/Store/Auth/auth.action";
+import { useDispatch,useSelector } from 'react-redux'
+import { selectaccessToken, selectloading } from "../../redux/Store/Auth/selector";
 
 const w = Dimensions.get("screen").width
 
@@ -35,9 +37,19 @@ const Tologin = () => {
     const [toggleCheckBox, setToggleCheckBox] = useState(false);
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const accessTokens= useSelector(selectloading)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(loginUser({
+            username: "omar111",
+            email: "omar.plu11s@gmail.com",
+            password: "thisIsAVeryStrong!*Password",
+            passwordConfirmation: "thisIsAVeryStrong!*Pas   sword",
+            phoneNumber: "01026642635"
+        }))
+    }, [])
 
-
-
+    console.log(accessTokens)
     return (
         <>
 
@@ -120,7 +132,7 @@ const Tologin = () => {
 
                             <View style={{ paddingVertical: hp(4) }}>
                                 {/* navigation.navigate('HOME_Stack') handleSubmit() */}
-                                <Large_button button_name="تسجيل الدخول" Confirm_press={() => handleSubmit() } />
+                                <Large_button button_name="تسجيل الدخول" Confirm_press={() => handleSubmit()} />
                             </View>
 
                             <View style={{

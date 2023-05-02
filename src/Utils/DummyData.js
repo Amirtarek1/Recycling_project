@@ -22,7 +22,7 @@ const categories =
             name: "شارك و اربح",
             image: images.share_and_win,
             // navi: 'Share_page'
-            link: '' 
+            link: ''
         },
         {
             name: "أخري",
@@ -170,7 +170,7 @@ const Share_The_Good_Dataset =
     [
         {
             name: "مؤسسه مجدي بعقوب",
-            image: images.magdi_yacoub_foundation_logo,
+            image: images.mac,
             number_points: 1000,
             about: "مؤسسه خيريه",
             navi: 'FoundationPage'
@@ -259,6 +259,73 @@ const money_archives_data = [
         image: images.Vodafone_logo,
     }
 ];
+
+
+const Copones =
+
+    [
+        {
+            id: "1",
+            name: " خصم 25 %",
+            image: images.mac,
+            number_points: 1000,
+            about: "مؤسسه خيريه",
+        },
+        {
+            id: "2",
+            name: "ماكدونلز خصم 25 %",
+            image: images.Bank_elt3am_foundation_logo,
+            number_points: 1050,
+            date: "مؤسسه خيريه",
+        },
+        {
+            id: "3",
+            name: "ماكدونلز خصم 25 %",
+            image: images.mac,
+            number_points: 20,
+            date: "مؤسسه خيريه",
+        },
+        {
+            id: "4",
+            name: " تيتتي 25 %",
+            image: images.Elorman_foundation_logo,
+            number_points: 100,
+            date: "مؤسسه خيريه",
+        },
+        {
+            id: "5",
+            name: "ماكدونلز خصم 40%",
+            image: images.Masr_elkhar_foundation_logo,
+            number_points: 1000,
+            about: "مؤسسه خيريه",
+        },
+        {
+            id: "6",
+            name: "جمعية رسالة",
+            image: images.mac,
+            number_points: 1050,
+            date: "مؤسسه خيريه",
+        },
+        {
+            id: "7",
+            name: "بنك الطعام المصري",
+            image: images.Bank_elt3am_foundation_logo,
+            number_points: 20,
+            date: "مؤسسه خيريه",
+        },
+        {
+            id: "8",
+            name: "جمعية الاورمان",
+            image: images.mac,
+            number_points: 100,
+            date: "مؤسسه خيريه",
+        },
+
+
+
+    ]
+
+
 
 const CartData =
     [
@@ -368,8 +435,8 @@ const orders_Data = [
             amount_oil_order: "15",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
-            num_points : "300",
-            time_date_recive : "10/12/2023"
+            num_points: "300",
+            time_date_recive: "10/12/2023"
 
         }
 
@@ -383,8 +450,8 @@ const orders_Data = [
             amount_oil_order: "3",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
-            num_points : "300",
-            time_date_recive : "10/12/2023"
+            num_points: "300",
+            time_date_recive: "10/12/2023"
 
 
         }
@@ -399,8 +466,8 @@ const orders_Data = [
             amount_oil_order: "51",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
-            num_points : "300",
-            time_date_recive : "10/12/2023"
+            num_points: "300",
+            time_date_recive: "10/12/2023"
 
         }
 
@@ -414,8 +481,8 @@ const orders_Data = [
             amount_oil_order: "52",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
-            num_points : "300",
-            time_date_recive : "10/12/2023"
+            num_points: "300",
+            time_date_recive: "10/12/2023"
         }
 
     }, {
@@ -427,8 +494,8 @@ const orders_Data = [
             amount_oil_order: "15",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
-            num_points : "300",
-            time_date_recive : "10/12/2023"
+            num_points: "300",
+            time_date_recive: "10/12/2023"
         }
 
     },
@@ -441,8 +508,8 @@ const orders_Data = [
             amount_oil_order: "3",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
-            num_points : "300",
-            time_date_recive : "10/12/2023"
+            num_points: "300",
+            time_date_recive: "10/12/2023"
 
         }
 
@@ -485,5 +552,9 @@ export {
     ProfilePagedata,
     Days,
     orders_Data,
+<<<<<<< HEAD
     Coupons_flatListData
+=======
+    Copones
+>>>>>>> 9aa0a6d81de8e1a243c4de24c46c32aedbaa8dcb
 }

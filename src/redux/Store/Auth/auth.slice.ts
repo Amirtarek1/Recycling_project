@@ -11,10 +11,13 @@ export const authslice = createSlice({
     },
     extraReducers(builder) {
         builder.addCase(loginUser.fulfilled , ( state , action )=> {
-            state.loading = true
+            // state.loading = true
+            state.accessToken=action.payload.accessToken
         } )
     },
 })
+
+
 
 export default authslice.reducer
 

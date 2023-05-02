@@ -14,7 +14,7 @@ import UncompleteOrders from './UncompleteOrders';
 
 const Stack = createMaterialTopTabNavigator();
 
-function All_orders() {
+function sAll_orders() {
   return (
     <>
       <SafeAreaView style={styles.Basic_container}>

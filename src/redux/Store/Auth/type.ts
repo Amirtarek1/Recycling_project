@@ -2,6 +2,7 @@
 interface authstate {
     loading : boolean 
     name : any
+    accessToken:any
 }
 
 
@@ -9,5 +10,6 @@ interface authstate {
 export const initialState : authstate = {
 
     loading : false ,
-    name : "amir"
+    name : "amir",
+    accessToken:'aaaaaaaaa'
 }

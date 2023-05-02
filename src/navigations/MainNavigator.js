@@ -9,6 +9,7 @@ import ProfileStack from "./ProfileStack";
 import { HomeStack } from "./HomeStack";
 import VoluntaryStack from "./VoluntaryStack";
 import AnimTab2 from "../screens/Bottomtabs/AnimTab2";
+import All_orders from "../screens/Profile/All_orders";
 
 
 const RootStack = createStackNavigator();
@@ -29,6 +30,11 @@ const MainNavigation = () => {
                 name="Voluntary"
                 component={VoluntaryStack}
             />
+            <RootStack.Screen
+                name="All_orders"
+                component={All_orders}
+            />
+
             <RootStack.Screen
                 name="Home"
                 component={AnimTab2}

@@ -6,7 +6,27 @@ export const loginUser = createAsyncThunk<any, any, any>('login', async (
   ) => {
     try {
       let res = await auth_apis.login(args);
-      // alert( JSON.stringify(res?.status))
+      // console.log( JSON.stringify(res));
+      
+      if (res?.data?.status === 0) {
+        return res?.data;
+      } else {
+        return res;
+      }
+    } catch (error) {
+      return rejectWithValue(error)
+  
+    }
+  })
+
+
+  export const registUser = createAsyncThunk<any, any, any>('registUser', async (
+    args, { rejectWithValue }
+  ) => {
+    try {
+      let res = await auth_apis.Register(args);
+      // console.log( JSON.stringify(res));
+      
       if (res?.data?.status === 0) {
         return res?.data;
       } else {
