@@ -3,10 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { MainNavigation } from './src/navigations/MainNavigator';
 import { Provider } from 'react-redux';
 import { store } from './src/redux/store';
-import Start_slider from './src/screens/Splash/Start_slider';
+import CoponesStack from './src/navigations/CoponesStack';
 import { HomeStack } from './src/navigations/HomeStack';
-import Reoil from './src/screens/Splash/ReOil_page';
-import All_orders from './src/screens/Profile/All_orders';
+import Edit_money_transaction from './src/screens/voluntary/Edit_money_transaction';
+import Money_transaction from './src/screens/voluntary/Money_transaction';
+import MoneyStack from './src/navigations/MoneyStack';
 
 
 const App = () => {
@@ -15,9 +16,11 @@ const App = () => {
     <>
 
 
-   
+
       <Provider store={store}>
         <NavigationContainer  >
+          {/* <MoneyStack/> */}
+          {/* <HomeStack /> */}
           <MainNavigation />
         </NavigationContainer>
       </Provider>

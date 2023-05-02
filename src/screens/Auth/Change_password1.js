@@ -53,13 +53,9 @@ const Change_password1 = () => {
                             fontSize: RFPercentage(3),
                             color: COLORS.gray_mid,
                             fontFamily: FONT.font_Almarai_Bold,
-                        }}>يجب ان تكون كلمة مرورك الجديده مختلفه</Text>
-                        <Text style={{
-                            fontSize: RFPercentage(3),
-                            color: COLORS.gray_mid,
-                            fontFamily: FONT.font_Almarai_Bold,
-                        }}>عن كلمه مرورك الحاليه</Text>
-
+                            textAlign: "center"
+                        }}> يجب ان تكون كلمة مرورك الجديده مختلفه عن كلمة مرورك الحالية</Text>
+                       
                     </View>
                     <View style={styles.white_container}>
 
@@ -98,7 +94,7 @@ const Change_password1 = () => {
                     </View>
                     <View style={{ marginTop: RFPercentage(10) }}>
                         {/* navigation.navigate('Home') */}
-                        <Large_button button_name="تأكيد" Confirm_press={() => { }} />
+                        <Large_button button_name="تأكيد" Confirm_press={()=> navigation.navigate("Profile_list") } />
                     </View>
                 </SafeAreaView>
             </ScrollView>

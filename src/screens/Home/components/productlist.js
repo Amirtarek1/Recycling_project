@@ -4,10 +4,10 @@ import { styles } from '../Style_Type_oil';
 import { COLORS, } from '../../../constants';
 import { RFPercentage, } from 'react-native-responsive-fontsize';
 
-const Firstflatlist = ({setnumber, data, setdata}) => {
+const Firstflatlist = ({ setnumber, data, setdata }) => {
 
     const w = Dimensions.get("screen").width
-    
+
 
     useEffect(() => {
         fun()
@@ -18,7 +18,7 @@ const Firstflatlist = ({setnumber, data, setdata}) => {
         for (i = 0; i < data.length; i++) {
             counter += data[i].initial
         }
-         setnumber(counter)
+        setnumber(counter)
     }
 
     const increment = (index) => {
@@ -42,14 +42,14 @@ const Firstflatlist = ({setnumber, data, setdata}) => {
         <>
 
             <FlatList
-
+                showsHorizontalScrollIndicator={false}
                 data={data}
                 contentContainerStyle={{ marginBottom: RFPercentage(20) }}
                 numColumns={2}
                 showsVerticalScrollIndicator={false}
                 renderItem={({ item, index }) =>
                     <>
-                        <View style={{ alignItems: "center", marginBottom: 20  , marginTop : 10, justifyContent: "space-around", width: w * 0.5 }}>
+                        <View style={{ alignItems: "center", marginBottom: 20, marginTop: 10, justifyContent: "space-around", width: w * 0.5 }}>
                             <View style={[styles.shadowProp, styles.style_touchableopacity_categories]} >
 
                                 <View style={{ alignItems: "center", paddingTop: RFPercentage(1.5) }}>
@@ -59,7 +59,7 @@ const Firstflatlist = ({setnumber, data, setdata}) => {
                                     <Text style={styles.style_text_in_touchableopacit_pointsnumber}>النقط : {item.number_points}</Text>
                                 </View>
 
-                                 <View style={{ flexDirection: "row", justifyContent: "space-between" ,width: w * 0.47 }}>
+                                <View style={{ flexDirection: "row", justifyContent: "space-between", width: w * 0.47 }}>
                                     <TouchableOpacity onPress={() => increment(index)}
 
                                         style={{
@@ -71,9 +71,9 @@ const Firstflatlist = ({setnumber, data, setdata}) => {
 
                                         <Text style={styles.style_text_in_touchableopacity_toadd_to_cart}>+</Text>
                                     </TouchableOpacity>
-                                 
+
                                     <Text numberOfLines={1} style={styles.style_number_in_touchableopacity}>{item.initial}</Text>
-                                   
+
                                     <TouchableOpacity
                                         onPress={() => decrement(index)}
                                         style={{
@@ -87,7 +87,7 @@ const Firstflatlist = ({setnumber, data, setdata}) => {
                                     </TouchableOpacity>
                                     {/**/}
 
-                                </View> 
+                                </View>
 
 
                             </View>

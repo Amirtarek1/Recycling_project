@@ -10,12 +10,15 @@ import { useState } from 'react';
 import { hp } from '../../constants/themes';
 import FlatList_money_archives from './FlatList_money_archives';
 import { money_archives_data } from '../../Utils/DummyData';
+import { useNavigation } from '@react-navigation/native';
+
 const Archives = () => {
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
     const [number , setnumber] = useState(0)
     const [data, setdata] = useState(money_archives_data)
-   
+    const navigation = useNavigation();
+
     return (
         <>
 
@@ -25,7 +28,7 @@ const Archives = () => {
 
                
 
-                    <Back_arrow onPress={() => alert("sda")} />
+                    <Back_arrow onPress={() => navigation.navigate("Home")} />
                     <Text style={{
                         right :RFValue(100,Sizes.height),
                         fontSize:RFValue(20,Sizes.height) ,

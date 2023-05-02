@@ -4,27 +4,32 @@ const categories =
 
     [
         {
+            id : 1,
             name: "أنواع الزيوت",
             image: images.type_oil,
             navi: 'Types_oil'
         },
         {
+            id : 2 , 
             name: "الخدمات المقابله",
             image: images.another_service,
             navi: 'ServicesOil'
         },
         {
+            id : 3 ,
             name: "جدول المواعيد",
             image: images.tables,
             navi: 'TimeTablePage'
         },
         {
+            id :4 ,
             name: "شارك و اربح",
             image: images.share_and_win,
             // navi: 'Share_page'
             link: ''
         },
         {
+            id : 5 ,
             name: "أخري",
             image: images.another,
             // navi: alert("SOON")
@@ -43,26 +48,22 @@ const Types_services =
         {
             name: "فلوس",
             image: images.Money_exchange,
-            number_points: 10,
-            // navi: 'History_profile'
+            navi: 'Voluntary'
         },
         {
             name: "تبرعات",
             image: images.Donations_exchange,
-            number_points: 50,
             navi: 'Voluntary'
         },
         {
             name: "منتجات",
             image: images.Products_exchange,
-            number_points: 20,
-            // navi: 'ss'
+            navi: 'All_orders'
         },
         {
             name: "كوبون خصم",
             image: images.Sale_exchange,
-            number_points: 100,
-            // navi: 'ss'
+            navi: 'CoponesStack'
         },
 
     ]
@@ -337,27 +338,34 @@ const Copones =
 const CartData =
     [
         {
-            numOfBottles: 2,
+            id : 1,
+            numOfBottles: 22,
             numOfPoints: 20
         },
         {
-            numOfBottles: 2,
+            id : 2,
+            numOfBottles: 21,
             numOfPoints: 20
         }
         ,
         {
-            numOfBottles: 2,
-            numOfPoints: 20
+            id : 3,
+            numOfBottles: 22,
+            numOfPoints: 200
         }
         , {
+            id : 4,
             numOfBottles: 2,
-            numOfPoints: 20
+            numOfPoints: 2021
         },
         {
-            numOfBottles: 2,
-            numOfPoints: 20
+            id : 5,
+            numOfBottles: 212,
+            numOfPoints: 2320
         }
     ]
+
+
 
 const ProfilePagedata =
     [
@@ -383,7 +391,7 @@ const ProfilePagedata =
             id: 4,
             text_content: "قائمة الطلبات",
             icone: "shopping-bag",
-            // navi: 'ss'
+            navi: 'All_orders'
         },
         {
             id: 5,
@@ -401,7 +409,7 @@ const ProfilePagedata =
             id: 7,
             text_content: "الشروط والأحكام",
             icone: "info-circle",
-            // navi: 'ss'
+            navi: 'Suggests'
         }
     ]
 
@@ -559,5 +567,6 @@ export {
     ProfilePagedata,
     Days,
     orders_Data,
-    Coupons_flatListData
+    Coupons_flatListData,
+    Copones
 }

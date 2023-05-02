@@ -21,7 +21,11 @@ const Home_page = () => {
         if (item.link) {
             SHAre()
         } else {
-            navigation.navigate(item.navi);
+            if (item.id !== 5) {
+                navigation.navigate(item.navi);
+            }else{
+                alert("soon")
+            }
         }
     };
 
@@ -52,7 +56,7 @@ const Home_page = () => {
                                 justifyContent: "space-around", width: w * 0.5
                             }}>
                                 <TouchableOpacity
-                                    onPress={() => handlePress(item) }
+                                    onPress={() => handlePress(item)}
                                     style={{
                                         backgroundColor: COLORS.green_light,
                                         width: w * .45, borderRadius: RFPercentage(2), padding: hp(2)
@@ -89,7 +93,7 @@ const Home_page = () => {
                     <View style={styles.view_photo_and_text_style}>
                         <User_image />
                         <View >
-                            <Text style={styles.text_Bold_style}>مرحبا الاء</Text>
+                            <Text style={styles.text_Bold_style}>مرحبا دكتور أسامه </Text>
                             <Text style={styles.text_thin_style}>النقط : 100</Text>
 
                         </View>

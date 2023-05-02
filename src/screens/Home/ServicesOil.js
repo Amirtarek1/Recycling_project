@@ -52,7 +52,7 @@ const ServicesOil = () => {
 
                     <View style={[styles.view_arrow_and_text_style]}>
 
-                        <Back_arrow />
+                        <Back_arrow  onPress={() => navigation.goBack()}/>
                         <View>
                          <Text style={[styles.text_Bold_style, { textAlign: "center" }]}>الخدمات المقابله</Text>
 

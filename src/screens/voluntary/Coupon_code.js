@@ -12,9 +12,11 @@ import EditSvg from "../../assets/Icons/edit.svg"
 import Coupons_flatList from "./Coupons_flatList"
 import PlusCricleSvg from "../../assets/Icons/plus.svg"
 import  {Coupons_flatListData}  from '../../Utils/DummyData';
+import { useNavigation } from '@react-navigation/native';
 
 
 const Coupon_code = () => {
+    const navigation = useNavigation();
 
 
 const [data , setData] = useState(Coupons_flatListData)
@@ -54,15 +56,12 @@ const [data , setData] = useState(Coupons_flatListData)
                              justifyContent: "space-between",
                              alignItems: "center",
                             }}>
-                            <Back_arrow />
+                            <Back_arrow onPress={()=> navigation.goBack()} />
                             <Text style={{ fontFamily: FONT.font_Almarai_Bold, 
                                 color: COLORS.black, fontSize: RFPercentage(3) }}>كوبونات الخصم</Text>
 
                         </View>
-                        
-                        {/* <View style={{ justifyContent: "space-around", flexDirection: "row" }}> */}
-                    {/* <View style={{ alignItems: "center", alignSelf: "center" }}> */}
-
+                    
                      
                                             </View>
 

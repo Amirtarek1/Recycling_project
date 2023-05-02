@@ -10,6 +10,7 @@ import AnimTab2 from "../screens/Bottomtabs/AnimTab2";
 import All_orders from "../screens/Profile/All_orders";
 import Intro_slider from "../screens/Splash/Start_slider";
 import Reoil from "../screens/Splash/ReOil_page";
+import CoponesStack from "./CoponesStack";
 
 
 const RootStack = createStackNavigator();
@@ -41,7 +42,11 @@ const MainNavigation = () => {
                 name="All_orders"
                 component={All_orders}
             />
-
+            {/* CoponesStack */}
+            <RootStack.Screen
+                name="CoponesStack"
+                component={CoponesStack}
+            />
             <RootStack.Screen
                 name="Home"
                 component={AnimTab2}

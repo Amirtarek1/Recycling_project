@@ -50,7 +50,7 @@ function CompleteOrders() {
                                     <View>
                                         <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(20, h, w) , maxWidth : RFPercentage(36) }}> الكميه : <Text style={{ color: COLORS.gray_dark }}>{item.orders_table.amount_oil_order} </Text></Text>
                                         <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(18, h, w) , maxWidth : RFPercentage(36) }}>معاد الاستلام : <Text style={{ color: COLORS.gray_dark }}>{item.orders_table.time_date} </Text></Text>
-                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(18, h, w) , maxWidth : RFPercentage(36) }}> مكانsssssssssssssssssssssssssssssssssssss الاستلام : <Text style={{ color: COLORS.gray_dark }}>{item.orders_table.place_recieve} </Text></Text>
+                                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(18, h, w) , maxWidth : RFPercentage(36) }}> مكان الاستلام : <Text style={{ color: COLORS.gray_dark }}>{item.orders_table.place_recieve} </Text></Text>
                                     </View>
                                 </View>
                                 

@@ -12,16 +12,20 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT } from '../../constants';
 import UncompleteOrders from './UncompleteOrders';
 
+import { useNavigation } from '@react-navigation/native';
+
 const Stack = createMaterialTopTabNavigator();
 
 function All_orders() {
+  const navigation = useNavigation();
+
   return (
     <>
       <SafeAreaView style={styles.Basic_container}>
 
 
         <View style={[styles.view_arrow_and_text_style]}>
-          <Back_arrow onPress={() => navigation.goBack()} />
+          <Back_arrow onPress={() => navigation.navigate("Home")} />
 
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text style={[styles.text_Bold_style]}>طلباتي</Text>

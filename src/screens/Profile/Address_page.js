@@ -1,11 +1,12 @@
 
 import { ScrollView, TouchableOpacity, FlatList, StyleSheet, Text, View, StatusBar } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import { COLORS, FONT,Sizes } from '../../constants';
+import { COLORS, FONT, Sizes } from '../../constants';
 import Back_arrow from '../../components/Back_arrow';
 import SvgLocation from "../../assets/Icons/user.svg"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import { hp } from '../../constants/themes';
 
 const Address_page = (props) => {
     const navigation = useNavigation();
@@ -31,19 +32,20 @@ const Address_page = (props) => {
         <>
 
             <StatusBar hidden={true} />
-            <ScrollView style = {{backgroundColor : COLORS.white}}>
-                <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white , padding : RFPercentage(2) }}>
+            <ScrollView style={{ backgroundColor: COLORS.white }}>
+                <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white, padding: RFPercentage(2) }}>
                     <View style={{ width: Sizes.width * .6, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                        <Back_arrow  onPress={() => navigation.goBack()}/>
-                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(3) }}>العناوين</Text>
+                        <Back_arrow onPress={() => navigation.goBack()} />
+                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(3.5) }}>العناوين</Text>
 
                     </View>
-                    <View>
+                    <View >
                         <View style={{
                             flexDirection: "row",
                             alignItems: "center",
                             justifyContent: "space-between",
                             marginTop: RFPercentage(4),
+                           
                             marginBottom: RFPercentage(1)
                         }}
                         >
@@ -57,7 +59,7 @@ const Address_page = (props) => {
                                 <SvgLocation width={40} height={40} />
                                 <Text style={{
                                     fontFamily: FONT.font_Almarai_Bold,
-                                    fontSize: RFPercentage(2), color: COLORS.black
+                                    fontSize: RFPercentage(2.5), color: COLORS.black
                                 }}>المنزل
                                 </Text>
                                 <View style={{
@@ -85,19 +87,20 @@ const Address_page = (props) => {
                                 justifyContent: "space-between",
                                 alignItems: "center"
                             }}>
-                                <SvgLocation width={40} height={40} />
+                                <SvgLocation width={hp(5)} height={hp(5)} />
                                 <Text style={{
                                     fontFamily: FONT.font_Almarai_Regular,
                                     color: COLORS.gray_dark,
-                                    fontSize: RFPercentage(2),
+                                    fontSize: RFPercentage(2.5),
                                 }}  >تعديل</Text>
                             </View>
 
                         </View>
                     </View>
+
                     <View style={{
+                        borderWidth: RFPercentage(0.2),
                         width: Sizes.width * 0.95,
-                        height: RFPercentage(0.1),
                         alignSelf: "center",
                         backgroundColor: COLORS.gray_light,
                         marginBottom: RFPercentage(2),
@@ -156,10 +159,10 @@ const Address_page = (props) => {
                             <View style={{
                                 flexDirection: "row",
                                 // alignSelf:"flex-start",
-                                marginLeft: RFPercentage(-1),
+                                // marginLeft: RFPercentage(-1),
                                 width: Sizes.width * 0.2,
                                 justifyContent: "space-between",
-                                 alignItems: "center"
+                                alignItems: "center"
                             }}>
                                 <SvgLocation width={40} height={40} />
                                 <Text style={{
@@ -209,8 +212,8 @@ const Address_page = (props) => {
                         </View>
                     </View>
                     <View style={{
+                        borderWidth: RFPercentage(0.2),
                         width: Sizes.width * 0.95,
-                        height: RFPercentage(0.1),
                         alignSelf: "center",
                         backgroundColor: COLORS.gray_light,
                         marginBottom: RFPercentage(2),
@@ -267,13 +270,13 @@ const Address_page = (props) => {
                                 height: RFPercentage(10),
                                 borderRadius: RFPercentage(5),
                                 alignItems: "center",
-                                
+
                             }}>
-                                <Text style={{fontSize : RFPercentage(7) ,color: COLORS.white }}>+</Text>
+                                <Text style={{ fontSize: RFPercentage(7), color: COLORS.white }}>+</Text>
                             </View>
 
                         </TouchableOpacity>
-                        <Text style={{ fontFamily :  FONT.font_Almarai_ExtraBold , fontSize: RFPercentage(3), color: COLORS.green_mid }}>
+                        <Text style={{ fontFamily: FONT.font_Almarai_ExtraBold, fontSize: RFPercentage(3), color: COLORS.green_mid }}>
 
                             إضافة عنوان</Text>
 

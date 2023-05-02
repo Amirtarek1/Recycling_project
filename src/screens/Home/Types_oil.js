@@ -41,8 +41,7 @@ const Types_oil = () => {
                     }}>أنواع الزيوت</Text>
 
                     <View>
-                        {/* navigation.navigate("Request_car") */}
-                        <Cart  onPress={() => {} } height={hp(6)} width={wp(12)} fill="#fff" />
+                        <Cart  onPress={() => navigation.navigate("Request_car") } height={hp(6)} width={wp(12)} fill="#fff" />
                        {number > 0 ?  <View style={{
                             height: hp(3.5), width: hp(3.5),
                             backgroundColor: COLORS.min_button, borderRadius: 20,
@@ -67,7 +66,7 @@ const Types_oil = () => {
 
                     <View style={{ padding: RFPercentage(1) }}>
                         {/*  navigation.navigate("Request_car") */}
-                        <Large_button button_name="أضافة الي السلة" Confirm_press={()=>{}} />
+                        <Large_button button_name="أضافة الي السلة" Confirm_press={()=>navigation.navigate("Request_car")  } />
                     </View>
                 </View>
 

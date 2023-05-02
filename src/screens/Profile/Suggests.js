@@ -44,7 +44,7 @@ const Suggests = () => {
 
 
                     <View style={[styles.view_arrow_and_text_style]}>
-                        <Back_arrow onPress={() => navigation.goBack()} />
+                        <Back_arrow onPress={() => navigation.navigate("Profile_list")} />
 
                         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                             <Text style={[styles.text_Bold_style]}>الشكاوي والاقتراحات</Text>

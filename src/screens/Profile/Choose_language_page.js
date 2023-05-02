@@ -14,10 +14,12 @@ const w = Dimensions.get("screen").width
 
 const Choose_language_page = (props) => {
     const navigation = useNavigation();
+   
     const LANGUAGE_OPTIONS = [
         { label: 'اللغة العربية', value: 'ar' },
         { label: 'English', value: 'en' },
     ];
+
     const [selectedLanguage, setSelectedLanguage] = useState(null);
     const [checked, setChecked] = useState(false);
 
@@ -39,7 +41,7 @@ const Choose_language_page = (props) => {
 
                     <View style={styles.view_arrow_and_text_style}>
 
-                        <Back_arrow onPress={() => navigation.goBack()} />
+                        <Back_arrow onPress={() => navigation.navigate("Profile_list")}  />
 
 
                         <View>
@@ -71,7 +73,7 @@ const Choose_language_page = (props) => {
 
                     </View>
                     <View style={{ marginTop: RFPercentage(4) }}>
-                        <Large_button button_name="تأكيد" />
+                        <Large_button button_name="تأكيد"  />
                     </View>
                 </SafeAreaView>
 
@@ -109,16 +111,7 @@ const styles = StyleSheet.create({
         borderRadius: RFPercentage(1.5)
 
     },
-    // view_outter: {
-    //     backgroundColor: COLORS.white, width: 25, height: 25
-    //     , borderRadius: 15, borderWidth: 1, alignItems: "center",
-    //     justifyContent: "center"
-    // }, 
-    // view_inner: {
-    //     backgroundColor: COLORS.green_mid, alignSelf: "center",
-    //     justifyContent: "center", width: 16, height: 16
-    //     , borderRadius: 8
-    // },
+
     button: {
         width: '80%',
         height: RFPercentage(8),

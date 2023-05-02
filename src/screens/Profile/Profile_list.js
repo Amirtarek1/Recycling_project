@@ -52,7 +52,7 @@ const Profile_list = () => {
                 style = {{maxHeight : hp(57.2)}}
                     renderItem={({ item, index }) => (
                         <TouchableOpacity
-                            onPress={() => navigation.navigate(item.navi)}
+                            onPress={() =>  navigation.replace(item.navi)}
                             style={{
                                 // backgroundColor :"#0dd",
                                 flexDirection: "row",

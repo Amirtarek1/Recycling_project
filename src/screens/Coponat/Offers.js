@@ -8,12 +8,12 @@ import { styles } from './Style_Offers';
 import  Bag from "../../../src/assets/Icons/Bag.svg"
 import Search from "../../../src/assets/Icons/search_icone.svg"
 import { RFPercentage } from 'react-native-responsive-fontsize';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Flatlist_Copones from './Flatlist_Copones';
 
 const Offers = () => {
 
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
 
@@ -36,7 +36,7 @@ const Offers = () => {
                 <View style={styles.green_container}>
 
 
-                    <Back_arrow onPress={() => navigation.replace("Home")} />
+                    <Back_arrow onPress={() => navigation.goBack()} />
                     <View>
                         <Text style={{
                             fontSize: RFPercentage(4),
@@ -45,7 +45,7 @@ const Offers = () => {
                         }}>العروض</Text>
                     </View>
 {/* onPress={() => navigation.navigate("Voluntary_Archive")}  */}
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={() => navigation.navigate("Coupon_code")}  >
                         <Bag height={hp(6)} width={wp(10)} fill="#fff" />
                     </TouchableOpacity>
 
@@ -83,8 +83,7 @@ const Offers = () => {
                         />
                         <View style={[styles.shadowProp, {
                             backgroundColor: COLORS.green_mid
-                            , alignItems: "center", justifyContent: "center", borderRadius: 6
-                        }]} >
+                            , alignItems: "center", justifyContent: "center", borderRadius: 6 }]}>
                             <Search height={hp(4.8)} width={wp(14)} fill="#fff" />
                         </View>
 

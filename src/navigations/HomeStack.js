@@ -11,6 +11,7 @@ import {
 
 import { NavigationContainer } from "@react-navigation/native";
 import TimeTablePage from "../screens/Home/TimeTablePage";
+import Request_car from "../screens/Profile/Request_car";
 
 
 const Stack = createStackNavigator();
@@ -32,6 +33,11 @@ const HomeStack = () => {
             <Stack.Screen
                 name="Types_oil"
                 component={Types_oil}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="Request_car"
+                component={Request_car}
                 options={{ headerShown: false }}
             />
             <Stack.Screen

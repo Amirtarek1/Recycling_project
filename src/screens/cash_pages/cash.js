@@ -6,8 +6,10 @@ import { COLORS, FONT, Sizes,hp } from '../../constants/themes';
 import { styles } from "./Style_money_archive";
 import FlatList_money_archives from './FlatList_money_archives';
 import { Share_The_Good_Dataset, Voluntary_dataset ,money_archives_data} from '../../Utils/DummyData';
+import { useNavigation } from '@react-navigation/native';
 
 const Cash = () => {
+    const navigation = useNavigation();
     const [checked, setChecked] = React.useState('اللغه العربيه');
     const [ choose,setChoose] = React.useState([
         {
@@ -26,7 +28,7 @@ const Cash = () => {
 
 <SafeAreaView style={styles.Basic_container}>
                 <View style={[styles.view_arrow_and_text_style]}>
-                    <Back_arrow />
+                    <Back_arrow onPress={() => navigation.goBack()} />
                     <View>
                         <Text style={[styles.text_Bold_style, { textAlign: "center" }]}>أرشيف التبرعات</Text>
                     </View>

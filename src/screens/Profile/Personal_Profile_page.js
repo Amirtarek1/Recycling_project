@@ -26,7 +26,7 @@ const Personal_Profile_page = (props) => {
 
                     <View style={styles.view_arrow_and_text_style}>
 
-                        <Back_arrow onPress={() => navigation.goBack()} />
+                        <Back_arrow onPress={() => navigation.navigate("Profile_list")}  />
 
                         <View>
                             <Text style={styles.text_title_name}>الملف الشخصي</Text>
