@@ -559,9 +559,5 @@ export {
     ProfilePagedata,
     Days,
     orders_Data,
-<<<<<<< HEAD
     Coupons_flatListData
-=======
-    Copones
->>>>>>> 9aa0a6d81de8e1a243c4de24c46c32aedbaa8dcb
 }
