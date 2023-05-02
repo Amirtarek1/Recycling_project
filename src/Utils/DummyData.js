@@ -448,7 +448,31 @@ const orders_Data = [
 
     },
 ]
-
+const Coupons_flatListData =[
+    {
+        company_logo:images.food_oil,
+        company_name:"ماكدونالز",
+        isUsed : true ,
+        numOfPoints : 100
+            },   {
+                company_logo:images.Vodafone_logo,
+                company_name:"ماكدونالز",
+                isUsed : true ,
+                numOfPoints : 100
+                    },   {
+                        company_logo:images.Vodafone_logo,
+                        company_name:"ماكدونالز",
+                        isUsed : true ,
+                        numOfPoints : 100
+                            },
+                    {
+                        company_logo:images.Mac_logo,
+                        company_name:"ماكدونالز",
+                        isUsed : false ,
+                        numOfPoints : 100
+                            },
+                                
+        ]
 
 export {
     categories,
@@ -460,5 +484,6 @@ export {
     CartData,
     ProfilePagedata,
     Days,
-    orders_Data
+    orders_Data,
+    Coupons_flatListData
 }

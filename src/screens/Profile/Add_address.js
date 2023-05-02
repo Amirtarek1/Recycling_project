@@ -33,7 +33,10 @@ const Add_address = (props) => {
                 <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white, padding: RFPercentage(2) }}>
 
                     <View style={{ flex: 1, backgroundColor: COLORS.white }}>
-                        <View style={{ width: Sizes.width * .6, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                        <View style={{ width: Sizes.width * .6, 
+                            flexDirection: "row",
+                             justifyContent: "space-between",
+                             alignItems: "center" }}>
                             <Back_arrow />
                             <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(3) }}>تفاصيل العنوان</Text>
 
@@ -47,7 +50,7 @@ const Add_address = (props) => {
                         <View style={{ width: Sizes.width * 0.4, marginTop: RFPercentage(2) }}>
                             <Text style={{
                                 fontFamily: FONT.font_Almarai_Bold,
-                                color: COLORS.black,
+                                color: COLORS.gray_white,
                                 fontSize: RFPercentage(2.5),
 
                             }} numberOfLines={1}>طنطا - الغربية</Text>
@@ -61,14 +64,20 @@ const Add_address = (props) => {
                                 style={{
                                     width: Sizes.width * 0.95,
                                     backgroundColor: "#fff",
+                                    borderTopWidth :0,
                                     borderBottomWidth: 0.1,
-                                    borderColor: COLORS.gray_light,
+                                    borderColor:COLORS.gray_light,
                                     fontFamily : FONT.font_Almarai_Bold,
                                     fontSize : RFPercentage(2.5),
 
                                 }}
-                                
-                                placeholder="العنوان">
+                                mode = "outlined"
+                                textColor="#635B5B"
+                                outlineColor={COLORS.gray_light}
+                                activeOutlineColor = {COLORS.green_mid}
+                                cursorColor={COLORS.gray_dark}
+                                placeholderTextColor={COLORS.gray_mid}
+                                placeholder="قسم ثاني طنطا">
                             </TextInput>
                             <TouchableOpacity>
                                 <Text style={{
@@ -99,9 +108,15 @@ const Add_address = (props) => {
                             borderBottomWidth: 0.1,
                             borderColor: COLORS.gray_light
                         }}
-                        placeholderTextColor={COLORS.black}
+                        mode = "flat"
+                
+                        textColor="#635B5B"
+                        outlineColor={COLORS.gray_light}
+                        activeOutlineColor = {COLORS.green_mid}
+                        cursorColor={COLORS.gray_dark}
+                        placeholderTextColor={COLORS.gray_mid}
                         placeholder="تفاصيل العنوان الاضافية">
-
+a
                     </TextInput>
 
 

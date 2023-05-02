@@ -6,8 +6,11 @@
 // import Splash_2 from './src/screens/Splash/splash_2';
 // import Cash from './src/screens/cash_pages/cash';
 
-import Request_car from "./src/screens/Profile/Request_car";
-import Archives from "./src/screens/cash_pages/Archives";
+
+
+import Edit_money_transaction from "./src/screens/voluntary/Edit_money_transaction";
+// import Home_page from "./src/screens/Home/Home_page";
+// import Donate from "./src/screens/voluntary/Donate";
 
 
 const App = () => {
@@ -21,8 +24,15 @@ const App = () => {
     {/* <Splash_2/> */}
     {/* <Archives/> */}
     {/* <Intro_slider/> */}
-    <Request_car/>
-  </>
+    {/* <Request_car/> */}
+    {/* <Add_address/> */}
+    {/* <Archives/> */}
+{/* <Discount_coupons/> */}
+{/* <Coupon_code/> */}
+{/* <Money_transaction/> */}
+<Edit_money_transaction/>
+{/* <Request_car/> */}
+</>
   );
 }
 export default App;

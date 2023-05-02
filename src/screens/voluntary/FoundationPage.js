@@ -78,8 +78,8 @@ const [data , setdata] = useState(route.params.name)
 
 
 
-            </SafeAreaView>
 
+            </SafeAreaView>
 
 
 
