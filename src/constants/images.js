@@ -32,7 +32,7 @@ const Money_logo = require("../assets/Images/money_logo.png")
 const Save_planet = require("../assets/Images/save_planet.png")
 const Splash_3 = require("../assets/Images/splash_3.png")
 const Splash_4 = require("../assets/Images/splash_4.png")
-
+const Mac_logo =  require("../assets/Images/mac.png")
 export default {
     forget_password,
     google,
@@ -65,5 +65,6 @@ export default {
     mac,
     Save_planet,
     Splash_3,
-    Splash_4
+    Splash_4,
+    Mac_logo
 }

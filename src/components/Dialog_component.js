@@ -8,10 +8,9 @@ import { FONT, hp } from '../constants/themes';
 import { COLORS } from '../constants/themes';
 import { styles } from '../screens/voluntary/Style_Foundation';
 import { RFValue } from 'react-native-responsive-fontsize';
-const Dialog_component = () => {
-  const [visible, setVisible] = React.useState(false);
+const Dialog_component = ({isVisible}) => {
 
-const [isModalVisable,setISModalVisible] = React.useState(true)
+const [isModalVisable,setISModalVisible] = React.useState(isVisible)
   return (
   <>
   
