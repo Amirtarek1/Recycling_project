@@ -92,13 +92,13 @@ const Home_page = () => {
 
                     <View style={styles.view_photo_and_text_style}>
                         <User_image />
-                        <View >
+                        <View style = {{flex : 1 ,marginLeft: RFPercentage(1)}} >
                             <Text style={styles.text_Bold_style}>مرحبا دكتور أسامه </Text>
                             <Text style={styles.text_thin_style}>النقط : 100</Text>
 
                         </View>
                         <View style={{ width: RFPercentage(8), alignItems: "center" }} >
-                            <Notificationicon height={RFPercentage(5)} fill="#fff" />
+                            <Notificationicon height={RFPercentage(5)} width={RFPercentage(5)} style ={{marginRight : RFPercentage(2) }} fill="#fff" />
                         </View>
 
                     </View>

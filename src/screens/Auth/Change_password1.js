@@ -36,7 +36,7 @@ const Change_password1 = () => {
 
                     <View style={[styles.view_arrow_and_text_style]}>
 
-                        <Back_arrow onPress={() => navigation.goBack()} />
+                        <Back_arrow onPress={() => navigation.navigate("Profile_list")} />
                         <View>
                             <Text style={[styles.text_Bold_style]}>تغيير كلمه المرور</Text>
                         </View>

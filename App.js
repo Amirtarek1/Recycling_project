@@ -19,8 +19,6 @@ const App = () => {
 
       <Provider store={store}>
         <NavigationContainer  >
-          {/* <MoneyStack/> */}
-          {/* <HomeStack /> */}
           <MainNavigation />
         </NavigationContainer>
       </Provider>

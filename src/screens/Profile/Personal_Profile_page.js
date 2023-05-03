@@ -106,7 +106,7 @@ const Personal_Profile_page = (props) => {
 
                 </SafeAreaView>
 
-                    <Large_button button_name="حذف الحساب" />
+                    <Large_button button_name="حذف الحساب" Confirm_press={()=> navigation.replace("Auth")} />
             </ScrollView>
         </>
     )

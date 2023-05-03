@@ -37,7 +37,9 @@ const ShareTheGoodPage = () => {
                 <View style={styles.green_container}>
 
 
-                    <Back_arrow onPress={() => navigation.replace("Home")} />
+                    <Back_arrow 
+                    onPress={() => navigation.replace("ServicesOil")} 
+                    />
                     <View>
                         <Text style={{
                             fontSize: RFPercentage(2.5),

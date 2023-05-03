@@ -31,7 +31,7 @@ const Profile_data_page = () => {
                     justifyContent: "space-around", alignItems: "center"
                 }}>
                     <View>
-                        <Back_arrow />
+                        <Back_arrow  onPress={()=> navigation.navigate("Personal_Profile_page")} />
                     </View>
                     <View style={{ flexDirection: "row", width: Sizes.width * 0.7 }}>
                         <Text style={{ color: COLORS.black, fontFamily: FONT.font_Almarai_ExtraBold, fontSize: RFPercentage(3) }}>تعديل الملف الشخصي</Text>
@@ -57,7 +57,7 @@ const Profile_data_page = () => {
                     <View>
                         <Text style={styles.style_Text_topof_points}>النقط الحاليه</Text>
                         <View style={styles.view_points}>
-                            <Text onPress={() => alert("hhhhh")} numberOfLines={1}
+                            <Text onPress={() => alert("120")} numberOfLines={1}
                                 style={styles.style_text_in_box_ofpoints}>120</Text>
                         </View>
                     </View>
@@ -66,7 +66,7 @@ const Profile_data_page = () => {
                     <View >
                         <Text style={styles.style_Text_topof_points} >النقط المستخدمه</Text>
                         <View style={styles.view_points}>
-                            <Text onPress={() => alert("hhhhh")} numberOfLines={1}
+                            <Text onPress={() => alert("204")} numberOfLines={1}
                                 style={styles.style_text_in_box_ofpoints}>204</Text>
                         </View>
                     </View>

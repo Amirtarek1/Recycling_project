@@ -83,7 +83,7 @@ const Money_transaction = () => {
 
                 <View style={[styles.view_arrow_place, { marginBottom: hp(2) }]}>
                     <Back_arrow
-                     onPress={()=> navigation.navigate("Home")} 
+                     onPress={() => navigation.replace("ServicesOil")}
                     />
                     <View>
                         <Text style={{
@@ -259,7 +259,7 @@ const Money_transaction = () => {
 
 
                         <View style={{ marginTop: hp(5), }}>
-                            <Large_button button_name="تاكيد" Confirm_press={()=> navigation.navigate("Home")} />
+                            <Large_button button_name="تاكيد" Confirm_press={() => navigation.replace("ServicesOil")} />
                         </View>
                 </View>
 

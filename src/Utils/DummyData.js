@@ -48,7 +48,7 @@ const Types_services =
         {
             name: "فلوس",
             image: images.Money_exchange,
-            navi: 'Voluntary'
+            navi: 'MoneyStack'
         },
         {
             name: "تبرعات",
