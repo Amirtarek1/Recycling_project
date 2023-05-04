@@ -92,7 +92,7 @@ const Home_page = () => {
 
                     <View style={styles.view_photo_and_text_style}>
                         <User_image />
-                        <View style = {{flex : 1 ,marginLeft: RFPercentage(1)}} >
+                        <View  >
                             <Text style={styles.text_Bold_style}>مرحبا دكتور أسامه </Text>
                             <Text style={styles.text_thin_style}>النقط : 100</Text>
 
