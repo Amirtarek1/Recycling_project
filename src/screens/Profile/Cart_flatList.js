@@ -2,7 +2,6 @@
 import { Image, Dimensions,TouchableOpacity,Text,View,FlatList } from 'react-native';
 import { RFValue,RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT,Sizes,hp } from '../../constants/themes';
-// import { styles } from './Style_money_archive';
 import { styles } from '../Home/Style_Type_oil';
 import PlusSvg from "../../assets/Icons/plus.svg"
 import MinusSvg from "../../assets/Icons/minus.svg"
@@ -12,16 +11,7 @@ const Cart_flatList = props => {
  const {data,onNumberOfBottlesIncrement,onNumberOfBottlesDecrement} = props
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
-//     const [numberOfPoints,setnumberOfPoints] =useState(1);
-//    const numberOfPointsIncrement = () => {
-//     const mewData = [...data]
 
-//     newData[index].numOfPoints+=1
-    
-//    }
-//    const numberOfPoDecrement = () => {
-//     setnumberOfPoints(numberOfPoints - 1)
-//    }
     return (
         <>
 
@@ -62,19 +52,19 @@ const Cart_flatList = props => {
 <View style={{ 
     padding:RFPercentage(1),
     justifyContent:"space-around",
-     alignItems:"flex-end",
-    //  borderWidth:1 ,
+     alignItems:"flex-start"
+     ,
      width : Sizes.width*0.45
 ,right:RFPercentage(6)
      }}>
 <Text numberOfLines={1}
 style={{  
-fontSize:RFPercentage(3),
+fontSize:RFPercentage(2.5),
 fontFamily:FONT.font_Almarai_Bold,
 color:COLORS.green_mid,    
-width : Sizes.width*0.4
+// width : Sizes.width*0.4
 }}
->زيت طعام 3  كيلو </Text>
+>زيت طعام {data.item.numOfPoints}  كيلو </Text>
 <View style = {{
     
  minWidth:RFPercentage(18),
@@ -92,7 +82,7 @@ justifyContent:"space-between"}}>
 <Text style={{
     color :COLORS.black ,
     fontFamily : FONT.font_Almarai_Bold,
-    fontSize:RFPercentage(3),
+    fontSize:RFPercentage(2.5),
     maxWidth:Sizes.width*0.2 ,}} numberOfLines={1} >{data.item.numOfBottles}</Text>
   <TouchableOpacity style={styles.shadowProp}
   disabled={data.item.numOfBottles>0? false :true
@@ -100,13 +90,17 @@ justifyContent:"space-between"}}>
 }
   onPress={onNumberOfBottlesDecrement}
   >
-    <MinusSvg width={RFPercentage(7)} height = {RFPercentage(7)} />
+    <MinusSvg width={RFPercentage(7)}
+     height = {RFPercentage(7)} />
 </TouchableOpacity>
 
 </View>
                     </View>
-<View style = {{justifyContent :"space-between",height:RFPercentage(15),
-padding :hp(0.5),alignItems:"flex-start",
+<View style = {{
+    justifyContent :"space-between",
+height:RFPercentage(15),
+padding :hp(0.5),
+alignItems:"center",
 right : RFPercentage(4),
 // borderWidth :1
 }}>
@@ -114,18 +108,18 @@ right : RFPercentage(4),
     <Text style={{
     color :COLORS.black ,
     fontFamily : FONT.font_Almarai_Bold,
-    fontSize:RFPercentage(3),
+    fontSize:RFPercentage(2.5),
     }} numberOfLines={1}>نقط </Text>
    <Text style={{
     color :COLORS.black ,
     fontFamily : FONT.font_Almarai_Bold,
-    fontSize:RFPercentage(3),
+    fontSize:RFPercentage(2.5),
     maxWidth:Sizes.width*0.12 ,}} numberOfLines={1}> {data.item.numOfPoints} </Text>
 </View>
 <View style={{flexDirection:"row" ,
  alignItems :"center",
- justifyContent:"space-between",
- width :RFPercentage(12)
+ justifyContent:"space-between"
+//  width :RFPercentage(12)
  ,
  
  top :RFPercentage(-2)

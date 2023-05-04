@@ -13,11 +13,22 @@ import Flatlist_Copones from './Flatlist_Copones';
 
 const Offers = () => {
 
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
-
-    const [data, setdata] = useState(Copones)
+    // const [data, setdata] = useState(Copones)
+    const [data, setdata] = useState(Copones.map((Copones, index) => ({
+        key: `${index}`,
+        id: Copones.id,
+        numOfBottles:Copones.numOfBottles ,
+        name: Copones.name,
+        image:Copones.image,
+        number_points: 100,
+        date: Copones.date,
+        replace : Copones.replace
+        
+        
+    })))
     const [searchQuery, setSearchQuery] = useState('');
     const handleSearch = (text) => {
         setSearchQuery(text);
@@ -25,6 +36,21 @@ const Offers = () => {
 
     const filteredData = data.filter(item => item.name.includes(searchQuery));
 
+    
+
+    const numberOfBottlesIncrement = ( rowKey) => {
+        const newData = [...data];
+        newData[rowKey].numOfBottles += 1
+
+        setdata(newData)
+    }
+    const numberOfBottlesDecrement = ( rowKey) => {
+        const newData = [...data];
+        if (newData[rowKey].numOfBottles)
+            newData[rowKey].numOfBottles -= 1
+
+        setdata(newData)
+    }
     return (
         <>
 
@@ -90,7 +116,12 @@ const Offers = () => {
                     </View>
 
 
-                    <Flatlist_Copones data={filteredData}  />
+                    <Flatlist_Copones data={filteredData} 
+                    
+                      onNumberOfBottlesIncrement={() => numberOfBottlesIncrement( rowMap,data.item.key)}
+                onNumberOfBottlesDecrement={() => numberOfBottlesDecrement( rowMap,data.item.key)}
+       
+                    />
                 </View>
 
 
