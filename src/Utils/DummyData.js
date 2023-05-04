@@ -273,60 +273,83 @@ const Copones =
 
     [
         {
-            id: "1",
+
+            id: 0,
+            numOfBottles: 22,
             name: " خصم 25 %",
             image: images.mac,
             number_points: 1000,
             about: "مؤسسه خيريه",
+            replace : false
         },
         {
-            id: "2",
+            id: 1,
+            numOfBottles: 22,
             name: "ماكدونلز خصم 25 %",
             image: images.Bank_elt3am_foundation_logo,
             number_points: 1050,
             date: "مؤسسه خيريه",
+            replace : false
         },
         {
-            id: "3",
+            id: 2,
+            numOfBottles: 22,
             name: "ماكدونلز خصم 25 %",
             image: images.mac,
             number_points: 20,
             date: "مؤسسه خيريه",
+            replace : false
+
         },
         {
-            id: "4",
+            id: 3,
+            numOfBottles: 22,
             name: " تيتتي 25 %",
             image: images.Elorman_foundation_logo,
             number_points: 100,
             date: "مؤسسه خيريه",
+            replace : false
+
         },
         {
-            id: "5",
+            id: 4,
+            numOfBottles: 22,
             name: "ماكدونلز خصم 40%",
             image: images.Masr_elkhar_foundation_logo,
             number_points: 1000,
             about: "مؤسسه خيريه",
+            replace : false
+
         },
         {
-            id: "6",
+            id: 5,
+            numOfBottles: 22,
             name: "جمعية رسالة",
             image: images.mac,
             number_points: 1050,
             date: "مؤسسه خيريه",
+            replace : false
+
         },
         {
-            id: "7",
+            id: 6,
+            numOfBottles: 22,
             name: "بنك الطعام المصري",
             image: images.Bank_elt3am_foundation_logo,
             number_points: 20,
             date: "مؤسسه خيريه",
+            replace : false
+
         },
         {
-            id: "8",
+            id: 7,
+            numOfBottles: 22,
             name: "جمعية الاورمان",
             image: images.mac,
             number_points: 100,
             date: "مؤسسه خيريه",
+            replace : false
+
         },
 
 
@@ -340,28 +363,36 @@ const CartData =
         {
             id : 1,
             numOfBottles: 22,
-            numOfPoints: 20
+            numOfPoints: 20,
+            oilQuantity:2
         },
         {
             id : 2,
             numOfBottles: 21,
-            numOfPoints: 20
+            numOfPoints: 40,
+            oilQuantity:4
+
         }
         ,
         {
             id : 3,
             numOfBottles: 22,
-            numOfPoints: 200
+            numOfPoints: 200 ,
+            oilQuantity:41
         }
         , {
             id : 4,
             numOfBottles: 2,
-            numOfPoints: 2021
+            numOfPoints: 202
+            ,
+            oilQuantity:12
         },
         {
             id : 5,
-            numOfBottles: 212,
-            numOfPoints: 2320
+            numOfBottles: 12,
+            numOfPoints: 20
+            ,
+            oilQuantity:7
         }
     ]
 

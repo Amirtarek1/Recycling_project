@@ -8,6 +8,9 @@ import { HomeStack } from './src/navigations/HomeStack';
 import Edit_money_transaction from './src/screens/voluntary/Edit_money_transaction';
 import Money_transaction from './src/screens/voluntary/Money_transaction';
 import MoneyStack from './src/navigations/MoneyStack';
+import Request_car from './src/screens/Profile/Request_car';
+import Donate from './src/screens/voluntary/Donate';
+import Offers from './src/screens/Coponat/Offers';
 
 
 const App = () => {
