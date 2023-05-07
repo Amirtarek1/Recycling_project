@@ -11,6 +11,7 @@ import MoneyStack from './src/navigations/MoneyStack';
 import Request_car from './src/screens/Profile/Request_car';
 import Donate from './src/screens/voluntary/Donate';
 import Offers from './src/screens/Coponat/Offers';
+import Add_address from './src/screens/Profile/Add_address';
 
 
 const App = () => {
@@ -22,7 +23,8 @@ const App = () => {
 
       <Provider store={store}>
         <NavigationContainer  >
-          <MainNavigation />
+     <Add_address/>
+          {/* <MainNavigation /> */}
         </NavigationContainer>
       </Provider>
 

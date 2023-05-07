@@ -1,5 +1,5 @@
-
-import { ScrollView, TouchableOpacity, Text, View } from 'react-native';
+import React from "react"
+import { ScrollView, TouchableOpacity, Text, View,useState } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, Sizes } from '../../constants';
 import Large_button from '../../components/Large_button';
@@ -7,17 +7,20 @@ import Back_arrow from '../../components/Back_arrow';
 import { TextInput } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-
 const Add_address = (props) => {
     const navigation = useNavigation();
-
+    const [quarter ,setQuarter] = React.useState ("")
+    const [addressDetails,setAddresDetails] = React.useState("")
 
 
     return (
         <>
 
             <ScrollView >
-                <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white, padding: RFPercentage(2) }}>
+                <SafeAreaView style={{ flex: 1,
+                 backgroundColor: COLORS.white,
+                     padding: RFPercentage(2)
+                      }}>
 
                     <View style={{ flex: 1, backgroundColor: COLORS.white }}>
                         <View style={{
@@ -60,15 +63,20 @@ const Add_address = (props) => {
                                     borderColor: COLORS.gray_light,
                                     fontFamily: FONT.font_Almarai_Bold,
                                     fontSize: RFPercentage(2.5),
+                                    borderWidth:0
 
                                 }}
-                                mode="outlined"
+                                value={quarter}
+                                onChangeText={(value) =>{setQuarter(value);
+                                
+                                }}
+                                mode="flat"
                                 textColor="#635B5B"
                                 outlineColor={COLORS.gray_light}
                                 activeOutlineColor={COLORS.green_mid}
                                 cursorColor={COLORS.gray_dark}
                                 placeholderTextColor={COLORS.gray_mid}
-                                placeholder="قسم ثاني طنطا">
+                                placeholder="الحي">
                             </TextInput>
 
                             <TouchableOpacity>
@@ -92,8 +100,12 @@ const Add_address = (props) => {
 
                     }} numberOfLines={1}>تفاصيل العنوان الإضافية</Text>
                     <TextInput
-                        // contentStyle={{tec}}
-                        // onChangeText={(value)=>{"dada"}}
+                     
+                        value={addressDetails}
+                        onChangeText={(value) => {
+                        setAddresDetails(value);
+                      
+                        }}
                         style={{
                             width: Sizes.width * 0.95,
                             backgroundColor: "#fff",
@@ -108,7 +120,7 @@ const Add_address = (props) => {
                         cursorColor={COLORS.gray_dark}
                         placeholderTextColor={COLORS.gray_mid}
                         placeholder="تفاصيل العنوان الاضافية">
-                        a
+                        
                     </TextInput>
 
 
