@@ -17,12 +17,7 @@ const Profile_data_page = () => {
         <>
 
             <StatusBar hidden={true} />
-            <SafeAreaView style={{
-                flex: 1,
-                // justifyContent:"space-between",
-                width: Sizes.width,
-                backgroundColor: COLORS.white
-            }}>
+            <SafeAreaView style={styles.safeAreaView}>
                 <ScrollView>
                 <View style={{
                     flexDirection: "row",
@@ -166,7 +161,12 @@ const styles = StyleSheet.create({
         height: RFPercentage(6),
         maxWidth: RFPercentage(20)
     },
-
+  safeAreaView:{
+        flex: 1,
+        // justifyContent:"space-between",
+        width: Sizes.width,
+        backgroundColor: COLORS.white
+    }
 
 })
 export default Profile_data_page;

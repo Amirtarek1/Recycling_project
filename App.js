@@ -11,6 +11,8 @@ import MoneyStack from './src/navigations/MoneyStack';
 import Request_car from './src/screens/Profile/Request_car';
 import Donate from './src/screens/voluntary/Donate';
 import Offers from './src/screens/Coponat/Offers';
+import Add_address from './src/screens/Profile/Add_address';
+import Tologin from './src/screens/Auth/Tologin';
 
 
 const App = () => {
@@ -22,7 +24,9 @@ const App = () => {
 
       <Provider store={store}>
         <NavigationContainer  >
-          <MainNavigation />
+          {/* <MainNavigation /> */}
+          <Add_address/>
+          {/* <Tologin/> */}
         </NavigationContainer>
       </Provider>
 
