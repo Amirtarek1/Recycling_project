@@ -7,21 +7,22 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Back_arrow from '../../components/Back_arrow';
 import Large_button from '../../components/Large_button';
 import { images } from '../../constants';
-import { COLORS, FONT, hp, wp } from '../../constants/themes';
+import { COLORS, FONT, Sizes, hp, wp } from '../../constants/themes';
 import { styles } from './Style_Donate';
 // import { useNavigation } from '@react-navigation/native';
 import WalletSvg from "../../assets/Icons/wallet.svg"
 import CheckBox from 'react-native-paper';
-import Dialog_component from '../../components/Dialog_component';
 import { useNavigation } from '@react-navigation/native';
+import { Dialog } from 'react-native-simple-dialogs';
 
 
 
 const Edit_money_transaction = () => {
 
-    const navigation = useNavigation();
 
-    const [visible, setVisible] = useState(false)
+    const navigation = useNavigation();
+    const [isModalVisable, setISModalVisible] = React.useState(false)
+
     // const Choose_language_page = (props) => {
     // const navigation = useNavigation();
     const LANGUAGE_OPTIONS = [
@@ -43,7 +44,6 @@ const Edit_money_transaction = () => {
     const [points, setPoints] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    // const navigation = useNavigation();
 
 
     const h = Dimensions.get("screen").height
@@ -76,13 +76,7 @@ const Edit_money_transaction = () => {
         }
     };
 
-    // const Confirm_press = () => {
-    //     if (inputValue === '') {
-    //         setErrorMessage('برجاء ادخال عدد النقاط');
-    //     } else {
-    //         navigation.navigate('ShareTheGoodPage');
-    //     }
-    // };
+
 
 
     return (
@@ -222,20 +216,20 @@ const Edit_money_transaction = () => {
 
 
                                     {/* <View style={styles.view_inner}></View> */}
-                                    {/* <Text style={styles.buttonText}>{label}</Text> */}
-                                {/* </View> */} 
+                            {/* <Text style={styles.buttonText}>{label}</Text> */}
+                            {/* </View> */}
                             {/* // ))} */}
 
 
 
 
-                            {LANGUAGE_OPTIONS.map(({ label, value }) => (
+                            {LANGUAGE_OPTIONS.map(({ label, index }) => (
                                 <TouchableOpacity
-                                    key={value}
-                                    onPress={() => handleLanguagePress(value) && setChecked(!checked)}
+                                    key={index}
+                                    onPress={() => handleLanguagePress(index) && setChecked(!checked)}
                                     style={[
                                         styles.touchableopacity_style,
-                                        selectedLanguage === value && styles.selectedButton,
+                                        selectedLanguage === index && styles.selectedButton,
                                     ]}>
 
                                     <View style={styles.view_outter}>
@@ -308,13 +302,13 @@ const Edit_money_transaction = () => {
                             marginTop: hp(12)
                         }}>
                             <TouchableOpacity
-                            
-                                onPress={()=> navigation.navigate("Archives")} 
+
+                                onPress={() => navigation.navigate("Archives")}
                                 style={styles.Container_TouchableOpacity}>
                                 <Text style={styles.Text_style}>تاكيد</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
-                                onPress={() => { setVisible(true) }}
+                                onPress={() => { setISModalVisible(true) }}
                                 style={[styles.Container_TouchableOpacity, { backgroundColor: COLORS.red_logout }]}>
                                 <Text style={styles.Text_style}>رفض</Text>
                             </TouchableOpacity>
@@ -323,8 +317,77 @@ const Edit_money_transaction = () => {
                     </ScrollView>
                 </View>
 
-                <Dialog_component isVisible={visible} />
+                <Dialog
+                    dialogStyle={{ borderRadius: hp(1), alignSelf: "flex-end" }}
+                    visible={isModalVisable}
+                    onTouchOutside={() => setISModalVisible(true)}>
+                    <View style={{
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: hp(1.5),
 
+                        height: h * 0.16,
+                        //  borderRadius :hp(3)
+                    }}>
+
+                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFValue(18, Sizes.height) }}>هل أنت متأكد من حذف الطلب ؟</Text>
+                        <View style={{
+                            flexDirection: "row", alignItems: "center",
+                            justifyContent: "space-around", width: Sizes.width * 0.7
+                            // ,backgroundColor:"#00d"
+                        }}
+                        >
+                          
+                          <TouchableOpacity
+                                onPress={() => {  setISModalVisible(false) ; navigation.navigate("ServicesOil") }}
+
+                                style={[styles.shadowProp, {
+                                    paddingVertical: RFPercentage(1.5),
+                                    width:w*0.25,
+                                    shadowColor: COLORS.black,
+                                    borderRadius: hp(1),
+                                    backgroundColor: COLORS.white,
+                                    borderWidth:2,
+                                    borderColor : COLORS.green_mid,
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }]}>
+                                <Text style={{
+                                    fontSize:RFPercentage(2.5),
+                                    color: COLORS.green_mid,
+                                    fontFamily: FONT.font_Almarai_Regular
+                                }}>نعم</Text>
+
+                            </TouchableOpacity>
+
+                            <TouchableOpacity
+                                onPress={() => {  setISModalVisible(false) ; navigation.navigate("Archives") }}
+
+                                style={[styles.shadowProp, {
+                                    paddingVertical: RFPercentage(1.5),
+                                    width:w*0.25,
+
+                                    shadowColor: COLORS.black,
+                                    borderRadius: hp(1),
+                                    backgroundColor: COLORS.red_logout,
+                                    borderWidth:2,
+                                    borderColor : COLORS.green_mid,
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }]}>
+                                <Text style={{
+                                    fontSize:RFPercentage(2.5),
+                                    color: COLORS.white,
+                                    fontFamily: FONT.font_Almarai_Regular
+                                }}>لا</Text>
+
+                            </TouchableOpacity>
+
+                            
+
+                        </View>
+                    </View>
+                </Dialog>
             </SafeAreaView>
 
 

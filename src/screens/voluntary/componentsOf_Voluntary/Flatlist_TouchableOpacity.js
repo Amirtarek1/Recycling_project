@@ -24,14 +24,16 @@ const FlatlistTouchableOpacity = ({data}) => {
                 renderItem={({ item }) =>
                     <>
 
-                        <TouchableOpacity style={[styles.shadowProp, , { backgroundColor: COLORS.white, alignSelf: "center", borderRadius: 10, margin: 10, padding: hp(1), width: w * 0.92, flexDirection: "row", alignItems: "center" }]}>
+                        <TouchableOpacity style={[styles.shadowProp,{ backgroundColor: COLORS.white, 
+                        borderRadius: 10, margin: 10,padding: hp(1),  
+                        flexDirection: "row", alignItems: "center" }]}>
                             <Image source={item.image}
                                 style={{ width: hp(15), height: hp(15), alignSelf: "center" }} />
 
-                            <View style={{ justifyContent: 'space-between', marginLeft: 10, }}>
-                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.8) }}>{item.name}</Text>
-                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.5) }}>التاريخ: <Text style={{ fontFamily: FONT.font_Almarai_Regular, color: COLORS.gray_dark, fontSize: RFPercentage(2)}}>{item.date}</Text></Text>
-                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize: RFPercentage(2.5) }}>نقطة {item.number_points}</Text>
+                            <View style={{ justifyContent: 'space-between', marginLeft: 10 }}>
+                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.6) }}>{item.name}</Text>
+                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.4) }}>التاريخ: <Text style={{ fontFamily: FONT.font_Almarai_Regular, color: COLORS.gray_dark, fontSize: RFPercentage(2)}}>{item.date}</Text></Text>
+                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize: RFPercentage(2.4) }}>نقطة {item.number_points}</Text>
                             </View>
                         </TouchableOpacity>
 

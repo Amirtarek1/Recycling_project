@@ -4,32 +4,32 @@ const categories =
 
     [
         {
-            id : 1,
+            id: 1,
             name: "أنواع الزيوت",
             image: images.type_oil,
             navi: 'Types_oil'
         },
         {
-            id : 2 , 
+            id: 2,
             name: "الخدمات المقابله",
             image: images.another_service,
             navi: 'ServicesOil'
         },
         {
-            id : 3 ,
+            id: 3,
             name: "جدول المواعيد",
             image: images.tables,
             navi: 'TimeTablePage'
         },
         {
-            id :4 ,
+            id: 4,
             name: "شارك و اربح",
             image: images.share_and_win,
             // navi: 'Share_page'
             link: ''
         },
         {
-            id : 5 ,
+            id: 5,
             name: "أخري",
             image: images.another,
             // navi: alert("SOON")
@@ -280,7 +280,7 @@ const Copones =
             image: images.mac,
             number_points: 1000,
             about: "مؤسسه خيريه",
-            replace : false
+            replace: true
         },
         {
             id: 1,
@@ -289,7 +289,7 @@ const Copones =
             image: images.Bank_elt3am_foundation_logo,
             number_points: 1050,
             date: "مؤسسه خيريه",
-            replace : false
+            replace: true
         },
         {
             id: 2,
@@ -298,7 +298,7 @@ const Copones =
             image: images.mac,
             number_points: 20,
             date: "مؤسسه خيريه",
-            replace : false
+            replace: false
 
         },
         {
@@ -308,7 +308,7 @@ const Copones =
             image: images.Elorman_foundation_logo,
             number_points: 100,
             date: "مؤسسه خيريه",
-            replace : false
+            replace: false
 
         },
         {
@@ -318,7 +318,7 @@ const Copones =
             image: images.Masr_elkhar_foundation_logo,
             number_points: 1000,
             about: "مؤسسه خيريه",
-            replace : false
+            replace: false
 
         },
         {
@@ -328,7 +328,7 @@ const Copones =
             image: images.mac,
             number_points: 1050,
             date: "مؤسسه خيريه",
-            replace : false
+            replace: false
 
         },
         {
@@ -338,7 +338,7 @@ const Copones =
             image: images.Bank_elt3am_foundation_logo,
             number_points: 20,
             date: "مؤسسه خيريه",
-            replace : false
+            replace: false
 
         },
         {
@@ -348,7 +348,7 @@ const Copones =
             image: images.mac,
             number_points: 100,
             date: "مؤسسه خيريه",
-            replace : false
+            replace: false
 
         },
 
@@ -361,38 +361,38 @@ const Copones =
 const CartData =
     [
         {
-            id : 1,
+            id: 1,
             numOfBottles: 22,
             numOfPoints: 20,
-            oilQuantity:2
+            oilQuantity: 2
         },
         {
-            id : 2,
+            id: 2,
             numOfBottles: 21,
             numOfPoints: 40,
-            oilQuantity:4
+            oilQuantity: 4
 
         }
         ,
         {
-            id : 3,
+            id: 3,
             numOfBottles: 22,
-            numOfPoints: 200 ,
-            oilQuantity:41
+            numOfPoints: 200,
+            oilQuantity: 41
         }
         , {
-            id : 4,
+            id: 4,
             numOfBottles: 2,
             numOfPoints: 202
             ,
-            oilQuantity:12
+            oilQuantity: 12
         },
         {
-            id : 5,
+            id: 5,
             numOfBottles: 12,
             numOfPoints: 20
             ,
-            oilQuantity:7
+            oilQuantity: 7
         }
     ]
 
@@ -561,31 +561,31 @@ const orders_Data = [
 
     },
 ]
-const Coupons_flatListData =[
+const Coupons_flatListData = [
     {
-        company_logo:images.food_oil,
-        company_name:"ماكدونالز",
-        isUsed : true ,
-        numOfPoints : 100
-            },   {
-                company_logo:images.Vodafone_logo,
-                company_name:"ماكدونالز",
-                isUsed : true ,
-                numOfPoints : 100
-                    },   {
-                        company_logo:images.Vodafone_logo,
-                        company_name:"ماكدونالز",
-                        isUsed : true ,
-                        numOfPoints : 100
-                            },
-                    {
-                        company_logo:images.Mac_logo,
-                        company_name:"ماكدونالز",
-                        isUsed : false ,
-                        numOfPoints : 100
-                            },
-                                
-        ]
+        company_logo: images.food_oil,
+        company_name: "ماكدونالز",
+        isUsed: false,
+        numOfPoints: 100
+    }, {
+        company_logo: images.Vodafone_logo,
+        company_name: "ماكدونالز",
+        isUsed: true,
+        numOfPoints: 100
+    }, {
+        company_logo: images.Vodafone_logo,
+        company_name: "ماكدونالز",
+        isUsed: true,
+        numOfPoints: 100
+    },
+    {
+        company_logo: images.Mac_logo,
+        company_name: "ماكدونالز",
+        isUsed: false,
+        numOfPoints: 100
+    },
+
+]
 
 export {
     categories,

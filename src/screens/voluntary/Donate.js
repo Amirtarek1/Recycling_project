@@ -1,13 +1,13 @@
 
 import React, { useRef, useState } from 'react';
-import { View, Text, Image, Dimensions, ScrollView,TouchableOpacity ,TextInput } from 'react-native';
+import { View, Text, Image, Dimensions, ScrollView, TouchableOpacity, TextInput } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Back_arrow from '../../components/Back_arrow';
 import Large_button from '../../components/Large_button';
 import { images } from '../../constants';
-import { COLORS, FONT, hp,Sizes } from '../../constants/themes';
+import { COLORS, FONT, hp, Sizes } from '../../constants/themes';
 import { styles } from './Style_Donate';
 import { useNavigation } from '@react-navigation/native';
 import { Dialog } from 'react-native-simple-dialogs';
@@ -61,7 +61,8 @@ const Donate = () => {
         if (inputValue === '') {
             setErrorMessage('برجاء ادخال عدد النقاط');
         } else {
-setISModalVisible(true)        }
+            setISModalVisible(true)
+        }
     };
 
 
@@ -71,9 +72,9 @@ setISModalVisible(true)        }
             <SafeAreaView style={styles.Basic_container}>
 
                 <View style={[styles.view_arrow_place]}>
-                    <Back_arrow 
-                    onPress={() => navigation.goBack()}
-                     />
+                    <Back_arrow
+                        onPress={() => navigation.goBack()}
+                    />
                 </View>
 
                 <View  >
@@ -172,7 +173,7 @@ setISModalVisible(true)        }
                     </View>
                     <ScrollView>
 
-                         {/* navigation.navigate('ShareTheGoodPage') */}
+                        {/* navigation.navigate('ShareTheGoodPage') */}
                         <View style={{ marginTop: hp(5) }}>
                             <Large_button button_name="تبرع الان" Confirm_press={Confirm_press} />
                         </View>
@@ -187,28 +188,27 @@ setISModalVisible(true)        }
                         justifyContent: "space-between",
                         alignItems: "center",
                         padding: hp(1.5),
-
-                        // height: Sizes.height * 0.16,
-                        //  borderRadius :hp(3)
                     }}>
 
-<CorrectSvg width={RFPercentage(10)}
-                                height={RFPercentage(10)}
-                                 />
+                        <CorrectSvg width={RFPercentage(10)}
+                            height={RFPercentage(10)}
+                        />
 
-                        <Text style={{ fontFamily: FONT.font_Almarai_Bold,
-                            color:COLORS.black,fontSize:RFPercentage(3.5),
-                            marginVertical:RFPercentage(2) }}>تم التبرع بنجاح</Text>
+                        <Text style={{
+                            fontFamily: FONT.font_Almarai_Bold,
+                            color: COLORS.black, fontSize: RFPercentage(3.5),
+                            marginVertical: RFPercentage(2)
+                        }}>تم التبرع بنجاح</Text>
                         <View style={{
                             flexDirection: "row",
                             alignItems: "center", justifyContent: "space-around",
-                             width: Sizes.width * 0.75
+                            width: Sizes.width * 0.75
                         }}
                         >
                             <TouchableOpacity
                                 onPress={() => {
                                     setISModalVisible(false)
-                                    navigation.goBack()
+                                    navigation.navigate("ShareTheGoodPage")
                                 }}
 
                                 style={[styles.shadowProp, {
@@ -223,7 +223,7 @@ setISModalVisible(true)        }
                                 <Text style={{
                                     color: COLORS.green_mid,
                                     fontFamily: FONT.font_Almarai_Bold,
-                                    fontSize:RFPercentage(2.3)
+                                    fontSize: RFPercentage(2.3)
 
                                 }}>تم</Text>
 
@@ -246,7 +246,7 @@ setISModalVisible(true)        }
                                 <Text style={{
                                     color: COLORS.white,
                                     fontFamily: FONT.font_Almarai_Bold,
-                                    fontSize:RFPercentage(2.3)
+                                    fontSize: RFPercentage(2.3)
                                 }}>الأرشيف</Text>
 
                             </TouchableOpacity>
