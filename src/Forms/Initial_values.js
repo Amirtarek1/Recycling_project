@@ -8,6 +8,10 @@ export const login_initial_values = {
     email: '',
   };
 
+  export const Delivery_Login_initial_values = {
+    email: '',
+  };
+
 
   
   export const Forget_password_initial_Values = {

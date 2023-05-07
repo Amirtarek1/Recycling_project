@@ -1,5 +1,5 @@
 
-import { Image, TouchableOpacity, Text, View, FlatList } from 'react-native';
+import { Image, TouchableOpacity, Text, View, FlatList, Linking } from 'react-native';
 import { styles } from './Style_Home_page';
 import User_image from '../../components/User_image';
 import { categories } from '../../Utils/DummyData';
@@ -17,18 +17,18 @@ const Home_page = () => {
     const w = Dimensions.get("screen").width
     const navigation = useNavigation();
 
-    const handlePress = (item) => {
-        if (item.link) {
-            SHAre()
-        } else {
-            if (item.id !== 5) {
-                navigation.navigate(item.navi);
-            }else{
-                alert("soon")
-            }
-        }
-    };
 
+    const handlePress = (item) => {
+        if (item.id === 4) {
+          SHAre();
+        } else if (item.id === 5) {
+          alert("soon");
+        } else {
+          navigation.navigate(item.navi); 
+        }
+      };
+      
+  
     const SHAre = async () => {
         try {
             const options = {
@@ -40,6 +40,9 @@ const Home_page = () => {
             Alert.alert(error.message);
         }
     };
+;
+      
+
     const FirstFlatList = () => {
 
         return (
@@ -92,9 +95,7 @@ const Home_page = () => {
 
                     <View style={styles.view_photo_and_text_style}>
                         <User_image />
-                        <View 
-                        // style = {{flex : 1 ,marginLeft: RFPercentage(1)}} 
-                        >
+                        <View>
                             <Text style={styles.text_Bold_style}>مرحبا دكتور أسامه </Text>
                             <Text style={styles.text_thin_style}>النقط : 100</Text>
 

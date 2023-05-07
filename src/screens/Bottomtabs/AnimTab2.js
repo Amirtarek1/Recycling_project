@@ -1,16 +1,13 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useEffect, useRef } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet,  TouchableOpacity, View } from 'react-native'
 import Icon, { Icons } from './Icons';
 import Colors from './Colors';
 import * as Animatable from 'react-native-animatable';
 import Styles from './Styles';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { Dimensions } from "react-native"
-import Forgetpassword1 from '../Auth/Forgetpassword1';
-import Home_page from '../Home/Home_page';
 import { COLORS, FONT } from '../../constants';
-import Testpage1 from '../../Test_pages/Testpage1';
 import { HomeStack } from '../../navigations/HomeStack';
 import VoluntaryStack from '../../navigations/VoluntaryStack';
 import ProfileStack from '../../navigations/ProfileStack';
