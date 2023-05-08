@@ -38,7 +38,7 @@ const INputbutton = ({
                 }}
 
                 label={<Text style={{
-                    fontSize: RFPercentage(3),
+                    fontSize: RFPercentage(2.5),
                     fontFamily: FONT.font_Almarai_Regular
                 }}
                 >{label}</Text>}

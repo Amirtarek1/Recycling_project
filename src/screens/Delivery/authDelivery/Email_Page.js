@@ -3,35 +3,26 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, FONT, Sizes, images } from '../../../constants';
 import HeaderDeliveryAuth from '../../../components/HeaderDeliveryAuth';
 import INputbutton from '../../../components/INputbutton';
-import { Delivery_Login_initial_values } from '../../../Forms/Initial_values';
+import { Delivery_Email_Page_initial_values } from '../../../Forms/Initial_values';
 import { useFormik } from 'formik';
-import { DeliveryLoginSchema } from '../../../Forms/Schema';
+import { DeliveryEmailPageSchema } from '../../../Forms/Schema';
 import { Text, View, Dimensions, Image, ScrollView } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { hp } from '../../../constants/themes';
 import Large_button from '../../../components/Large_button';
-import INPUTtext_password from '../../../components/INPUTtext_password';
-import { Checkbox } from 'react-native-paper';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
 
-const To_login_Delivery = () => {
+
+const Email_Page = () => {
 
     const w = Dimensions.get("screen").width
-    const [password, setPassword] = useState('');
-    const [passwordVisible, setPasswordVisible] = useState(false);
 
-    const [checked, setChecked] = useState(false);
-
-    const handleCheck = () => {
-        setChecked(!checked);
-    };
     const { handleChange, handleSubmit, values, errors, touched } =
         useFormik({
-            validationSchema: DeliveryLoginSchema,
-            initialValues: Delivery_Login_initial_values,
+            validationSchema: DeliveryEmailPageSchema,
+            initialValues: Delivery_Email_Page_initial_values,
             onSubmit: () => {
                 // navigation.replace('Home');
             },
@@ -47,7 +38,7 @@ const To_login_Delivery = () => {
 
             <SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
                 <ScrollView>
-                    <HeaderDeliveryAuth namePage="تسجيل الدخول" show={false} />
+                    <HeaderDeliveryAuth namePage="انشاء حساب" back={true} help={false} />
 
                     <View style={{
                         marginTop: RFPercentage(6),
@@ -63,49 +54,7 @@ const To_login_Delivery = () => {
                             touched={touched.email}
                         />
 
-                        <INPUTtext_password
-                            label="كلمة المرور"
-                            value={values.password}
-                            onChangeText={handleChange('password')}
-                            errors={errors.password}
-                            touched={touched.password}
-                            password={password}
-                            setPassword={setPassword}
-                            visible={passwordVisible}
-                            setVisible={setPasswordVisible}
 
-
-                        />
-
-                        <View style={{
-                            flexDirection: "row",
-                            width: Sizes.width * 0.95,
-                            alignSelf: "center",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                        }}>
-
-                            <View style={{ alignSelf: "flex-start"}}>
-                                <Checkbox.Item
-
-                                    labelStyle={{ color: COLORS.black, textAlign: "auto", fontFamily: FONT.font_Almarai_Regular, fontSize: RFPercentage(2) }}
-                                    position='leading'
-                                    status={checked ? 'checked' : 'unchecked'}
-                                    onPress={handleCheck}
-                                    color={COLORS.green_mid}
-                                    rippleColor={COLORS.green_mid}
-                                    uncheckedColor={COLORS.gray_light}
-                                    label="تذكرني"
-                                />
-                            </View>
-
-                            <TouchableOpacity style ={{marginRight : RFPercentage(2.5) }}>
-                                <Text style={{ fontFamily: FONT.font_Almarai_Regular, fontSize: RFPercentage(2.2), color: COLORS.green }} onPress={() => navigation.navigate("Forgetpassword_EnterEmail")}>نسيت كلمة المرور؟</Text>
-                            </TouchableOpacity>
-
-
-                           
-                        </View>
 
 
                         <View style={{ paddingVertical: hp(4) }}>
@@ -129,7 +78,13 @@ const To_login_Delivery = () => {
                                 backgroundColor: COLORS.gray_dark
                             }}></View>
 
-                            <Text style={{ color: COLORS.black, fontSize: RFPercentage(2), justifyContent: "center", textAlign: "center", paddingHorizontal: hp(1.5), fontFamily: FONT.font_Almarai_Bold }}>أو</Text>
+                            <Text
+                                style={{
+                                    color: COLORS.black, fontSize: RFPercentage(2),
+                                    justifyContent: "center", textAlign: "center",
+                                    paddingHorizontal: hp(1.5),
+                                    fontFamily: FONT.font_Almarai_Bold
+                                }}>أو</Text>
 
                             <View style={{
                                 width: w * 0.44,
@@ -170,4 +125,4 @@ const To_login_Delivery = () => {
 
 }
 
-export default To_login_Delivery;
+export default Email_Page;

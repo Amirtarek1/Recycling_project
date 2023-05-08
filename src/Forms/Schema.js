@@ -13,11 +13,6 @@ export const LoginSchema = Yup.object().shape({
 });
 
 
-export const DeliveryLoginSchema = Yup.object().shape({
-  email: Yup.string().trim().min(8, 'برجاء ادخال بريد الكتروني صحيح').required('برجاء ادخال بريد الكتروني ').matches(EmailReg, 'برجاء ادخال بريد الكتروني صحيح'),
-});
-
-
 export const pointstodonate = Yup.object().shape({
   number : Yup.string().trim().required("برجاء ادخال عدد النقط"),
 });
@@ -54,4 +49,24 @@ export const SignupSchema = Yup.object().shape({
     confirmPassword: Yup.string().required('برجاء تاكيد كلمة المرور').min(8,'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref('password'), null], 'كلمة المرور غير متطابقة')
     
 
+});
+
+
+export const DeliveryLoginSchema = Yup.object().shape({
+  email: Yup.string().trim().min(8, 'برجاء ادخال بريد الكتروني صحيح').required('برجاء ادخال بريد الكتروني ').matches(EmailReg, 'برجاء ادخال بريد الكتروني صحيح'),
+  password: Yup.string().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف'),
+
+});
+
+export const DeliveryEmailPageSchema = Yup.object().shape({
+  email: Yup.string().trim().min(8, 'برجاء ادخال بريد الكتروني صحيح').required('برجاء ادخال بريد الكتروني ').matches(EmailReg, 'برجاء ادخال بريد الكتروني صحيح'),
+
+});
+
+export const DeliverySignupSchema = Yup.object().shape({
+
+  nameValidation : Yup.string().trim().matches(/^[\p{L}\s]+$/u, 'برجاء إدخال اسم صحيح').min(10, 'الاسم يجب أن يتكون من حرفين على الأقل').max(50, 'الاسم يجب أن يتكون من 50 حرفًا على الأكثر').required('الرجاء إدخال الاسم'),
+  password: Yup.string().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف'),
+  confirmPassword: Yup.string().required('برجاء تاكيد كلمة المرور').min(8,'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref('password'), null], 'كلمة المرور غير متطابقة')
+  
 });

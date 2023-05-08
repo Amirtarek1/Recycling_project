@@ -1,6 +1,6 @@
-import { useEffect, useState,useCallback } from "react"
+import { useEffect, useState, useCallback } from "react"
 import INPUTtext_password from '../../components/INPUTtext_password';
-import { ScrollView, Image, Text, View,Linking,TouchableOpacity } from 'react-native';
+import { ScrollView, Image, Text, View, Linking, TouchableOpacity } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, images, Sizes } from '../../constants';
 import INputbutton from '../../components/INputbutton';
@@ -12,11 +12,10 @@ import { Dimensions } from "react-native";
 import { LoginSchema } from "../../Forms/Schema";
 import { login_initial_values } from "../../Forms/Initial_values";
 import { useFormik } from "formik";
-import { Link, useNavigation } from '@react-navigation/native';
+import {  useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { loginUser } from "../../redux/Store/Auth/auth.action";
-import { useDispatch,useSelector } from 'react-redux'
-import { selectaccessToken, selectloading } from "../../redux/Store/Auth/selector";
+import { useDispatch, useSelector } from 'react-redux'
+import { Checkbox } from 'react-native-paper';
 
 const w = Dimensions.get("screen").width
 
@@ -25,7 +24,7 @@ const Tologin = () => {
 
     const googleUrl = 'https://google.com';
     const facebookUrl = 'https://facebook.com';
-    
+
     const { handleChange, handleSubmit, values, errors, touched } =
         useFormik({
             validationSchema: LoginSchema,
@@ -36,29 +35,34 @@ const Tologin = () => {
         });
 
 
+        const [checked, setChecked] = useState(false);
+
+    const handleCheck = () => {
+        setChecked(!checked);
+    };
     const navigation = useNavigation();
     const [toggleCheckBox, setToggleCheckBox] = useState(false);
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
-    const accessTokens= useSelector(selectloading)
+    // const accessTokens = useSelector(selectloading)
     const dispatch = useDispatch()
-  
-    useEffect(() => {
-        dispatch(loginUser({
-            username: "omar111",
-            email: "omar.plu11s@gmail.com",
-            password: "thisIsAVeryStrong!*Password",
-            passwordConfirmation: "thisIsAVeryStrong!*Pas   sword",
-            phoneNumber: "01026642635"
-        }))
 
-      
+    // useEffect(() => {
+    //     dispatch(loginUser({
+    //         username: "omar111",
+    //         email: "omar.plu11s@gmail.com",
+    //         password: "thisIsAVeryStrong!*Password",
+    //         passwordConfirmation: "thisIsAVeryStrong!*Pas   sword",
+    //         phoneNumber: "01026642635"
+    //     }))
 
-    }, [])
+
+
+    // }, [])
 
     // console.log(accessTokens)
 
-    
+
     return (
         <>
 
@@ -108,32 +112,34 @@ const Tologin = () => {
 
 
                                 />
+                            
                                 <View style={{
                                     flexDirection: "row",
-                                    width: Sizes.width * 0.88,
+                                    width: Sizes.width * 0.95,
                                     alignSelf: "center",
                                     alignItems: "center",
                                     justifyContent: "space-between",
-                                    paddingHorizontal: RFPercentage(1)
                                 }}>
-                                    <View style={{
-                                        flexDirection: "row"
-                                        , justifyContent: "space-between"
-                                        , alignItems: "center"
-                                    }}>
-                                        <CheckBox
 
-                                            style={{ borderColor: COLORS.black }}
-                                            disabled={false}
-                                            value={toggleCheckBox}
-                                            onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                                    <View style={{ alignSelf: "flex-start" }}>
+                                        <Checkbox.Item
+
+                                            labelStyle={{ color: COLORS.black, textAlign: "auto", fontFamily: FONT.font_Almarai_Regular, fontSize: RFPercentage(2) }}
+                                            position='leading'
+                                            status={checked ? 'checked' : 'unchecked'}
+                                            onPress={handleCheck}
+                                            color={COLORS.green_mid}
+                                            rippleColor={COLORS.green_mid}
+                                            uncheckedColor={COLORS.gray_light}
+                                            label="تذكرني"
                                         />
-                                        <Text style={{ fontFamily: FONT.font_Almarai_Regular, fontSize: RFPercentage(2.2), color: COLORS.gray_mid }}>تذكرني</Text>
                                     </View>
 
-                                    <TouchableOpacity>
+                                    <TouchableOpacity style={{ marginRight: RFPercentage(2.5) }}>
                                         <Text style={{ fontFamily: FONT.font_Almarai_Regular, fontSize: RFPercentage(2.2), color: COLORS.green }} onPress={() => navigation.navigate("Forgetpassword_EnterEmail")}>نسيت كلمة المرور؟</Text>
                                     </TouchableOpacity>
+
+
 
                                 </View>
                             </View>
@@ -177,21 +183,23 @@ const Tologin = () => {
                                 width: Sizes.width * 0.40,
                                 height: Sizes.height * 0.1
                             }}>
-                                <TouchableOpacity  style={{width:50,height:50}}
-                                 onPress={()=>{Linking.openURL(facebookUrl)}}>
-                                <Image source={images.facebook} style={{ 
+                                <TouchableOpacity style={{ width: 50, height: 50 }}
+                                    onPress={() => { Linking.openURL(facebookUrl) }}>
+                                    <Image source={images.facebook} style={{
                                         width: 50,
-                                         height: 50 }}
+                                        height: 50
+                                    }}
 
-                                         />
+                                    />
                                 </TouchableOpacity>
                                 <TouchableOpacity
-                                  onPress={()=>{Linking.openURL(googleUrl)}}>
+                                    onPress={() => { Linking.openURL(googleUrl) }}>
 
-                                <Image source={images.google} style={{ 
-                                    width: 50, 
-                                    height: 50 }} 
-                                    width={50} height={50}
+                                    <Image source={images.google} style={{
+                                        width: 50,
+                                        height: 50
+                                    }}
+                                        width={50} height={50}
                                     />
 
                                 </TouchableOpacity>
@@ -199,10 +207,12 @@ const Tologin = () => {
                             </View>
 
                             <View style={{ alignItems: "center" }}>
-                                <Text style={{ color: COLORS.black,
-                                     fontSize: RFPercentage(2),
-                                      fontFamily: FONT.font_Almarai_Regular }}> هل ليس لديك حساب ؟ 
-                                      <Text onPress={() => { navigation.navigate("Signup_page1") }} style={{ color: COLORS.green_mid, fontSize: RFPercentage(2), fontFamily: FONT.font_Almarai_Bold }} >أنشيئ حساب</Text></Text>
+                                <Text style={{
+                                    color: COLORS.black,
+                                    fontSize: RFPercentage(2),
+                                    fontFamily: FONT.font_Almarai_Regular
+                                }}> هل ليس لديك حساب ؟
+                                    <Text onPress={() => { navigation.navigate("Signup_page1") }} style={{ color: COLORS.green_mid, fontSize: RFPercentage(2), fontFamily: FONT.font_Almarai_Bold }} >أنشيئ حساب</Text></Text>
                             </View>
 
                         </View>

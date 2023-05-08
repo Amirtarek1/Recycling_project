@@ -14,15 +14,19 @@ import CheckBox from '@react-native-community/checkbox';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { setloading, signUpUser } from '../../Redux/Reducers/authSlice';
 
-
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const Signup_page1 = ({ route }) => {
 
+
+    const dispatch = useDispatch()
+    const { loading, error, msg } = useSelector((state) => state.user);
+    // const accessTokens = useSelector(setloading)
+
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
-
-
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -36,9 +40,13 @@ const Signup_page1 = ({ route }) => {
             validationSchema: SignupSchema,
             initialValues: Sign_up_initial_values,
             onSubmit: () => {
-                navigate("Home_page");
-            },
+                // navigate("Home_page");
+     dispatch(signUpUser({ name, email, phone, password, confirmPassword }));
+
+                },
         });
+
+console.log(loading , error ,msg)
 
     return (
         <>

@@ -8,11 +8,6 @@ export const login_initial_values = {
     email: '',
   };
 
-  export const Delivery_Login_initial_values = {
-    email: '',
-  };
-
-
   
   export const Forget_password_initial_Values = {
     NEW_password: '',
@@ -40,3 +35,22 @@ export const login_initial_values = {
     newpassword :"",
     confirmPassword :"",
    };
+
+
+   export const Delivery_Login_initial_values = {
+    email: '',
+    password: '',
+  };
+
+
+  
+  export const Delivery_Email_Page_initial_values = {
+    email: '',
+  
+  };
+ 
+  export const Delivery_Signup_initial_values = {
+    nameValidation: '',
+    password:"",
+    confirmPassword:"",
+  };

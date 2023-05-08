@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: Sizes.width * .9 ,
-    height: Sizes.height *0.09,
+    height: Sizes.height *0.08,
     backgroundColor: COLORS.green_mid ,
   },
   Text_style: {

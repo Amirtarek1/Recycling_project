@@ -2,17 +2,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { MainNavigation } from './src/navigations/MainNavigator';
 import { Provider } from 'react-redux';
-import { store } from './src/redux/store';
 import CoponesStack from './src/navigations/CoponesStack';
 import { HomeStack } from './src/navigations/HomeStack';
-import Edit_money_transaction from './src/screens/voluntary/Edit_money_transaction';
-import Money_transaction from './src/screens/voluntary/Money_transaction';
-import MoneyStack from './src/navigations/MoneyStack';
-import Request_car from './src/screens/Profile/Request_car';
-import Donate from './src/screens/voluntary/Donate';
-import Offers from './src/screens/Coponat/Offers';
-import Add_address from './src/screens/Profile/Add_address';
+import To_login_Delivery from './src/screens/Delivery/authDelivery/To_login_Delivery';
+import Signup_Delivery from './src/screens/Delivery/authDelivery/Signup_Delivery';
+import Email_Page from './src/screens/Delivery/authDelivery/Email_Page';
 import Tologin from './src/screens/Auth/Tologin';
+import store from './src/Redux/Store';
+import Signup_page1 from './src/screens/Auth/Signup_page1';
 
 
 const App = () => {
@@ -23,14 +20,10 @@ const App = () => {
 
 
       <Provider store={store}>
-        <NavigationContainer  >
-          {/* <MainNavigation /> */}
-          <Add_address/>
-          {/* <Tologin/> */}
+        <NavigationContainer>
+          <Signup_page1 />
         </NavigationContainer>
       </Provider>
-
-
 
     </>
   )

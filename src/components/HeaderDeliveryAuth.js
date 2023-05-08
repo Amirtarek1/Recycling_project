@@ -2,13 +2,13 @@ import { TouchableOpacity, StyleSheet, Dimensions, Text, View } from 'react-nati
 import { RFPercentage } from "react-native-responsive-fontsize";
 import { COLORS, FONT } from '../constants/index';
 import BackarrowWhiteSVG from "../../src/assets/Icons/backWhiteArrow.svg"
-import { hp } from '../constants/themes';
+import { hp, wp } from '../constants/themes';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
 
-const HeaderDeliveryAuth = ({ onPress ,namePage }) => {
+const HeaderDeliveryAuth = ({ onPress, namePage, back, help }) => {
 
 
     return (
@@ -16,27 +16,46 @@ const HeaderDeliveryAuth = ({ onPress ,namePage }) => {
 
 
             <SafeAreaView style={{
-                backgroundColor: COLORS.green_mid, 
+                backgroundColor: COLORS.green_mid,
                 width: w * 1,
             }}>
 
-                <View style={{ paddingTop : RFPercentage(4) ,padding: RFPercentage(2), flexDirection: "row", justifyContent: "space-between" }}>
-                  
-                    <View style={{ flexDirection: "row", }}>
+                <View style={{ paddingTop: RFPercentage(4), padding: RFPercentage(2), flexDirection: "row", justifyContent: "space-between" }}>
+
+                    <View style={{ flexDirection: "row" , justifyContent:"center" ,alignItems :"center" }}>
+                        {help ? <>
+                            <TouchableOpacity style = {{ paddingHorizontal : RFPercentage(2),borderRadius:RFPercentage(4),
+                                 backgroundColor :COLORS.white , alignItems :"center" , marginLeft :RFPercentage(3) }}>
+                                <Text  style={{
+                                    fontSize: RFPercentage(2.8),padding : RFPercentage(1),
+                                    fontFamily: FONT.font_Almarai_Bold, color: COLORS.black
+                                }}>المساعده</Text>
+                            </TouchableOpacity>
+                        </> :
+
+                            <>
+                                {back ? <>
+                                    <TouchableOpacity onPress={onPress} style={{ marginRight: 6 }} >
+                                        <BackarrowWhiteSVG height={hp(4)} width={hp(4)} />
+                                    </TouchableOpacity>
 
 
-                        <TouchableOpacity onPress={onPress} style = {{marginRight :6}} >
-                            <BackarrowWhiteSVG height={hp(6)} width={hp(4)} />
-                        </TouchableOpacity>
+                                </> : null}
 
-                        <Text style={{
-                            fontSize: RFPercentage(3.8),
-                            fontFamily: FONT.font_Almarai_Bold, color: COLORS.white
-                        }}>{namePage}</Text>
+
+
+                                <Text style={{
+                                    fontSize: RFPercentage(3.2),
+                                    fontFamily: FONT.font_Almarai_Bold, color: COLORS.white
+                                }}>{namePage}</Text>
+
+                            </>}
+
+
                     </View>
 
                     <Text style={{
-                        fontSize: RFPercentage(4),
+                        fontSize: RFPercentage(3.5),
                         fontFamily: FONT.font_Almarai_Bold, color: COLORS.white
                     }} >RE-OiL</Text>
 
