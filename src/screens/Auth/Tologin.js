@@ -12,10 +12,12 @@ import { Dimensions } from "react-native";
 import { LoginSchema } from "../../Forms/Schema";
 import { login_initial_values } from "../../Forms/Initial_values";
 import { useFormik } from "formik";
-import {  useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from 'react-redux'
 import { Checkbox } from 'react-native-paper';
+import { LoginUser } from "../../Redux/Reducers/authSlice";
+import store from "../../Redux/Store";
 
 const w = Dimensions.get("screen").width
 
@@ -24,18 +26,24 @@ const Tologin = () => {
 
     const googleUrl = 'https://google.com';
     const facebookUrl = 'https://facebook.com';
+    const dispatch = useDispatch()
+    const {accessToken} = useSelector((state) => state.user);
 
     const { handleChange, handleSubmit, values, errors, touched } =
         useFormik({
             validationSchema: LoginSchema,
             initialValues: login_initial_values,
             onSubmit: () => {
-                navigation.replace('Home');
+                dispatch(LoginUser({email : values.email ,
+                     password : values.password}));
+               navigation.replace('Home');
+
             },
         });
 
 
-        const [checked, setChecked] = useState(false);
+
+    const [checked, setChecked] = useState(false);
 
     const handleCheck = () => {
         setChecked(!checked);
@@ -44,24 +52,20 @@ const Tologin = () => {
     const [toggleCheckBox, setToggleCheckBox] = useState(false);
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
-    // const accessTokens = useSelector(selectloading)
-    const dispatch = useDispatch()
 
     // useEffect(() => {
-    //     dispatch(loginUser({
-    //         username: "omar111",
-    //         email: "omar.plu11s@gmail.com",
-    //         password: "thisIsAVeryStrong!*Password",
-    //         passwordConfirmation: "thisIsAVeryStrong!*Pas   sword",
-    //         phoneNumber: "01026642635"
+    //     dispatch(LoginUser({
+    //         email: "omar.plus77@gmail.com",
+    //         password: "thisIsAVeryStrong!*Password"
     //     }))
 
 
 
     // }, [])
+    // console.log(store.getState())
 
-    // console.log(accessTokens)
-
+    // console.log(accessToken)
+    
 
     return (
         <>
@@ -112,7 +116,7 @@ const Tologin = () => {
 
 
                                 />
-                            
+
                                 <View style={{
                                     flexDirection: "row",
                                     width: Sizes.width * 0.95,
@@ -147,7 +151,7 @@ const Tologin = () => {
 
                             <View style={{ paddingVertical: hp(4) }}>
                                 {/* navigation.navigate('HOME_Stack') handleSubmit() */}
-                                <Large_button button_name="تسجيل الدخول" Confirm_press={() => handleSubmit()} />
+                                <Large_button button_name="تسجيل الدخول" Confirm_press={handleSubmit} />
                             </View>
 
                             <View style={{

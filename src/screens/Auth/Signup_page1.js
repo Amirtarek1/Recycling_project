@@ -11,20 +11,21 @@ import { SignupSchema } from "../../Forms/Schema";
 import { Sign_up_initial_values } from '../../Forms/Initial_values';
 import { styles } from './Style';
 import CheckBox from '@react-native-community/checkbox';
-import { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { setloading, signUpUser } from '../../Redux/Reducers/authSlice';
+// import { LoginUser, setloading, signUpUser } from '../../Redux/Reducers/authSlice';
+import { useNavigation } from '@react-navigation/native';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { signUpUser } from '../../Redux/Reducers/authSlice';
 
 
 const Signup_page1 = ({ route }) => {
 
 
     const dispatch = useDispatch()
-    const { loading, error, msg } = useSelector((state) => state.user);
-    // const accessTokens = useSelector(setloading)
+    // const { loading, error } = useSelector((state) => state.user);
+    const { accessToken } = useSelector((state) => state.user);
 
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     const [password, setPassword] = useState('');
@@ -32,21 +33,39 @@ const Signup_page1 = ({ route }) => {
 
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
-    const { navigate } = useNavigation();
+    const navigation = useNavigation();
 
     // const id = route.params.id
     const { handleChange, handleSubmit, values, errors, touched } =
+
         useFormik({
             validationSchema: SignupSchema,
             initialValues: Sign_up_initial_values,
             onSubmit: () => {
-                // navigate("Home_page");
-     dispatch(signUpUser({ name, email, phone, password, confirmPassword }));
+                dispatch(signUpUser({ username : values.username, email : values.email
+                    , password : values.password, passwordConfirmation : values.passwordConfirmation
+                    , phoneNumber :values.phoneNumber }));
+                () =>navigation.navigate("Home_page");
 
-                },
+            },
         });
 
-console.log(loading , error ,msg)
+    useEffect(() => {
+        dispatch(signUpUser({
+            username: "amsir",
+            email: "amir.plsssssu11s@gmail.com",
+            password: "thisIsAVeryStrong!*Password",
+            passwordConfirmation: "thisIsAVeryStrong!*Password",
+            phoneNumber: "00039930"
+        }))
+
+
+
+    }, [])
+    // console.log(accessToken , "IN sign up page ")
+    // console.log(accessTokens)
+
+
 
     return (
         <>
@@ -80,10 +99,10 @@ console.log(loading , error ,msg)
 
                             <INputbutton
                                 label="الاسم"
-                                value={values.name}
-                                onChangeText={handleChange('name')}
-                                errors={errors.name}
-                                touched={touched.name}
+                                value={values.username}
+                                onChangeText={handleChange('username')}
+                                errors={errors.username}
+                                touched={touched.username}
                             />
 
 
@@ -153,7 +172,7 @@ console.log(loading , error ,msg)
                     </View>
 
                 </SafeAreaView>
-
+                {/* <Text>{values.email}</Text> handleSubmit */}
                 <Large_button button_name="انشاء الحساب" Confirm_press={handleSubmit} />
 
                 <View

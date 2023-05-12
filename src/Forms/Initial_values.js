@@ -16,11 +16,11 @@ export const login_initial_values = {
 
 
   export const Sign_up_initial_values = {
-   name : "",
-   email :"",
-   phone :"",
-   password : "",
-   confirmPassword : ""
+    username : "",
+    email :"",
+    phoneNumber :"",
+    password : "",
+    passwordConfirmation : ""
   };
 
   

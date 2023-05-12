@@ -34,7 +34,6 @@ export const styles = StyleSheet.create({
     },
     view_arrow_and_text_style: {
         flexDirection: "row",
-        // justifyContent: "space-between",
         margin: RFPercentage(2),
         marginTop: RFPercentage(4)
     }, view_text_and_checkbox: {

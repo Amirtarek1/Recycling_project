@@ -171,7 +171,7 @@ const Share_The_Good_Dataset =
     [
         {
             name: "مؤسسه مجدي بعقوب",
-            image: images.mac,
+            image: images.magdi_yacoub_foundation_logo,
             number_points: 1000,
             about: "مؤسسه خيريه",
             navi: 'FoundationPage'
@@ -195,7 +195,7 @@ const Share_The_Good_Dataset =
             image: images.Elorman_foundation_logo,
             number_points: 100,
             date: "مؤسسه خيريه",
-            // navi: 'ss'
+            navi: 'FoundationPage'
         },
         {
             name: "مصر الخير",
@@ -205,8 +205,8 @@ const Share_The_Good_Dataset =
             navi: 'FoundationPage'
         },
         {
-            name: "جمعية رسالة",
-            image: images.Resala_foundation_logo,
+            name: "مصر الخير",
+            image: images.Masr_elkhar_foundation_logo,
             number_points: 1050,
             date: "مؤسسه خيريه",
             navi: 'FoundationPage'
@@ -304,7 +304,7 @@ const Copones =
         {
             id: 3,
             numOfBottles: 22,
-            name: " تيتتي 25 %",
+            name: " ماكدونلز 25 %",
             image: images.Elorman_foundation_logo,
             number_points: 100,
             date: "مؤسسه خيريه",

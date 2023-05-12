@@ -42,11 +42,11 @@ export const Forget_passwordSchema = Yup.object().shape({
 
 export const SignupSchema = Yup.object().shape({
     
-    name : Yup.string().trim().required("برجاء ادخال الاسم"),
+  username : Yup.string().trim().required("برجاء ادخال الاسم"),
     email: Yup.string().trim().min(8, 'برجاء ادخال بريد الكتروني صحيح').required('برجاء ادخال بريد الكتروني ').matches(EmailReg, 'برجاء ادخال بريد الكتروني صحيح'),
-    phone : Yup.string().trim().min(8, 'برجاء ادخال رقم الهاتف صحيح ').required('برجاء ادخال رقم الهاتف ').matches(phoneRegExp, 'برجاء ادخال رقم الهاتف صحيح '),
+    phoneNumber : Yup.string().trim().min(8, 'برجاء ادخال رقم الهاتف صحيح ').required('برجاء ادخال رقم الهاتف ').matches(phoneRegExp, 'برجاء ادخال رقم الهاتف صحيح '),
     password: Yup.string().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف'),
-    confirmPassword: Yup.string().required('برجاء تاكيد كلمة المرور').min(8,'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref('password'), null], 'كلمة المرور غير متطابقة')
+    passwordConfirmation: Yup.string().required('برجاء تاكيد كلمة المرور').min(8,'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref('password'), null], 'كلمة المرور غير متطابقة')
     
 
 });

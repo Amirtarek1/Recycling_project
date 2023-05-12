@@ -1,6 +1,6 @@
 
 import { Image, Dimensions, TouchableOpacity, Text, View, FlatList } from 'react-native';
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT } from '../../../constants';
 import { hp } from '../../../constants/themes';
 import { styles } from '../Style_ShareTheGood';
@@ -30,7 +30,7 @@ const FlatlitShareTheGood = ({ data }) => {
                         })}
                             style={[styles.shadowProp, { backgroundColor: COLORS.white, height: hp(16.5), alignSelf: "center", borderRadius: 10, margin: 10, padding: hp(1), width: w * 0.92, flexDirection: "row", alignItems: "center" }]}>
                             <Image source={item.image}
-                                style={{ backgroundColor: "#fff", width: w * 0.3, height: h * 0.1, alignSelf: "center" }} />
+                                style={{ backgroundColor: "#fff", width: hp(15), height: hp(15), alignSelf: "center" }} />
 
                             <View style={{ height: hp(12), justifyContent: "space-between", marginLeft: 10, }}>
                                 <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.5), }}>{item.name}</Text>

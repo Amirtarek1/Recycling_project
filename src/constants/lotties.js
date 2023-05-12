@@ -10,8 +10,3 @@ green,
 scan,Reoil,
 Splash_1
 }
-// const Splash =require('../assets/lotties/Splash.json')
-
-// export {
-//     Splash
-// }

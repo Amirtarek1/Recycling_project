@@ -14,17 +14,18 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Change_password1 = () => {
 
-    const navigation = useNavigation();
     const { handleChange, handleSubmit, values, errors, touched } =
         useFormik({
             validationSchema: Change_passwordSchema,
             initialValues: Change_password_initial_values,
             onSubmit: () => {
-                ClickSubmit();
+                navigation.navigate("Profile_list") 
             },
         });
 
     const ClickSubmit = () => { }
+    const navigation = useNavigation();
+
     return (
         <>
 
@@ -94,7 +95,7 @@ const Change_password1 = () => {
                     </View>
                     <View style={{ marginTop: RFPercentage(10) }}>
                         {/* navigation.navigate('Home') */}
-                        <Large_button button_name="تأكيد" Confirm_press={()=> navigation.navigate("Profile_list") } />
+                        <Large_button button_name="تأكيد" Confirm_press={handleSubmit} />
                     </View>
                 </SafeAreaView>
             </ScrollView>

@@ -50,7 +50,6 @@ const ShareTheGoodPage = () => {
                             fontSize:  RFPercentage(2.3),
                             fontFamily: FONT.font_Almarai_Regular,
                             color: COLORS.white,
-                            // paddingTop: hp(1)
                         }}>اتبرع بنقاطك بكل سهوله في الخير</Text>
 
                     </View>

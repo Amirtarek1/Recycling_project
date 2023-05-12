@@ -35,8 +35,8 @@ export const styles = StyleSheet.create({
         shadowOpacity: .5,
     },
     style_image: {
-        width: wp(55),
-        height: hp(23),
+        width: hp(30),
+        height: hp(20),
         alignSelf: "center"
     },
     style_View_of_counterandpoints: {
