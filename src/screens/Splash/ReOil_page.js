@@ -6,17 +6,38 @@ import { Text, View } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Reoil = () => {
-
   const navigation = useNavigation();
 
-  const [firstTime , setfirstTime] = useState(true)
-  const [sign , setsign] = useState(true)
+
+  const WaitingList = async () => {
+    let isfirst = await AsyncStorage.getItem("isfirst");
+    isfirst = isfirst ? JSON.parse(isfirst) : true ;
+    const token = await AsyncStorage.getItem("accessToken") || null;
+
+    if (isfirst) {
+      navigation.replace("Intro_slider")
+    } else if (token) {
+      navigation.replace("Home")
+    } else {
+      navigation.replace("Auth",{
+        screen : "Tologin"
+      })
+    
+    }
+
+  }
+
+
+
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace(firstTime ? 'Intro_slider' : (sign?'Home':'Auth'))
+      WaitingList()
+      // navigation.replace(firstTime ? 'Intro_slider' : (sign ? 'Home' : 'Auth'))
     }, 3500);
   }, [])
 

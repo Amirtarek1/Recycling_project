@@ -476,7 +476,7 @@ const orders_Data = [
         statues: "done",
         orders_table: {
             photo: images.type_oil,
-            order_id: "1",
+            order_id: 1,
             name_oil_order: "زيت طعام 3 كيلو",
             amount_oil_order: "15",
             time_date: "10/2/2023",
@@ -492,7 +492,7 @@ const orders_Data = [
         orders_table: {
             photo: images.cars_oils,
             name_oil_order: "زيت طعام 3 كيلو",
-            order_id: "2",
+            order_id: 2,
             amount_oil_order: "3",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
@@ -508,7 +508,7 @@ const orders_Data = [
         orders_table: {
             photo: images.cars_oil_for_3K,
             name_oil_order: "زيت طعام 3 كيلو",
-            order_id: "3",
+            order_id: 3,
             amount_oil_order: "51",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
@@ -523,7 +523,7 @@ const orders_Data = [
         orders_table: {
             photo: images.type_oil,
             name_oil_order: "زيت طعام 3 كيلو",
-            order_id: "4",
+            order_id: 4,
             amount_oil_order: "52",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
@@ -535,7 +535,7 @@ const orders_Data = [
         statues: "Waiting",
         orders_table: {
             photo: images.type_oil,
-            order_id: "5",
+            order_id: 5,
             name_oil_order: "زيت طعام 3 كيلو",
             amount_oil_order: "15",
             time_date: "10/2/2023",
@@ -550,7 +550,7 @@ const orders_Data = [
         orders_table: {
             photo: images.cars_oils,
             name_oil_order: "زيت طعام 3 كيلو",
-            order_id: "6",
+            order_id: 6,
             amount_oil_order: "3",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",

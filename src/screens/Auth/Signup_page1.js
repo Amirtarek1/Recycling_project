@@ -13,9 +13,7 @@ import { styles } from './Style';
 import CheckBox from '@react-native-community/checkbox';
 import { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-// import { LoginUser, setloading, signUpUser } from '../../Redux/Reducers/authSlice';
 import { useNavigation } from '@react-navigation/native';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { signUpUser } from '../../Redux/Reducers/authSlice';
 
@@ -24,9 +22,8 @@ const Signup_page1 = ({ route }) => {
 
 
     const dispatch = useDispatch()
-    // const { loading, error } = useSelector((state) => state.user);
+    const { loading, error } = useSelector((state) => state.user);
     const { accessToken } = useSelector((state) => state.user);
-
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -45,23 +42,30 @@ const Signup_page1 = ({ route }) => {
                 dispatch(signUpUser({ username : values.username, email : values.email
                     , password : values.password, passwordConfirmation : values.passwordConfirmation
                     , phoneNumber :values.phoneNumber }));
-                () =>navigation.navigate("Home_page");
+                // navigation.navigate("Home_page");
 
+                if (login == true){
+                    navigation.replace('Tologin');
+                }else{
+                    alert("please try again")
+                }
             },
         });
 
+
+        
+
     useEffect(() => {
         dispatch(signUpUser({
-            username: "amsir",
-            email: "amir.plsssssu11s@gmail.com",
+            username: "amir  tarek ali moggg",
+            email: "amir.TarekAliMoggg@gmail.com",
             password: "thisIsAVeryStrong!*Password",
             passwordConfirmation: "thisIsAVeryStrong!*Password",
-            phoneNumber: "00039930"
+            phoneNumber: "00039930000000"
         }))
 
-
-
     }, [])
+
     // console.log(accessToken , "IN sign up page ")
     // console.log(accessTokens)
 
@@ -79,7 +83,7 @@ const Signup_page1 = ({ route }) => {
 
 
                     <View style={styles.view_arrow_and_text_style}>
-                        <Back_arrow onPress={() => goBack()} />
+                        <Back_arrow onPress={() => navigation.goBack()} />
                         <View>
                             <Text style={styles.text_Bold_style}>إنشاء حساب</Text>
                             <Text style={styles.text_thin_style}>إنشاء حساب جديد في التطبيق</Text>

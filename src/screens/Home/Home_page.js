@@ -11,12 +11,16 @@ import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Alert } from 'react-native';
 import Share from 'react-native-share';
+import { ActivityIndicator } from 'react-native-paper';
+import { useSelector } from 'react-redux';
 
 const Home_page = () => {
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
     const navigation = useNavigation();
 
+
+    const {  loading } = useSelector((state) => state.user)
 
     const handlePress = (item) => {
         if (item.id === 4) {
@@ -41,12 +45,20 @@ const Home_page = () => {
         }
     };
 ;
+
+
+// if (loading) {
+//     return <ActivityIndicator size="large" style={styles.loader} />;
+//   }
       
+  {/* <TouchableOpacity title={'Reload'} onPress={() => dispatch()} /> */}
+
 
     const FirstFlatList = () => {
 
         return (
             <>
+
 
                 <FlatList
                     data={categories}

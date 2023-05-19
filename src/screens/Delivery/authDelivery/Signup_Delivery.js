@@ -6,13 +6,13 @@ import INputbutton from '../../../components/INputbutton';
 import { Delivery_Signup_initial_values } from '../../../Forms/Initial_values';
 import { useFormik } from 'formik';
 import { DeliverySignupSchema } from '../../../Forms/Schema';
-import { Text, View , ScrollView } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { hp } from '../../../constants/themes';
 import Large_button from '../../../components/Large_button';
 import INPUTtext_password from '../../../components/INPUTtext_password';
 import { Checkbox } from 'react-native-paper';
-
+import PhotoImage from "../../../assets/Icons/PhotoImage.svg"
 
 const Signup_Delivery = () => {
 
@@ -58,10 +58,10 @@ const Signup_Delivery = () => {
 
             <SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
                 <ScrollView>
-                    <HeaderDeliveryAuth namePage="انشاء حساب" show={true} />
+                    <HeaderDeliveryAuth namePage="انشاء حساب" back={true} />
 
                     <View style={{
-                        marginTop: RFPercentage(6),
+                        marginTop: RFPercentage(3),
                         justifyContent: "center", alignItems: "center"
                     }}>
 
@@ -106,13 +106,56 @@ const Signup_Delivery = () => {
 
 
 
+                        <TouchableOpacity 
+                        
+                        onPress={()=>{}}
+                        style={{
+                            margin: RFPercentage(1.5),
+                            width: Sizes.width * 0.85,
+                            borderWidth: 1,
+                            borderRadius: RFPercentage(0.7),
+                            borderColor: COLORS.gray_light,
+                            justifyContent: "space-between",
+                            flexDirection: "row",
+                            padding: RFPercentage(2.2),
+
+                        }}>
+                            <Text style={{
+                                fontSize: RFPercentage(2.5),
+                                fontFamily: FONT.font_Almarai_Regular
+                            }}>صوره البطاقه</Text>
+
+                            <PhotoImage height={hp(4)} width={hp(4)} />
+                        </TouchableOpacity>
 
 
-                        <View style ={{alignSelf :"flex-start" , marginLeft : RFPercentage(1)}}>
+                        <TouchableOpacity 
+                        
+                        onPress={()=>{}}
+                        style={{
+                            margin: RFPercentage(1.5),
+                            width: Sizes.width * 0.85,
+                            borderWidth: 1,
+                            borderRadius: RFPercentage(0.7),
+                            borderColor: COLORS.gray_light,
+                            justifyContent: "space-between",
+                            flexDirection: "row",
+                            padding: RFPercentage(2.2),
+
+                        }}>
+                            <Text style={{
+                                fontSize: RFPercentage(2.5),
+                                fontFamily: FONT.font_Almarai_Regular
+                            }}>صوره رخصه القياده</Text>
+
+                            <PhotoImage height={hp(4)} width={hp(4)} />
+                        </TouchableOpacity>
+
+                        <View style={{ alignSelf: "flex-start", marginLeft: RFPercentage(1) }}>
 
 
-                            <Checkbox.Item 
-                            labelStyle={{fontFamily : FONT.font_Almarai_Regular,textAlign :"auto" , fontSize : RFPercentage(2)}}
+                            <Checkbox.Item
+                                labelStyle={{ fontFamily: FONT.font_Almarai_Regular, textAlign: "auto", fontSize: RFPercentage(2) }}
                                 position='leading'
                                 status={checked ? 'checked' : 'unchecked'}
                                 onPress={handleCheck}
@@ -122,42 +165,43 @@ const Signup_Delivery = () => {
                                 uncheckedColor={COLORS.gray_light}
 
                             />
-                            
+
                         </View>
 
 
 
-                        <View style ={{alignSelf :"flex-start" , marginLeft : RFPercentage(1)}}>
+                        <View style={{ alignSelf: "flex-start", marginLeft: RFPercentage(1) }}>
 
 
-                          
-                        <Checkbox.Item 
-                        
-                            labelStyle={{color : COLORS.green_mid ,textAlign :"auto" ,fontFamily : FONT.font_Almarai_Regular , fontSize : RFPercentage(2)}}
+
+                            <Checkbox.Item
+
+                                labelStyle={{ color: COLORS.green_mid, textAlign: "auto", fontFamily: FONT.font_Almarai_Regular, fontSize: RFPercentage(2) }}
                                 position='leading'
                                 status={checked2 ? 'checked' : 'unchecked'}
                                 onPress={handleCheck2}
                                 color={COLORS.green_mid}
                                 rippleColor={COLORS.green_mid}
-                                 uncheckedColor={COLORS.gray_light}
-                                label= "أوافق على شروط الاستخدام و علي سياسه الخصوصيه"
+                                uncheckedColor={COLORS.gray_light}
+                                label="أوافق على شروط الاستخدام و علي سياسه الخصوصيه"
                             />
-                            
+
                         </View>
 
 
 
                     </View>
 
-                 
-                    <View style={{ paddingVertical: hp(4) }}>
+
+                    <View style={{ paddingVertical: hp(2) }}>
                         <Large_button button_name="تابع" Confirm_press={() => handleSubmit()} />
                     </View>
 
-
+{/* navigation.navigate("Signup_page1")  */}
                     <View style={{ alignItems: "center" }}>
-                        <Text style={{ color: COLORS.black, fontSize: RFPercentage(2), fontFamily: FONT.font_Almarai_Regular }}> هل لديك حساب ؟ <Text onPress={() => { navigation.navigate("Signup_page1") }} style={{ color: COLORS.green_mid, fontSize: RFPercentage(2), fontFamily: FONT.font_Almarai_Bold }} >تسجيل الدخول</Text></Text>
+                        <Text style={{ color: COLORS.black, fontSize: RFPercentage(2), fontFamily: FONT.font_Almarai_Regular }}> هل لديك حساب ؟ <Text onPress={() => {}} style={{ color: COLORS.green_mid, fontSize: RFPercentage(2), fontFamily: FONT.font_Almarai_Bold }} >تسجيل الدخول</Text></Text>
                     </View>
+
                 </ScrollView>
             </SafeAreaView>
 

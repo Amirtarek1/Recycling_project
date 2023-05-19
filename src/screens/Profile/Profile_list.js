@@ -3,12 +3,16 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, Sizes } from '../../constants';
 import User_image from '../../components/User_image'
 import { ProfilePagedata } from '../../Utils/DummyData';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { hp } from '../../constants/themes';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../Redux/Reducers/authSlice';
+import { fetchUserData } from '../../Redux/Reducers/ProfileSlice';
 
+// const { accessToken, loading, login } = useSelector((state) => state.user);
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
@@ -17,11 +21,29 @@ const w = Dimensions.get("screen").width
 
 
 const Profile_list = () => {
+
     const navigation = useNavigation();
 
     const [data, setdata] = useState(ProfilePagedata)
 
 
+
+      const dispatch = useDispatch();
+     
+      const { loading, DataUser} = useSelector((state) => state.profile);
+      console.log(DataUser)
+      useEffect(() => {
+
+        dispatch(fetchUserData());
+      }, []);
+    
+    
+
+const  Logout =()=>{
+    dispatch(logout())
+    navigation.replace("Auth")
+} 
+    
 
     return (
         <>
@@ -39,7 +61,7 @@ const Profile_list = () => {
                     <User_image />
 
                     <View style={{ justifyContent: "space-around"  , marginLeft : RFPercentage(2) }}>
-                        <Text style={{ fontFamily: FONT.font_Almarai_Bold,color : COLORS.black, fontSize: RFPercentage(2.5) }}>الاء محمد عبد الرازق</Text>
+                        <Text style={{ fontFamily: FONT.font_Almarai_Bold,color : COLORS.black, fontSize: RFPercentage(2.5) }}>{DataUser.email}</Text>
                         <Text style={{ fontFamily: FONT.font_Almarai_Light, color : COLORS.black ,fontSize: RFPercentage(2.5) }}>nadaaboelkheir@gmail.com  </Text>
                     </View>
 
@@ -81,7 +103,7 @@ const Profile_list = () => {
                     )}
                 />
                   <TouchableOpacity
-                    onPress={() => navigation.replace("Auth")}
+                    onPress={() =>Logout() }
                     style={{
                         // backgroundColor :"#00d",
                         flexDirection: "row",

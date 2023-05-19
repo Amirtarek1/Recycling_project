@@ -22,7 +22,7 @@ const RootStack = createStackNavigator();
 const MainNavigation = () => {
     return (
         <>
-            <StatusBar backgroundColor={COLORS.black} barStyle={'dark-content'} />
+            <StatusBar backgroundColor={COLORS.black} barStyle={'default'} />
 
             <RootStack.Navigator
                 initialRouteName="Splash"

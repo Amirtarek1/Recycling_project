@@ -16,8 +16,8 @@ import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from 'react-redux'
 import { Checkbox } from 'react-native-paper';
-import { LoginUser } from "../../Redux/Reducers/authSlice";
-import store from "../../Redux/Store";
+import { LoginUser, addToken } from "../../Redux/Reducers/authSlice";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const w = Dimensions.get("screen").width
 
@@ -27,19 +27,38 @@ const Tologin = () => {
     const googleUrl = 'https://google.com';
     const facebookUrl = 'https://facebook.com';
     const dispatch = useDispatch()
-    const {accessToken} = useSelector((state) => state.user);
+    const { accessToken, loading, login } = useSelector((state) => state.user);
 
     const { handleChange, handleSubmit, values, errors, touched } =
         useFormik({
             validationSchema: LoginSchema,
             initialValues: login_initial_values,
             onSubmit: () => {
-                dispatch(LoginUser({email : values.email ,
-                     password : values.password}));
-               navigation.replace('Home');
+                dispatch(LoginUser({
+                    email: values.email,
+                    password: values.password,
+                }
+                )).unwrap().then((data) => {
+                    navigation.replace("Home")
+                })
+
 
             },
         });
+
+    const isFirsttime = async () => {
+        await AsyncStorage.setItem(
+            "isfirst", "false"
+        );
+
+    }
+
+    
+    useEffect(() => {
+        isFirsttime()
+    }, []);
+
+
 
 
 
@@ -53,19 +72,6 @@ const Tologin = () => {
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
 
-    // useEffect(() => {
-    //     dispatch(LoginUser({
-    //         email: "omar.plus77@gmail.com",
-    //         password: "thisIsAVeryStrong!*Password"
-    //     }))
-
-
-
-    // }, [])
-    // console.log(store.getState())
-
-    // console.log(accessToken)
-    
 
     return (
         <>

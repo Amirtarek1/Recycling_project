@@ -7,12 +7,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const initialState = {
   loading: false,
-  name: "",
+  login: false,
+  signUp: false,
   accessToken: "",
-  error: "",
+  userDate: {},
+  error: ""
 }
-
-
 
 export const signUpUser = createAsyncThunk("signUpUser", async (body) => {
   const res = await fetch("http://10.0.2.2:8080/api/v1/registration", {
@@ -43,20 +43,11 @@ const authSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-
-    addToken: (state, action) => {
-      state.accessToken = action.payload;
-      AsyncStorage.setItem('accessToken', action.payload);
-    },
-    addUser: (state, action) => {
-      state.name = action.payload;
-      AsyncStorage.setItem('name', JSON.stringify(action.payload));
-    },
     logout: (state, action) => {
       state.accessToken = null;
-      state.name = null;
+      state.userDate = null;
       AsyncStorage.removeItem('accessToken');
-      AsyncStorage.removeItem('name');
+      AsyncStorage.removeItem('userDate');
     }
   },
   extraReducers: (builder) => {
@@ -65,24 +56,18 @@ const authSlice = createSlice({
       .addCase(LoginUser.pending, (state, action) => {
         console.log("LoginUser.pending");
         state.loading = true;
+
       })
       .addCase(LoginUser.fulfilled, (state, { payload }) => {
         console.log("LoginUser.fulfilled");
-        console.log(payload.accessToken)
-        
-        state.loading = false;
         if (payload.error) {
-          state.error = error;
+          console.log("BAD CREDENTIALS")
         } else {
-          state.accessToken = payload.accessToken ;
-          
-          if (payload.name) {
-            state.name = payload.name;
-            AsyncStorage.setItem("name", JSON.stringify(payload.name));
-          } else {
-            AsyncStorage.removeItem("name");
-          }
-          AsyncStorage.setItem("accessToken", payload.accessToken)
+          state.login = true
+          state.loading = false;
+          state.userDate = payload.userDate
+          console.log(payload)
+          AsyncStorage.setItem('accessToken', payload.accessToken);
 
         }
 
@@ -90,25 +75,34 @@ const authSlice = createSlice({
       .addCase(LoginUser.rejected, (state, action) => {
         console.log("LoginUser.rejected");
         state.loading = true;
-        state.error = action.payload;
+        state.userDate = null
+        state.error = action.payload
       });
     // SignUp
     builder
       .addCase(signUpUser.pending, (state, action) => {
         console.log("signUpUser.pending");
-        console.log(action , "pending")
         state.loading = true;
+        state.error = action.payload
+
       })
       .addCase(signUpUser.fulfilled, (state, { payload }) => {
         state.loading = false;
         console.log("Sign Up is fulfilled")
         if (payload.error) {
-          state.error = payload.error;
-        } 
+          console.log("BAD CREDENTIALS")
+        } else {
+          state.signUp = true
+          state.loading = false;
+          state.userDate = payload.userDate
+          console.log(payload)
+
+        }
       })
       .addCase(signUpUser.rejected, (state, action) => {
         state.loading = true;
-        state.error = action.payload;
+        state.userDate = null;
+        state.accessToken = null;
       });
 
   }
