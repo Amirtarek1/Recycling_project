@@ -55,19 +55,19 @@ const Signup_page1 = ({ route }) => {
 
         
 
-    useEffect(() => {
-        dispatch(signUpUser({
-            username: "amir  tarek ali moggg",
-            email: "amir.TarekAliMoggg@gmail.com",
-            password: "thisIsAVeryStrong!*Password",
-            passwordConfirmation: "thisIsAVeryStrong!*Password",
-            phoneNumber: "00039930000000"
-        }))
+    // useEffect(() => {
+    //     dispatch(signUpUser({
+    //         username: "amir  tarek ali moggg",
+    //         email: "amir.TarekAliMoggg@gmail.com",
+    //         password: "thisIsAVeryStrong!*Password",
+    //         passwordConfirmation: "thisIsAVeryStrong!*Password",
+    //         phoneNumber: "00039930000000"
+    //     }))
 
-    }, [])
+    // }, [])
 
-    // console.log(accessToken , "IN sign up page ")
-    // console.log(accessTokens)
+    // // console.log(accessToken , "IN sign up page ")
+    // // console.log(accessTokens)
 
 
 

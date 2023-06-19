@@ -79,7 +79,6 @@ const Oils =
             image: images.type_oil,
             number_points: 10,
             initial: 0
-            // navi: 'History_profile'
         },
         {
             id: 2,
@@ -87,7 +86,6 @@ const Oils =
             image: images.food_oil,
             number_points: 50,
             initial: 0
-            // navi: 'WriteProblem' tables.png
         },
         {
             id: 3,
@@ -95,7 +93,6 @@ const Oils =
             image: images.cars_oils,
             number_points: 20,
             initial: 0
-            // navi: 'ss'
         },
         {
             id: 4,
@@ -103,7 +100,6 @@ const Oils =
             image: images.cars_oil_for_3K,
             number_points: 100,
             initial: 0
-            // navi: 'ss'
         },
 
     ]
@@ -587,6 +583,51 @@ const Coupons_flatListData = [
 
 ]
 
+
+
+const Deliveryorders = [
+    {
+        statues: "Waiting",
+        orderData: {
+            id: 1,
+            name: "أمير طارق علي",
+            image: images.Money_logo,
+            amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: 2341231231
+        },
+
+    },
+    {
+        statues: "Waiting",
+        orderData: {
+            id: 2,
+            name: "أمير طارق علي",
+            image: images.Money_logo,
+            amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: 2341231231
+
+        },
+
+    },
+    {
+        statues: "Waiting",
+        orderData: {
+            id: 3,
+            name: "أمير طارق علي",
+            image: images.Money_logo,
+            amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: 2341231231
+        },
+
+    }
+]
+
 export {
     categories,
     Types_services,
@@ -599,5 +640,6 @@ export {
     Days,
     orders_Data,
     Coupons_flatListData,
-    Copones
+    Copones,
+    Deliveryorders
 }

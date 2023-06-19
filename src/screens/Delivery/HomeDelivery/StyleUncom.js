@@ -1,7 +1,6 @@
-import { COLORS,  } from '../../constants';
 import { StyleSheet } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import {  FONT, Sizes } from '../../constants';
+import { COLORS, Sizes } from '../../../constants';
 
 export const styles = StyleSheet.create({
 

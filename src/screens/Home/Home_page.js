@@ -13,30 +13,37 @@ import { Alert } from 'react-native';
 import Share from 'react-native-share';
 import { ActivityIndicator } from 'react-native-paper';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchUserData } from '../../Redux/Reducers/ProfileSlice';
+import { useEffect } from 'react';
+
 
 const Home_page = () => {
+    
+    const dispatch = useDispatch();
+
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
     const navigation = useNavigation();
 
 
-    const {  loading } = useSelector((state) => state.user)
+    const { loading } = useSelector((state) => state.user)
 
     const handlePress = (item) => {
         if (item.id === 4) {
-          SHAre();
+            SHAre();
         } else if (item.id === 5) {
-          alert("soon");
+            alert("soon");
         } else {
-          navigation.navigate(item.navi); 
+            navigation.navigate(item.navi);
         }
-      };
-      
-  
+    };
+
+
     const SHAre = async () => {
         try {
             const options = {
-                title: 'React Native | A framework for building native apps using React',
+                title: 'شارك البرنامج مع اصداقائك واربح نقط ',
                 url: 'https://reactnative.dev/',
             };
             await Share.open(options);
@@ -44,14 +51,30 @@ const Home_page = () => {
             Alert.alert(error.message);
         }
     };
-;
+    ;
 
 
-// if (loading) {
-//     return <ActivityIndicator size="large" style={styles.loader} />;
-//   }
-      
-  {/* <TouchableOpacity title={'Reload'} onPress={() => dispatch()} /> */}
+
+
+
+    const { DataUser } = useSelector((state) => state.profile);
+    console.log(DataUser)
+
+    useEffect(() => {
+        dispatch(fetchUserData());
+    }, [dispatch]);
+
+    if (Object.keys(DataUser).length === 1) {
+        return (
+            <View style={{
+                backgroundColor: COLORS.white,
+                justifyContent: "center",
+                flex: 1
+            }}>
+                <ActivityIndicator size="large" color="green" />
+            </View>
+        );
+    }
 
 
     const FirstFlatList = () => {
@@ -63,6 +86,8 @@ const Home_page = () => {
                 <FlatList
                     data={categories}
                     numColumns={2}
+                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
                     renderItem={({ item }) =>
                         <>
 
@@ -107,13 +132,13 @@ const Home_page = () => {
 
                     <View style={styles.view_photo_and_text_style}>
                         <User_image />
-                        <View>
-                            <Text style={styles.text_Bold_style}>مرحبا دكتور أسامه </Text>
-                            <Text style={styles.text_thin_style}>النقط : 100</Text>
+                        <View style ={{width : w*0.6 , padding :RFPercentage(1)}}>
+                            <Text numberOfLines={1} style={styles.text_Bold_style}>{DataUser.fullName}</Text>
+                            <Text numberOfLines={1} style={styles.text_thin_style}>النقط:{DataUser.points}</Text>
 
                         </View>
                         <View style={{ width: RFPercentage(8), alignItems: "center" }} >
-                            <Notificationicon height={RFPercentage(5)} width={RFPercentage(5)} style ={{marginRight : RFPercentage(2) }} fill="#fff" />
+                            <Notificationicon height={RFPercentage(5)} width={RFPercentage(5)} style={{ marginRight: RFPercentage(2) }} fill="#fff" />
                         </View>
 
                     </View>

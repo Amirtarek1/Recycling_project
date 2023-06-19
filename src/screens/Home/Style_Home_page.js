@@ -10,11 +10,10 @@ const w = Dimensions.get("screen").width
 export const styles = StyleSheet.create({
     Basic_container: {
         flex: 1,
-        backgroundColor: COLORS.green_mid
-        , alignContent: "center"
+        backgroundColor: COLORS.green_mid,
+         alignContent: "center"
     }, green_container: {
         flex: 0.16,
-
     },
     white_container: {
         flex: 0.84,
@@ -22,6 +21,7 @@ export const styles = StyleSheet.create({
         borderTopEndRadius: RFPercentage(8),
         borderTopStartRadius: RFPercentage(8)
     }, text_Bold_style: {
+
         fontSize: RFPercentage(3),
         color: COLORS.white,
         fontFamily: FONT.font_Almarai_Bold,

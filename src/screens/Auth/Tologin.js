@@ -170,7 +170,7 @@ const Tologin = () => {
                                 <View style={{
                                     width: w * 0.25,
                                     borderWidth: RFPercentage(0.1),
-                                    backgroundColor: COLORS.gray_dark
+                                    backgroundColor: COLORS.gray_light
                                 }}></View>
 
                                 <Text style={{ color: COLORS.black, fontSize: RFPercentage(2), justifyContent: "center", textAlign: "center", paddingHorizontal: hp(1.5), fontFamily: FONT.font_Almarai_Bold }}>أو تسجيل الدخول بواسطة</Text>
@@ -178,7 +178,7 @@ const Tologin = () => {
                                 <View style={{
                                     width: w * 0.25,
                                     borderWidth: RFPercentage(0.1),
-                                    backgroundColor: COLORS.gray_dark
+                                    backgroundColor: COLORS.gray_light
                                 }}></View>
 
 

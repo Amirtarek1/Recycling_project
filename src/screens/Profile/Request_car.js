@@ -21,10 +21,8 @@ import { SwipeListView } from 'react-native-swipe-list-view';
 import { Dialog } from 'react-native-simple-dialogs';
 const Request_car = () => {
     const navigation = useNavigation();
-    const [isModalVisable,setISModalVisible] = useState(false)
-    const h = Dimensions.get("screen").height
-    const w = Dimensions.get("screen").width
-   // const [data, setdata] = useState(CartData)
+    const [isModalVisable, setISModalVisible] = useState(false)
+   
     const [data, setData] = useState(CartData.map((cartData, index) => ({
         key: `${index}`,
         numOfBottles: cartData.numOfBottles,
@@ -85,7 +83,7 @@ const Request_car = () => {
 
 
 
-                    <Back_arrow onPress={() => navigation.goBack()}/>
+                    <Back_arrow onPress={() => navigation.goBack()} />
                     <Text style={{
                         fontSize: 20,
                         fontFamily: FONT.font_Almarai_ExtraBold,
@@ -93,9 +91,9 @@ const Request_car = () => {
                         alignSelf: "center"
                     }}>عربة الطلبات</Text>
                     <View style={{ flexDirection: "row", }}>
-                        <TouchableOpacity 
-                        onPress={()=> navigation.navigate("Home_page")}
-                    >
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Home_page")}
+                        >
                             <Text style={{
                                 fontSize: 20,
                                 fontFamily: FONT.font_Almarai_ExtraBold,
@@ -111,7 +109,7 @@ const Request_car = () => {
 
                 <View style={styles.white_container}>
                     <SwipeListView
-                    showsVerticalScrollIndicator={false}
+                        showsVerticalScrollIndicator={false}
                         data={data}
                         renderItem={renderVisibleItem}
                         renderHiddenItem={renderHiddenItem}
@@ -124,31 +122,29 @@ const Request_car = () => {
                         alignSelf: "center",
                         justifyContent: "space-between",
                         alignItems: "center",
-                        // padding: hp(2)
-                        // ,
-                         margin: hp(2)
+                        margin: hp(2)
                     }
                     }>
                         <TouchableOpacity
-                                                onPress={ ()=>setISModalVisible(true) }
-                                                
+                            onPress={() => setISModalVisible(true)}
+
 
                             style={[
-                            
+
                                 styles.shadowProp,
                                 {
-                                    elevation:4,
-                                    elevation:10,
+                                    elevation: 4,
+                                    elevation: 10,
                                 }]}
 
                         >
                             <PlusCricleSvg width={RFPercentage(7)}
                                 height={RFPercentage(7)}
-                                 />
+                            />
                         </TouchableOpacity>
 
                         <Text style={{
-                            fontFamily : FONT.font_Almarai_Bold,
+                            fontFamily: FONT.font_Almarai_Bold,
                             fontSize: RFPercentage(4),
                             color: COLORS.green_mid
                         }}>
@@ -157,66 +153,72 @@ const Request_car = () => {
                     </View>
                 </View>
                 <Dialog
-dialogStyle = {{borderRadius:hp(1),alignSelf:"flex-end"}}
-    visible={isModalVisable}
-    onTouchOutside={() => setISModalVisible(true)}>
-    <View style ={{justifyContent :"space-between" ,
-     alignItems :"center",
-     padding :hp(1.5),
+                    dialogStyle={{ borderRadius: hp(1), alignSelf: "flex-end" }}
+                    visible={isModalVisable}
+                    onTouchOutside={() => setISModalVisible(true)}>
+                    <View style={{
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: hp(1.5),
 
-     height : Sizes.height*0.16,
-    //  borderRadius :hp(3)
-     }}>
+                        height: Sizes.height * 0.16,
+                        //  borderRadius :hp(3)
+                    }}>
 
-<Text style = {{fontFamily : FONT.font_Almarai_Bold,fontSize: RFValue(18 ,Sizes.height)}}>هل أنت متأكد من حذف الطلب ؟</Text>
-<View style={{flexDirection:"row",
-alignItems:"center",justifyContent:"space-around", width :Sizes.width*0.5}}
->
-<TouchableOpacity 
-onPress={()=>{setISModalVisible(false)
-    // navigation.goBack()
-}}
+                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFValue(18, Sizes.height) }}>هل أنت متأكد من حذف الطلب ؟</Text>
+                        <View style={{
+                            flexDirection: "row",
+                            alignItems: "center", justifyContent: "space-around", width: Sizes.width * 0.5
+                        }}
+                        >
+                            <TouchableOpacity
+                                onPress={() => {
+                                    setISModalVisible(false)
+                                    // navigation.goBack()
+                                }}
 
-style= {[styles.shadowProp,{
-  width : hp(8) ,
- height : hp (6) ,
-borderRadius: hp(1),
- padding:hp(1),
-  backgroundColor:COLORS.red_logout,
-  alignItems:"center",
-  justifyContent:"center",
-  }]}>
-<Text style ={{
-  color: COLORS.white,
-  fontFamily : FONT.font_Almarai_Regular
-  }}>نعم</Text>
+                                style={[styles.shadowProp, {
+                                    width: hp(8),
+                                    height: hp(6),
+                                    borderRadius: hp(1),
+                                    padding: hp(1),
+                                    backgroundColor: COLORS.red_logout,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                }]}>
+                                <Text style={{
+                                    color: COLORS.white,
+                                    fontFamily: FONT.font_Almarai_Regular
+                                }}>نعم</Text>
 
-</TouchableOpacity>
-<TouchableOpacity
-onPress={()=>{setISModalVisible(false)
-     navigation.navigate("Home_page")
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => {
+                                    setISModalVisible(false)
+                                    navigation.navigate("Home_page")
 
-}}
+                                }}
 
-style= {[styles.shadowProp,{shadowColor:COLORS.green_mid,
-  width : hp(8) ,
- height : hp (6) ,
-borderRadius: hp(1),
- padding:hp(1),
-  backgroundColor:COLORS.accent,
-  alignItems:"center",
-  justifyContent:"center"
-  }]}>
-<Text style ={{
-  color: COLORS.green_mid,
-  fontFamily : FONT.font_Almarai_Regular
-  }}>لا</Text>
+                                style={[styles.shadowProp, {
+                                    shadowColor: COLORS.green_mid,
+                                    width: hp(8),
+                                    height: hp(6),
+                                    borderRadius: hp(1),
+                                    padding: hp(1),
+                                    backgroundColor: COLORS.accent,
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }]}>
+                                <Text style={{
+                                    color: COLORS.green_mid,
+                                    fontFamily: FONT.font_Almarai_Regular
+                                }}>لا</Text>
 
-</TouchableOpacity>
+                            </TouchableOpacity>
 
-</View>
-    </View>
-</Dialog>
+                        </View>
+                    </View>
+                </Dialog>
             </SafeAreaView>
 
 

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Dimensions, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, ActivityIndicator, Text, View, Dimensions, FlatList, TouchableOpacity } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, Sizes } from '../../constants';
 import User_image from '../../components/User_image'
@@ -12,7 +12,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../Redux/Reducers/authSlice';
 import { fetchUserData } from '../../Redux/Reducers/ProfileSlice';
 
-// const { accessToken, loading, login } = useSelector((state) => state.user);
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
@@ -28,22 +27,33 @@ const Profile_list = () => {
 
 
 
-      const dispatch = useDispatch();
-     
-      const { loading, DataUser} = useSelector((state) => state.profile);
-      console.log(DataUser)
-      useEffect(() => {
+    const dispatch = useDispatch();
 
+    const {DataUser } = useSelector((state) => state.profile);
+
+    useEffect(() => {
         dispatch(fetchUserData());
-      }, []);
-    
-    
+    }, [dispatch]);
 
-const  Logout =()=>{
-    dispatch(logout())
-    navigation.replace("Auth")
-} 
-    
+    if (Object.keys(DataUser).length === 1) {
+        return (
+            <View style={{
+                backgroundColor: COLORS.white,
+                justifyContent: "center",
+                flex: 1
+            }}>
+                <ActivityIndicator size="large" color="green" />
+            </View>
+        );
+    }
+
+
+
+    const Logout = () => {
+        dispatch(logout())
+        navigation.replace("Auth")
+    }
+
 
     return (
         <>
@@ -60,21 +70,21 @@ const  Logout =()=>{
                 }}>
                     <User_image />
 
-                    <View style={{ justifyContent: "space-around"  , marginLeft : RFPercentage(2) }}>
-                        <Text style={{ fontFamily: FONT.font_Almarai_Bold,color : COLORS.black, fontSize: RFPercentage(2.5) }}>{DataUser.email}</Text>
-                        <Text style={{ fontFamily: FONT.font_Almarai_Light, color : COLORS.black ,fontSize: RFPercentage(2.5) }}>nadaaboelkheir@gmail.com  </Text>
+                    <View style={{ justifyContent: "space-around", marginLeft: RFPercentage(2) }}>
+                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.5) }}>{DataUser.fullName}</Text>
+                        <Text style={{ fontFamily: FONT.font_Almarai_Light, color: COLORS.black, fontSize: RFPercentage(2.5) }}>{DataUser.email}</Text>
                     </View>
 
                 </View>
-              
-                <FlatList 
-                showsVerticalScrollIndicator={false}
-                data={data}
-                scrollEnabled={false}
-                style = {{maxHeight : hp(57.2)}}
+
+                <FlatList
+                    showsVerticalScrollIndicator={false}
+                    data={data}
+                    scrollEnabled={false}
+                    style={{ maxHeight: hp(57.2) }}
                     renderItem={({ item, index }) => (
                         <TouchableOpacity
-                            onPress={() =>  navigation.replace(item.navi)}
+                            onPress={() => navigation.replace(item.navi)}
                             style={{
                                 // backgroundColor :"#0dd",
                                 flexDirection: "row",
@@ -102,8 +112,8 @@ const  Logout =()=>{
 
                     )}
                 />
-                  <TouchableOpacity
-                    onPress={() =>Logout() }
+                <TouchableOpacity
+                    onPress={() => Logout()}
                     style={{
                         // backgroundColor :"#00d",
                         flexDirection: "row",
@@ -113,14 +123,14 @@ const  Logout =()=>{
                     <View style={{ paddingVertical: hp(2), flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
 
                         <Icon
-                            name= "sign-out"
+                            name="sign-out"
                             size={hp(4.2)} style={{ color: COLORS.green_mid }} />
 
                         <Text style={{
                             marginLeft: RFPercentage(2.5),
                             fontSize: RFPercentage(2.2),
                             fontFamily: FONT.font_Almarai_Bold,
-                            color: COLORS.red_logout 
+                            color: COLORS.red_logout
                         }}>تسجيل الخروج</Text>
 
                     </View>
@@ -129,8 +139,8 @@ const  Logout =()=>{
                 </TouchableOpacity>
 
 
-              
-                
+
+
             </SafeAreaView>
 
 

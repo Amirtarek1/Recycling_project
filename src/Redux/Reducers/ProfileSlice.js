@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useSelector } from "react-redux";
 
 
 
@@ -53,8 +52,6 @@ const profileSlice = createSlice({
             ...payload
           };
           console.log(state.DataUser)
-          //لو جيت اطبعها مش هتطبع  DataUser عمر بقولك طب مش انا دلوقتي المفروض اننا واخدج الداتا دي خزنها ف 
-          //  هنا الايرور انا كنت بعمل اسينيك للداتا بحيث انه يخزنها ليس الا
           AsyncStorage.setItem("DataUser", JSON.stringify(state.DataUser));
         }
       }
