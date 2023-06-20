@@ -11,20 +11,39 @@ import { Change_password_initial_values } from '../../Forms/Initial_values';
 import { styles } from '../Auth/Style_Change_password';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useEffect } from 'react';
+import { ChangePasswordfetch } from '../../Redux/Reducers/ChangePasswordSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Change_password1 = () => {
+    const navigation = useNavigation();
+    const dispatch = useDispatch()
+    const { BodyofChangePassword, error } = useSelector((state) => state.ChangePassword);
 
     const { handleChange, handleSubmit, values, errors, touched } =
         useFormik({
             validationSchema: Change_passwordSchema,
             initialValues: Change_password_initial_values,
             onSubmit: () => {
-                navigation.navigate("Profile_list") 
+                navigation.navigate("Profile_list")
             },
         });
 
+
+    // useEffect(() => {
+    //     dispatch(ChangePasswordfetch({
+    //         oldPassword: "12245678",
+    //         password: "12345678",
+    //         passwordConfirmation: "12345678"
+
+    //     }))
+
+    // }, [dispatch])
+
+    // console.log(BodyofChangePassword, "IN change password page ")
+    // console.log(error, "error message from back")
+
     const ClickSubmit = () => { }
-    const navigation = useNavigation();
 
     return (
         <>
@@ -56,7 +75,7 @@ const Change_password1 = () => {
                             fontFamily: FONT.font_Almarai_Bold,
                             textAlign: "center"
                         }}> يجب ان تكون كلمة مرورك الجديده مختلفه عن كلمة مرورك الحالية</Text>
-                       
+
                     </View>
                     <View style={styles.white_container}>
 

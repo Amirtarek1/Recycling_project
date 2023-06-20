@@ -76,7 +76,7 @@ const INPUTtext_password = ({ value, onChangeText,  visible, setVisible,
 
 
             {errors && touched !== undefined ? <Text style={{
-                color: COLORS.red_logout, textAlign: "center", justifyContent: "center",
+                color: COLORS.red_logout, justifyContent: "center",
                 fontFamily: FONT.font_Almarai_Regular
             }}>{errors}</Text>
                 : <></>}
