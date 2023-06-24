@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { ScrollView, TextInput, Text, View, Dimensions } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import { COLORS, FONT } from '../../constants';
-import Back_arrow from '../../components/Back_arrow';
-import { styles } from './StyleSuggests';
+import { COLORS, FONT } from '../../../constants';
+import Back_arrow from '../../../components/Back_arrow';
+import { styles } from '../../Profile/StyleSuggests'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Sizes, hp, wp } from '../../constants/themes';
-import Large_button from '../../components/Large_button';
-import { useNavigation } from '@react-navigation/native';
+import { Sizes, hp, wp } from '../../../constants/themes';
+import Large_button from '../../../components/Large_button';
+// import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import History from "../../../assets/Icons/time-history.svg"
+
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
 
-const Suggests = () => {
+const Suggests_delivery = () => {
 
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
     const [inputValue, setInputValue] = useState('');
     const [error, setError] = useState('');
 
@@ -48,7 +50,7 @@ const Suggests = () => {
                         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                             <Text style={[styles.text_Bold_style]}>الشكاوي والاقتراحات</Text>
                         </View>
-
+<History width={RFPercentage(4)} height={RFPercentage(4)}/>
                     </View>
                     <View style={{ marginTop: RFPercentage(10) }}>
                         <TextInput
@@ -136,4 +138,4 @@ const Suggests = () => {
 
 }
 
-export default Suggests;
+export default Suggests_delivery;

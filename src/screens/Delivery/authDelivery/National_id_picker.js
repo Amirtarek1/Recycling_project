@@ -1,41 +1,48 @@
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { COLORS, FONT, Sizes, images } from '../../../constants';
+import { COLORS, FONT, Sizes, images, } from '../../../constants';
 import HeaderDeliveryAuth from '../../../components/HeaderDeliveryAuth';
 // import { useFormik } from 'formik';
-import { Text, View, Dimensions, Image, ScrollView } from 'react-native';
+import { Text, View, Dimensions, Image,TouchableOpacity, ScrollView,PermissionsAndroid } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { hp } from '../../../constants/themes';
 import Large_button from '../../../components/Large_button';
+import Add_layer_icon from "../../../assets/Icons/add_layer.svg"
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+
 import {
     CodeField,
     Cursor,
     useBlurOnFulfill,
     useClearByFocusCell,
   } from 'react-native-confirmation-code-field';
+import { styles } from '../../voluntary/Style_Donate';
 
-
-
-
-
+  
 const National_id_picker = () => {
+  let options ={
+    storageOptions:{
+      saveToPhoto : true,
+      mediaType :"photo"
+    },
+  };
+  const [ selectImage,setSelectImage] = useState("");
+  const openCamera = async () => {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED){
+  const result = await launchCamera();  
+    }
+  };
 
+const imagePicker = () =>{
+  launchCamera(options,response =>{
+  selectImage[response.assets[0].uri]
+  console.log(response.assets[0].uri)
+})
+}
     const w = Dimensions.get("screen").width
-
-    const [checked, setChecked] = useState(false);
-
-    // const handleCheck = () => {
-    //     setChecked(!checked);
-    // };
-    
-  const CELL_COUNT = 4;
-  //   const [toggleCheckBox, setToggleCheckBox] = useState(false)
-    const [value, setValue] = useState('');
-    const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
-    const [props, getCellOnLayoutHandler] = useClearByFocusCell({
-      value,
-      setValue,
-    });
 
     return (
         <>
@@ -45,14 +52,14 @@ const National_id_picker = () => {
 
 
             <SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
-                <ScrollView>
-                    <HeaderDeliveryAuth namePage=" رمز التأكيد" show={false}  back={true}/>
+                <ScrollView >
+                    <HeaderDeliveryAuth namePage=" صورة البطاقة" show={false}  back={true}/>
 
                     <View style={{ 
-                      justifyContent: "space-around", 
-                      alignSelf:"center"
-                      ,height:hp(10),
-          marginTop: RFPercentage(10)
+                      // justifyContent: "space-around", 
+                      alignSelf:"center",
+                      // ,height:hp(10),
+          marginTop: RFPercentage(2)
           
           }}>
 
@@ -60,71 +67,51 @@ const National_id_picker = () => {
             textAlign :"center" , 
             color: COLORS.black, 
             fontFamily: FONT.font_Almarai_Regular,
-            fontSize: RFPercentage(2.6)}}> أدخل الرمز المكون من 4 أرقام الذي
+            marginTop:RFPercentage(2),
+            marginBottom:RFPercentage(2),
+            fontSize: RFPercentage(2.6)}}>التقط صورة البطاقة الشخصية للأمام والخلف 
             
             </Text>
             <Text
-              style={{ alignSelf: "center", color: COLORS.black,
+              style={{ alignSelf: "center",
+               color: COLORS.gray_mid,
                fontFamily: FONT.font_Almarai_Regular,
-               alignSelf:"baseline",
-                fontSize: RFPercentage(2.6) }}>  ارسلناه إلي  <Text style={{ fontSize: RFPercentage(2),
-                 color: COLORS.green_mid,fontFamily:FONT.font_Almarai_Bold }}>nadaabo5@gmail.com</Text></Text>
+textAlign:"center",
+lineHeight:RFPercentage(4),
+fontSize: RFPercentage(2.6) }} 
+>يجب ان تكون صوره اصلية وواضحه وليست نسخه مصورة تأكد أن تكون جميع المعلومات واضحة وأن البطاقة سارية وليست منتهية </Text>
+         
+        </View>
+        <View style={{alignItems:"center",justifyContent:"center",marginVertical:RFPercentage(4)}}>
+          <Image source={images.National_id_} style={{width :Sizes.width*0.7,
+            height:Sizes.height*0.22}}/>
+        </View>
 
-          </View>
-          {/* <SafeAreaView style={styles.root}> */}
-          <View>
-            <CodeField
-            
-              ref={ref}
-              {...props}
-              // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
-              value={value}
-              onChangeText={setValue}
-              cellCount={CELL_COUNT}
-              rootStyle={{ padding:RFPercentage(4), justifyContent: "space-around", flexDirection: "row",marginVertical:RFPercentage(4) }}
-              keyboardType="number-pad"
-              textContentType="oneTimeCode"
-              renderCell={({ index, symbol, isFocused }) => (
-                <Text 
-                  key={index}
-                  style={[ {
-                    borderRadius: RFPercentage(1),
-                    width: 50,
-                    height: 60,
-                    lineHeight: 38,
-                    fontSize: 24,
-                    borderWidth: 2,
-                    marginHorizontal: RFPercentage(1),
-                    borderColor: COLORS.gray_ofwhite,
-                    textAlign: 'center',
-                    color : COLORS.black
-                  } , isFocused &&  {
-                    borderColor: COLORS.green_mid,
-                  }]}
-                  onLayout={getCellOnLayoutHandler(index)}>
-                  {symbol || (isFocused ? <Cursor /> : null)}
-                </Text>
-              )}
-            />
-          {/* </SafeAreaView> */}
-
-          <Text style={{
-            alignSelf: "center", marginBottom: RFPercentage(5),fontSize:RFPercentage(2.6),
-            fontFamily: FONT.font_Almarai_Regular, color: COLORS.gray_mid
-          }}>الم تستلم الرمز ؟ <Text style={{ fontFamily: FONT.font_Almarai_Bold, 
-          color: COLORS.green_mid ,fontSize :RFPercentage(2.6)}}>أرسل مرة أخري</Text></Text>
-          <Large_button button_name="تأكيد" 
+        <View style={[,{alignItems:"center",
+         shadowColor: COLORS.black,
+         elevation: 4,
+         shadowOpacity: .5,
+        justifyContent:"center",
+        marginVertical:RFPercentage(3),
+        alignSelf:"center",
+        width :Sizes.width*0.7,
+            height:Sizes.height*0.22,
+            // borderRadius :RFPercentage(4),
+            borderWidth:2 
+}]}>
+         <TouchableOpacity onPress={()=>{imagePicker()}}> 
+         <Add_layer_icon width ={50} height={50} />
+         </TouchableOpacity>
+        </View>
+        
+        <Large_button button_name="تأكيد"  
         //   Confirm_press={()=> 
         //     navigation.navigate("Password_reset_page")}
              />
 
-        </View>
-
                 </ScrollView>
             </SafeAreaView>
-
-
-
+            
         </>
     )
 

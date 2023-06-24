@@ -68,8 +68,13 @@ const Verification_page = () => {
             height: hp(40)
             , alignSelf: "center"
           }} />
-          <View style={{ justifyContent: "space-around", marginTop: RFPercentage(4) }}>
-            <Text style={{ alignSelf: "center",textAlign :"center" , color: COLORS.black, fontFamily: FONT.font_Almarai_Regular, fontSize: 16 }}> أدخل الرمز المكون من 4 أرقام الذي<Text style={{ alignSelf: "center", color: COLORS.black, fontFamily: FONT.font_Almarai_Regular, fontSize: 16 }}>  ارسلناه إلي  <Text style={{ fontSize: 18, color: COLORS.green_mid }}>01017588904</Text></Text>
+          <View style={{ justifyContent: "space-around", 
+          marginTop: RFPercentage(4) }}>
+            <Text style={{ alignSelf: "center",
+            textAlign :"center" , 
+            color: COLORS.black, 
+            fontFamily: FONT.font_Almarai_Regular,
+             fontSize: 16 }}> أدخل الرمز المكون من 4 أرقام الذي<Text style={{ alignSelf: "center", color: COLORS.black, fontFamily: FONT.font_Almarai_Regular, fontSize: 16 }}>  ارسلناه إلي  <Text style={{ fontSize: 18, color: COLORS.green_mid }}>01017588904</Text></Text>
             </Text>
 
           </View>

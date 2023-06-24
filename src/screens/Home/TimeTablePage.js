@@ -3,13 +3,13 @@ import { ScrollView, TouchableOpacity, Text, View, Dimensions } from 'react-nati
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT } from '../../constants';
 import Back_arrow from '../../components/Back_arrow';
-import { styles } from './Style_TimeTable';
 import { hp } from '../../constants/themes';
 import { useState } from 'react';
 import { Days } from '../../Utils/DummyData';
 import DaysFLatlist from './components/DaysFlatlist';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
+// import { useNavigation } from '@react-navigation/native';
+import { styles } from '../Home/Style_TimeTable';
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
@@ -18,7 +18,7 @@ const TimeTablePage = (props) => {
 
     const [data, Setdata] = useState(Days)
 
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
 
     return (
         <>
