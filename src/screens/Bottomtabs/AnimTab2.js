@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useEffect, useRef } from 'react'
-import { StyleSheet,  TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, StyleSheet,  TouchableOpacity, View } from 'react-native'
 import Icon, { Icons } from './Icons';
 import Colors from './Colors';
 import * as Animatable from 'react-native-animatable';
@@ -9,16 +9,19 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import { Dimensions } from "react-native"
 import { COLORS, FONT } from '../../constants';
 import { HomeStack } from '../../navigations/HomeStack';
-import VoluntaryStack from '../../navigations/VoluntaryStack';
 import ProfileStack from '../../navigations/ProfileStack';
 import All_orders from '../Profile/All_orders';
+import MoneyStack from '../../navigations/MoneyStack';
+import { fetchUserData } from '../../Redux/Reducers/ProfileSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import CoponesStack from '../../navigations/CoponesStack';
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
 
 const TabArr = [
   { route: 'الرئيسية', label: 'الرئيسية', type: Icons.Feather, icon: 'home', component: HomeStack },
-  { route: 'كوبونات', label: 'كوبونات', type: Icons.Foundation, icon: 'dollar-bill', component: VoluntaryStack },
+  { route: 'كوبونات', label: 'كوبونات', type: Icons.Foundation, icon: 'dollar-bill', component: CoponesStack },
   { route: 'طلباتي', label: 'طلباتي', type: Icons.FontAwesome5, icon: 'shopping-bag', component: All_orders },
   { route: 'الملف الشخصي', label: 'الملف الشخصي', type: Icons.FontAwesome, icon: 'user-circle-o', component: ProfileStack },
 ];
@@ -78,10 +81,14 @@ const TabButton = (props) => {
 }
 
  function AnimTab2() {
+
+  
+
   return (
     <Tab.Navigator
     initialRouteName='Home_page'
       screenOptions={{
+        tabBarHideOnKeyboard : true,
         headerShown: false,
         tabBarStyle: styles.tabBar,
       }}
@@ -90,6 +97,7 @@ const TabButton = (props) => {
         return (
           <Tab.Screen key={index} name={item.route} component={item.component}
             options={{
+              tabBarHideOnKeyboard : true,
               tabBarShowLabel: false,
               tabBarButton: (props) => <TabButton {...props} item={item} />
             }}
@@ -114,7 +122,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   btn: {
-    backgroundColor: "#d0d",
+    // backgroundColor: "#d0d",
     width: 50,
     height: 50,
     borderRadius: 25,

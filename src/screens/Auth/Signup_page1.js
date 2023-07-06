@@ -22,7 +22,6 @@ const Signup_page1 = ({ route }) => {
 
 
     const dispatch = useDispatch()
-    const { loading, error } = useSelector((state) => state.user);
     const { accessToken } = useSelector((state) => state.user);
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     const [password, setPassword] = useState('');
@@ -32,44 +31,35 @@ const Signup_page1 = ({ route }) => {
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
     const navigation = useNavigation();
 
-    // const id = route.params.id
     const { handleChange, handleSubmit, values, errors, touched } =
-
         useFormik({
             validationSchema: SignupSchema,
             initialValues: Sign_up_initial_values,
             onSubmit: () => {
-                dispatch(signUpUser({ username : values.username, email : values.email
-                    , password : values.password, passwordConfirmation : values.passwordConfirmation
-                    , phoneNumber :values.phoneNumber }));
-                // navigation.navigate("Home_page");
-
-                if (login == true){
-                    navigation.replace('Tologin');
-                }else{
-                    alert("please try again")
-                }
+                dispatch(
+                    signUpUser({
+                        username: values.username,
+                        email: values.email,
+                        password: values.password,
+                        passwordConfirmation: values.passwordConfirmation,
+                        phoneNumber: values.phoneNumber,
+                    })
+                )
+                    .unwrap()
+                    .then((data) => {
+                        if (!data.error && Object.keys(errors).length === 0) {
+                            navigation.replace('Tologin');
+                        } else {
+                            alert('Please check your input and try again');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('An error occurred:', error);
+                    });
             },
         });
 
-
-        
-
-    // useEffect(() => {
-    //     dispatch(signUpUser({
-    //         username: "amir  tarek ali moggg",
-    //         email: "amir.TarekAliMoggg@gmail.com",
-    //         password: "thisIsAVeryStrong!*Password",
-    //         passwordConfirmation: "thisIsAVeryStrong!*Password",
-    //         phoneNumber: "00039930000000"
-    //     }))
-
-    // }, [])
-
-    // // console.log(accessToken , "IN sign up page ")
-    // // console.log(accessTokens)
-
-
+ 
 
     return (
         <>
@@ -122,10 +112,10 @@ const Signup_page1 = ({ route }) => {
 
                             <INputbutton
                                 label="رقم الهاتف "
-                                value={values.phone}
-                                onChangeText={handleChange('phone')}
-                                errors={errors.phone}
-                                touched={touched.phone}
+                                value={values.phoneNumber}
+                                onChangeText={handleChange('phoneNumber')}
+                                errors={errors.phoneNumber}
+                                touched={touched.phoneNumber}
                             />
 
 
@@ -147,10 +137,10 @@ const Signup_page1 = ({ route }) => {
                             <INPUTtext_password
 
                                 label="تأكيد كلمة المرور"
-                                value={values.confirmPassword}
-                                onChangeText={handleChange('confirmPassword')}
-                                errors={errors.confirmPassword}
-                                touched={touched.confirmPassword}
+                                value={values.passwordConfirmation}
+                                onChangeText={handleChange('passwordConfirmation')}
+                                errors={errors.passwordConfirmation}
+                                touched={touched.passwordConfirmation}
                                 password={confirmPassword}
                                 setPassword={setConfirmPassword}
                                 visible={confirmPasswordVisible}
@@ -176,12 +166,12 @@ const Signup_page1 = ({ route }) => {
                     </View>
 
                 </SafeAreaView>
-                {/* <Text>{values.email}</Text> handleSubmit */}
                 <Large_button button_name="انشاء الحساب" Confirm_press={handleSubmit} />
+
 
                 <View
                     style={styles.view_text_to_check_for_login}>
-                    <Text style={{ color: COLORS.black, fontFamily: FONT.font_Almarai_Light, fontSize: RFPercentage(2) }}>هل لديك حساب ؟  <Text onPress={() => navigate("Tologin")} style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid }}>تسجيل الدخول</Text></Text>
+                    <Text style={{ padding: RFPercentage(2), color: COLORS.black, fontFamily: FONT.font_Almarai_Light, fontSize: RFPercentage(2) }}>هل لديك حساب ؟  <Text onPress={() => navigate("Tologin")} style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid }}>تسجيل الدخول</Text></Text>
                 </View>
             </ScrollView>
         </>

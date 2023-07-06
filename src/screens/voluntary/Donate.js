@@ -1,5 +1,5 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, Image, Dimensions, ScrollView, TouchableOpacity, TextInput } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
@@ -12,16 +12,39 @@ import { styles } from './Style_Donate';
 import { useNavigation } from '@react-navigation/native';
 import { Dialog } from 'react-native-simple-dialogs';
 import CorrectSvg from "../../assets/Icons/correct.svg"
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUserData } from '../../Redux/Reducers/ProfileSlice';
+import { postdonation } from '../../Redux/Reducers/DonationSlice';
 
 
-const Donate = () => {
+const Donate = ({ route }) => {
+
+    const dispatch = useDispatch()
+
+    const id = route.params?.id; // Access the id parameter with optional chaining
 
 
 
 
-    const CurrentPoints = 3000
+
+    useEffect(() => {
+        dispatch(fetchUserData());
+
+
+        if (id) {
+            // Fetch the specific charity data using the id
+            // إحضار بيانات المؤسسة الخيرية المحددة باستخدام المعرف
+            const selectedCharity = onecharity.find((onecharity) => onecharity.id === id);
+        }
+
+    }, [dispatch, onecharity, id]);
+    const { DataUser } = useSelector((state) => state.profile);
+    // console.log(DataUser)
+    const { onecharity } = useSelector((state) => state.charities);
+
+
+
     const [isModalVisable, setISModalVisible] = useState(false)
-    const [points, setPoints] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
     const navigation = useNavigation();
@@ -30,18 +53,16 @@ const Donate = () => {
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
 
+
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(null);
     const [items, setItems] = useState(
-        [
-            { label: 'تبرع عام', value: 'تبرع عام' },
-            { label: 'صدقه جاريه', value: 'صدقه جاريه' },
-            { label: "سهم معدات طبيه", value: "سهم معدات طبيه" },
-            { label: "زكاه", value: "زكاه" },
-            { label: "سهم عمليه طفل", value: "سهم عمليه طفل" },
-
-        ]
+        onecharity.programs.map((program) => ({
+            label: program,
+            value: program,
+        }))
     );
+
 
     const [inputValue, setInputValue] = useState('');
 
@@ -51,24 +72,41 @@ const Donate = () => {
         if (isNaN(Number(text))) {
             setInputValue('');
             setErrorMessage('برجاء ادخال رقم');
-        } else if (Number(text) > CurrentPoints * 1) {
+        } else if (Number(text) > DataUser.points * 1) {
             setInputValue('');
             setErrorMessage('برجاء ادخال عدد نقاط اقل من عدد نقاطك ');
         }
     };
 
+
     const Confirm_press = () => {
-        if (inputValue === '') {
-            setErrorMessage('برجاء ادخال عدد النقاط');
+        if (inputValue === '' || value === null ) {
+            setErrorMessage(' برجاء ادخال عدد النقاط و البرنانج الخاص بالتبرع');
         } else {
-            setISModalVisible(true)
+            const donationData = {
+                charityId: onecharity.id,
+                points: inputValue ,
+                programName:value ,
+            };
+            console.log("dontation data: ", donationData)
+            dispatch(postdonation(donationData))
+                .then((response) => {
+                    console.log(response);
+                    setISModalVisible(true);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         }
     };
+    console.log(value)
 
 
+   
+      
     return (
         <>
-
+            {/* <ScrollView> */}
             <SafeAreaView style={styles.Basic_container}>
 
                 <View style={[styles.view_arrow_place]}>
@@ -78,7 +116,7 @@ const Donate = () => {
                 </View>
 
                 <View  >
-                    <Image source={images.Elorman_foundation_logo}
+                    <Image source={{ uri: onecharity.imageUri }} resizeMode='center'
                         style={styles.style_image} />
                 </View>
                 <View style={{ justifyContent: "space-around", flex: 1, flexDirection: "column" }}>
@@ -89,7 +127,7 @@ const Donate = () => {
                             , borderRadius: 10, width: w * .94,
                         }]}>
                             <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFPercentage(2.5), color: COLORS.black }}>النقط الخاصه بك</Text>
-                            <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFPercentage(2.5), color: COLORS.green_mid }}>{CurrentPoints}</Text>
+                            <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFPercentage(2.5), color: COLORS.green_mid }}>{DataUser.points}</Text>
                         </View>
 
                         <View style={{ marginTop: hp(4), width: w * 0.94, alignSelf: "center", alignItems: "center" }}>
@@ -103,42 +141,40 @@ const Donate = () => {
                                     backgroundColor: COLORS.white,
 
                                 }]}
-                                labelProps={{
-                                    numberOfLines: 1,
-
-                                }}
 
                                 textStyle={{
-                                    fontSize: RFPercentage(2.5),
-                                    fontFamily: FONT.font_Almarai_Regular
-                                    , color: COLORS.gray_dark,
+                                    fontSize: RFPercentage(2.2),
+                                    justifyContent: "center",
+                                    fontFamily: FONT.font_Almarai_Bold
+                                    , color: COLORS.black,
+                                }}
+
+                                labelStyle={{
+                                    fontSize: RFPercentage(2.2),
+                                    fontFamily: FONT.font_Almarai_Bold
+                                    , color: COLORS.black,
 
                                 }}
 
-                                dropDownContainerStyle
-                                ={[styles.shadowProp, {
-                                    borderRadius: 8,
-                                    backgroundColor: COLORS.white,
-                                    borderTopEndRadius: 8
-                                    , borderTopStartRadius: 8,
-                                    marginTop: 20,
-                                    borderColor: COLORS.green_mid,
-                                    borderWidth: 2,
-
-                                }]}
+                                listItemLabelStyle={{
+                                    fontSize: RFPercentage(2.2),
+                                    justifyContent: "center",
+                                    fontFamily: FONT.font_Almarai_Bold
+                                    , color: COLORS.black,
+                                }}
 
                                 placeholder="برنامج التبرع "
                                 isRTL={true}
                                 open={open}
+                                // defaultValue={selectedProgram}
+                                setOpen={setOpen}
+                                listMode="MODAL"
                                 value={value}
                                 items={items}
-                                setOpen={setOpen}
                                 setValue={setValue}
                                 setItems={setItems}
-                                listMode="MODAL"
 
                             />
-
 
 
 
@@ -173,7 +209,6 @@ const Donate = () => {
                     </View>
                     <ScrollView>
 
-                        {/* navigation.navigate('ShareTheGoodPage') */}
                         <View style={{ marginTop: hp(5) }}>
                             <Large_button button_name="تبرع الان" Confirm_press={Confirm_press} />
                         </View>
@@ -260,9 +295,9 @@ const Donate = () => {
 
 
 
-
         </>
     );
 };
+
 
 export default Donate;

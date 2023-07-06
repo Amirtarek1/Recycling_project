@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Checkbox } from 'react-native-paper';
 import { LoginUser, addToken } from "../../Redux/Reducers/authSlice";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Toast from "react-native-toast-message"
 
 const w = Dimensions.get("screen").width
 
@@ -27,8 +28,8 @@ const Tologin = () => {
     const googleUrl = 'https://google.com';
     const facebookUrl = 'https://facebook.com';
     const dispatch = useDispatch()
-    const { accessToken, loading, login } = useSelector((state) => state.user);
-
+    
+    const { accessToken, loading, login, error } = useSelector((state) => state.user);
     const { handleChange, handleSubmit, values, errors, touched } =
         useFormik({
             validationSchema: LoginSchema,
@@ -37,14 +38,47 @@ const Tologin = () => {
                 dispatch(LoginUser({
                     email: values.email,
                     password: values.password,
-                }
-                )).unwrap().then((data) => {
-                    navigation.replace("Home")
-                })
-
-
+                })).unwrap().then((data) => {
+                    if (data.error) {
+                        if (data.error === "Email not found" || "Bad credentials") {
+                            Toast.show({
+                                type: 'error',
+                                text1: 'برجاء التاكد من البريد الالكتروني و كلمة السر',
+                                position: 'top',
+                                topOffset: 100,
+                                bottomOffset: 50,
+                                visibilityTime: 1250,
+                                autoHide: true,
+                            });
+                        } else {
+                            Toast.show({
+                                type: 'error',
+                                text1: 'برجاء التاكد من البريد الالكتروني و كلمة السر',
+                                position: 'top',
+                                topOffset: 100,
+                                bottomOffset: 50,
+                                visibilityTime: 1250,
+                                autoHide: true,
+                            });
+                        }
+                    } else {
+                        navigation.replace("Home");
+                    }
+                }).catch((error) => {
+                    Toast.show({
+                        type: 'error',
+                        text1: 'برجاء التاكد من البريد الالكتروني و كلمة السر',
+                        position: 'top',
+                        topOffset: 100,
+                        bottomOffset: 50,
+                        visibilityTime: 1250,
+                        autoHide: true,
+                    });
+                });
             },
         });
+
+
 
     const isFirsttime = async () => {
         await AsyncStorage.setItem(
@@ -53,7 +87,7 @@ const Tologin = () => {
 
     }
 
-    
+
     useEffect(() => {
         isFirsttime()
     }, []);
@@ -68,7 +102,6 @@ const Tologin = () => {
         setChecked(!checked);
     };
     const navigation = useNavigation();
-    const [toggleCheckBox, setToggleCheckBox] = useState(false);
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -156,7 +189,6 @@ const Tologin = () => {
 
 
                             <View style={{ paddingVertical: hp(4) }}>
-                                {/* navigation.navigate('HOME_Stack') handleSubmit() */}
                                 <Large_button button_name="تسجيل الدخول" Confirm_press={handleSubmit} />
                             </View>
 

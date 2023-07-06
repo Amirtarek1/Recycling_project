@@ -11,22 +11,46 @@ import { useFormik } from 'formik';
 import { styles } from './Style_forgetpassword_enteremail';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useDispatch } from 'react-redux';
+import Toast from "react-native-toast-message"
+import { GetresetPasswordCode } from '../../Redux/Reducers/passwordResetSlice';
 
-const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
 
 const Forgetpassword_EnterEmail = (props) => {
+
+    const dispatch = useDispatch()
+    const navigation = useNavigation();
+    const handlePasswordReset = (email) => {
+        dispatch(GetresetPasswordCode(email))
+            .then(() => {
+                navigation.navigate("Verification_page" , {data : email });
+            })
+            .catch((error) => {
+                Toast.show({
+                    type: 'error',
+                    position: 'bottom',
+                    text1: error ,
+                    visibilityTime: 3000,
+                    autoHide: true,
+                    topOffset: 50,
+                    bottomOffset: 100,
+
+                  });
+            });
+    };
+
     const { handleChange, handleSubmit, values, errors, touched } =
         useFormik({
             validationSchema: ForgetPasswordEmailSchema,
             initialValues: Forgetpassword_initial_values,
-            onSubmit: ( ) => {
-                ClickSubmit( navigation.navigate("Verification_page") );
+            onSubmit: () => {
+                handlePasswordReset(values.email)
             },
         });
 
-    const ClickSubmit = () => { }
-    const navigation = useNavigation();
+
+
 
     return (
         <>
@@ -41,7 +65,7 @@ const Forgetpassword_EnterEmail = (props) => {
                     <View style={styles.green_container}>
 
                         <View style={styles.view_arrow_and_text_style}>
-                            <Back_arrow onPress={()=>  navigation.goBack() } />
+                            <Back_arrow onPress={() => navigation.goBack()} />
 
                             <View>
                                 <Text style={styles.text_Bold_style}>نسيت كلمه المرور</Text>
@@ -68,10 +92,10 @@ const Forgetpassword_EnterEmail = (props) => {
                                 <Text style={{
                                     textAlign: "center", fontFamily: FONT.font_Almarai_Regular,
                                     fontSize: RFPercentage(3), color: COLORS.gray_mid
-                                }}> سوف نرسل رمزا على الرقم الخاص بك</Text>
+                                }}> سوف نرسل رمزا على البريد الخاص بك</Text>
                                 <Text style={{
                                     textAlign: "center", fontFamily: FONT.font_Almarai_Regular,
-                                    fontSize:  RFPercentage(3),  color: COLORS.gray_mid
+                                    fontSize: RFPercentage(3), color: COLORS.gray_mid
                                 }}> لإعادة تعيين رقمك السري </Text>
 
                             </View>
@@ -93,7 +117,7 @@ const Forgetpassword_EnterEmail = (props) => {
 
                 </SafeAreaView>
                 <View style={{ marginVertical: RFPercentage(3) }}>
-                    <Large_button button_name="إرسال" Confirm_press={() => handleSubmit()} />
+                    <Large_button button_name="إرسال" Confirm_press={handleSubmit} />
                 </View>
 
 

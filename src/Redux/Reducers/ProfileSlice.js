@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-
+import axios from 'axios';
 
 const initialState = {
   error: null,
@@ -11,19 +10,17 @@ const initialState = {
 };
 
 export const fetchUserData = createAsyncThunk("profile/fetchUserData", async (body) => {
-  const token = await AsyncStorage.getItem("accessToken")
-  const response = await fetch("http://10.0.2.2:8080/api/v1/user", {
-    method: "GET",
+  const token = await AsyncStorage.getItem("accessToken");
+
+  const response = await axios.get("http://10.0.2.2:8080/api/v1/user", {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     },
-    // عشان انت هنا لازم تضيف الـ accessToken
-    body: JSON.stringify(body),
+    data: body,
   });
 
-  return await response.json();
-
+  return response.data;
 });
 
 const profileSlice = createSlice({
@@ -38,27 +35,19 @@ const profileSlice = createSlice({
       })
       .addCase(fetchUserData.fulfilled, (state, { payload }) => {
         if (payload.error) {
-          console.log(payload, "", state.error);
           state.loading = false;
-          console.log("Error in data from back");
+          state.error = "Error in data from backend";
           if (payload.email) {
             AsyncStorage.setItem('email', payload.email);
           }
         } else {
           state.loading = false;
-          console.log(payload);
-          console.log("END OF PAYLOAD")
-          state.DataUser = {
-            ...payload
-          };
-          console.log(state.DataUser)
+          state.DataUser = { ...payload };
           AsyncStorage.setItem("DataUser", JSON.stringify(state.DataUser));
         }
-      }
-      )
-
+      })
       .addCase(fetchUserData.rejected, (state, { error }) => {
-        state.loading = false;
+        state.loading = true;
         state.DataUser = {};
         state.error = error.message;
       });

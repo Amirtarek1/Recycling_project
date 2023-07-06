@@ -5,7 +5,12 @@ import ProfileSlice from './Reducers/ProfileSlice';
 import ProductSlice from './Reducers/ProductSlice';
 import AddressSlice from './Reducers/AddressSlice';
 import ChangePasswordSlice from './Reducers/ChangePasswordSlice';
-
+import CharitiesSlice from './Reducers/CharitiesSlice';
+import DonationSlice from './Reducers/DonationSlice';
+import CartOrdersLinesSlice from "./Reducers/CartOrdersLinesSlice"
+import SubmitSlice from './Reducers/SubmitSlice';
+import passwordResetSlice from './Reducers/passwordResetSlice';
+import counterItems from './Reducers/counterItems';
 const store = configureStore({
   middleware : [thunk],
     reducer: {
@@ -14,6 +19,13 @@ const store = configureStore({
       product : ProductSlice,
       Address : AddressSlice,
       ChangePassword : ChangePasswordSlice,
+      charities :CharitiesSlice,
+      donation : DonationSlice,
+      OrderLines: CartOrdersLinesSlice,
+      counterItems : counterItems,
+      SubmitCart: SubmitSlice,
+      EditDataUser : ProfileSlice ,
+      passwordReset : passwordResetSlice
     }
 })
 

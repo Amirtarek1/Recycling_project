@@ -13,6 +13,7 @@ const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
 
 const ServicesOil = () => {
+    
     const navigation = useNavigation();
 
     const FirstFlatList = () => {
@@ -25,7 +26,7 @@ const ServicesOil = () => {
                     numColumns={2}
                     renderItem={({ item }) =>
                         <>
-                            <TouchableOpacity  onPress={() => navigation.replace(item.navi)} style={[styles.shadowProp, styles.style_touchableopacity_categories]} >
+                            <TouchableOpacity  onPress={() => navigation.navigate(item.navi)} style={[styles.shadowProp, styles.style_touchableopacity_categories]} >
                                 <View style={{ alignItems: "center" }}>
                                     <Image source={item.image}
                                         style={styles.style_image_in_touchableopacity} />
@@ -38,21 +39,16 @@ const ServicesOil = () => {
             </>
         )
     }
-
     return (
         <>
-
-
-
-
-
             <SafeAreaView style={styles.Basic_container}>
             
                
 
                     <View style={[styles.view_arrow_and_text_style]}>
 
-                        <Back_arrow  onPress={() => navigation.goBack()}/>
+                        <Back_arrow  onPress={() => navigation.replace("Home")      }/>
+                      
                         <View>
                          <Text style={[styles.text_Bold_style, { textAlign: "center" }]}>الخدمات المقابله</Text>
 

@@ -3,14 +3,13 @@ import Back_arrow from '../../components/Back_arrow';
 import { styles } from './Style_allOrders';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import CompleteOrders from "./CompleteOrders";
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT } from '../../constants';
 import UncompleteOrders from './UncompleteOrders';
-
 import { useNavigation } from '@react-navigation/native';
+import Products from './Products';
 
 const Stack = createMaterialTopTabNavigator();
 
@@ -23,7 +22,7 @@ function All_orders() {
 
 
         <View style={[styles.view_arrow_and_text_style]}>
-          <Back_arrow onPress={() => navigation.navigate("Home")} />
+          <Back_arrow onPress={() => navigation.replace("Home")} />
 
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text style={[styles.text_Bold_style]}>طلباتي</Text>
@@ -47,9 +46,9 @@ function All_orders() {
           }
 
         }} options={{ headerShown: false  }} >
-        <Stack.Screen name="مكتمله" component={CompleteOrders} />
+        <Stack.Screen name="مكتمله" component={CompleteOrders}  />
         <Stack.Screen name="تحت التنفيذ" component={UncompleteOrders} />
-        <Stack.Screen name="منتجات" component={CompleteOrders} />
+        <Stack.Screen name="منتجات" component={Products} />
 
       </Stack.Navigator>
 

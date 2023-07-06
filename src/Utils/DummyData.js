@@ -53,17 +53,17 @@ const Types_services =
         {
             name: "تبرعات",
             image: images.Donations_exchange,
-            navi: 'Voluntary'
+            navi: 'ShareTheGoodPage'
         },
         {
             name: "منتجات",
             image: images.Products_exchange,
-            navi: 'All_orders'
+            navi: 'Products'
         },
         {
             name: "كوبون خصم",
             image: images.Sale_exchange,
-            navi: 'CoponesStack'
+            navi: 'Discount_coupons'
         },
 
     ]
@@ -226,7 +226,7 @@ const Share_The_Good_Dataset =
     ]
 const money_archives_data = [
     {
-        status: "مكتمل",
+        status: "قيد الانتظار",
         date: "10/2/2023",
         type_of_transaction: "فودافون كاش",
         number_points: "200",
@@ -241,7 +241,7 @@ const money_archives_data = [
         cash: "0.00",
         image: images.Vodafone_logo,
     }, {
-        status: "مكتمل",
+        status: "قيد الانتظار",
         date: "10/2/2023",
         type_of_transaction: "فودافون كاش",
         number_points: "200",
@@ -255,7 +255,7 @@ const money_archives_data = [
         cash: "0.00",
         image: images.Vodafone_logo,
     }, {
-        status: "مكتمل",
+        status: "قيد الانتظار",
         date: "10/2/2023",
         type_of_transaction: "فودافون كاش",
         number_points: "200",
@@ -269,83 +269,61 @@ const Copones =
 
     [
         {
-
-            id: 0,
-            numOfBottles: 22,
-            name: " خصم 25 %",
-            image: images.mac,
-            number_points: 1000,
-            about: "مؤسسه خيريه",
-            replace: true
-        },
-        {
             id: 1,
-            numOfBottles: 22,
+            quantity: 0,
             name: "ماكدونلز خصم 25 %",
             image: images.Bank_elt3am_foundation_logo,
             number_points: 1050,
-            date: "مؤسسه خيريه",
-            replace: true
         },
         {
             id: 2,
-            numOfBottles: 22,
+            quantity: 0,
             name: "ماكدونلز خصم 25 %",
             image: images.mac,
             number_points: 20,
-            date: "مؤسسه خيريه",
-            replace: false
 
         },
         {
             id: 3,
-            numOfBottles: 22,
+            quantity: 2,
             name: " ماكدونلز 25 %",
             image: images.Elorman_foundation_logo,
             number_points: 100,
-            date: "مؤسسه خيريه",
-            replace: false
-
+          
         },
         {
             id: 4,
-            numOfBottles: 22,
+            quantity: 0,
             name: "ماكدونلز خصم 40%",
             image: images.Masr_elkhar_foundation_logo,
             number_points: 1000,
-            about: "مؤسسه خيريه",
-            replace: false
-
+          
         },
         {
             id: 5,
-            numOfBottles: 22,
+            quantity: 0,
             name: "جمعية رسالة",
             image: images.mac,
             number_points: 1050,
-            date: "مؤسسه خيريه",
-            replace: false
+          
 
         },
         {
             id: 6,
-            numOfBottles: 22,
+            quantity: 12,
             name: "بنك الطعام المصري",
             image: images.Bank_elt3am_foundation_logo,
             number_points: 20,
-            date: "مؤسسه خيريه",
-            replace: false
+            
 
         },
         {
             id: 7,
-            numOfBottles: 22,
+            quantity: 0,
             name: "جمعية الاورمان",
             image: images.mac,
             number_points: 100,
-            date: "مؤسسه خيريه",
-            replace: false
-
+           
         },
 
 
@@ -379,8 +357,7 @@ const CartData =
         , {
             id: 4,
             numOfBottles: 2,
-            numOfPoints: 202
-            ,
+            numOfPoints: 202,
             oilQuantity: 12
         },
         {
@@ -471,8 +448,8 @@ const orders_Data = [
     {
         statues: "done",
         orders_table: {
+            id: 1,
             photo: images.type_oil,
-            order_id: 1,
             name_oil_order: "زيت طعام 3 كيلو",
             amount_oil_order: "15",
             time_date: "10/2/2023",
@@ -486,9 +463,9 @@ const orders_Data = [
     {
         statues: "done",
         orders_table: {
+            id: 2,
             photo: images.cars_oils,
             name_oil_order: "زيت طعام 3 كيلو",
-            order_id: 2,
             amount_oil_order: "3",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
@@ -502,9 +479,9 @@ const orders_Data = [
     {
         statues: "Waiting",
         orders_table: {
+            id: 3,
             photo: images.cars_oil_for_3K,
             name_oil_order: "زيت طعام 3 كيلو",
-            order_id: 3,
             amount_oil_order: "51",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
@@ -517,9 +494,9 @@ const orders_Data = [
     {
         statues: "Waiting",
         orders_table: {
+            id: 4,
             photo: images.type_oil,
             name_oil_order: "زيت طعام 3 كيلو",
-            order_id: 4,
             amount_oil_order: "52",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
@@ -530,8 +507,8 @@ const orders_Data = [
     }, {
         statues: "Waiting",
         orders_table: {
+            id: 5,
             photo: images.type_oil,
-            order_id: 5,
             name_oil_order: "زيت طعام 3 كيلو",
             amount_oil_order: "15",
             time_date: "10/2/2023",
@@ -544,9 +521,9 @@ const orders_Data = [
     {
         statues: "done",
         orders_table: {
+            id: 6,
             photo: images.cars_oils,
             name_oil_order: "زيت طعام 3 كيلو",
-            order_id: 6,
             amount_oil_order: "3",
             time_date: "10/2/2023",
             place_recieve: "قسم ثان -طنطا",
@@ -557,6 +534,185 @@ const orders_Data = [
 
     },
 ]
+
+
+
+
+const Uncompleteorders_Data = [
+    {
+        statues: "done",
+        orders_table: {
+            id: 1,
+            photo: images.type_oil,
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "15",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points: "300",
+            time_date_recive: "10/12/2023"
+
+        }
+
+    },
+    {
+        statues: "done",
+        orders_table: {
+            id: 2,
+            photo: images.cars_oils,
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "3",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points: "300",
+            time_date_recive: "10/12/2023"
+
+
+        }
+
+    },
+    {
+        statues: "Waiting",
+        orders_table: {
+            id: 3,
+            photo: images.cars_oil_for_3K,
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "51",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points: "300",
+            time_date_recive: "10/12/2023"
+
+        }
+
+    },
+    {
+        statues: "Waiting",
+        orders_table: {
+            id: 4,
+            photo: images.type_oil,
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "52",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points: "300",
+            time_date_recive: "10/12/2023"
+        }
+
+    }, {
+        statues: "Waiting",
+        orders_table: {
+            id: 5,
+            photo: images.type_oil,
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "15",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points: "300",
+            time_date_recive: "10/12/2023"
+        }
+
+    },
+    {
+        statues: "done",
+        orders_table: {
+            id: 6,
+            photo: images.cars_oils,
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "3",
+            time_date: "10/2/2023",
+            place_recieve: "قسم ثان -طنطا",
+            num_points: "300",
+            time_date_recive: "10/12/2023"
+
+        }
+
+    },
+]
+
+
+
+const Products_orders = [
+    {
+        statues: "done",
+        id: 0,
+        orders_table: {
+            photo: images.OILSUNNY,
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "15",
+            num_points: "300",
+            amount : 0
+
+        }
+
+    },
+    {
+        statues: "done",
+        id: 1,
+        orders_table: {
+            photo: images.OILSUNNY,
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "15",
+            num_points: "300",
+            amount : 0
+
+        }
+
+    },
+    {
+        statues: "Waiting",
+        id: 2,
+        orders_table: {
+            photo: images.Pepsi,
+            name_oil_order: "زجاجة بيبسي 2.5 لتر",
+            amount_oil_order: "25",
+            num_points: "50",
+            amount : 0
+
+        }
+
+    },
+    {
+        statues: "Waiting",
+        id: 3,
+        orders_table: {
+            photo: images.OILSUNNY,
+            name_oil_order: "زيت طعام 3 كيلو",
+            amount_oil_order: "15",
+            num_points: "50",
+            amount : 0
+
+        }
+
+    }, {
+        statues: "Waiting",
+        id: 4,
+        orders_table: {
+            photo: images.Pepsi,
+            name_oil_order: "زجاجة بيبسي 2.5 لتر",
+            amount_oil_order: "15",
+            num_points: "50",
+            amount : 0
+
+        }
+
+    },
+    {
+        statues: "done",
+        id: 5,
+        orders_table: {
+            photo: images.Pepsi,
+            name_oil_order: "زجاجة بيبسي 2.5 لتر",
+            amount_oil_order: "12",
+            num_points: "50",
+            amount : 0
+
+        }
+
+    },
+]
+
+
+
 const Coupons_flatListData = [
     {
         company_logo: images.food_oil,
@@ -591,7 +747,7 @@ const Deliveryorders = [
         orderData: {
             id: 1,
             name: "أمير طارق علي",
-            image: images.Money_logo,
+            image: images.TryMain,
             amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
             phone_num: "01029201",
             address: "المحلة",
@@ -604,7 +760,7 @@ const Deliveryorders = [
         orderData: {
             id: 2,
             name: "أمير طارق علي",
-            image: images.Money_logo,
+            image: images.TryMain,
             amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
             phone_num: "01029201",
             address: "المحلة",
@@ -618,7 +774,7 @@ const Deliveryorders = [
         orderData: {
             id: 3,
             name: "أمير طارق علي",
-            image: images.Money_logo,
+            image: images.TryMain,
             amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
             phone_num: "01029201",
             address: "المحلة",
@@ -641,5 +797,7 @@ export {
     orders_Data,
     Coupons_flatListData,
     Copones,
-    Deliveryorders
+    Products_orders,
+    Deliveryorders,
+    Uncompleteorders_Data
 }

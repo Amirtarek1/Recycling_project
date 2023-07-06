@@ -33,6 +33,13 @@ const Save_planet = require("../assets/Images/save_planet.png")
 const Splash_3 = require("../assets/Images/splash_3.png")
 const Splash_4 = require("../assets/Images/splash_4.png")
 const Mac_logo =  require("../assets/Images/mac.png")
+const TryMain = require("../assets/Images/TryMain.png")
+const Nolocation = require("../assets/Images/NOlocation.png")
+const LOGO = require("../assets/Images/LOGO.png")
+const OILSUNNY = require("../assets/Images/OILSUNNY.png")
+const Pepsi = require("../assets/Images/OIP.png")
+
+// OIP.png
 export default {
     forget_password,
     google,
@@ -66,5 +73,10 @@ export default {
     Save_planet,
     Splash_3,
     Splash_4,
-    Mac_logo
+    Mac_logo,
+    TryMain,
+    Nolocation,
+    LOGO,
+    OILSUNNY,
+    Pepsi
 }

@@ -9,10 +9,10 @@ import EditSvg from "../../assets/Icons/edit.svg"
 import { useNavigation } from '@react-navigation/native';
 
 import { useState } from 'react';
-const Cart_flatList = props => {
+const Cart_flatList = ({ data, onNumberOfBottlesIncrement, onNumberOfBottlesDecrement }) => {
     const navigation = useNavigation();
 
-    const { data, onNumberOfBottlesIncrement, onNumberOfBottlesDecrement } = props
+    // const { data, onNumberOfBottlesIncrement, onNumberOfBottlesDecrement } = props
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
 
@@ -39,7 +39,8 @@ const Cart_flatList = props => {
                         , right: RFPercentage(3)
 
                     }}>
-                        <Image source={require("../../assets/Images/type_oil.png")}
+                        <Image source={{uri : data.item.imageUrl}}
+                        style ={{width : 50 , height : 50 }}
                             resizeMode="center"
                         />
                     </View>
@@ -59,10 +60,10 @@ const Cart_flatList = props => {
                             style={{
                                 fontSize: RFPercentage(2.5),
                                 fontFamily: FONT.font_Almarai_Bold,
-                                color: COLORS.green_mid,
+                                color: COLORS.black,
                                 // width : Sizes.width*0.4
                             }}
-                        >زيت طعام {data.item.numOfPoints}  كيلو </Text>
+                        >{data.item.name} </Text>
                         <View style={{
 
                             minWidth: RFPercentage(18),
@@ -83,7 +84,7 @@ const Cart_flatList = props => {
                                 fontFamily: FONT.font_Almarai_Bold,
                                 fontSize: RFPercentage(2.5),
                                 maxWidth: Sizes.width * 0.2,
-                            }} numberOfLines={1} >{data.item.numOfBottles}</Text>
+                            }} numberOfLines={1} >{data.item.quantityout}</Text>
                             <TouchableOpacity style={styles.shadowProp}
                                 disabled={data.item.numOfBottles > 0 ? false : true
 
@@ -161,8 +162,4 @@ const Cart_flatList = props => {
 
 
 export default Cart_flatList;
-
-
-
-
 

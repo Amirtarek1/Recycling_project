@@ -7,7 +7,7 @@ import { Dimensions } from "react-native";
 import Notificationicon from "../../../src/assets/Icons/Notificationicon.svg";
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, hp } from '../../constants/themes';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Alert } from 'react-native';
 import Share from 'react-native-share';
@@ -15,19 +15,24 @@ import { ActivityIndicator } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fetchUserData } from '../../Redux/Reducers/ProfileSlice';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
+import { getOrderLines, postOrderLines } from '../../Redux/Reducers/CartOrdersLinesSlice';
 
 
 const Home_page = () => {
-    
+
     const dispatch = useDispatch();
+    const { DataUser, loading } = useSelector((state) => state.profile);
+
+
 
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
     const navigation = useNavigation();
 
 
-    const { loading } = useSelector((state) => state.user)
+
+
 
     const handlePress = (item) => {
         if (item.id === 4) {
@@ -53,29 +58,11 @@ const Home_page = () => {
     };
     ;
 
-
-
-
-
-    const { DataUser } = useSelector((state) => state.profile);
-    console.log(DataUser)
-
-    useEffect(() => {
-        dispatch(fetchUserData());
-    }, [dispatch]);
-
-    if (Object.keys(DataUser).length === 1) {
-        return (
-            <View style={{
-                backgroundColor: COLORS.white,
-                justifyContent: "center",
-                flex: 1
-            }}>
-                <ActivityIndicator size="large" color="green" />
-            </View>
-        );
-    }
-
+    useFocusEffect(
+        useCallback(() => {
+            dispatch(fetchUserData());
+        }, [dispatch])
+    );
 
     const FirstFlatList = () => {
 
@@ -123,49 +110,55 @@ const Home_page = () => {
     return (
         <>
 
+            {loading ? <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <ActivityIndicator size="large" color={COLORS.green_mid} />
+            </View> : (
 
+                <SafeAreaView style={styles.Basic_container} >
 
+                    <View style={styles.green_container}>
 
+                        <View style={styles.view_photo_and_text_style}>
 
-            <SafeAreaView style={styles.Basic_container}>
-                <View style={styles.green_container}>
-
-                    <View style={styles.view_photo_and_text_style}>
-                        <User_image />
-                        <View style ={{width : w*0.6 , padding :RFPercentage(1)}}>
-                            <Text numberOfLines={1} style={styles.text_Bold_style}>{DataUser.fullName}</Text>
-                            <Text numberOfLines={1} style={styles.text_thin_style}>النقط:{DataUser.points}</Text>
+                            <View style={{ flexDirection: "row" }}>
+                                <User_image />
+                                <View style={{ flexDirection: "column", marginLeft: RFPercentage(2) }}>
+                                    <Text numberOfLines={1} style={styles.text_Bold_style}>{DataUser.fullName}</Text>
+                                    <Text numberOfLines={1} style={styles.text_thin_style}>النقط: {DataUser.points}</Text>
+                                </View>
+                            </View>
+                            <View style={{ width: RFPercentage(8), alignItems: "center" }} >
+                                <Notificationicon height={RFPercentage(5)} width={RFPercentage(5)} style={{ marginRight: RFPercentage(2) }} fill="#fff" />
+                            </View>
 
                         </View>
-                        <View style={{ width: RFPercentage(8), alignItems: "center" }} >
-                            <Notificationicon height={RFPercentage(5)} width={RFPercentage(5)} style={{ marginRight: RFPercentage(2) }} fill="#fff" />
-                        </View>
-
-                    </View>
-
-
-                </View>
-
-
-                <View style={styles.white_container}>
-
-                    <View style={styles.style_of_container_for_touchableopacity}>
-
-                        <FirstFlatList />
-
 
 
                     </View>
 
 
+                    <View style={styles.white_container}>
 
-                </View>
+                        <View style={styles.style_of_container_for_touchableopacity}>
 
-            </SafeAreaView>
+                            <FirstFlatList />
 
 
-        </>
-    )
+
+
+                        </View>
+
+
+
+                    </View>
+
+                </SafeAreaView >)}
+
+
+
+
+
+        </>)
 
 
 }

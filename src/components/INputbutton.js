@@ -60,8 +60,9 @@ const INputbutton = ({
 
 
             {errors && touched !== undefined ? <Text style={{
+               width: Sizes.width * 0.8,
                 color: COLORS.red_logout,  justifyContent: "center",
-                fontFamily: FONT.font_Almarai_Regular
+                fontFamily: FONT.font_Almarai_Regular,marginLeft :RFPercentage(2)
             }} >{errors}</Text>
                 : <></>}
 

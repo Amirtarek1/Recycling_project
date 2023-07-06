@@ -27,11 +27,14 @@ function CompleteOrders() {
                     {orderarr.filter(function (item) {
                         return item.statues == "done";
                     }).map((item, index) => (
-                        <>
-                            <TouchableOpacity key={item.orders_table.order_id}
+                        
+                            <TouchableOpacity 
+                            key={item.orders_table.id} 
+                            // key={item.id}
                                 style={[styles.shadowProp, {
                                     backgroundColor: COLORS.white
                                     , borderRadius: 10,
+                                    width : w *0.9,
                                     marginVertical: 10,
                                     padding: hp(1), flexDirection: "row",
                                 }]}>
@@ -56,7 +59,7 @@ function CompleteOrders() {
                                 
                             </TouchableOpacity>
 
-                        </>
+                        
                     ))}
 
 

@@ -65,7 +65,6 @@ export const styles = StyleSheet.create({
         , alignItems: "center"
     }, style_name_withphoto: {
         fontFamily: FONT.font_Almarai_Bold,
-        textAlign: "center",
         fontSize: RFPercentage(2.5),
         color: COLORS.gray_mid
     }, style_email_withphoto:

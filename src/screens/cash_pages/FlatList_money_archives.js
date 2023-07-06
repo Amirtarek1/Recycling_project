@@ -1,6 +1,6 @@
 
 import { Image, Dimensions, TouchableOpacity, Text, View, FlatList } from 'react-native';
-import { RFValue } from 'react-native-responsive-fontsize';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, hp } from '../../constants/themes';
 import { styles } from './Style_money_archive';
 import { useNavigation } from '@react-navigation/native';
@@ -32,28 +32,32 @@ const FlatList_money_archives = ({ data }) => {
                             borderRadius: 10,
                             margin: 10,
                             padding: hp(1),
-                            width: w * 0.92,
+                            width: w * 0.9,
                             flexDirection: "row",
                             alignItems: "center",
-                            justifyContent: "space-around"
+                            justifyContent: "space-around",
+                            padding : RFPercentage(2),
+
                         }]}>
                             <Image source={item.image}
                                 style={{
-                                    width: w * 0.12,
-                                    height: h * 0.06,
+                                    width: hp(11),
+                                    height: hp(11),
                                     alignSelf: "center"
                                 }}
                                 resizeMode="contain"
                             />
 
                             <View style={{
-                                justifyContent: 'space-between', marginLeft: hp(-4), paddingVertical: hp(1)
-                                , height: h * 0.14
+                                justifyContent: 'space-between' ,
+                                //  backgroundColor :"#00f",
+                                 height : hp(13),
+                                 maxWidth : hp(20),maxHeight : hp(14)
                             }}>
 
-                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(18, h) }}>{item.type_of_transaction}</Text>
-                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFValue(18, h) }}>التاريخ: <Text style={{ fontFamily: FONT.font_Almarai_Regular, color: COLORS.gray_dark, fontSize: RFValue(18, h) }}>{item.date}</Text></Text>
-                                <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize: RFValue(18, h) }}>نقطة {item.number_points}</Text>
+                                <Text numberOfLines={1} style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2) }}>{item.type_of_transaction}</Text>
+                                <Text numberOfLines={1}style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize:RFPercentage(2) }}>التاريخ: <Text style={{ fontFamily: FONT.font_Almarai_Regular, color: COLORS.gray_dark, fontSize: RFValue(18, h) }}>{item.date}</Text></Text>
+                                <Text  numberOfLines={1} style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.green_mid, fontSize:RFPercentage(2)  }}>نقطة {item.number_points}</Text>
                             </View>
 
                             <View style={{ justifyContent: "space-between", height: hp(14) }}>
@@ -61,12 +65,16 @@ const FlatList_money_archives = ({ data }) => {
                                     fontFamily: FONT.font_Almarai_Bold,
                                     color: COLORS.green_mid, fontSize: RFValue(18, h)
                                 }}>{item.status}</Text>
-                                <Text onPress={()=> navigation.navigate("Edit_money_transaction")} style={{
+
+                                {item.status === "قيد الانتظار" ?
+                                 <Text onPress={() => navigation.navigate("Edit_money_transaction")} style={{
                                     fontFamily: FONT.font_Almarai_Bold,
                                     color: COLORS.red_logout, fontSize: RFValue(18, h)
                                 }}>تعديل</Text>
+                                    : null }
 
                                 <Text style={{
+                                    textAlign :"left",
                                     fontFamily: FONT.font_Almarai_Bold,
                                     color: COLORS.black, fontSize: RFValue(18, h)
                                 }}>EG 0.00</Text>
