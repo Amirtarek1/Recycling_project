@@ -556,7 +556,148 @@ const orders_Data = [
         }
 
     },
-]
+];
+
+
+
+const CompletedOrdersData = [
+    {
+        statues: "مكتملة",
+        orderData: {
+            id: 1,
+            name: "كريم احمد سامي",
+            image: images.Real_user,
+            amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: "2341471231"
+        },
+
+    },
+    {
+        statues: "مكتملة",
+        orderData: {
+            id: 2,
+            name: "عمر شعبان الوالي",
+            image: images.Real_user,
+            amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: "2341230251"
+
+        },
+
+    },
+    {
+        statues: "مكتملة",
+        orderData: {
+            id: 3,
+            name: "محمد أدم ",
+            image: images.Real_user,
+            amount_oil: "٢٠ لتر زيت طعام مقابل  نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: "2341231231"
+        },
+
+    }
+];
+
+
+
+
+
+const CanceledOrdersData = [
+    {
+        statues: "ملغية",
+        orderData: {
+            id: 1,
+            name: "أحمد حسام ",
+            image: images.Real_user,
+            amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: "2341471231"
+        },
+
+    },
+    {
+        statues: "ملغية",
+        orderData: {
+            id: 2,
+            name: "خالد محمد علي",
+            image: images.Real_user,
+            amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: "2341230251"
+
+        },
+
+    },
+    {
+        statues: "ملغية",
+        orderData: {
+            id: 3,
+            name: "أمير طارق البلعوطي",
+            image: images.Real_user,
+            amount_oil: "٢٠ لتر زيت طعام مقابل  نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: "2341231231"
+        },
+
+    }
+];
+
+
+
+
+
+const UncompletedOrders = [
+    {
+        statues: "تحت التنفيذ",
+        orderData: {
+            id: 1,
+            name: "سلام المحمدي  علي",
+            image: images.Real_user,
+            amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: "2341471231"
+        },
+
+    },
+    {
+        statues: "تحت التنفيذ",
+        orderData: {
+            id: 2,
+            name: "علي كامل سالم",
+            image: images.Real_user,
+            amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: "2341230251"
+
+        },
+
+    },
+    {
+        statues: "تحت التنقيذ",
+        orderData: {
+            id: 3,
+            name: "اسر محمد عبد السلام ",
+            image: images.Real_user,
+            amount_oil: "٢٠ لتر زيت طعام مقابل  نقطه",
+            phone_num: "01029201",
+            address: "المحلة",
+            order_serial: "2341231231"
+        },
+
+    }
+];
+
+
 const Coupons_flatListData = [
     {
         company_logo: images.food_oil,
@@ -587,42 +728,42 @@ const Coupons_flatListData = [
 
 const Deliveryorders = [
     {
-        statues: "Waiting",
+        statues: "تحت التنفيذ",
         orderData: {
             id: 1,
-            name: "أمير طارق علي",
-            image: images.Money_logo,
+            name: "أمير m علي",
+            image: images.Real_user,
             amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
             phone_num: "01029201",
             address: "المحلة",
-            order_serial: 2341231231
+            order_serial: "2341471231"
         },
 
     },
     {
-        statues: "Waiting",
+        statues: "تحت التنفيذ",
         orderData: {
             id: 2,
-            name: "أمير طارق علي",
-            image: images.Money_logo,
+            name: "أمير كامل علي",
+            image: images.Real_user,
             amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
             phone_num: "01029201",
             address: "المحلة",
-            order_serial: 2341231231
+            order_serial: "2341230251"
 
         },
 
     },
     {
-        statues: "Waiting",
+        statues: "تحت التنفيذ",
         orderData: {
             id: 3,
             name: "أمير طارق علي",
-            image: images.Money_logo,
-            amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
+            image: images.Real_user,
+            amount_oil: "٢٠ لتر زيت طعام مقابل  نقطه",
             phone_num: "01029201",
             address: "المحلة",
-            order_serial: 2341231231
+            order_serial: "2341231231"
         },
 
     }
@@ -641,5 +782,7 @@ export {
     orders_Data,
     Coupons_flatListData,
     Copones,
-    Deliveryorders
+    Deliveryorders,
+    CanceledOrdersData,
+    CompletedOrdersData,UncompletedOrders
 }

@@ -14,7 +14,7 @@ import History from "../../../assets/Icons/time-history.svg"
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
 
-const Suggests_delivery = () => {
+const Complaints_and_suggestions = () => {
 
     // const navigation = useNavigation();
     const [inputValue, setInputValue] = useState('');
@@ -138,4 +138,4 @@ const Suggests_delivery = () => {
 
 }
 
-export default Suggests_delivery;
+export default Complaints_and_suggestions;

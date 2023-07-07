@@ -7824,6 +7824,11 @@
   "resolved" "https://registry.npmjs.org/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz"
   "version" "1.3.1"
 
+"react-native-linear-gradient@^2.6.2":
+  "integrity" "sha512-iyJszlZ1Ech2c+2qV+isMvvJKyoctR9ashDkhJg1/cuSF0vQaeLV1FAYTT3qW9doxChJGxVAFfYoxotH0yi3Iw=="
+  "resolved" "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.7.3.tgz"
+  "version" "2.7.3"
+
 "react-native-modals@^0.22.3":
   "integrity" "sha512-tdjUfvgBhXFTt9p5kQcuAc1BS83H1yrD3p6hHL62LCnJl9rwUdiPlMX0Hmoeac5jw88FzmZv1M20wxgV8mh3ng=="
   "resolved" "https://registry.npmjs.org/react-native-modals/-/react-native-modals-0.22.3.tgz"
@@ -7901,6 +7906,13 @@
   "integrity" "sha512-kVCI/cT0GnuYUTXe6mAimrjrnt4VWoRfrWqJZjFeoYFqAyOEfos84RC4eZlZnOT5eVtmTXRIkor5vgSkKOlZhw=="
   "resolved" "https://registry.npmjs.org/react-native-share/-/react-native-share-8.2.2.tgz"
   "version" "8.2.2"
+
+"react-native-simple-bottom-sheet@^1.0.4":
+  "integrity" "sha512-yvSId8GFZ/Kb1VmF7BAFJqlT33Ub0HLIo6NAnBT94CENdfxYjEYpq0eaq/VQYSfvU+GgNfP68AH+mgOK9/VQ1Q=="
+  "resolved" "https://registry.npmjs.org/react-native-simple-bottom-sheet/-/react-native-simple-bottom-sheet-1.0.4.tgz"
+  "version" "1.0.4"
+  dependencies:
+    "prop-types" "^15.7.2"
 
 "react-native-simple-dialogs@^1.5.0":
   "integrity" "sha512-GwnnrAx99yeJEeEKyWPVBU1V2nmxH9JFfVbD4YvBeeiczqOzdY0i0vG5yUulomdOpl1ZrZJW6RnLw3GEkrGT0g=="

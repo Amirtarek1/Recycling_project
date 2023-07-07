@@ -13,12 +13,13 @@ import Large_button from '../../../components/Large_button';
 import INPUTtext_password from '../../../components/INPUTtext_password';
 import { Checkbox } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 
 
 
 const To_login_Delivery = () => {
-
+const navigation = useNavigation()
     const w = Dimensions.get("screen").width
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -109,7 +110,10 @@ const To_login_Delivery = () => {
 
 
                         <View style={{ paddingVertical: hp(4) }}>
-                            <Large_button button_name="تابع" Confirm_press={() => handleSubmit()} />
+                            <Large_button button_name="تابع" Confirm_press={() => {
+                                navigation.navigate("Requests_search")
+                                handleSubmit();}
+                                } />
                         </View>
                     </View>
 

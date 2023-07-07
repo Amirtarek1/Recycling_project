@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import { hp } from '../../constants/themes';
 
 const Address_page = (props) => {
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
 
     const label_data_list =
         [

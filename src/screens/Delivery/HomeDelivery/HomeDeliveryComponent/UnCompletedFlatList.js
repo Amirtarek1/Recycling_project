@@ -1,33 +1,33 @@
-import React, { useState } from 'react';
-import { ScrollView, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
-import { COLORS, FONT } from '../../constants';
-import { styles } from './StyleUncom';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { Image, Dimensions, TouchableOpacity, Text, View, FlatList } from 'react-native';
+import { RFPercentage } from 'react-native-responsive-fontsize';
+import { COLORS, FONT ,images  } from '../../../../constants';
+import { styles } from '../StyleUncom';
 import { useNavigation } from '@react-navigation/native';
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
-import { hp ,Sizes} from '../../constants/themes';
-import { CompletedOrdersData, orders_Data } from '../../Utils/DummyData';
 import LinearGradient from 'react-native-linear-gradient';
-
-const h = Dimensions.get("screen").height
-const w = Dimensions.get("screen").width
-
+import { hp ,wp } from '../../../../constants/themes';
+import { Deliveryorders, orders_Data } from '../../../../Utils/DummyData';
 
 
+const UnCompletedFlatList = ({ data }) => {
+    // const navigation = useNavigation();
 
-function CompleteOrders() {
-    // Deliveryorders
-    const [data,setData] = useState(CompletedOrdersData)
+    // const [Deliveryorder] = useState(Deliveryorders);
+
+    const h = Dimensions.get("screen").height
+    const w = Dimensions.get("screen").width
 
 
     return (
+        <>
 
-        <SafeAreaView style={{ flex: 1,
-         backgroundColor: COLORS.white 
-         }}>
-
-            <ScrollView>
-                <View style={{ 
+            <FlatList
+                showsVerticalScrollIndicator={false}
+                data={data}
+                numColumns={1}
+                renderItem={({ item }) =>
+                    <>
+                    <View style={{ 
                     alignItems: "center",
                      backgroundColor: COLORS.white
                       }}>
@@ -37,7 +37,9 @@ function CompleteOrders() {
                         style={{ flex: 1 }}
                     >
                     </LinearGradient>
-                    {data.map((item, index) => (
+                    {/* {Deliveryorder.filter(function (item) {
+                        return item.statues == "Waiting";
+                    }).map((item, index) => ( */}
 
                         <LinearGradient
                             colors={['#AED270CE', '#7DBB69']}
@@ -62,12 +64,17 @@ function CompleteOrders() {
                                     backgroundColor: COLORS.white
                                 }}>
                                 <View style={{
-                                    flexDirection: "row", justifyContent: "space-around"
-                                    , paddingHorizontal: RFPercentage(2), padding: RFPercentage(1),
+                                    flexDirection: "row",
+                                     justifyContent: "space-around",
+                                     alignItems:"center"
+                                    , paddingHorizontal: RFPercentage(2),
+                                     padding: RFPercentage(1),
                                 }}>
                                     <View style={{
                                         flexDirection: "row",
-                                        flex: 1
+                                        flex: 1,
+                                        alignItems:"center"
+
                                     }}>
                                         <Image source={item.orderData.image} resizeMode='center'
                                             style={{
@@ -110,20 +117,20 @@ function CompleteOrders() {
                         </LinearGradient>
 
 
-                    ))}
+                    {/* ))} */}
 
 
 
 
 
                 </View>
-            </ScrollView>
-
-        </SafeAreaView>
-    );
+                    </>
+                }
+            />
+        </>
+    )
 }
 
 
 
-export default CompleteOrders;
-0
+export default UnCompletedFlatList;

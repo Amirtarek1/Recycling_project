@@ -6,39 +6,21 @@ import { COLORS, FONT } from '../../../constants';
 import CustomDrawerContent from './CustomDrawerContent';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-
+import Requests_search from './Requests_search';
+import Suggests from '../../Profile/Suggests';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-const HomeScreen = ({ navigation }) => {
+import HomeDelPage from './HomeDelPage';
 
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        onPress={() =>
-          navigation.openDrawer()
-
-        }
-        title="Go to notifications"
-      />
-    </View>
-  );
-}
-
-const NotificationsScreen = ({ navigation }) => {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
-    </View>
-  );
-}
 
 const Drawer = createDrawerNavigator();
 
 const Drawer_delivery = () => {
   const h = Dimensions.get("screen").height
   const w = Dimensions.get("screen").width
+  // const Stack = createStackNavigator();
 
   return (
-    <NavigationContainer >
+    // <NavigationContainer >
       <Drawer.Navigator
         screenOptions={{
           headerShown: false,
@@ -63,10 +45,10 @@ const Drawer_delivery = () => {
 
         />}
 
-        initialRouteName="الصفحة الرئيسية">
-
+        initialRouteName="البحث">
+ 
         <Drawer.Screen 
-        name="الصقحة الرئيسية" component={HomeScreen}
+        name="الصفحة الرئيسية" component={Requests_search}
 
           options={{
             
@@ -74,8 +56,9 @@ const Drawer_delivery = () => {
               <Ionicons name="home-outline" size={size} color={color} />
             ),
           }}
-        />
-        <Drawer.Screen name="الملف الشخصي" component={HomeScreen}
+        /> 
+                <Drawer.Screen name="الملف الشخصي" component={Requests_search}
+
 
           options={{
             drawerIcon: ({ color, size }) => (
@@ -84,7 +67,7 @@ const Drawer_delivery = () => {
           }}
         />
 
-        <Drawer.Screen name="أرشيف الطلبات " component={HomeScreen}
+        <Drawer.Screen name="أرشيف الطلبات " component={HomeDelPage}
 
           options={{
             drawerIcon: ({ color, size }) => (
@@ -92,7 +75,7 @@ const Drawer_delivery = () => {
             ),
           }}
         />
-        <Drawer.Screen name="الأعدات والخصوصية" component={HomeScreen}
+        <Drawer.Screen name="الأعدات والخصوصية" component={Requests_search}
 
           options={{
             drawerIcon: ({ color, size }) => (
@@ -101,7 +84,7 @@ const Drawer_delivery = () => {
           }}
         />
 
-        <Drawer.Screen name="الأقتراحات والشكاوي" component={HomeScreen}
+        <Drawer.Screen name="الأقتراحات والشكاوي" component={Suggests}
 
           options={{
             drawerIcon: ({ color, size }) => (
@@ -110,7 +93,7 @@ const Drawer_delivery = () => {
           }}
         />
       </Drawer.Navigator>
-    </NavigationContainer>
+      // </NavigationContainer>
   );
 }
 export default Drawer_delivery;

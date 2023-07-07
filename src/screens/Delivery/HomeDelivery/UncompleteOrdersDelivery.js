@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { ScrollView, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { COLORS, FONT } from '../../../constants';
@@ -5,8 +7,8 @@ import { styles } from './StyleUncom';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
-import { hp } from '../../../constants/themes';
-import { Deliveryorders, orders_Data } from '../../../Utils/DummyData';
+import { hp ,Sizes} from '../../../constants/themes';
+import { UncompletedOrders, orders_Data } from '../../../Utils/DummyData';
 import LinearGradient from 'react-native-linear-gradient';
 
 const h = Dimensions.get("screen").height
@@ -17,22 +19,27 @@ const w = Dimensions.get("screen").width
 
 function UncompleteOrdersDelivery() {
     // Deliveryorders
-    const [Deliveryorder] = useState(Deliveryorders)
+    const [data,setData] = useState(UncompletedOrders)
+
+
     return (
 
-        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+        <SafeAreaView style={{ flex: 1,
+         backgroundColor: COLORS.white 
+         }}>
 
             <ScrollView>
-                <View style={{ alignItems: "center", backgroundColor: COLORS.white }}>
+                <View style={{ 
+                    alignItems: "center",
+                     backgroundColor: COLORS.white
+                      }}>
 
                     <LinearGradient
                         colors={['#AED270CE', '#F44336']}
                         style={{ flex: 1 }}
                     >
                     </LinearGradient>
-                    {Deliveryorder.filter(function (item) {
-                        return item.statues == "Waiting";
-                    }).map((item, index) => (
+                    {data.map((item, index) => (
 
                         <LinearGradient
                             colors={['#AED270CE', '#7DBB69']}

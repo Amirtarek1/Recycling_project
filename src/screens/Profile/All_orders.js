@@ -49,7 +49,7 @@ function All_orders() {
         }} options={{ headerShown: false  }} >
         <Stack.Screen name="مكتمله" component={CompleteOrders} />
         <Stack.Screen name="تحت التنفيذ" component={UncompleteOrders} />
-        <Stack.Screen name="منتجات" component={CompleteOrders} />
+        <Stack.Screen name="منتجات" component={UncompleteOrders} />
 
       </Stack.Navigator>
 
