@@ -25,15 +25,16 @@ const Profile_list = () => {
 
     const [data, setdata] = useState(ProfilePagedata)
 
-
-
     const dispatch = useDispatch();
 
-    const {DataUser } = useSelector((state) => state.profile);
 
     useEffect(() => {
         dispatch(fetchUserData());
     }, [dispatch]);
+    const { DataUser } = useSelector((state) => state.profile);
+
+
+
 
     if (Object.keys(DataUser).length === 1) {
         return (
@@ -65,14 +66,14 @@ const Profile_list = () => {
                 backgroundColor: COLORS.white
             }}>
                 <View style={{
-                    width: Sizes.width * 0.9, flexDirection: "row", justifyContent: "space-around",
+                    flexDirection: "row", justifyContent: "space-around",
                     alignItems: "center", paddingVertical: RFPercentage(2)
                 }}>
                     <User_image />
 
-                    <View style={{ justifyContent: "space-around", marginLeft: RFPercentage(2) }}>
-                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.5) }}>{DataUser.fullName}</Text>
-                        <Text style={{ fontFamily: FONT.font_Almarai_Light, color: COLORS.black, fontSize: RFPercentage(2.5) }}>{DataUser.email}</Text>
+                    <View style={{ justifyContent: "space-around", flex: 1, marginLeft: RFPercentage(2) }}>
+                        <Text style={{ fontFamily: FONT.font_Almarai_Bold,textAlign :"left", color: COLORS.black, fontSize: RFPercentage(2.5) }}>{DataUser.fullName}</Text>
+                        <Text style={{ fontFamily: FONT.font_Almarai_Light, color: COLORS.black, fontSize: RFPercentage(2.5), textAlign: "left" }}>{DataUser.email}</Text>
                     </View>
 
                 </View>
@@ -86,7 +87,6 @@ const Profile_list = () => {
                         <TouchableOpacity
                             onPress={() => navigation.replace(item.navi)}
                             style={{
-                                // backgroundColor :"#0dd",
                                 flexDirection: "row",
                                 justifyContent: "space-between",
                                 alignItems: "center",

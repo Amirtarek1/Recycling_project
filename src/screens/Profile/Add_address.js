@@ -1,147 +1,189 @@
-import React from "react"
-import { ScrollView, TouchableOpacity, Text, View,useState } from 'react-native';
+import React, { useEffect } from "react"
+import { ScrollView, TouchableOpacity, Text, View, useState } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, Sizes } from '../../constants';
-import{styles} from "./Style_add_address"
+import { styles } from "./Style_add_address"
 import Large_button from '../../components/Large_button';
 import Back_arrow from '../../components/Back_arrow';
 import { TextInput } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
- 
-const Add_address = (props) => {
-    const navigation = useNavigation();
-    const [quarter ,setQuarter] = React.useState ("")
-    const [addressDetails,setAddresDetails] = React.useState("")
-    const [personalInformation,setPersonalInformation] =React.useState("")
-    const [mobileNumber,setMobileNumber] = React.useState("")
-    const [firstName,setFirstName] =  React.useState("")
-    const [lastName,setLastName] = React.useState("")
-    const [governorate,setGovernorate] = React.useState("طنطا - الغربية")
+import { useDispatch, useSelector } from "react-redux";
+import { addAddress, getAddresses } from "../../Redux/Reducers/AddressSlice";
+import Toast from "react-native-toast-message"
 
+const Add_address = (props) => {
+    const dispatch = useDispatch();
+
+    const navigation = useNavigation();
+    const [addressDetails, setAddresDetails] = React.useState("")
+    const [mobileNumber, setMobileNumber] = React.useState("")
+    const [firstName, setFirstName] = React.useState("")
+    const [lastName, setLastName] = React.useState("")
+    const [governorate, setGovernorate] = React.useState("")
+
+
+    const handleAddAddress = () => {
+        if (
+            addressDetails.trim() === "" ||
+            mobileNumber.trim() === "" ||
+            firstName.trim() === "" ||
+            lastName.trim() === "" ||
+            governorate.trim() === ""
+        ) {
+            Toast.show({
+                type: 'error',
+                position: 'bottom',
+                text1: "برجاء التاكد من البيانات",
+                visibilityTime: 3000,
+                autoHide: true,
+                topOffset: 50,
+                bottomOffset: 100,
+        
+              }); 
+        } else {
+            dispatch(
+                addAddress({
+                    title: governorate,
+                    address: addressDetails,
+                    firstName: firstName,
+                    lastName: lastName,
+                    phoneNumber: mobileNumber,
+                    isMain: false
+                })
+            );
+            navigation.navigate('Address_page');
+            
+        }
+    };
     return (
         <>
 
             <ScrollView >
                 <SafeAreaView style={styles.basic_container}>
 
-                    <View style={styles.white_main_container}>
-                        <View style={styles.header_view}>
-                            <Back_arrow onPress={() => navigation.goBack()} />
-                            <View style = {styles.title_view}>
-                                <Text style={styles.title_text}>تفاصيل العنوان</Text>
-                            </View>
+                    <View style={styles.header_view}>
+                        <Back_arrow onPress={() => navigation.goBack()} />
+                        <View style={styles.title_view}>
+                            <Text style={styles.title_text}>تفاصيل العنوان</Text>
                         </View>
-                        <Text style={styles.loc_info}>معلومات الموقع</Text>
-                        <View style={styles.governorate_view}>
-                            <Text style={styles.governorate_text} numberOfLines={1} >{governorate}</Text>
-                        </View>
-                        <View style={styles.quarter_view}>
-                            <TextInput
+                    </View>
 
-                                style={styles.quarter_textInput}
-                                value={quarter}
-                                onChangeText={(value) =>{setQuarter(value);
-                                
-                                }}
-                                mode="outlined"
-                                textColor = {COLORS.white_gray}
-                                outlineColor={COLORS.gray_light}
-                                activeOutlineColor={COLORS.green_mid}
-                                cursorColor={COLORS.gray_dark}
-                                placeholderTextColor={COLORS.white_gray}
-                                placeholder="الحي">
+                    <Text style={{
+                        marginLeft: RFPercentage(1),
+                        marginTop: RFPercentage(2),
+                        fontFamily: FONT.font_Almarai_ExtraBold,
+                        color: COLORS.green_mid,
+                        fontSize: RFPercentage(2.5),
+                    }}>معلومات الموقع</Text>
 
-                            </TextInput>
+                    <View style={styles.governorate_view}>
+                        <Text style={styles.governorate_text} numberOfLines={1} >المحافظة - المدينة</Text>
+                        <TextInput
+                            style={styles.quarter_textInput}
+                            value={governorate}
+                            onChangeText={(value) => { setGovernorate(value) }}
+                            mode="flat"
+                            activeUnderlineColor={COLORS.green_mid}
+                            textColor={COLORS.black}
+                            cursorColor={COLORS.gray_white}
+                            placeholderTextColor={COLORS.white_gray}
+                            placeholder="الغربية - طنطا">
 
-                            <TouchableOpacity>
-                                <Text style={styles.edit}  
-                                >تعديل
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
+                        </TextInput>
+
+                        <Text style={styles.governorate_text} numberOfLines={1}>تفاصيل العنوان الإضافية</Text>
+                        <TextInput
+
+                            style={styles.quarter_textInput}
+                            value={addressDetails}
+                            onChangeText={(value) => { setAddresDetails(value) }}
+                            mode="flat"
+                            activeUnderlineColor={COLORS.green_mid}
+                            textColor={COLORS.black}
+                            cursorColor={COLORS.gray_white}
+                            placeholderTextColor={COLORS.white_gray}
+                            placeholder="تفاصيل العنوان الاضافية">
+                        </TextInput>
+
+
+                        <Text style={{
+                            marginLeft: RFPercentage(1),
+                            marginTop: RFPercentage(2),
+                            fontFamily: FONT.font_Almarai_ExtraBold,
+                            color: COLORS.green_mid,
+                            fontSize: RFPercentage(2.5),
+                        }}
+                            numberOfLines={1}>
+                            معلوماتك الشخصية
+                        </Text>
+
+                        <Text style={styles.governorate_text} numberOfLines={1}>رقم الهاتف</Text>
+
+                        <TextInput
+
+                            style={styles.quarter_textInput}
+
+                            value={mobileNumber}
+                            onChangeText={(value) => {
+                                setMobileNumber(value);
+
+                            }}
+                            keyboardType="phone-pad"
+                            mode="flat"
+                            activeUnderlineColor={COLORS.green_mid}
+                            textColor={COLORS.black}
+                            cursorColor={COLORS.gray_white}
+                            placeholderTextColor={COLORS.white_gray}
+                            placeholder="رقم الهاتف">
+
+                        </TextInput>
+
+                        <Text style={styles.governorate_text} numberOfLines={1}>الاسم الأول</Text>
+                        <TextInput
+
+                            style={styles.quarter_textInput}
+
+                            value={firstName}
+                            onChangeText={(value) => {
+                                setFirstName(value);
+
+                            }}
+                            mode="flat"
+                            activeUnderlineColor={COLORS.green_mid}
+                            textColor={COLORS.black}
+                            cursorColor={COLORS.gray_white}
+                            placeholderTextColor={COLORS.white_gray}
+                            placeholder="الاسم الأول">
+
+                        </TextInput>
+
+
+                        <Text style={styles.governorate_text} numberOfLines={1}>اسم العائلة </Text>
+                        <TextInput
+
+                            style={styles.quarter_textInput}
+
+                            value={lastName}
+                            onChangeText={(value) => {
+                                setLastName(value);
+
+                            }}
+                            mode="flat"
+                            activeUnderlineColor={COLORS.green_mid}
+                            textColor={COLORS.black}
+                            cursorColor={COLORS.gray_white}
+                            placeholderTextColor={COLORS.white_gray}
+                            placeholder="اسم العائلة">
+                        </TextInput>
 
 
                     </View>
-                    <Text style={styles.addition_info} numberOfLines={1}>تفاصيل العنوان الإضافية</Text>
-                    <TextInput
-                    // keyboardType=
-                         value={personalInformation}
-                         onChangeText={(value) =>{setPersonalInformation(value);
-                         
-                         }}
-                        style={styles.additional_textInput}
-                        mode="outlined"
-                        textColor={COLORS.black}
-                        outlineColor={COLORS.gray_light}
-                        activeOutlineColor={COLORS.green_mid}
-                        cursorColor={COLORS.gray_dark}
-                        placeholderTextColor={COLORS.black}
-                        placeholder="تفاصيل العنوان الاضافية">
-                        
-                    </TextInput>
 
 
-                    <Text style={styles.personal_info}
-                     numberOfLines={1}>
-                        معلوماتك الشخصية
-                        </Text>
-
-                    <Text style={styles.mobile_title} numberOfLines={1}>رقم الموبيل</Text>
-                    <TextInput
-                       value={mobileNumber}
-                       onChangeText={(value) =>{setMobileNumber(value);
-                       
-                       }}
-                        style={styles.mobile_textInput}
-                        keyboardType="phone-pad"
-                        mode="outlined"
-                        textColor = {COLORS.black}
-                        outlineColor={COLORS.gray_light}
-                        activeOutlineColor={COLORS.green_mid}
-                        cursorColor={COLORS.gray_dark}
-                       
-                        placeholderTextColor={COLORS.black}
-                        placeholder="رقم الموبيل " >
-
-                    </TextInput>
-                    <Text style={styles.first_name_title} numberOfLines={1}>الاسم الأول</Text>
-                   <ScrollView>
-                    <TextInput
-                         value={firstName}
-                         onChangeText={(value) =>{setFirstName(value);
-                         
-                         }}  style={styles.first_name_textInput}
-                        mode="outlined"
-                        outlineColor={COLORS.gray_light}
-                        activeOutlineColor={COLORS.green_mid}
-                        cursorColor={COLORS.gray_dark}
-                      
-                        placeholderTextColor={COLORS.black}
-                        placeholder="الاسم الاول">
-
-                    </TextInput>
-                    </ScrollView>
-                    
-                    <Text style={styles.last_name_title}
-                     numberOfLines={1}>اسم العائلة</Text>
-                <ScrollView>
-                    <TextInput
-                        value={lastName}
-                        onChangeText={(value) =>{setLastName(value);
-                        
-                        }}  style={styles.last_name_textInput}
-                        mode="outlined"
-                        outlineColor={COLORS.gray_light}
-                        activeOutlineColor={COLORS.green_mid}
-                        cursorColor={COLORS.gray_dark}
-                      
-                        placeholderTextColor={COLORS.black}
-                        placeholder="اسم العائلة">
-
-                    </TextInput>
-                    </ScrollView>
-                    <Large_button button_name="حفظ العناوين" />
+                    <View style={{ marginTop: RFPercentage(4) }}>
+                        <Large_button button_name="حفظ العنوان" Confirm_press={handleAddAddress} />
+                    </View>
                 </SafeAreaView>
 
             </ScrollView>

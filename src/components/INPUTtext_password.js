@@ -14,7 +14,7 @@ const w = Dimensions.get("screen").width
 
 
 
-const INPUTtext_password = ({ value, onChangeText,  visible, setVisible,
+const INPUTtext_password = ({ value, onChangeText, visible, setVisible,
     label, placeholder, keyboardType, errors, touched,
 }) => {
 
@@ -74,11 +74,11 @@ const INPUTtext_password = ({ value, onChangeText,  visible, setVisible,
             />
 
 
-
             {errors && touched !== undefined ? <Text style={{
+                width: Sizes.width * 0.8,
                 color: COLORS.red_logout, justifyContent: "center",
-                fontFamily: FONT.font_Almarai_Regular
-            }}>{errors}</Text>
+                fontFamily: FONT.font_Almarai_Regular, marginLeft: RFPercentage(2)
+            }} >{errors}</Text>
                 : <></>}
 
 

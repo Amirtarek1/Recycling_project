@@ -10,8 +10,8 @@ export const login_initial_values = {
 
   
   export const Forget_password_initial_Values = {
-    NEW_password: '',
-    CONfirmationPassword : '',
+    password: '',
+    passwordConfirmation : '',
   };
 
 
@@ -31,9 +31,9 @@ export const login_initial_values = {
 
   
   export const Change_password_initial_values = {
-    oldpassword : "",
-    newpassword :"",
-    confirmPassword :"",
+    oldPassword : "",
+    password :"",
+    passwordConfirmation :"",
    };
 
 

@@ -1,5 +1,5 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { View, Text, Image, Dimensions, ScrollView, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
@@ -12,8 +12,10 @@ import { styles } from './Style_Donate';
 // import { useNavigation } from '@react-navigation/native';
 import WalletSvg from "../../assets/Icons/wallet.svg"
 import CheckBox from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { Dialog } from 'react-native-simple-dialogs';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAddresses } from '../../Redux/Reducers/AddressSlice';
 
 
 
@@ -23,44 +25,29 @@ const Edit_money_transaction = () => {
     const navigation = useNavigation();
     const [isModalVisable, setISModalVisible] = React.useState(false)
 
-    // const Choose_language_page = (props) => {
-    // const navigation = useNavigation();
-    const LANGUAGE_OPTIONS = [
-        { label: 'المحفظة الإلكترونية', value: 'wallet' },
-        { label: 'الدفع كاش', value: 'transaction' },
-    ];
-    const [selectedLanguage, setSelectedLanguage] = useState("");
-    const [checked, setChecked] = useState(false);
+    const dispatch = useDispatch()
+    const { DataUser, loading } = useSelector((state) => state.profile);
 
-    const handleLanguagePress = (value) => {
-        setSelectedLanguage(value);
-        setChecked(!checked)
-    };
+    useFocusEffect(
+        useCallback(() => {
+            dispatch(getAddresses());
+        }, [dispatch])
+    );
 
-
-    const CurrentPoints = 3000
-
-
-    const [points, setPoints] = useState('');
+    const { allAddresses } = useSelector((state) => state.Address)
     const [errorMessage, setErrorMessage] = useState('');
-
-
-
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width
 
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(null);
     const [items, setItems] = useState(
-        [
-            { label: 'تبرع عام', value: 'تبرع عام' },
-            { label: 'صدقه جاريه', value: 'صدقه جاريه' },
-            { label: "سهم معدات طبيه", value: "سهم معدات طبيه" },
-            { label: "زكاه", value: "زكاه" },
-            { label: "سهم عمليه طفل", value: "سهم عمليه طفل" },
-
-        ]
+        allAddresses.map((address) => ({
+            label: address.title, 
+            value: address.address, 
+        }))
     );
+
 
     const [inputValue, setInputValue] = useState('');
 
@@ -70,7 +57,7 @@ const Edit_money_transaction = () => {
         if (isNaN(Number(text))) {
             setInputValue('');
             setErrorMessage('برجاء ادخال رقم');
-        } else if (Number(text) > CurrentPoints * 1) {
+        } else if (Number(text) > DataUser.points * 1) {
             setInputValue('');
             setErrorMessage('برجاء ادخال عدد نقاط اقل من عدد نقاطك ');
         }
@@ -85,17 +72,15 @@ const Edit_money_transaction = () => {
             <SafeAreaView style={styles.Basic_container}>
 
                 <View style={[styles.view_arrow_place, { marginBottom: hp(2) }]}>
-                    <Back_arrow
-                    //  onPress={()=> navigation.goBack()} 
+                    <Back_arrow onPress={() => navigation.navigate("Archives")}
                     />
-                    <View>
+                    <View style={{ flex: 1 }}>
                         <Text style={{
                             fontFamily: FONT.font_Almarai_ExtraBold,
                             color: COLORS.black,
                             fontSize: 25,
                             textAlign: "center",
                             alignSelf: "center",
-                            // justifyContent: "center"
                         }}>تعديل تحويل الفلوس</Text>
                     </View>
 
@@ -119,7 +104,7 @@ const Edit_money_transaction = () => {
                             , borderRadius: 10, width: w * .94,
                         }]}>
                             <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFPercentage(2.5), color: COLORS.black }}>النقط الخاصه بك</Text>
-                            <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFPercentage(2.5), color: COLORS.green_mid }}>{CurrentPoints}</Text>
+                            <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFPercentage(2.5), color: COLORS.green_mid }}>{DataUser.points}</Text>
                         </View>
 
                         <TextInput
@@ -138,11 +123,11 @@ const Edit_money_transaction = () => {
 
                             }}
 
-
+                            value={inputValue}
                             onChangeText={onChangeText}
                             keyboardType="numeric"
                             placeholderTextColor={COLORS.gray_dark}
-                            placeholder='عدد النقط المتبرع بها' />
+                            placeholder='عدد النقط المراد تحويلها' />
 
                         {errorMessage ? <Text style={[styles.error, { fontSize: RFPercentage(2) }]}>{errorMessage}</Text> : null}
 
@@ -179,142 +164,88 @@ const Edit_money_transaction = () => {
                             // , borderRadius: 10, 
                             width: w * .88,
                         }}>
-                            <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFPercentage(2.8), color: COLORS.black, alignSelf: "flex-start" }}>طريقة الأستلام</Text>
-                        </View>
-                        <View style={{
-                            backgroundColor: COLORS.white,
-                            flexDirection: "row",
-                            justifyContent: "space-around",
-                            padding: hp(2.3)
-                            , borderRadius: 10, width: w * .94,
-                            borderWidth: 0
-                        }}>
-                            {/* {LANGUAGE_OPTIONS.map(({ label, value }) => (
-
-                                <View
-                                    key={value}
-                                    style={[
-                                        styles.touchableopacity_style,
-                                    ]}>
-
-                                    <TouchableOpacity
-                                        key={value}
-                                        onPress={() => handleLanguagePress(value) && setChecked(!checked)}
-
-                                        style={[
-                                            styles.view_outter,
-                                            selectedLanguage === value && styles.selectedButton,
-                                        ]}
-
-                                    // style={styles.view_outter}
-                                    >
-                                        {checked === true ? <View style={styles.view_inner}></View> : null}
-                                    </TouchableOpacity>
-
-
-
-
-
-                                    {/* <View style={styles.view_inner}></View> */}
-                            {/* <Text style={styles.buttonText}>{label}</Text> */}
-                            {/* </View> */}
-                            {/* // ))} */}
-
-
-
-
-                            {LANGUAGE_OPTIONS.map(({ label, index }) => (
-                                <TouchableOpacity
-                                    key={index}
-                                    onPress={() => handleLanguagePress(index) && setChecked(!checked)}
-                                    style={[
-                                        styles.touchableopacity_style,
-                                        selectedLanguage === index && styles.selectedButton,
-                                    ]}>
-
-                                    <View style={styles.view_outter}>
-                                        {checked === true ? <View style={styles.view_inner}></View> : null}
-                                    </View>
-
-                                    {/* <View style={styles.view_inner}></View> */}
-                                    <Text style={styles.buttonText}>{label}</Text>
-                                </TouchableOpacity>
-                            ))}
+                            <Text style={{
+                                fontFamily: FONT.font_Almarai_Bold,
+                                fontSize: RFPercentage(2.8), color: COLORS.black,
+                                alignSelf: "flex-start"
+                            }}>طريقة الأستلام</Text>
                         </View>
 
-                        <DropDownPicker
-                            style={[styles.shadowProp, {
-                                height: hp(8),
-                                borderRadius: 8,
-                                borderColor: COLORS.green_mid,
-                                borderWidth: 2,
-                                backgroundColor: COLORS.white,
+                        <View style={{ width: w * 0.94, alignSelf: "center", alignItems: "center" }}>
 
-                            }]}
-                            labelProps={{
-                                numberOfLines: 1,
+                            <DropDownPicker
+                                style={[styles.shadowProp, {
+                                    height: hp(8),
+                                    borderRadius: 8,
+                                    borderColor: COLORS.green_mid,
+                                    borderWidth: 2,
+                                    backgroundColor: COLORS.white,
 
-                            }}
+                                }]}
 
-                            textStyle={{
-                                fontSize: RFPercentage(2.5),
-                                fontFamily: FONT.font_Almarai_Regular
-                                , color: COLORS.gray_dark,
+                                textStyle={{
+                                    fontSize: RFPercentage(2.2),
+                                    justifyContent: "center",
+                                    fontFamily: FONT.font_Almarai_Bold
+                                    , color: COLORS.black,
+                                }}
 
-                            }}
+                                labelStyle={{
+                                    fontSize: RFPercentage(2.2),
+                                    fontFamily: FONT.font_Almarai_Bold
+                                    , color: COLORS.black,
 
-                            dropDownContainerStyle
-                            ={[styles.shadowProp, {
-                                borderRadius: 8,
-                                backgroundColor: COLORS.white,
-                                borderTopEndRadius: 8
-                                , borderTopStartRadius: 8,
-                                marginTop: 20,
-                                borderColor: COLORS.green_mid,
-                                borderWidth: 2,
+                                }}
 
-                            }]}
+                                listItemLabelStyle={{
+                                    fontSize: RFPercentage(2.2),
+                                    justifyContent: "center",
+                                    fontFamily: FONT.font_Almarai_Bold
+                                    , color: COLORS.black,
+                                }}
 
-                            placeholder="العنوان"
-                            isRTL={true}
-                            open={open}
-                            value={value}
-                            items={items}
-                            setOpen={setOpen}
-                            setValue={setValue}
-                            setItems={setItems}
-                            listMode="MODAL"
+                                placeholder="حدد العنوان"
+                                isRTL={true}
+                                open={open}
+                                // defaultValue={selectedProgram}
+                                setOpen={setOpen}
+                                listMode="MODAL"
+                                value={value}
+                                items={items}
+                                setValue={setValue}
+                                setItems={setItems}
 
-                        />
+                            />
+
+
+
+                        </View>
+
                     </View>
 
-                    <ScrollView>
+                    <View style={{
+                        backgroundColor: COLORS.white,
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        padding: hp(2.3)
+                        , borderRadius: 10,
+                        width: w * 1,
+                        borderWidth: 0,
+                        marginTop: hp(12)
+                    }}>
+                        <TouchableOpacity
 
-                        {/*  navigation.navigate('ShareTheGoodPage') */}
+                            onPress={() => navigation.navigate("Archives")}
+                            style={styles.Container_TouchableOpacity}>
+                            <Text style={styles.Text_style}>تاكيد</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => { setISModalVisible(true) }}
+                            style={[styles.Container_TouchableOpacity, { backgroundColor: COLORS.red_logout }]}>
+                            <Text style={styles.Text_style}>حذف</Text>
+                        </TouchableOpacity>
+                    </View>
 
-                        <View style={{
-                            backgroundColor: COLORS.white,
-                            flexDirection: "row",
-                            justifyContent: "space-between",
-                            padding: hp(2.3)
-                            , borderRadius: 10, width: w * .94,
-                            borderWidth: 0,
-                            marginTop: hp(12)
-                        }}>
-                            <TouchableOpacity
-
-                                onPress={() => navigation.navigate("Archives")}
-                                style={styles.Container_TouchableOpacity}>
-                                <Text style={styles.Text_style}>تاكيد</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                onPress={() => { setISModalVisible(true) }}
-                                style={[styles.Container_TouchableOpacity, { backgroundColor: COLORS.red_logout }]}>
-                                <Text style={styles.Text_style}>رفض</Text>
-                            </TouchableOpacity>
-                        </View>
-
-                    </ScrollView>
                 </View>
 
                 <Dialog
@@ -325,9 +256,7 @@ const Edit_money_transaction = () => {
                         justifyContent: "space-between",
                         alignItems: "center",
                         padding: hp(1.5),
-
                         height: h * 0.16,
-                        //  borderRadius :hp(3)
                     }}>
 
                         <Text style={{ fontFamily: FONT.font_Almarai_Bold, fontSize: RFValue(18, Sizes.height) }}>هل أنت متأكد من حذف الطلب ؟</Text>
@@ -337,23 +266,23 @@ const Edit_money_transaction = () => {
                             // ,backgroundColor:"#00d"
                         }}
                         >
-                          
-                          <TouchableOpacity
-                                onPress={() => {  setISModalVisible(false) ; navigation.navigate("ServicesOil") }}
+
+                            <TouchableOpacity
+                                onPress={() => { setISModalVisible(false); navigation.navigate("ServicesOil") }}
 
                                 style={[styles.shadowProp, {
                                     paddingVertical: RFPercentage(1.5),
-                                    width:w*0.25,
+                                    width: w * 0.25,
                                     shadowColor: COLORS.black,
                                     borderRadius: hp(1),
                                     backgroundColor: COLORS.white,
-                                    borderWidth:2,
-                                    borderColor : COLORS.green_mid,
+                                    borderWidth: 2,
+                                    borderColor: COLORS.green_mid,
                                     alignItems: "center",
                                     justifyContent: "center"
                                 }]}>
                                 <Text style={{
-                                    fontSize:RFPercentage(2.5),
+                                    fontSize: RFPercentage(2.5),
                                     color: COLORS.green_mid,
                                     fontFamily: FONT.font_Almarai_Regular
                                 }}>نعم</Text>
@@ -361,29 +290,29 @@ const Edit_money_transaction = () => {
                             </TouchableOpacity>
 
                             <TouchableOpacity
-                                onPress={() => {  setISModalVisible(false) ; navigation.navigate("Archives") }}
+                                onPress={() => { setISModalVisible(false); navigation.navigate("Archives") }}
 
                                 style={[styles.shadowProp, {
                                     paddingVertical: RFPercentage(1.5),
-                                    width:w*0.25,
+                                    width: w * 0.25,
 
                                     shadowColor: COLORS.black,
                                     borderRadius: hp(1),
                                     backgroundColor: COLORS.red_logout,
-                                    borderWidth:2,
-                                    borderColor : COLORS.green_mid,
+                                    borderWidth: 2,
+                                    borderColor: COLORS.green_mid,
                                     alignItems: "center",
                                     justifyContent: "center"
                                 }]}>
                                 <Text style={{
-                                    fontSize:RFPercentage(2.5),
+                                    fontSize: RFPercentage(2.5),
                                     color: COLORS.white,
                                     fontFamily: FONT.font_Almarai_Regular
                                 }}>لا</Text>
 
                             </TouchableOpacity>
 
-                            
+
 
                         </View>
                     </View>

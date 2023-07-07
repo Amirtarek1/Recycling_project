@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Text, View, Dimensions, Image, ScrollView } from 'react-native';
 import Back_arrow from '../../components/Back_arrow';
 import { styles } from './Style_Foundation';
@@ -6,35 +6,49 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from "../../constants";
 import { hp } from "../../constants/themes";
 import Large_button from "../../components/Large_button";
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { RFPercentage } from 'react-native-responsive-fontsize';
+import { getonecharity } from '../../Redux/Reducers/CharitiesSlice';
 
 
 
 
 const FoundationPage = ({ route }) => {
+
     const navigation = useNavigation();
+    const dispatch = useDispatch()
 
-const [data , setdata] = useState(route.params.name)
+    const id = route.params?.id; // Access the id parameter with optional chaining
 
-    useEffect(() => {
-     
-    }, [setdata]);
+    const { onecharity } = useSelector((state) => state.charities);
+
+
+    const handleTOdonate = () => {
+        navigation.navigate("Donate", { onecharity });
+      };
+
+    
+      useFocusEffect(
+        useCallback(() => {
+            if (id) {
+                // Fetch the specific charity data using the id
+                // إحضار بيانات المؤسسة الخيرية المحددة باستخدام المعرف
+                const selectedCharity = onecharity.find((onecharity) => onecharity.id === id);
+            }
+        }, [onecharity, id])
+      );
 
     return (
         <>
-
-
-
-
-
             <SafeAreaView style={styles.Basic_container}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={[styles.view_arrow_place]}>
-                        <Back_arrow  onPress={()=> navigation.goBack()} />
+                        <Back_arrow onPress={() => navigation.goBack()} />
                     </View>
 
-                    <View>
-                        <Image source={data.image}
+                    <View style={{ marginVertical: RFPercentage(3) }}>
+                        <Image source={{ uri: onecharity.imageUri }} resizeMode='center'
                             style={styles.style_image} />
                     </View>
 
@@ -43,12 +57,12 @@ const [data , setdata] = useState(route.params.name)
                     <View style={styles.style_View_of_counterandpoints}>
                         <View style={[styles.shadowProp, styles.style_oneof_View_counter_or_points]}>
                             <Text style={styles.style_Text_for_POints}>عدد المتبرعين</Text>
-                            <Text style={styles.style_Number_points} >300 +</Text>
+                            <Text style={styles.style_Number_points} >{onecharity.numberOfDonors}</Text>
                         </View>
 
                         <View style={[styles.shadowProp, styles.style_oneof_View_counter_or_points]}>
                             <Text style={styles.style_Text_for_POints}>النقط الحالية</Text>
-                            <Text style={styles.style_Number_points}>3000</Text>
+                            <Text style={styles.style_Number_points}>{onecharity.currentPoints}</Text>
                         </View>
 
                     </View>
@@ -57,19 +71,19 @@ const [data , setdata] = useState(route.params.name)
                     <View style={[styles.shadowProp, styles.style_View_about_Foundation]}>
 
                         <Text style={styles.style_about_word}>حول</Text>
-                        <Text style={styles.style_about_text_dis}>مؤسسة مجدي يعقوب لأمراض وأبحاث القلب منذ إنشائها عام 2008، لتزمت ببناء وتطوير أحدث مراكز علاج القلب في محافظة أسوان في مصر لتوفير علاج متطور وعالي الجودة للفئات المحرومة</Text>
+                        <Text style={styles.style_about_text_dis}>{onecharity.about}</Text>
 
                     </View>
 
                     <View style={[styles.shadowProp, styles.style_email_and_number_View]}>
 
-                        <Text style={styles.style_email_text}>الموقع الالكتروني : <Text style={styles.style_email_and_number_validation}>info@myf-egypt.org</Text></Text>
-                        <Text style={styles.styles_number_text}>التليفون : <Text style={styles.style_email_and_number_validation}>27365166 -20 +</Text></Text>
+                        <Text style={styles.style_email_text}>الموقع الالكتروني : <Text style={styles.style_email_and_number_validation}>{onecharity.site}</Text></Text>
+                        <Text style={styles.styles_number_text}>التليفون : <Text style={styles.style_email_and_number_validation}>{onecharity.phone}</Text></Text>
 
                     </View>
 
                     <View style={{ padding: hp(3) }}>
-                        <Large_button button_name="تبرع الان" Confirm_press={() => navigation.navigate("Donate")} />
+                        <Large_button button_name="تبرع الان"  Confirm_press={handleTOdonate} />
                     </View>
 
 

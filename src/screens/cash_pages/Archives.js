@@ -28,10 +28,10 @@ const Archives = () => {
 
                
 
-                    <Back_arrow onPress={() => navigation.navigate("Home")} />
+                    <Back_arrow onPress={() => navigation.navigate("Money_transaction")} />
                     <Text style={{
                         right :RFValue(100,Sizes.height),
-                        fontSize:RFValue(20,Sizes.height) ,
+                        fontSize:RFPercentage(3) ,
                         fontFamily: FONT.font_Almarai_ExtraBold,
                         color: COLORS.white,
                         alignSelf: "center"

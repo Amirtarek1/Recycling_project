@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
     }, 
     green_container: {
         flex: 0.1,
+        marginTop : RFPercentage(1),
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems :"center" ,
@@ -54,8 +55,9 @@ export const styles = StyleSheet.create({
          // borderRadius: RFPercentage(2),
         
     }, style_image_in_touchableopacity: {
-        width: w * 0.34,
-        height: w * 0.34,
+        width: hp(18),
+        height: hp(18),
+        borderRadius:RFPercentage(2),
         padding : RFPercentage(5),
     }, style_text_in_touchableopacity: {
         fontFamily: FONT.font_Almarai_Regular,

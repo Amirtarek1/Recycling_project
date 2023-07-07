@@ -86,7 +86,9 @@ export const styles = StyleSheet.create({
         fontFamily: FONT.font_Almarai_Regular,
         color: COLORS.gray_mid,
         fontSize: RFPercentage(2.5),
-        justifyContent: "center"
+        justifyContent: "center",
+        padding :RFPercentage(1),
+        letterSpacing :5
     },
     style_email_and_number_View: {
         borderBottomEndRadius: 15

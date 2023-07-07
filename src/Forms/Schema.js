@@ -24,17 +24,17 @@ export const ForgetPasswordEmailSchema = Yup.object().shape({
 
 
 export const Change_passwordSchema = Yup.object().shape({
-  oldpassword:  Yup.string().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref("password") , null] , "كلمة المرور القديمة خاطئة"),
-  newpassword: Yup.string().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف'),
-  confirmPassword: Yup.string().required('برجاء تاكيد كلمة المرور').min(8,'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref('newpassword'), null], 'كلمة المرور غير متطابقة')
+  oldPassword:  Yup.string().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref("oldPassword") , null] , "كلمة المرور القديمة خاطئة"),
+  password: Yup.string().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف'),
+  passwordConfirmation: Yup.string().required('برجاء تاكيد كلمة المرور').min(8,'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref('password'), null], 'كلمة المرور غير متطابقة')
     
 });
 
 
 
 export const Forget_passwordSchema = Yup.object().shape({
-  NEW_password: Yup.string().trim().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف'),
-  CONfirmationPassword: Yup.string().trim().required('برجاء تاكيد كلمة المرور').min(8,'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref('NEW_password'), null], 'كلمة المرور غير متطابقة')
+  password: Yup.string().trim().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف'),
+  passwordConfirmation: Yup.string().trim().required('برجاء تاكيد كلمة المرور').min(8,'يجب ان تكون اكثر من 8 ارقام او حروف').oneOf([Yup.ref('passwordConfirmation'), null], 'كلمة المرور غير متطابقة')
 });
 
 
@@ -42,7 +42,7 @@ export const Forget_passwordSchema = Yup.object().shape({
 
 export const SignupSchema = Yup.object().shape({
     
-  username : Yup.string().trim().required("برجاء ادخال الاسم"),
+    username : Yup.string().trim().required("برجاء ادخال الاسم"),
     email: Yup.string().trim().min(8, 'برجاء ادخال بريد الكتروني صحيح').required('برجاء ادخال بريد الكتروني ').matches(EmailReg, 'برجاء ادخال بريد الكتروني صحيح'),
     phoneNumber : Yup.string().trim().min(8, 'برجاء ادخال رقم الهاتف صحيح ').required('برجاء ادخال رقم الهاتف ').matches(phoneRegExp, 'برجاء ادخال رقم الهاتف صحيح '),
     password: Yup.string().required('برجاء ادخال كلمة المرور').min(8, 'يجب ان تكون اكثر من 8 ارقام او حروف'),

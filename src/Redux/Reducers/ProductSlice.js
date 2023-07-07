@@ -1,25 +1,33 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 
 
 const initialState = {
   error: null,
   loading: false,
-  product: {},
+  ALL_products: [],
 };
+export const productsFetch = createAsyncThunk(
+  'ALL_products/productsFetch',
+  async (_, { rejectWithValue }) => {
+    try {
+      const token = await AsyncStorage.getItem('accessToken');
+      const response = await axios.get("http://10.0.2.2:8080/api/v1/catalog/items", {
+        headers: {
+          // types_oil 
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-export const productsFetch = createAsyncThunk("product/productsFetch", async () => {
-  const token = await AsyncStorage.getItem("accessToken")
-  const response = await fetch("http://10.0.2.2:8080/api/v1/catalog/items", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
-  });
+  }
+);
 
-  return await response.json();
-
-});
 
 
 const ProductSlice = createSlice({
@@ -29,20 +37,25 @@ const ProductSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(productsFetch.pending, (state) => {
+        console.log("productsFetch.pending")
+
         state.loading = true;
         state.error = null;
       })
       .addCase(productsFetch.fulfilled, (state, {payload}) => {
+        console.log("productsFetch.fulfilled")
+
         state.loading = false;
         
-        state.product = {
-            ...payload
-        };
+        state.ALL_products = payload
       })
       .addCase(productsFetch.rejected, (state, {error}) => {
+        console.log("productsFetch.rejected")
+
         state.loading = false;
         state.error = error.message
-      });
+      })
+     
   },
 })
 

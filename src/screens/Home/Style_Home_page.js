@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     Basic_container: {
         flex: 1,
         backgroundColor: COLORS.green_mid,
-         alignContent: "center"
+        alignContent: "center"
     }, green_container: {
         flex: 0.16,
     },
@@ -21,7 +21,8 @@ export const styles = StyleSheet.create({
         borderTopEndRadius: RFPercentage(8),
         borderTopStartRadius: RFPercentage(8)
     }, text_Bold_style: {
-
+        textAlign :"left",
+        // backgroundColor :"#00d",
         fontSize: RFPercentage(3),
         color: COLORS.white,
         fontFamily: FONT.font_Almarai_Bold,
