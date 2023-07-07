@@ -72,7 +72,7 @@ const Profile_list = () => {
                     <User_image />
 
                     <View style={{ justifyContent: "space-around", flex: 1, marginLeft: RFPercentage(2) }}>
-                        <Text style={{ fontFamily: FONT.font_Almarai_Bold, color: COLORS.black, fontSize: RFPercentage(2.5) }}>{DataUser.fullName}</Text>
+                        <Text style={{ fontFamily: FONT.font_Almarai_Bold,textAlign :"left", color: COLORS.black, fontSize: RFPercentage(2.5) }}>{DataUser.fullName}</Text>
                         <Text style={{ fontFamily: FONT.font_Almarai_Light, color: COLORS.black, fontSize: RFPercentage(2.5), textAlign: "left" }}>{DataUser.email}</Text>
                     </View>
 

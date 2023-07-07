@@ -9,12 +9,25 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS, FONT } from '../../constants';
 import UncompleteOrders from './UncompleteOrders';
 import { useNavigation } from '@react-navigation/native';
-import Products from './Products';
+import ShowOrdersfromConfirm from './ShowOrdersfromConfirm';
+import { useDispatch, useSelector } from 'react-redux';
+import { getOrdersStatus } from '../../Redux/Reducers/OrdersSlice';
+import { getOrdersStatusAccepted } from '../../Redux/Reducers/OrdersAcceptedSlice';
 
 const Stack = createMaterialTopTabNavigator();
 
 function All_orders() {
+  const dispatch = useDispatch()
   const navigation = useNavigation();
+  React.useEffect(() => {
+    dispatch(getOrdersStatus());
+    dispatch(getOrdersStatusAccepted());
+
+}, [dispatch]);
+
+// const { OrdersStatusAccepted } = useSelector((state) => state.OrdersAcceptedStatus);
+// const { OrdersStatus } = useSelector((state) => state.OrdersStatus);
+
 
   return (
     <>
@@ -35,20 +48,19 @@ function All_orders() {
       <Stack.Navigator initialRouteName="مكتمله"
         screenOptions={{
           tabBarIndicatorStyle: { backgroundColor: COLORS.green_mid },
-          tabBarStyle: { backgroundColor: COLORS.white   },
+          tabBarStyle: { backgroundColor: COLORS.white },
 
 
           tabBarLabelStyle: {
-            
+
             fontSize: RFPercentage(2.48),
             fontFamily: FONT.font_Almarai_Bold,
             // color : COLORS.black 
           }
 
-        }} options={{ headerShown: false  }} >
+        }} options={{ headerShown: false }} >
         <Stack.Screen name="مكتمله" component={CompleteOrders}  />
         <Stack.Screen name="تحت التنفيذ" component={UncompleteOrders} />
-        <Stack.Screen name="منتجات" component={Products} />
 
       </Stack.Navigator>
 

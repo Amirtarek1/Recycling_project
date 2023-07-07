@@ -11,37 +11,46 @@ import Back_arrow from '../../components/Back_arrow';
 import PlusSvg from "../../assets/Icons/plus.svg"
 import MinusSvg from "../../assets/Icons/minus.svg"
 import Bag from "../../../src/assets/Icons/Bag.svg"
+import Large_button from '../../components/Large_button';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const h = Dimensions.get("screen").height;
 const w = Dimensions.get("screen").width;
 
 function ProductsCart({ route }) {
   const { data } = route.params;
+const [productsOrders, setProductsOrders] = useState(data);
 
-  const [productsOrders, setProductsOrders] = useState(Products_orders);
   const navigation = useNavigation();
 
 
-  //   const increment = (index) => {
-  //     const updatedData = [...productsOrders];
-  //     updatedData[index].orders_table.amount += 1;
-  //     setProductsOrders(updatedData);
-  //   };
+  const increment = (index) => {
+    const updatedData = [...productsOrders];
+    updatedData[index].orders_table.amount += 1;
+    setProductsOrders(updatedData);
+  };
 
-  //   const decrement = (index) => {
-  //     const updatedData = [...productsOrders];
-  //     if (updatedData[index].orders_table.amount > 0) {
-  //       updatedData[index].orders_table.amount -= 1;
-  //       setProductsOrders(updatedData);
-  //     }
-  //   };
+  const decrement = (index) => {
+    const updatedData = [...productsOrders];
+    if (updatedData[index].orders_table.amount > 0) {
+      updatedData[index].orders_table.amount -= 1;
+      setProductsOrders(updatedData);
+    }
+  };
 
 
+  function removeItemFromCart(id) {
+    setProductsOrders((prevOrders) => {
+      console.log(id)
+      const updatedCart = prevOrders.filter((item) => item.id !== id);
+      return updatedCart;
+    });
+  }
 
-  //   const handleNextPage = () => {
-  //     const filteredData = productsOrders.filter((item) => item.orders_table.amount > 0);
-  //     navigation.navigate("new", { data: filteredData });
-  //   };
+  const handleNextPage = () => {
+    const ConfrimationFromCart = productsOrders.filter((item) => item.orders_table.amount > 0);
+    navigation.navigate("ConfirmationandChooseaddress", { data: ConfrimationFromCart });
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
@@ -52,7 +61,7 @@ function ProductsCart({ route }) {
         marginTop: RFPercentage(4),
       }}>
 
-        <Back_arrow onPress={() => navigation.replace("Home")} />
+        <Back_arrow onPress={() => navigation.navigate("Products")} />
 
         <View>
           <Text style={{
@@ -60,31 +69,19 @@ function ProductsCart({ route }) {
             fontFamily: FONT.font_Almarai_ExtraBold,
             color: COLORS.black,
             fontSize: 25,
-            width: w * 0.8,
+            width: w * 0.86,
             textAlign: "center",
             justifyContent: "center",
           }}>عربة الطلبات</Text>
 
 
         </View>
-        {/* 
-        <TouchableOpacity onPress={handleNextPage}  >
-          <Bag onPress={() => { }} height={hp(6)} width={wp(12)} fill="#fff" />
-          {number > 0 ? <View style={{
-            height: hp(3.7), width: hp(3.7),
-            backgroundColor: COLORS.min_button, borderRadius: 20,
-            justifyContent: "center"
-            , alignItems: "center", position: "absolute", top: -5, left: -5
-          }} >
-            <Text style={{ color: COLORS.gray_dark, fontSize: RFPercentage(2) }} >{number}</Text>
-          </View> : null}
-        </TouchableOpacity> */}
 
       </View>
 
       <ScrollView>
         <View style={{ alignItems: "center", backgroundColor: COLORS.white }}>
-          {data.map((item, index) => (
+          {productsOrders.map((item, index) => (
             <TouchableOpacity
               key={item.id}
               style={[
@@ -100,9 +97,8 @@ function ProductsCart({ route }) {
                 },
               ]}
             >
-              {/* item.orders_table.photo} */}
               <Image
-                source={JSON.stringify(item.orders_table.photo)}
+                source={item.orders_table.photo}
                 style={{
                   backgroundColor: COLORS.white,
                   width: hp(16),
@@ -128,10 +124,11 @@ function ProductsCart({ route }) {
                       fontSize: RFValue(18, h, w),
                       maxWidth: RFPercentage(15),
                     }}
-                  >      نقطه  {item.orders_table.num_points}
-                    {/* {item.orders_table.num_points} */}
+                  >      نقطه {item.orders_table.num_points}
                   </Text>
+
                 </View>
+
                 <View>
                   <Text
                     style={{
@@ -144,56 +141,43 @@ function ProductsCart({ route }) {
                     الكميه المتاحة:{" "}
                     <Text style={{ color: COLORS.gray_dark }}>{item.orders_table.amount_oil_order} </Text>
                   </Text>
-
-                  {/* {item.orders_table.amount_oil_order} */}
-
-                  {/* {item.orders_table.amount === 0 ? (
-                    <>
-
+                  <View style ={{flexDirection :"row" , justifyContent :"space-around"}}>
+                    <View style={{ flexDirection: "row", width: w * 0.3, justifyContent: "space-around" }}>
                       <TouchableOpacity
+                        style={styles.shadowProp}
                         onPress={() => increment(index)}
-                        style={{
-                          backgroundColor: COLORS.green_mid,
-                          width: hp(15),
-                          padding: RFPercentage(1.4),
-                          borderRadius: 15
-                        }}>
-                        <Text style={{
-                          textAlign: "center",
-                          fontSize: RFPercentage(2.4),
-                          color: COLORS.white,
-                          fontFamily: FONT.font_Almarai_Regular
-                        }}>  بدل الان </Text>
+                      >
+                        <PlusSvg width={RFPercentage(6)} height={RFPercentage(6)} />
                       </TouchableOpacity>
-
-                    </>
-                  ) : (
-                    <>
-                      <View style={{ flexDirection: "row", width: w * 0.3, justifyContent: "space-around" }}>
-                        <TouchableOpacity
-                          style={styles.shadowProp}
-                          onPress={() => increment(index)}
-                        >
-                          <PlusSvg width={RFPercentage(6)} height={RFPercentage(6)} />
-                        </TouchableOpacity>
-                        <View style={{ justifyContent: "center" }}>
-                          <Text numberOfLines={1}
-                            style={{
-                              fontSize: RFPercentage(2.6),
-                              fontFamily: FONT.font_Almarai_Bold,
-                              color: COLORS.black,
-                              maxWidth: Sizes.width * 0.2,
-                            }}>{item.orders_table.amount}</Text>
-                        </View>
-                        <TouchableOpacity
-                          style={styles.shadowProp}
-                          onPress={() => decrement(index)}
-                        >
-                          <MinusSvg width={RFPercentage(6)} height={RFPercentage(6)} />
-                        </TouchableOpacity>
+                      <View style={{ justifyContent: "center" }}>
+                        <Text numberOfLines={1}
+                          style={{
+                            fontSize: RFPercentage(2.6),
+                            fontFamily: FONT.font_Almarai_Bold,
+                            color: COLORS.black,
+                            maxWidth: Sizes.width * 0.2,
+                          }}>{item.orders_table.amount}</Text>
                       </View>
-                    </>
-                  )} */}
+                      <TouchableOpacity
+                        style={styles.shadowProp}
+                        onPress={() => decrement(index)}
+                      >
+                        <MinusSvg width={RFPercentage(6)} height={RFPercentage(6)} />
+                      </TouchableOpacity>
+                    </View>
+                    <TouchableOpacity onPress={() => removeItemFromCart(item.id)} style={{ alignSelf :"center", flexDirection: "row" }}>
+                      <Icon name="trash-alt" size={hp(3)} style={{ color: COLORS.red_logout, margin: 4 }} />
+                      <Text
+                        style={{
+                          alignSelf :"center",
+                          fontFamily: FONT.font_Almarai_Bold,
+                          color: COLORS.red_logout,
+                          fontSize: RFPercentage(2.7),
+                        }}
+                      >حذف
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
             </TouchableOpacity>
@@ -201,7 +185,13 @@ function ProductsCart({ route }) {
         </View>
 
 
+
       </ScrollView>
+
+      <View style={{ marginTop: RFPercentage(5), marginBottom: RFPercentage(5) }}>
+        <Large_button button_name="تاكيد الطلبات" Confirm_press={handleNextPage} />
+      </View>
+
     </SafeAreaView>
   );
 }

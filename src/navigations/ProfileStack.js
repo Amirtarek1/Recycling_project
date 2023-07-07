@@ -23,6 +23,7 @@ import {
 import { StatusBar } from 'react-native';
 import { COLORS } from '../constants';
 import Suggests from '../screens/Profile/Suggests';
+import Terms from '../screens/Profile/Terms';
 
 const Stack = createStackNavigator();
 
@@ -78,6 +79,11 @@ function ProfileStack() {
                   <Stack.Screen
                     name="Suggests"
                     component={Suggests}
+                    options={{ headerShown: false }}
+                />
+                 <Stack.Screen
+                    name="Terms"
+                    component={Terms}
                     options={{ headerShown: false }}
                 />
                  <Stack.Screen

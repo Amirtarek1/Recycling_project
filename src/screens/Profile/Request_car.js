@@ -8,7 +8,7 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import Back_arrow from '../../components/Back_arrow';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useEffect, useState } from 'react';
-import { hp } from '../../constants/themes';
+import { hp, wp } from '../../constants/themes';
 import PlusCricleSvg from "../../assets/Icons/plus-circle.svg"
 import HiddenItemWithActions from "./HiddenItemsWithActions"
 import { useNavigation } from '@react-navigation/native';
@@ -27,7 +27,7 @@ import CorrectSvg from "../../assets/Icons/correct.svg"
 
 
 
-  
+
 
 const Request_car = () => {
     const navigation = useNavigation();
@@ -42,19 +42,19 @@ const Request_car = () => {
     }, [dispatch]);
     const [data, setData] = useState([]);
     useEffect(() => {
-        if (OrderLines && OrderLines.length > 0 ) {
-        const formattedData = OrderLines.map((item, index) => ({
-            key: `${index}`,
-            Points: item.item.points,
-            name: item.item.name,
-            id: item.id,
-            itemId: item.item.id,
-            imageUrl: item.item.imageUrl,
-            unit: item.item.unit,
-            quantityin: item.item.quantity,
-            quantityout: item.quantity,
-        }));
-        setData(formattedData);
+        if (OrderLines && OrderLines.length > 0) {
+            const formattedData = OrderLines.map((item, index) => ({
+                key: `${index}`,
+                Points: item.item.points,
+                name: item.item.name,
+                id: item.id,
+                itemId: item.item.id,
+                imageUrl: item.item.imageUrl,
+                unit: item.item.unit,
+                quantityin: item.item.quantity,
+                quantityout: item.quantity,
+            }));
+            setData(formattedData);
         }
     }, [OrderLines]);
 
@@ -98,12 +98,10 @@ const Request_car = () => {
                             borderRadius: 10,
                             margin: 10,
                             padding: RFPercentage(2),
-                            width: Sizes.width * 0.92,
+                            width: wp(94),
                             flexDirection: 'row',
                             justifyContent: 'space-between',
-                        },
-                    ]}
-                >
+                        }]} >
                     <View
                         style={{
 
@@ -115,7 +113,8 @@ const Request_car = () => {
                             source={{ uri: item.imageUrl }}
                             style={{
 
-                                width: hp(16), height: hp(16),
+                                width: hp(16),
+                                height: hp(16),
                                 borderRadius: RFPercentage(2),
                             }}
 
@@ -123,120 +122,123 @@ const Request_car = () => {
                         />
                     </View>
 
-                    <View style={{ justifyContent: "space-between", padding: RFPercentage(1) }}>
-                        <Text
-                            numberOfLines={1}
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", padding: RFPercentage(1) }}>
+
+                        <View style={{ justifyContent: "space-between", padding: hp(0.5) }}>
+                            <Text
+                                numberOfLines={1}
+                                style={{
+                                    fontSize: RFPercentage(2.5),
+                                    maxWidth: wp(35),
+                                    fontFamily: FONT.font_Almarai_Bold,
+                                    color: COLORS.green_mid,
+                                }}
+                            >{item.name}
+                            </Text>
+                            <View style={{ flexDirection: "row" }}>
+                                <TouchableOpacity
+                                    style={[styles.shadowProp, { marginRight: 5 }]}
+
+                                    onPress={() => numberOfBottlesIncrement(item.key)}
+                                >
+                                    <PlusSvg width={RFPercentage(6)} height={RFPercentage(6)} />
+                                </TouchableOpacity>
+                                <View style={{ justifyContent: "center" }}>
+                                    <Text
+                                        style={{
+                                            color: COLORS.black,
+                                            fontFamily: FONT.font_Almarai_Bold,
+                                            fontSize: RFPercentage(2.5),
+                                            maxWidth: Sizes.width * 0.2,
+                                        }}
+                                        numberOfLines={1}
+                                    >
+                                        {item.quantityout}
+                                    </Text>
+                                </View>
+
+                                <TouchableOpacity
+                                    style={[styles.shadowProp, { marginLeft: 5 }]}
+                                    disabled={item.quantityout == 1 ? true : false }
+                                    onPress={() => numberOfBottlesDecrement(item.key)}
+                                >
+                                    <MinusSvg width={RFPercentage(6)} height={RFPercentage(6)} />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+
+
+
+
+                        <View
                             style={{
-                                fontSize: RFPercentage(3),
-                                fontFamily: FONT.font_Almarai_Bold,
-                                color: COLORS.green_mid,
+                                justifyContent: 'space-between',
+                                // height: RFPercentage(15),
+                                alignItems: 'flex-end',
                             }}
-                        >{item.name}
-                        </Text>
-
-                        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                            <TouchableOpacity
-                                style={styles.shadowProp}
-
-                                // dispatch(postDecrease({id: item.id}))
-                                onPress={() => numberOfBottlesIncrement(item.key)}
-                            >
-                                <PlusSvg width={RFPercentage(6)} height={RFPercentage(6)} />
-                            </TouchableOpacity>
-                            <View style={{ justifyContent: "center" }}>
+                        >
+                            <View style={{
+                                flexDirection: 'row',
+                                padding: RFPercentage(0.5),
+                            }}>
                                 <Text
                                     style={{
                                         color: COLORS.black,
                                         fontFamily: FONT.font_Almarai_Bold,
-                                        fontSize: RFPercentage(2.5),
-                                        maxWidth: Sizes.width * 0.2,
+                                        fontSize: RFPercentage(2.65),
                                     }}
                                     numberOfLines={1}
                                 >
-                                    {item.quantityout}
+                                    نقط
+                                </Text>
+                                <Text
+                                    style={{
+                                        marginLeft: RFPercentage(0.5),
+                                        color: COLORS.black,
+                                        fontFamily: FONT.font_Almarai_Bold,
+                                        fontSize: RFPercentage(2.65),
+                                        maxWidth: Sizes.width * 0.12,
+                                    }}
+                                    numberOfLines={1}
+                                >
+                                    {item.Points}
                                 </Text>
                             </View>
 
                             <TouchableOpacity
-                                style={styles.shadowProp}
-                                disabled={item.quantityout > 0 ? false : true}
-                                onPress={() => numberOfBottlesDecrement(item.key)}
+                                onPress={() => navigation.navigate('Types_oil')}
+                                style={{
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    top: RFPercentage(-2),
+                                }}
                             >
-                                <MinusSvg width={RFPercentage(6)} height={RFPercentage(6)} />
+                                <View>
+                                    <EditSvg
+                                        style={{ right: RFPercentage(1) }}
+                                        width={RFPercentage(2.5)}
+                                        height={RFPercentage(2.5)}
+                                    />
+                                </View>
+
+                                <View>
+                                    <Text
+                                        style={{
+                                            color: COLORS.red_logout,
+                                            fontFamily: FONT.font_Almarai_Bold,
+                                            fontSize: RFPercentage(2.4),
+                                            right: RFPercentage(0.5),
+                                        }}
+                                        numberOfLines={1}
+                                    >
+                                        تعديل
+                                    </Text>
+                                </View>
                             </TouchableOpacity>
                         </View>
-
                     </View>
 
-
-                    <View
-                        style={{
-                            justifyContent: 'space-between',
-                            // height: RFPercentage(15),
-                            padding: hp(0.5),
-                            alignItems: 'center',
-                        }}
-                    >
-                        <View style={{
-                            flexDirection: 'row',
-                            padding: RFPercentage(0.5),
-                        }}>
-                            <Text
-                                style={{
-                                    color: COLORS.black,
-                                    fontFamily: FONT.font_Almarai_Bold,
-                                    fontSize: RFPercentage(2.65),
-                                }}
-                                numberOfLines={1}
-                            >
-                                نقط
-                            </Text>
-                            <Text
-                                style={{
-                                    marginLeft: RFPercentage(0.5),
-                                    color: COLORS.black,
-                                    fontFamily: FONT.font_Almarai_Bold,
-                                    fontSize: RFPercentage(2.65),
-                                    maxWidth: Sizes.width * 0.12,
-                                }}
-                                numberOfLines={1}
-                            >
-                                {item.Points}
-                            </Text>
-                        </View>
-
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('Types_oil')}
-                            style={{
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                top: RFPercentage(-2),
-                            }}
-                        >
-                            <View>
-                                <EditSvg
-                                    style={{ right: RFPercentage(1) }}
-                                    width={RFPercentage(2.5)}
-                                    height={RFPercentage(2.5)}
-                                />
-                            </View>
-
-                            <View>
-                                <Text
-                                    style={{
-                                        color: COLORS.red_logout,
-                                        fontFamily: FONT.font_Almarai_Bold,
-                                        fontSize: RFPercentage(2.4),
-                                        right: RFPercentage(0.5),
-                                    }}
-                                    numberOfLines={1}
-                                >
-                                    تعديل
-                                </Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
                 </View>
 
 
@@ -252,7 +254,7 @@ const Request_car = () => {
                 data={data}
                 onClose={() => closeRow(rowMap, data.item.key)}
                 onDelete={() => deleteRow(rowMap, data.item.key)}
-                itemid = {data.item.id}
+                itemid={data.item.id}
             />
         );
     }
@@ -311,42 +313,43 @@ const Request_car = () => {
                     {loading ?
                         (<View style={{ flex: 1, margin: RFPercentage(2), justifyContent: 'center', alignItems: 'center' }}>
                             <ActivityIndicator size="large" color={COLORS.green_mid} />
-                        </View>) : (<View>
-                            <SwipeListView
-                                showsVerticalScrollIndicator={false}
-                                data={data}
-                                renderItem={renderVisibleItem}
-                                renderHiddenItem={renderHiddenItem}
-                                leftOpenValue={0}
-                                rightOpenValue={-150}
-                            />
-                            <View
-                                style={{
-                                    alignSelf: 'center',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    margin: hp(2),
-                                }}
-                            >
-                                <TouchableOpacity
-                                    onPress={() => setIsModalVisible(true)}
-                                    style={[
-                                        styles.shadowProp,
-                                        {
-                                            elevation: 4,
-                                            elevation: 10,
-                                        },
-                                    ]}
+                        </View>) : (
+                            <View >
+                                <SwipeListView
+                                    showsVerticalScrollIndicator={false}
+                                    data={data}
+                                    renderItem={renderVisibleItem}
+                                    renderHiddenItem={renderHiddenItem}
+                                    leftOpenValue={0}
+                                    rightOpenValue={-150}
+                                />
+                                <View
+                                    style={{
+                                        alignSelf: 'center',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        margin: hp(2),
+                                    }}
                                 >
-                                    <PlusCricleSvg
-                                        width={RFPercentage(7)}
-                                        height={RFPercentage(7)}
-                                    />
-                                </TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() => setIsModalVisible(true)}
+                                        style={[
+                                            styles.shadowProp,
+                                            {
+                                                elevation: 4,
+                                                elevation: 10,
+                                            },
+                                        ]}
+                                    >
+                                        <PlusCricleSvg
+                                            width={RFPercentage(7)}
+                                            height={RFPercentage(7)}
+                                        />
+                                    </TouchableOpacity>
 
-                            </View>
+                                </View>
 
-                        </View>)
+                            </View>)
                     }
 
                 </View>

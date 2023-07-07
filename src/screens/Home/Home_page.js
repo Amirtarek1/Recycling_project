@@ -17,6 +17,8 @@ import { useDispatch } from 'react-redux';
 import { fetchUserData } from '../../Redux/Reducers/ProfileSlice';
 import { useCallback, useEffect } from 'react';
 import { getOrderLines, postOrderLines } from '../../Redux/Reducers/CartOrdersLinesSlice';
+import { getOrdersStatus } from '../../Redux/Reducers/OrdersSlice';
+import { getOrdersStatusAccepted } from '../../Redux/Reducers/OrdersAcceptedSlice';
 
 
 const Home_page = () => {
@@ -57,6 +59,18 @@ const Home_page = () => {
         }
     };
     ;
+
+
+    //     const { OrderLines } = useSelector((state) => state.OrderLines);
+    // console.log(OrderLines)
+
+
+    // useEffect(() => {
+    //     dispatch(getOrdersStatusAccepted());
+    // }, [dispatch]);
+    // const { OrdersStatus } = useSelector((state) => state.OrdersStatus);
+    // console.log(OrdersStatus , "== > trying")
+
 
     useFocusEffect(
         useCallback(() => {

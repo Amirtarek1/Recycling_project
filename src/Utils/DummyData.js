@@ -393,9 +393,9 @@ const ProfilePagedata =
         },
         {
             id: 4,
-            text_content: "قائمة الطلبات",
+            text_content: "قائمة الطلبات المنتجات",
             icone: "shopping-bag",
-            navi: 'All_orders'
+            navi: 'ShowOrdersfromConfirm'
         },
         {
             id: 5,
@@ -413,7 +413,7 @@ const ProfilePagedata =
             id: 7,
             text_content: "الشروط والأحكام",
             icone: "info-circle",
-            navi: 'Suggests'
+            navi: 'Terms'
         }
     ]
 

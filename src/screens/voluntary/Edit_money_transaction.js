@@ -35,7 +35,6 @@ const Edit_money_transaction = () => {
     );
 
     const { allAddresses } = useSelector((state) => state.Address)
-    console.log(allAddresses)
     const [errorMessage, setErrorMessage] = useState('');
     const h = Dimensions.get("screen").height
     const w = Dimensions.get("screen").width

@@ -39,6 +39,9 @@ import Tologin from "../screens/Auth/Tologin";
 import Checkoffers from "../screens/Coponat/Checkoffers";
 import Products from "../screens/Profile/Products";
 import ProductsCart from "../screens/Profile/ProductsCart";
+import ConfirmationandChooseaddress from "../screens/Profile/ConfirmationandChooseaddress";
+import ShowOrdersfromConfirm from "../screens/Profile/ShowOrdersfromConfirm";
+import Terms from "../screens/Profile/Terms";
 
 
 
@@ -67,6 +70,7 @@ const MainNavigation = () => {
                     options={{ headerShown: false }}
 
                 />
+
                 <RootStack.Screen
                     name="Auth"
                     component={AuthStack}
@@ -85,6 +89,8 @@ const MainNavigation = () => {
                     component={Home_page}
                     options={{ headerShown: false }}
                 />
+                {/* Terms */}
+                
                 <RootStack.Screen
                     name="Types_oil"
                     component={Types_oil}
@@ -99,6 +105,12 @@ const MainNavigation = () => {
                     name="ProductsCart"
                     component={ProductsCart}
                     options={{ headerShown: false }}
+                />
+                <RootStack.Screen
+                    name="ConfirmationandChooseaddress"
+                    component={ConfirmationandChooseaddress}
+                    options={{ headerShown: false }}
+
                 />
                 <RootStack.Screen
                     name="TimeTablePage"
@@ -185,6 +197,12 @@ const MainNavigation = () => {
                     options={{ headerShown: false }}
                 />
                 <RootStack.Screen
+                    name="ShowOrdersfromConfirm"
+                    component={ShowOrdersfromConfirm}
+                    options={{ headerShown: false }}
+                />
+
+                <RootStack.Screen
                     name="Edit_money_transaction"
                     component={Edit_money_transaction}
                     options={{ headerShown: false }}
@@ -233,6 +251,11 @@ const MainNavigation = () => {
                 <RootStack.Screen
                     name="Suggests"
                     component={Suggests}
+                    options={{ headerShown: false }}
+                />
+                <RootStack.Screen
+                    name="Terms"
+                    component={Terms}
                     options={{ headerShown: false }}
                 />
                 <RootStack.Screen

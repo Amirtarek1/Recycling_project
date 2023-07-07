@@ -9,10 +9,10 @@ export const styles = StyleSheet.create({
     {
         width: RFPercentage(0),
     }, shadowProp: {
-        shadowOffset: { width: 10, height: 14  },
+        shadowOffset: { width: 40, height: 44  },
         shadowColor: COLORS.black,
         elevation: 5,
-        shadowOpacity: .2,
+        shadowOpacity: .5,
     },
 
     FakeView_style:

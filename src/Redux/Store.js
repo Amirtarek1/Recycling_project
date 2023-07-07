@@ -11,6 +11,8 @@ import CartOrdersLinesSlice from "./Reducers/CartOrdersLinesSlice"
 import SubmitSlice from './Reducers/SubmitSlice';
 import passwordResetSlice from './Reducers/passwordResetSlice';
 import counterItems from './Reducers/counterItems';
+import OrdersSlice from './Reducers/OrdersSlice';
+import OrdersAcceptedSlice from './Reducers/OrdersAcceptedSlice';
 const store = configureStore({
   middleware : [thunk],
     reducer: {
@@ -25,7 +27,9 @@ const store = configureStore({
       counterItems : counterItems,
       SubmitCart: SubmitSlice,
       EditDataUser : ProfileSlice ,
-      passwordReset : passwordResetSlice
+      passwordReset : passwordResetSlice,
+      OrdersStatus : OrdersSlice,
+      OrdersAcceptedStatus : OrdersAcceptedSlice
     }
 })
 
