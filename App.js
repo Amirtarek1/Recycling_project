@@ -1,13 +1,12 @@
-
 import React, { useEffect, useState } from 'react';
 import NetInfo from "@react-native-community/netinfo";
 import Toast from "react-native-toast-message"
-import CompleteOrders from './src/screens/Profile/CompleteOrders';
-import UncompleteOrders from './src/screens/Profile/UncompleteOrders';
-
-
-
-
+import { createStackNavigator } from '@react-navigation/stack';
+// import { Provider } from 'react-redux';
+// import { NavigationContainer } from '@react-navigation/native';
+// import store from './src/Redux/Store';
+// import { MainNavigation } from './src/navigations/MainNavigator';
+import CanceledOrders from './src/screens/Delivery/HomeDelivery/CanceledOrders';
 const App = () => {
 
   const [isConnected, setIsConnected] = useState(true);
@@ -40,12 +39,12 @@ const App = () => {
 
   return (
     <>
-
+<CanceledOrders/>
        {/* <Provider store={store}>  */}
-           <NavigationContainer> 
+           {/* <NavigationContainer>  */}
 {/* <All_orders/> */}
 {/* <Profile_data_page/> */}
-<Select_user/>
+{/* <Select_user/> */}
 {/* <National_id_picker/> */}
           {/* <Stack.Navigator  screenOptions={{
           headerShown: false,}}>
@@ -57,7 +56,7 @@ const App = () => {
     {/* <DeliveryStack/> */}
 {/* <Requests_search/> */}
     {/* <Drawer_delivery/> */}
-      </NavigationContainer>  
+      {/* </NavigationContainer>   */}
 
        {/* </Provider>  */}
 {/* <Address_page/> */}
@@ -67,12 +66,12 @@ const App = () => {
 {/* <Car_id_picture/> */}
 {/* <CanceledOrders/> */}
        {/* <Drawer_delivery/> */}
-      <Provider store={store}>
-        <NavigationContainer>
+      {/* <Provider store={store}> */}
+        {/* <NavigationContainer>
           <MainNavigation />
         </NavigationContainer>
         <Toast />
-      </Provider>
+      </Provider> */}
 
 
     </>

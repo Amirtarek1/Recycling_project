@@ -33,12 +33,10 @@ const Save_planet = require("../assets/Images/save_planet.png")
 const Splash_3 = require("../assets/Images/splash_3.png")
 const Splash_4 = require("../assets/Images/splash_4.png")
 const Mac_logo =  require("../assets/Images/mac.png")
-<<<<<<< HEAD
 const National_id_= require("../assets/Images/National_id.png")
 const Real_user = require("../assets/Images/real_user.png")
 const Select_user = require("../assets/Images/select_user.png")
 
-=======
 const TryMain = require("../assets/Images/TryMain.png")
 const Nolocation = require("../assets/Images/NOlocation.png")
 const LOGO = require("../assets/Images/LOGO.png")
@@ -46,7 +44,6 @@ const OILSUNNY = require("../assets/Images/OILSUNNY.png")
 const Pepsi = require("../assets/Images/OIP.png")
 
 // OIP.png
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
 export default {
     forget_password,
     google,
@@ -81,15 +78,11 @@ export default {
     Splash_3,
     Splash_4,
     Mac_logo,
-<<<<<<< HEAD
     National_id_,
     Real_user,
-    Select_user
-=======
     TryMain,
     Nolocation,
     LOGO,
     OILSUNNY,
     Pepsi
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
 }

@@ -61,10 +61,7 @@ function All_orders() {
         }} options={{ headerShown: false }} >
         <Stack.Screen name="مكتمله" component={CompleteOrders}  />
         <Stack.Screen name="تحت التنفيذ" component={UncompleteOrders} />
-<<<<<<< HEAD
         <Stack.Screen name="منتجات" component={UncompleteOrders} />
-=======
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
 
       </Stack.Navigator>
 

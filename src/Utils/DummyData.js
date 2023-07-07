@@ -533,7 +533,6 @@ const orders_Data = [
         }
 
     },
-<<<<<<< HEAD
 ];
 
 
@@ -674,8 +673,7 @@ const UncompletedOrders = [
 
     }
 ];
-=======
-]
+
 
 
 
@@ -853,7 +851,6 @@ const Products_orders = [
     },
 ]
 
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
 
 
 const Coupons_flatListData = [
@@ -889,13 +886,10 @@ const Deliveryorders = [
         statues: "تحت التنفيذ",
         orderData: {
             id: 1,
-<<<<<<< HEAD
             name: "أمير m علي",
             image: images.Real_user,
-=======
             name: "أمير طارق علي",
             image: images.TryMain,
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
             amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
             phone_num: "01029201",
             address: "المحلة",
@@ -907,13 +901,10 @@ const Deliveryorders = [
         statues: "تحت التنفيذ",
         orderData: {
             id: 2,
-<<<<<<< HEAD
             name: "أمير كامل علي",
             image: images.Real_user,
-=======
             name: "أمير طارق علي",
             image: images.TryMain,
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
             amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
             phone_num: "01029201",
             address: "المحلة",
@@ -927,13 +918,10 @@ const Deliveryorders = [
         orderData: {
             id: 3,
             name: "أمير طارق علي",
-<<<<<<< HEAD
             image: images.Real_user,
             amount_oil: "٢٠ لتر زيت طعام مقابل  نقطه",
-=======
             image: images.TryMain,
             amount_oil: "٢٠ لتر زيت طعام مقابل ٢٠٠ نقطه",
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
             phone_num: "01029201",
             address: "المحلة",
             order_serial: "2341231231"
@@ -955,13 +943,10 @@ export {
     orders_Data,
     Coupons_flatListData,
     Copones,
-<<<<<<< HEAD
     Deliveryorders,
     CanceledOrdersData,
-    CompletedOrdersData,UncompletedOrders
-=======
+    CompletedOrdersData,UncompletedOrders,
     Products_orders,
-    Deliveryorders,
+    // Deliveryorders,
     Uncompleteorders_Data
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
 }

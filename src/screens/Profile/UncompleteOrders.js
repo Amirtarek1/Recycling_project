@@ -121,10 +121,4 @@ function UncompleteOrders() {
   );
 }
 
-<<<<<<< HEAD
-
-
-export default UncompleteOrders
-=======
 export default UncompleteOrders;
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da

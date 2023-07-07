@@ -16,9 +16,6 @@ import { ActivityIndicator } from 'react-native-paper';
 import NOlocation from "../../assets/Icons/NOlocation.svg"
 
 const Address_page = (props) => {
-<<<<<<< HEAD
-    // const navigation = useNavigation();
-=======
     const navigation = useNavigation();
     const dispatch = useDispatch();
 
@@ -49,7 +46,6 @@ const Address_page = (props) => {
             </View>
         );
     }
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
 
 
     return (

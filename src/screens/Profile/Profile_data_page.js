@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { useState } from "react"
-import { ScrollView, StatusBar,ImageBackground ,StyleSheet, Dimensions,Image, Text, View, TouchableOpacity, ImageBackgroundBase } from 'react-native';
-=======
 import { useCallback, useEffect, useState } from "react"
 import { ScrollView, StatusBar, StyleSheet, Image, Text, View, TouchableOpacity, Modal } from 'react-native';
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { COLORS, FONT, icons, images, Sizes } from '../../constants';
 import Back_arrow from '../../components/Back_arrow';
@@ -12,69 +7,6 @@ import User_image from '../../components/User_image'
 import INputbutton from '../../components/INputbutton';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Large_button from "../../components/Large_button";
-<<<<<<< HEAD
-import { useNavigation } from '@react-navigation/native';
-import Icon from "react-native-vector-icons/FontAwesome5"
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-import Add_layer_icon from "../../assets/Icons/add_layer.svg"
-import BottomSheet from  'react-native-simple-bottom-sheet';
-const Profile_data_page = () => {
-    const [toggleCheckBox, setToggleCheckBox] = useState(false)
-    const navigation = useNavigation();
-    const w = Dimensions.get("screen").width
-    const[SheetOpen,setSheetOpen] = useState(false);
-    const [frontDisabled , setfrontDisabled] = useState(false)    
-    const [frontImage ,setFrontImage] = useState(false);
-    const [ selectFrontImage,setSelectFrontImage] = useState("");
-    const [hiddenSheet,setHiddenSheet] = useState(true)
-  
-    // const openCamera = async () => {
-    //   const granted = await PermissionsAndroid.request(
-    //     PermissionsAndroid.PERMISSIONS.CAMERA,
-    //   );
-    //   if (granted === PermissionsAndroid.RESULTS.GRANTED){
-    // const result = await launchCamera();  
-    //   }
-    // };
-    let options ={
-        storageOptions:{
-          saveToPhoto : true,
-          mediaType :"photo"
-        },
-      };
-  // const imagePicker = () =>{
-  //   launchCamera(options,response =>{
-  // //  const data = 
-  //  selectImage[response.assets[0].uri]
-  //   // console.log(response.assets[0].uri)
-  // })
-  // // setSelectImage(data)
-  
-  // }
-  
-  const  CameraFrontImagePicker =  async () => {
-    await launchCamera(options, response => {
-        if (response.assets && response.assets.length > 0) {
-            setSelectFrontImage(response.assets[0].uri);
-  
-        }
-        setFrontImage(true)
-        setHiddenSheet(true)
-        // console.log(response.assets[0].uri)
-    });
-  };
-  const  libraryFrontImagePicker =  async () => {
-    await launchImageLibrary(options, response => {
-        if (response.assets && response.assets.length > 0) {
-            setSelectFrontImage(response.assets[0].uri);
-  
-        }
-        setFrontImage(true)
-        setHiddenSheet(true)
-        // console.log(response.assets[0].uri)
-    });
-  };
-=======
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { fetchUserData } from "../../Redux/Reducers/ProfileSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -125,168 +57,10 @@ const Profile_data_page = ({ label, value }) => {
 
      
       
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
     return (
         <>
             <StatusBar hidden={true} />
             <SafeAreaView style={styles.safeAreaView}>
-<<<<<<< HEAD
-                <ScrollView style = {{flex :1}}>
-                <View style={{
-                    flexDirection: "row",
-                    // borderWidth:1,
-                    paddingVertical: RFPercentage(2),
-                    justifyContent: "space-around", alignItems: "center"
-                }}>
-                    <View>
-                        <Back_arrow  onPress={()=> navigation.navigate("Personal_Profile_page")} />
-                    </View>
-                    <View style={{ flexDirection: "row", width: Sizes.width * 0.7 }}>
-                        <Text style={{ color: COLORS.black, fontFamily: FONT.font_Almarai_ExtraBold, fontSize: RFPercentage(3) }}>تعديل الملف الشخصي</Text>
-
-                    </View>
-
-                </View>
-
-                <View style={{
-                    // borderWidth:1,
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    // marginTop:RFPercentage(2),
-                    // padding:RFPercentage(5)
-
-                }}>
-{frontImage  ?
-        <>
-        {/* <View 
-        
-        // onMouseMove={()=>{console.log("sa")}}
-        style={{
-            borderWidth: RFPercentage(0.6),
-            borderColor : COLORS.green_mid,
-            // width: RFPercentage(12)
-            // , height: RFPercentage(12),
-            // borderRadius: RFPercentage(6),
-            justifyContent: "center",
-            alignItems: "center"
-       }}> */}
- {/* <TouchableOpacity onPress={()=>{
-                  setFrontImage(false)
-                  
-                }}
-                style={{relative}}
-                >
-                  
-                          <Icon name='times' style={{
-                            padding :RFPercentage(1),
-                            alignSelf:"flex-start" ,
-                          shadowColor:"#fff",shadowOpacity:0.4,elevation:5
-                          }} size={25} color={COLORS.red_logout}/>
-                </TouchableOpacity > */}
-          <Image source={{uri:selectFrontImage}}
-           style={{
-            borderWidth: RFPercentage(0.6),
-            borderColor : COLORS.green_mid,
-            width: RFPercentage(12)
-            , height: RFPercentage(12),
-            borderRadius: RFPercentage(6),
-            justifyContent: "center",
-            alignItems: "center",
-                // width: RFPercentage(12),
-                // height: RFPercentage(12),
-                alignSelf: "center",
-                // tintColor : COLORS.eye_color,
-
-            }}
-            resizeMode="cover"
-          />
-        
-                {/* <TouchableOpacity onPress={()=>{
-                  setFrontImage(false)
-                }}>
-                  
-                          <Icon name='times' style={{
-                            padding :RFPercentage(1),
-                            alignSelf:"flex-start" ,
-                          shadowColor:"#fff",shadowOpacity:0.4,elevation:5
-                          }} size={25} color={COLORS.red_logout}/>
-                </TouchableOpacity > */}
-
-        {/* </View> */}
-
-
-        </> : <>
-
-       < TouchableOpacity 
-         disabled = {frontDisabled}
-         onPress={()=>{
-          setfrontDisabled(true)
-           setHiddenSheet(false)
-           setSheetOpen(true)
-         }}> 
-        <View
-                style={{
-                    borderWidth: RFPercentage(0.6),
-                    borderColor : COLORS.green_mid,
-                    width: RFPercentage(12)
-                    , height: RFPercentage(12),
-                    borderRadius: RFPercentage(6),
-                    justifyContent: "center",
-                    alignItems: "center"
-                }}>
-                {/* <Image resizeMode="cover"
-                    source={images.USER_PROFILE}
-                    style={{
-                        width: RFPercentage(10),
-                        height: RFPercentage(10),
-                        alignSelf: "center",
-                        tintColor : COLORS.eye_color
-                    }}
-                /> */}
-
-
-         <Add_layer_icon width ={30} height={30} />
-            </View>
-            </TouchableOpacity>
-
-
-
-{/*         
-        <View style={[,{alignItems:"center",
-         shadowColor: COLORS.black,
-        //  elevation: 4,
-         shadowOpacity: .5,
-        justifyContent:"center",
-        marginVertical:RFPercentage(3),
-        alignSelf:"center",
-        width :Sizes.width*0.7,
-            height:Sizes.height*0.22,
-            // borderRadius :RFPercentage(4),
-            borderWidth:1,
-            borderColor : COLORS.green_mid
-}]}>
-         <TouchableOpacity 
-         disabled = {frontDisabled}
-         onPress={()=>{
-          setfrontDisabled(true)
-           setHiddenSheet(false)
-           setSheetOpen(true)
-         }}> 
-         <Add_layer_icon width ={50} height={50} />
-         </TouchableOpacity>
-        </View> */}
-        </>}
-
-                </View>
-
-                <View style={styles.style_view_content_of_user_image_nameandemail}>
-
-                    <View>
-                        <Text style={styles.style_Text_topof_points}>النقط الحاليه</Text>
-                        <View style={styles.view_points}>
-                            <Text onPress={() => alert("120")} numberOfLines={1}
-                                style={styles.style_text_in_box_ofpoints}>120</Text>
-=======
                 <ScrollView>
                     <View style={{
                         flexDirection: "row",
@@ -295,7 +69,6 @@ const Profile_data_page = ({ label, value }) => {
                     }}>
                         <View>
                             <Back_arrow onPress={() => navigation.navigate("Personal_Profile_page")} />
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
                         </View>
                         <View style={{ flexDirection: "row", width: Sizes.width * 0.7 }}>
                             <Text style={{ color: COLORS.black, fontFamily: FONT.font_Almarai_ExtraBold, fontSize: RFPercentage(3) }}>تعديل الملف الشخصي</Text>
@@ -412,20 +185,6 @@ const Profile_data_page = ({ label, value }) => {
                         flex: 0.75, justifyContent: "space-around",
                     }}>
 
-<<<<<<< HEAD
-                <View style={{
-                    // flex: 0.75,
-                     justifyContent: "space-around",
-                    //  marginTop:RFPercentage(5)
-                }}>
-                    
-                        <View style={{ 
-                            marginTop: RFPercentage(2) 
-                            }}>
-                            <INputbutton label="الاسم" value="الاء عبد الرازق محمود" />
-                            <INputbutton label="البريد الإلكتروني" value="nadaaboelkhir@gmail.com" />
-                            <INputbutton label="رقم الهاتف" value="01202477442" />
-=======
                         <View style={{ marginTop: RFPercentage(5) }}>
                             <INputbutton
                                 value={inputValue}
@@ -438,27 +197,14 @@ const Profile_data_page = ({ label, value }) => {
                                 onChangeText={handlePhoneNumberChange}
                             />
                             {isValidPhoneNumber !== "" && <Text style={styles.error}>{Error}</Text>}
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
                         </View>
 
 
-<<<<<<< HEAD
-                    <View style={{ marginTop: RFPercentage(3) }}>
-                        {/* navigation.navigate('Home') */}
-                        <Large_button button_name="حفظ التعديلات" Confirm_press={() => navigation.navigate("Profile_list")} />
-                    </View>
-                    
-                </View>
-         
-           
-           
-=======
                         <View style={{ marginTop: RFPercentage(10) }}>
                             <Large_button button_name="حفظ التعديلات" Confirm_press={dispatchPatchEditDataUser} />
                         </View>
 
                     </View>
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
                 </ScrollView>
                 {   hiddenSheet? 
     <>

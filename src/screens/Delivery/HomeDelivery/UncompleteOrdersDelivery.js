@@ -6,15 +6,9 @@ import { COLORS, FONT } from '../../../constants';
 import { styles } from './StyleUncom';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-<<<<<<< HEAD
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
-import { hp ,Sizes} from '../../../constants/themes';
-import { UncompletedOrders, orders_Data } from '../../../Utils/DummyData';
-=======
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { hp } from '../../../constants/themes';
 import { Deliveryorders, } from '../../../Utils/DummyData';
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
 import LinearGradient from 'react-native-linear-gradient';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
@@ -89,14 +83,7 @@ const DatePickerButton = () => {
 
 
 function UncompleteOrdersDelivery() {
-<<<<<<< HEAD
-    // Deliveryorders
-    const [data,setData] = useState(UncompletedOrders)
-
-
-=======
     const [Deliveryorder] = useState(Deliveryorders)
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
     return (
 
         <SafeAreaView style={{ flex: 1,
@@ -104,17 +91,10 @@ function UncompleteOrdersDelivery() {
          }}>
 
             <ScrollView>
-<<<<<<< HEAD
-                <View style={{ 
-                    alignItems: "center",
-                     backgroundColor: COLORS.white
-                      }}>
-=======
                 <View style={{ alignItems: "center", backgroundColor: COLORS.white }}>
                     <View style={{}}>
                         <DatePickerButton />
                     </View>
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
 
                     <LinearGradient
                         colors={['#AED270CE', '#F44336']}

@@ -85,33 +85,6 @@ const Verification_page = () => {
 
             </View>
 
-<<<<<<< HEAD
-          {/* </View> */}
-
-        </View>
-        {/* white container */}
-        <View style={{
-          flex: 0.84,
-          backgroundColor: COLORS.white,
-          justifyContent: "space-around",
-          borderTopEndRadius: RFPercentage(8),
-          borderTopStartRadius: RFPercentage(8)
-        }}>
-          <Image source={images.Otp} style={{
-            width: hp(40),
-            height: hp(40)
-            , alignSelf: "center"
-          }} />
-          <View style={{ justifyContent: "space-around", 
-          marginTop: RFPercentage(4) }}>
-            <Text style={{ alignSelf: "center",
-            textAlign :"center" , 
-            color: COLORS.black, 
-            fontFamily: FONT.font_Almarai_Regular,
-             fontSize: 16 }}> أدخل الرمز المكون من 4 أرقام الذي<Text style={{ alignSelf: "center", color: COLORS.black, fontFamily: FONT.font_Almarai_Regular, fontSize: 16 }}>  ارسلناه إلي  <Text style={{ fontSize: 18, color: COLORS.green_mid }}>01017588904</Text></Text>
-            </Text>
-=======
->>>>>>> 33ed3bbbd041cab973c952f43f0ae365516427da
 
           </View>
 
